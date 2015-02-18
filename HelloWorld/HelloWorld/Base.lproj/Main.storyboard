@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,48 +15,127 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello 21W.789!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0c-xh-EH5">
-                                <rect key="frame" x="12" y="91" width="296" height="128"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <color key="textColor" red="0.0" green="0.68684895833333326" blue="0.68684895833333326" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello 21W.789!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ho-gu-N4s">
+                                <rect key="frame" x="36" y="198" width="528" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0ho-gu-N4s" secondAttribute="height" multiplier="283:49" id="2qo-oO-TNn"/>
+                                    <constraint firstAttribute="width" secondItem="0ho-gu-N4s" secondAttribute="height" multiplier="283:49" id="JUV-2K-IA0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                                <color key="textColor" red="0.27473910656563522" green="0.64380129419191912" blue="0.63705139215544537" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2qo-oO-TNn"/>
+                                        <exclude reference="JUV-2K-IA0"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="27"/>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="33"/>
+                                </variation>
                             </label>
-                            <button opaque="NO" alpha="0.59999999999999964" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acn-wW-Uws">
-                                <rect key="frame" x="48" y="269" width="225" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Press Here to Exit"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ua-xL-4T3">
+                                <rect key="frame" x="36" y="273" width="528" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7ua-xL-4T3" secondAttribute="height" multiplier="68:15" id="BoQ-Pj-Bif"/>
+                                    <constraint firstAttribute="width" secondItem="7ua-xL-4T3" secondAttribute="height" multiplier="68:15" id="b0S-6v-ZoD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="Press here to exit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BoQ-Pj-Bif"/>
+                                        <exclude reference="b0S-6v-ZoD"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                </variation>
                                 <connections>
-                                    <action selector="goodbyeWorld" destination="vXZ-lx-hvc" eventType="touchUpInside" id="G0t-DH-hZN"/>
+                                    <action selector="goodbyeWorld" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fWI-gd-1gs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.59999999999999964" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POu-Wa-l7c">
-                                <rect key="frame" x="134" y="371" width="52" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qt-u7-2eT">
+                                <rect key="frame" x="36" y="348" width="528" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7qt-u7-2eT" secondAttribute="height" multiplier="27:19" id="GpA-li-XsQ"/>
+                                    <constraint firstAttribute="width" secondItem="7qt-u7-2eT" secondAttribute="height" multiplier="27:19" id="pCG-1J-7Qa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Reset">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="GpA-li-XsQ"/>
+                                        <exclude reference="pCG-1J-7Qa"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                </variation>
                                 <connections>
-                                    <action selector="helloWorld" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BfK-55-DRr"/>
+                                    <action selector="helloWorld" destination="vXZ-lx-hvc" eventType="touchUpInside" id="z1m-VD-od0"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="7ua-xL-4T3" secondAttribute="centerX" id="1CW-IL-RtR"/>
+                            <constraint firstAttribute="centerX" secondItem="0ho-gu-N4s" secondAttribute="centerX" id="4YF-8x-zsf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7qt-u7-2eT" secondAttribute="trailing" constant="20" id="5Qi-Uo-yG4"/>
+                            <constraint firstAttribute="centerY" secondItem="7qt-u7-2eT" secondAttribute="centerY" constant="-138" id="7Qh-BS-8xg"/>
+                            <constraint firstAttribute="centerX" secondItem="0ho-gu-N4s" secondAttribute="centerX" id="ED4-xA-r7G"/>
+                            <constraint firstItem="0ho-gu-N4s" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="EYN-3X-BKz"/>
+                            <constraint firstItem="7qt-u7-2eT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="J4k-Yr-O34"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7ua-xL-4T3" secondAttribute="trailing" constant="20" id="KEy-Pr-4e7"/>
+                            <constraint firstAttribute="centerY" secondItem="0ho-gu-N4s" secondAttribute="centerY" constant="158.5" id="Ldl-er-Ott"/>
+                            <constraint firstItem="0ho-gu-N4s" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="45" id="Ot0-U6-Cwi"/>
+                            <constraint firstItem="7ua-xL-4T3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="QGv-Kc-RdN"/>
+                            <constraint firstAttribute="centerY" secondItem="7ua-xL-4T3" secondAttribute="centerY" id="Si8-vh-amo"/>
+                            <constraint firstAttribute="centerY" secondItem="7ua-xL-4T3" secondAttribute="centerY" id="UL6-Ux-fuU"/>
+                            <constraint firstAttribute="centerX" secondItem="7qt-u7-2eT" secondAttribute="centerX" id="Z4Q-yv-O91"/>
+                            <constraint firstItem="0ho-gu-N4s" firstAttribute="top" secondItem="7ua-xL-4T3" secondAttribute="top" constant="-75" id="auy-tP-kYb"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="7qt-u7-2eT" secondAttribute="bottom" constant="45" id="cH9-Tg-XL5"/>
+                            <constraint firstItem="7qt-u7-2eT" firstAttribute="top" secondItem="7ua-xL-4T3" secondAttribute="top" constant="75" id="cHP-L2-zXw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0ho-gu-N4s" secondAttribute="trailing" constant="20" id="hIz-uW-NCF"/>
+                            <constraint firstAttribute="centerX" secondItem="7ua-xL-4T3" secondAttribute="centerX" id="hPX-FD-3i2"/>
+                            <constraint firstAttribute="centerX" secondItem="7qt-u7-2eT" secondAttribute="centerX" id="xwI-vY-qeu"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ED4-xA-r7G"/>
+                                <exclude reference="Ldl-er-Ott"/>
+                                <exclude reference="Ot0-U6-Cwi"/>
+                                <exclude reference="UL6-Ux-fuU"/>
+                                <exclude reference="hPX-FD-3i2"/>
+                                <exclude reference="7Qh-BS-8xg"/>
+                                <exclude reference="Z4Q-yv-O91"/>
+                                <exclude reference="cH9-Tg-XL5"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="label" destination="I0c-xh-EH5" id="PMM-uv-5Bj"/>
+                        <outlet property="label" destination="0ho-gu-N4s" id="RzX-Vk-Y2r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="202" y="277"/>
+            <point key="canvasLocation" x="332" y="181"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>
