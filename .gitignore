@@ -1,4 +1,6 @@
 *.docx
 *.pdf
-Playground.playground/*
+Playground.playground/
 *.png
+SWRevealViewController/
+.DS_Store
