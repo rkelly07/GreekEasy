@@ -4,3 +4,6 @@ Playground.playground/
 *.png
 SWRevealViewController/
 .DS_Store
+usability/
+proposal/
+*.developerprofile
