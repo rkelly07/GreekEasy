@@ -20,7 +20,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>01529694042D8C98B30DC19F4D4370A306884FE4</key>
-		<string>../../..SWRevealViewController/</string>
+		<string>../../..SWRevealViewController</string>
 		<key>56E6D2B7F37F2626E33BF34DE8399A21777F672E</key>
 		<string>../../..</string>
 	</dict>
@@ -46,7 +46,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>01529694042D8C98B30DC19F4D4370A306884FE4</string>
 			<key>IDESourceControlWCCName</key>
-			<string>SWRevealViewController</string>
+			<string>GreekEasySWRevealViewController</string>
 		</dict>
 	</array>
 </dict>

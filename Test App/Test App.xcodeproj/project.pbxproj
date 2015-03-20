@@ -182,6 +182,7 @@
 				TargetAttributes = {
 					AED288FE1AB0DE3400F429F1 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 6N3T2MC2AY;
 					};
 					AED289131AB0DE3400F429F1 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -361,9 +362,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tyler Finkelstein (R3WGE2DKXV)";
 				INFOPLIST_FILE = "Test App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "91f5f44b-274f-4ae5-9f05-9ea77f255521";
 				SWIFT_OBJC_BRIDGING_HEADER = "Test App/Test App-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -374,9 +377,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tyler Finkelstein (R3WGE2DKXV)";
 				INFOPLIST_FILE = "Test App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "91f5f44b-274f-4ae5-9f05-9ea77f255521";
 				SWIFT_OBJC_BRIDGING_HEADER = "Test App/Test App-Bridging-Header.h";
 			};
 			name = Release;
@@ -434,6 +439,7 @@
 				AED289201AB0DE3400F429F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AED289211AB0DE3400F429F1 /* Build configuration list for PBXNativeTarget "Test AppTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +448,7 @@
 				AED289231AB0DE3400F429F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
