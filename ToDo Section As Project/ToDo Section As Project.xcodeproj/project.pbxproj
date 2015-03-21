@@ -15,6 +15,7 @@
 		B3813CAA1ABD0B8B00DBAF63 /* ToDo_Section_As_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3813CA91ABD0B8B00DBAF63 /* ToDo_Section_As_ProjectTests.swift */; };
 		B3813CB61ABD1C0400DBAF63 /* SecondStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813CB51ABD1C0400DBAF63 /* SecondStoryboard.storyboard */; };
 		B3813CBA1ABD1CF000DBAF63 /* SecondStoryBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3813CB91ABD1CF000DBAF63 /* SecondStoryBoardViewController.swift */; };
+		B394ACCF1ABDF8DC00A8E9D2 /* CheckBoxClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B394ACCE1ABDF8DC00A8E9D2 /* CheckBoxClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		B3813CA91ABD0B8B00DBAF63 /* ToDo_Section_As_ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo_Section_As_ProjectTests.swift; sourceTree = "<group>"; };
 		B3813CB51ABD1C0400DBAF63 /* SecondStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SecondStoryboard.storyboard; sourceTree = "<group>"; };
 		B3813CB91ABD1CF000DBAF63 /* SecondStoryBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondStoryBoardViewController.swift; sourceTree = "<group>"; };
+		B394ACCE1ABDF8DC00A8E9D2 /* CheckBoxClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				B3813C951ABD0B8B00DBAF63 /* ToDoViewController.swift */,
 				B3813C971ABD0B8B00DBAF63 /* Main.storyboard */,
 				B3813C9A1ABD0B8B00DBAF63 /* Images.xcassets */,
+				B394ACCE1ABDF8DC00A8E9D2 /* CheckBoxClass.swift */,
 				B3813CB91ABD1CF000DBAF63 /* SecondStoryBoardViewController.swift */,
 				B3813CB51ABD1C0400DBAF63 /* SecondStoryboard.storyboard */,
 				B3813C9C1ABD0B8B00DBAF63 /* LaunchScreen.xib */,
@@ -222,6 +225,7 @@
 				B3813CBA1ABD1CF000DBAF63 /* SecondStoryBoardViewController.swift in Sources */,
 				B3813C961ABD0B8B00DBAF63 /* ToDoViewController.swift in Sources */,
 				B3813C941ABD0B8B00DBAF63 /* AppDelegate.swift in Sources */,
+				B394ACCF1ABDF8DC00A8E9D2 /* CheckBoxClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +417,7 @@
 				B3813CAF1ABD0B8B00DBAF63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3813CB01ABD0B8B00DBAF63 /* Build configuration list for PBXNativeTarget "ToDo Section As ProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +426,7 @@
 				B3813CB21ABD0B8B00DBAF63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

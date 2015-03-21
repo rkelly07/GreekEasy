@@ -38,16 +38,32 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
         Chore(ID: 1, points: 3, description: "Bring desktop upstairs", doneOrNot: true),
         Chore(ID: 2, points: 1, description: "Pledge test", doneOrNot: false),
         Chore(ID: 3, points: 10, description: "Buy a 6 pack for next class", doneOrNot: false),
+        Chore(ID: 4, points: 10, description: "Number 1", doneOrNot: false),
+        Chore(ID: 5, points: 10, description: "Number 2", doneOrNot: false),
+        Chore(ID: 6, points: 10, description: "Number 3", doneOrNot: false),
     ]
+    
+    var choreIDtoPointsDictionary = Dictionary<Int, Int>()
+    var choreIDtoDescriptionDictionary = Dictionary<Int, String>()
+    
+    func populateChoreIDtoPointsDictionary() {
+        for chore in chores {
+            choreIDtoPointsDictionary[chore.ID] = chore.points
+        }
+    }
+    
+    func populateChoreIDtoDescriptionDictionary() {
+        for chore in chores {
+            choreIDtoDescriptionDictionary[chore.ID] = chore.description
+        }
+    }
     
     var people : [Person]! = [
         Person(name: "Drew", totalPoints: 10, currentChores: [0]),
         Person(name: "Ryan", totalPoints: 300, currentChores: [1,2]),
-        Person(name: "Tyler", totalPoints: 25, currentChores: [3])
+        Person(name: "Tyler", totalPoints: 25, currentChores: [3]),
+        Person(name: "Diits", totalPoints: 0, currentChores: [4,5,6])
     ]
-    
-    // this doesn't work?
-    //    var numberOfPeople : Int! = people!.count
     
     var numberOfSections:Int = 1
     
@@ -72,41 +88,73 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
     let collation = UILocalizedIndexedCollation.currentCollation() as UILocalizedIndexedCollation
     var sections = [Section]()
     
-    var person: Person!
-    var index: Int!
+    //initializing dictionary to map section headers (person's name) to that person's chores
+    var NameToChoreIDsDictionary = Dictionary<String, Array<Int>>()
     
-    //below for loop doesn't work?
-    //    for index in 0...<numberOfPeople! {
-    //        sections[index] = people[index].name
-    //    }
+    func populateNameToChoreIDsDictionary() {
+        for person in people {
+            var choreIDs : [Int]! = []
+            for chore in person.currentChores {
+                //println(chore)
+                choreIDs.append(chore)
+                //println(choreIDs)
+            }
+            NameToChoreIDsDictionary[person.name] = choreIDs
+        }
+    }
+    
+    var sectionTitles : [String]! = []
+    func populateSectionTitlesArray() {
+        for (key, value) in NameToChoreIDsDictionary {
+            //println("Entering")
+            sectionTitles.append(key)
+        }
+        sectionTitles = sorted(sectionTitles, {$0 < $1})
+    }
     
     //Below three functions are for UITableViewDataSource
     
     //how many sections in the chores table = number of people
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return people.count
+        populateNameToChoreIDsDictionary()
+        populateSectionTitlesArray()
+        populateChoreIDtoPointsDictionary()
+        populateChoreIDtoDescriptionDictionary()
+        return sectionTitles.count
+        //return 3
     }
     
     //how many rows in each section = number of chores for a given person
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return people.count //need to make this equal to the length of person's chore list
+        var personName : String! = sectionTitles[section]
+        var choreIDs : [Int]! = NameToChoreIDsDictionary[personName]
+        return choreIDs.count
     }
     
-    //contents of each cell = description of chores for a given person
+    //contents of each cell = description of chores for a given person and number of points
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel!.text! = people[indexPath.row].currentChores[0].description //need to fix this
-        cell.detailTextLabel!.text! = String("Points : 9")
+        var personName : String! = sectionTitles[indexPath.section]
+        var choreNumberForIndividual : Int! = indexPath.row
+        var choreID : Int! = NameToChoreIDsDictionary[personName]![choreNumberForIndividual]
+        var chorePoints : Int! = choreIDtoPointsDictionary[choreID]
+        var choreDescription : String! = choreIDtoDescriptionDictionary[choreID]
+        cell.textLabel!.text! = choreDescription
+        cell.detailTextLabel!.text! = String("Points : " + String(chorePoints))
         return cell
     }
     
     //gives table sections titles = person's name and points
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         //return person.name;
-        return "Person's name - 66 Total Pointslklk;lkklkkiooiioiioioiiioioioio"
+        //return "Person's name - 66 Total Pointslklk;lkklkkiooiioiioioiiioioioio"
+        //return sectionTitles[indexPath.row]
+        return sectionTitles[section]
+        
     }
     
-    //says you can edit a cell in the table
+    //says you can edit a cell in the table. Only true if role = house manager
+    //need to have checkboxes be editable
     func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
         return true
     }
