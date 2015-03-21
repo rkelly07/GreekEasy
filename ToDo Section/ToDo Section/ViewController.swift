@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  Test App
+//  ToDo Section
 //
-//  Created by Andrew Titus on 3/11/15.
-//  Copyright (c) 2015 GreekEasy. All rights reserved.
+//  Created by Tyler Finkelstein on 3/20/15.
+//  Copyright (c) 2015 Tyler Finkelstein. All rights reserved.
 //
 
 import UIKit
