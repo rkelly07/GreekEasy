@@ -9,6 +9,16 @@
 import UIKit
 
 class ToDoViewController: UIViewController, UITableViewDataSource {
+
+    @IBOutlet var goToSecondSBButton: UIButton!
+//    let secondSB : UIStoryboard = UIStoryboard(name: "SecondStoryboard.storyboard", bundle: nil)
+//    let secondVC = secondSB!.instantiateInitialViewController() as UIViewController
+    
+    let secondVC:UIViewController = UIStoryboard(name: "SecondStoryboard", bundle:nil).instantiateViewControllerWithIdentifier("numberTwo") as UIViewController
+    
+    @IBAction func changeStoryBoardButtonClicked(sender: AnyObject) {
+        presentViewController(secondVC, animated: false, completion: nil)
+    }
     
     struct Person {
         let name:String!
@@ -85,13 +95,15 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
     //contents of each cell = description of chores for a given person
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = people[indexPath.row].currentChores[0].description //need to fix this
+        cell.textLabel!.text! = people[indexPath.row].currentChores[0].description //need to fix this
+        cell.detailTextLabel!.text! = String("Points : 9")
         return cell
     }
     
     //gives table sections titles = person's name and points
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Person's name"
+        //return person.name;
+        return "Person's name - 66 Total Pointslklk;lkklkkiooiioiioioiiioioioio"
     }
     
     //says you can edit a cell in the table
