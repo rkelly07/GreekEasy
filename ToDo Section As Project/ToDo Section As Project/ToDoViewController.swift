@@ -45,6 +45,7 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
     
     var choreIDtoPointsDictionary = Dictionary<Int, Int>()
     var choreIDtoDescriptionDictionary = Dictionary<Int, String>()
+    var choreIDtoDoneOrNotDictionary = Dictionary<Int, Bool>()
     
     func populateChoreIDtoPointsDictionary() {
         for chore in chores {
@@ -55,6 +56,12 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
     func populateChoreIDtoDescriptionDictionary() {
         for chore in chores {
             choreIDtoDescriptionDictionary[chore.ID] = chore.description
+        }
+    }
+    
+    func populateChoreIDtoDoneOrNotDictionary() {
+        for chore in chores {
+            choreIDtoDoneOrNotDictionary[chore.ID] = chore.doneOrNot
         }
     }
     
@@ -120,6 +127,7 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
         populateSectionTitlesArray()
         populateChoreIDtoPointsDictionary()
         populateChoreIDtoDescriptionDictionary()
+        populateChoreIDtoDoneOrNotDictionary()
         return sectionTitles.count
         //return 3
     }
@@ -139,10 +147,54 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
         var choreID : Int! = NameToChoreIDsDictionary[personName]![choreNumberForIndividual]
         var chorePoints : Int! = choreIDtoPointsDictionary[choreID]
         var choreDescription : String! = choreIDtoDescriptionDictionary[choreID]
+        println(choreIDtoDoneOrNotDictionary)
+        var choreDone : Bool! = choreIDtoDoneOrNotDictionary[choreID]
         cell.textLabel!.text! = choreDescription
         cell.detailTextLabel!.text! = String("Points : " + String(chorePoints))
+        
+        cell.imageView!.userInteractionEnabled = true
+        cell.imageView!.tag = indexPath.row
+        var tapped:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "TappedCheckbox:")
+        tapped.numberOfTapsRequired = 1
+        cell.imageView!.addGestureRecognizer(tapped)
+        
+        var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
+        var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
+        if choreDone! {
+            cell.imageView!.image = checked_checkbox_image
+        } else {
+            cell.imageView!.image = unchecked_checkbox_image
+        }
+        
+        //if cell.accessoryType == UITableViewCellAccessoryType.None {
+        //    cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        //} else {
+        //    cell.accessoryType = UITableViewCellAccessoryType.None
+        //}
+        //tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        //
         return cell
     }
+    
+    func changeCheckbox(cell : UITableViewCell) {
+        var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
+        var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
+        if cell.imageView!.image == checked_checkbox_image {
+            cell.imageView!.image = unchecked_checkbox_image
+        } else {
+            cell.imageView!.image = checked_checkbox_image
+        }
+    }
+    
+    //checks which checkbox was clicked
+    func TappedCheckbox(sender:UITapGestureRecognizer) {
+        println(sender.view!.tag)
+        //println(sender.view!.
+        //UIImageView *selectedImageView=(UIImageView*)[gesture view];
+        //var selectedImageView : UIImageView =
+        //changeCheckbox(sender)
+    }
+    
     
     //gives table sections titles = person's name and points
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
