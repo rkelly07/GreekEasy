@@ -11,6 +11,7 @@ import UIKit
 class ToDoViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet var goToSecondSBButton: UIButton!
+    @IBOutlet var goToChoreManagerButton: UIButton!
 //    let secondSB : UIStoryboard = UIStoryboard(name: "SecondStoryboard.storyboard", bundle: nil)
 //    let secondVC = secondSB!.instantiateInitialViewController() as UIViewController
     
@@ -18,6 +19,10 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func changeStoryBoardButtonClicked(sender: AnyObject) {
         presentViewController(secondVC, animated: false, completion: nil)
+    }
+    
+    @IBAction func choreManagerButtonClicked(sender: AnyObject) {
+        println("chore manager clicked")
     }
     
     struct Person {
@@ -152,19 +157,12 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
         cell.textLabel!.text! = choreDescription
         cell.detailTextLabel!.text! = String("Points : " + String(chorePoints))
         
+        //if checkbox image is clicked
         cell.imageView!.userInteractionEnabled = true
         cell.imageView!.tag = indexPath.row
         var tapped:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "TappedCheckbox:")
         tapped.numberOfTapsRequired = 1
         cell.imageView!.addGestureRecognizer(tapped)
-        
-        var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
-        var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
-        if choreDone! {
-            cell.imageView!.image = checked_checkbox_image
-        } else {
-            cell.imageView!.image = unchecked_checkbox_image
-        }
         
         //if cell.accessoryType == UITableViewCellAccessoryType.None {
         //    cell.accessoryType = UITableViewCellAccessoryType.Checkmark
@@ -176,6 +174,7 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    //should change checkbox image and also add points
     func changeCheckbox(cell : UITableViewCell) {
         var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
         var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
@@ -188,11 +187,21 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
     
     //checks which checkbox was clicked
     func TappedCheckbox(sender:UITapGestureRecognizer) {
-        println(sender.view!.tag)
-        //println(sender.view!.
+        var imageView : UIImageView! = sender.view! as UIImageView
+        //var cell : UITableViewCell! = view.superview! as UITableViewCell
+        var image : UIImage! = imageView.image!
+        image = UIImage(named: "unchecked_checkbox")
+        //println(sender.view!.tag)
+        println(sender.view!.tag) //gets us row number
+        //need to get the cell from sender info
+        //sender is the image
+        //sender.view!.backgroundColor = UIColor.redColor()
+        //sender.view!.hidden = true
+        //sender.view! = UIImage(named: "unchecked_checkbox")
         //UIImageView *selectedImageView=(UIImageView*)[gesture view];
         //var selectedImageView : UIImageView =
-        //changeCheckbox(sender)
+        //changeCheckbox(cell)
+        //change chore to done or not done
     }
     
     

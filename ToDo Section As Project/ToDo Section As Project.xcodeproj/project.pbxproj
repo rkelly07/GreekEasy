@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B316F2601ABE67AB00915025 /* ColViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B316F25F1ABE67AB00915025 /* ColViewCell.swift */; };
+		B3287A4A1ABE5B0000841DA6 /* ManualChoreManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3287A491ABE5B0000841DA6 /* ManualChoreManagerViewController.swift */; };
 		B3813C941ABD0B8B00DBAF63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3813C931ABD0B8B00DBAF63 /* AppDelegate.swift */; };
 		B3813C961ABD0B8B00DBAF63 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3813C951ABD0B8B00DBAF63 /* ToDoViewController.swift */; };
 		B3813C991ABD0B8B00DBAF63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C971ABD0B8B00DBAF63 /* Main.storyboard */; };
@@ -29,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B316F25F1ABE67AB00915025 /* ColViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColViewCell.swift; path = ../ColViewCell.swift; sourceTree = "<group>"; };
+		B3287A491ABE5B0000841DA6 /* ManualChoreManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualChoreManagerViewController.swift; sourceTree = "<group>"; };
 		B3813C8E1ABD0B8B00DBAF63 /* ToDo Section As Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ToDo Section As Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3813C921ABD0B8B00DBAF63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3813C931ABD0B8B00DBAF63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,14 +87,16 @@
 		B3813C901ABD0B8B00DBAF63 /* ToDo Section As Project */ = {
 			isa = PBXGroup;
 			children = (
+				B316F25F1ABE67AB00915025 /* ColViewCell.swift */,
 				B3813C931ABD0B8B00DBAF63 /* AppDelegate.swift */,
 				B3813C951ABD0B8B00DBAF63 /* ToDoViewController.swift */,
+				B3287A491ABE5B0000841DA6 /* ManualChoreManagerViewController.swift */,
 				B3813C971ABD0B8B00DBAF63 /* Main.storyboard */,
 				B3813C9A1ABD0B8B00DBAF63 /* Images.xcassets */,
-				B394ACCE1ABDF8DC00A8E9D2 /* CheckBoxClass.swift */,
 				B3813CB91ABD1CF000DBAF63 /* SecondStoryBoardViewController.swift */,
 				B3813CB51ABD1C0400DBAF63 /* SecondStoryboard.storyboard */,
 				B3813C9C1ABD0B8B00DBAF63 /* LaunchScreen.xib */,
+				B394ACCE1ABDF8DC00A8E9D2 /* CheckBoxClass.swift */,
 				B3813C911ABD0B8B00DBAF63 /* Supporting Files */,
 			);
 			path = "ToDo Section As Project";
@@ -223,6 +229,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3813CBA1ABD1CF000DBAF63 /* SecondStoryBoardViewController.swift in Sources */,
+				B316F2601ABE67AB00915025 /* ColViewCell.swift in Sources */,
+				B3287A4A1ABE5B0000841DA6 /* ManualChoreManagerViewController.swift in Sources */,
 				B3813C961ABD0B8B00DBAF63 /* ToDoViewController.swift in Sources */,
 				B3813C941ABD0B8B00DBAF63 /* AppDelegate.swift in Sources */,
 				B394ACCF1ABDF8DC00A8E9D2 /* CheckBoxClass.swift in Sources */,
