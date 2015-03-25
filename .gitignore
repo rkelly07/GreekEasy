@@ -7,3 +7,5 @@ SWRevealViewController/
 usability/
 proposal/
 *.developerprofile
+*.p12
+*.mobileprovision
