@@ -37,9 +37,18 @@
                                     <action selector="buttonTapped:" destination="vXZ-lx-hvc" eventType="valueChanged" id="WBo-6P-CWy"/>
                                 </connections>
                             </segmentedControl>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zdF-hD-3mj">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zdF-hD-3mj">
                                 <rect key="frame" x="0.0" y="48" width="600" height="486"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUv-ig-aiG">
+                                <rect key="frame" x="0.0" y="374" width="600" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="IRv-rx-e0c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.95563052400000004" green="0.95563052400000004" blue="0.95563052400000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -51,13 +60,17 @@
                             <constraint firstItem="zdF-hD-3mj" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="9pO-15-BaW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zdF-hD-3mj" secondAttribute="trailing" constant="-16" id="Fnp-l5-vBc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ayd-Js-3z1" secondAttribute="trailing" constant="-16" id="HuU-xO-6Kf"/>
+                            <constraint firstItem="fUv-ig-aiG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="NEF-E9-euZ"/>
                             <constraint firstItem="Bc2-16-Jd4" firstAttribute="top" secondItem="zdF-hD-3mj" secondAttribute="bottom" id="Nba-Du-wB5"/>
                             <constraint firstItem="Ayd-Js-3z1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Njh-bI-wiQ"/>
                             <constraint firstItem="zdF-hD-3mj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="QK8-ep-FSa"/>
                             <constraint firstAttribute="centerX" secondItem="zdF-hD-3mj" secondAttribute="centerX" id="XU0-DZ-Qd5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fUv-ig-aiG" secondAttribute="trailing" constant="-16" id="dLf-vf-p10"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Bc2-16-Jd4" secondAttribute="bottom" id="gvo-op-UAe"/>
                             <constraint firstItem="zdF-hD-3mj" firstAttribute="top" secondItem="Ayd-Js-3z1" secondAttribute="bottom" id="jkP-1e-jmu"/>
                             <constraint firstAttribute="centerX" secondItem="Bc2-16-Jd4" secondAttribute="centerX" id="noB-O1-Nld"/>
+                            <constraint firstItem="Bc2-16-Jd4" firstAttribute="top" secondItem="fUv-ig-aiG" secondAttribute="bottom" id="pbE-W9-ifr"/>
+                            <constraint firstAttribute="centerX" secondItem="fUv-ig-aiG" secondAttribute="centerX" id="rwW-jT-7HC"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -68,6 +81,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="infoLabel" destination="fUv-ig-aiG" id="U4X-Pf-Xt5"/>
                         <outlet property="logButton" destination="Bc2-16-Jd4" id="YXd-AD-BWs"/>
                         <outlet property="mapView" destination="zdF-hD-3mj" id="xH7-pS-9AG"/>
                         <outlet property="modeSelector" destination="Ayd-Js-3z1" id="Ct1-vL-ZeL"/>

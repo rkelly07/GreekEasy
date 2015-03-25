@@ -15,6 +15,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var logButton: UIButton!
     @IBOutlet weak var modeSelector: UISegmentedControl!
+    @IBOutlet weak var infoLabel: UILabel!
     
     var manager:CLLocationManager!
     
@@ -24,15 +25,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // Set up location manager
         manager = CLLocationManager()
         manager.delegate = self
-        manager.requestAlwaysAuthorization()
-        manager.startUpdatingLocation()
         manager.desiredAccuracy = kCLLocationAccuracyKilometer
+        manager.requestWhenInUseAuthorization()
         
         // Set up map view
         mapView.delegate = self
         mapView.mapType = MKMapType.Hybrid
-        mapView.showsUserLocation = true
-
+        
+        infoLabel.text = "Latitude: 0\nLongitude: 0\nLatitude Accuracy: 0\nLongitude Accuracy: 0"
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        let currentLocation = mapView.userLocation.location
+        
+        if currentLocation != nil {
+            let latitude = currentLocation.coordinate.latitude
+            let longitude = currentLocation.coordinate.longitude
+            let latAccuracy = currentLocation.horizontalAccuracy
+            let longAccuracy = currentLocation.verticalAccuracy
+            
+            infoLabel.text = "Latitude: \(latitude)\nLongitude: \(longitude)\n" +
+            "Latitude Accuracy: \(latAccuracy)\nLongitude Accuracy: \(longAccuracy)"
+        }
     }
     
     @IBAction func buttonTapped(sender: UISegmentedControl) {
@@ -42,7 +56,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         let selectIndex = sender.selectedSegmentIndex
         
-        // Set message based on segment chosen
+        // Set message and accuracy based on segment chosen
         switch selectIndex {
         case 0:
             manager.desiredAccuracy = kCLLocationAccuracyKilometer
@@ -62,6 +76,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         self.presentViewController(alertController, animated: true, completion: nil)
         
+    }
+
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == CLAuthorizationStatus.AuthorizedWhenInUse {
+            mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: true)
+            manager.startUpdatingLocation()
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -14,6 +14,7 @@
 		AED2894A1AC1AF6500F429F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED289481AC1AF6500F429F1 /* LaunchScreen.xib */; };
 		AED289561AC1AF6500F429F1 /* Location_LoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED289551AC1AF6500F429F1 /* Location_LoggerTests.swift */; };
 		AED289621AC1B00700F429F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED289611AC1B00700F429F1 /* MapKit.framework */; };
+		AED289641AC24DC700F429F1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED289631AC24DC700F429F1 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		AED289541AC1AF6500F429F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AED289551AC1AF6500F429F1 /* Location_LoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location_LoggerTests.swift; sourceTree = "<group>"; };
 		AED289611AC1B00700F429F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AED289631AC24DC700F429F1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AED289641AC24DC700F429F1 /* CoreLocation.framework in Frameworks */,
 				AED289621AC1B00700F429F1 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,6 +65,7 @@
 		AED289311AC1AF6500F429F1 = {
 			isa = PBXGroup;
 			children = (
+				AED289631AC24DC700F429F1 /* CoreLocation.framework */,
 				AED289611AC1B00700F429F1 /* MapKit.framework */,
 				AED2893C1AC1AF6500F429F1 /* Location Logger */,
 				AED289521AC1AF6500F429F1 /* Location LoggerTests */,
@@ -167,6 +171,9 @@
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 6N3T2MC2AY;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
@@ -417,6 +424,7 @@
 				AED2895B1AC1AF6500F429F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AED2895C1AC1AF6500F429F1 /* Build configuration list for PBXNativeTarget "Location LoggerTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +433,7 @@
 				AED2895E1AC1AF6500F429F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
