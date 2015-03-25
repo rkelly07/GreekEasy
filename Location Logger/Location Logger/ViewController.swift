@@ -41,11 +41,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if currentLocation != nil {
             let latitude = currentLocation.coordinate.latitude
             let longitude = currentLocation.coordinate.longitude
-            let latAccuracy = currentLocation.horizontalAccuracy
-            let longAccuracy = currentLocation.verticalAccuracy
+            let accuracy = currentLocation.horizontalAccuracy
             
             infoLabel.text = "Latitude: \(latitude)\nLongitude: \(longitude)\n" +
-            "Latitude Accuracy: \(latAccuracy)\nLongitude Accuracy: \(longAccuracy)"
+                "Accuracy: \(accuracy)"
         }
     }
     
@@ -83,6 +82,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: true)
             manager.startUpdatingLocation()
         }
+    }
+    
+    func logLocation(locationInfo: String) {
+        
     }
     
     override func didReceiveMemoryWarning() {
