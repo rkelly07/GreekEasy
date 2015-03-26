@@ -58,14 +58,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         switch selectIndex {
         case 0:
+            manager.stopUpdatingLocation()
+            manager.startMonitoringSignificantLocationChanges()
             alertController.title = "Wifi OFF, GPS OFF"
-            alertController.message = "Please make sure that Airplane Mode is enabled and Wi-Fi is turned OFF"
+            alertController.message = "Please make sure that Airplane Mode is ON and Wi-Fi is OFF"
         case 1:
+            manager.stopMonitoringSignificantLocationChanges()
+            manager.startUpdatingLocation()
             alertController.title = "Wifi ON, GPS OFF"
-            alertController.message = "Please make sure that Airplane Mode is enabled and Wi-Fi is turned ON"
+            alertController.message = "Please make sure that Airplane Mode is ON and Wi-Fi is ON"
         case 2:
+            manager.stopMonitoringSignificantLocationChanges()
+            manager.startUpdatingLocation()
             alertController.title = "Wifi ON, GPS ON"
-            alertController.message = "Please make sure that Airplane Mode is disabled and Wi-Fi is turned ON"
+            alertController.message = "Please make sure that Airplane Mode is OFF and Wi-Fi is ON"
         default:
             println("error in mode selector")
         }
@@ -99,7 +105,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         info["accuracy"] = loc.horizontalAccuracy
         info["mode"] = mode
     
-        info.saveInBackgroundWithBlock {
+        info.saveEventually {
             (success: Bool, error: NSError!) -> Void in
             if (success) {
                 // Object has been saved
