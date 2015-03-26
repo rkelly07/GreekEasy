@@ -39,6 +39,41 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             "Accuracy: calculating..."
     }
     
+    @IBAction func buttonTapped(sender: UISegmentedControl) {
+        let alertController = UIAlertController(title: "", message:
+            "", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        
+        let selectIndex = sender.selectedSegmentIndex
+        
+        /*
+        
+        Set message and accuracy based on segment chosen
+        
+        0: WiFi off, GPS off
+        1: WiFi on, GPS off
+        2: WiFi on, GPS on
+        
+        */
+        
+        switch selectIndex {
+        case 0:
+            alertController.title = "Wifi OFF, GPS OFF"
+            alertController.message = "Please make sure that Airplane Mode is enabled and Wi-Fi is turned OFF"
+        case 1:
+            alertController.title = "Wifi ON, GPS OFF"
+            alertController.message = "Please make sure that Airplane Mode is enabled and Wi-Fi is turned ON"
+        case 2:
+            alertController.title = "Wifi ON, GPS ON"
+            alertController.message = "Please make sure that Airplane Mode is disabled and Wi-Fi is turned ON"
+        default:
+            println("error in mode selector")
+        }
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         let currentLocation = mapView.userLocation.location
         
@@ -73,47 +108,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 NSLog(error.description)
             }
         }
-    }
-    
-    @IBAction func buttonTapped(sender: UISegmentedControl) {
-        let alertController = UIAlertController(title: "", message:
-            "", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-        
-        let selectIndex = sender.selectedSegmentIndex
-
-        /*
-        
-        Set message and accuracy based on segment chosen
-
-        0: WiFi off, GPS off
-        1: WiFi on, GPS off
-        2: WiFi on, GPS on
-
-        */
-        
-        switch selectIndex {
-        case 0:
-            manager.stopUpdatingLocation()
-            manager.startMonitoringSignificantLocationChanges()
-            alertController.title = "Wifi OFF, GPS OFF"
-            alertController.message = "Please make sure that Wi-Fi is turned OFF"
-        case 1:
-            manager.stopMonitoringSignificantLocationChanges()
-            manager.startUpdatingLocation()
-            alertController.title = "Wifi ON, GPS OFF"
-            alertController.message = "Please make sure that Wi-Fi is turned ON"
-        case 2:
-            manager.stopMonitoringSignificantLocationChanges()
-            manager.startUpdatingLocation()
-            alertController.title = "Wifi ON, GPS ON"
-            alertController.message = "Please make sure that Wi-Fi is turned ON"
-        default:
-            println("error in mode selector")
-        }
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
-        
     }
 
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
