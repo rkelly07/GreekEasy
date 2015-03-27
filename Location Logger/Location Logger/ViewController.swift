@@ -34,6 +34,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // Set up map view
         mapView.delegate = self
         mapView.mapType = MKMapType.Hybrid
+        mapView.zoomEnabled = false
+        mapView.scrollEnabled = false
         
         infoLabel.text = "Latitude: calculating...\nLongitude: calculating...\n" +
             "Accuracy: calculating..."
@@ -58,20 +60,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         switch selectIndex {
         case 0:
-            manager.stopUpdatingLocation()
-            manager.startMonitoringSignificantLocationChanges()
+            // Force GPS off
+            manager.desiredAccuracy = kCLLocationAccuracyKilometer
+            
             alertController.title = "Wifi OFF, GPS OFF"
-            alertController.message = "Please make sure that Airplane Mode is ON and Wi-Fi is OFF"
+            alertController.message = "Please make sure that Wi-Fi is OFF"
         case 1:
-            manager.stopMonitoringSignificantLocationChanges()
-            manager.startUpdatingLocation()
+            // Force GPS off
+            manager.desiredAccuracy = kCLLocationAccuracyKilometer
+            
             alertController.title = "Wifi ON, GPS OFF"
-            alertController.message = "Please make sure that Airplane Mode is ON and Wi-Fi is ON"
+            alertController.message = "Please make sure that Wi-Fi is ON"
         case 2:
-            manager.stopMonitoringSignificantLocationChanges()
-            manager.startUpdatingLocation()
+            // Look for most accurate location
+            manager.desiredAccuracy = kCLLocationAccuracyBest
+            
             alertController.title = "Wifi ON, GPS ON"
-            alertController.message = "Please make sure that Airplane Mode is OFF and Wi-Fi is ON"
+            alertController.message = "Please make sure that Wi-Fi is ON"
         default:
             println("error in mode selector")
         }
