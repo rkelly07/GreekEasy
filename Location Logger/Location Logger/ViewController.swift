@@ -29,7 +29,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         manager.delegate = self
         manager.distanceFilter = 10 // Mark location changes only after >10 m changes
         manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
+        manager.requestAlwaysAuthorization()
         
         // Set up map view
         mapView.delegate = self
@@ -142,7 +142,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
 
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == CLAuthorizationStatus.AuthorizedWhenInUse {
+        if status == CLAuthorizationStatus.Authorized {
             mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: true)
             manager.startUpdatingLocation()
         }

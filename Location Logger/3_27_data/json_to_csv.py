@@ -11,6 +11,6 @@ print "Done. Writing results to CSV..."
 
 colors = {0: "red", 1: "blue", 2: "green"}
 for result in results:
-    output_file.write("%s,%s,%s,%d\n" % (result["latitude"], result["longitude"], colors[int(result["mode"])], .5))
+    output_file.write("%s,%s,%s,%f\n" % (result["latitude"], result["longitude"], colors[int(result["mode"])], .5))
 print "Done."
 output_file.close()

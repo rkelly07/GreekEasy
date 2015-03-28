@@ -1,0 +1,407 @@
+{ "results": [
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:31.570Z",
+        "latitude": 27.7515855895528,
+        "longitude": -80.40105659034026,
+        "mode": 1,
+        "objectId": "dXoHXUmfB9",
+        "updatedAt": "2015-03-28T14:48:31.570Z"
+    },
+	{
+        "accuracy": 150.8534186230766,
+        "createdAt": "2015-03-28T14:48:31.850Z",
+        "latitude": 27.75273531867126,
+        "longitude": -80.40082980569554,
+        "mode": 1,
+        "objectId": "F0XbcsaG5f",
+        "updatedAt": "2015-03-28T14:48:31.850Z"
+    },
+	{
+        "accuracy": 155.7058771794104,
+        "createdAt": "2015-03-28T14:48:32.191Z",
+        "latitude": 27.75328940403807,
+        "longitude": -80.40081533151788,
+        "mode": 1,
+        "objectId": "XZOP4ay81D",
+        "updatedAt": "2015-03-28T14:48:32.191Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:32.582Z",
+        "latitude": 27.75380104503806,
+        "longitude": -80.40060637130928,
+        "mode": 1,
+        "objectId": "7Wxd4v1dV9",
+        "updatedAt": "2015-03-28T14:48:32.582Z"
+    },
+	{
+        "accuracy": 106.8648226827751,
+        "createdAt": "2015-03-28T14:48:32.872Z",
+        "latitude": 27.75415370151336,
+        "longitude": -80.40059859086116,
+        "mode": 1,
+        "objectId": "J6DmUXrOFd",
+        "updatedAt": "2015-03-28T14:48:32.872Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:33.162Z",
+        "latitude": 27.75384410533352,
+        "longitude": -80.40059904771636,
+        "mode": 1,
+        "objectId": "q9WmDeca6f",
+        "updatedAt": "2015-03-28T14:48:33.162Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:33.429Z",
+        "latitude": 27.75363074007152,
+        "longitude": -80.40066175138415,
+        "mode": 1,
+        "objectId": "AooCnbQEhB",
+        "updatedAt": "2015-03-28T14:48:33.429Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:33.678Z",
+        "latitude": 27.75344914560876,
+        "longitude": -80.40072916489939,
+        "mode": 1,
+        "objectId": "lCycc22h2m",
+        "updatedAt": "2015-03-28T14:48:33.678Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:33.929Z",
+        "latitude": 27.75335477580439,
+        "longitude": -80.40069271177424,
+        "mode": 1,
+        "objectId": "n0UHp6VY9q",
+        "updatedAt": "2015-03-28T14:48:33.929Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:34.765Z",
+        "latitude": 27.75328274071902,
+        "longitude": -80.40080591197756,
+        "mode": 1,
+        "objectId": "80JiMJIK42",
+        "updatedAt": "2015-03-28T14:48:34.765Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:35.317Z",
+        "latitude": 27.75342564745776,
+        "longitude": -80.40078062289223,
+        "mode": 1,
+        "objectId": "8Gv9f2uQ6s",
+        "updatedAt": "2015-03-28T14:48:35.317Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:35.684Z",
+        "latitude": 27.75360926138683,
+        "longitude": -80.40087880528685,
+        "mode": 1,
+        "objectId": "zG1Y0LGW7J",
+        "updatedAt": "2015-03-28T14:48:35.684Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:36.301Z",
+        "latitude": 27.75361660240729,
+        "longitude": -80.40062648520147,
+        "mode": 1,
+        "objectId": "8DQgESlPio",
+        "updatedAt": "2015-03-28T14:48:36.301Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:38.044Z",
+        "latitude": 27.75371691509714,
+        "longitude": -80.40056035739347,
+        "mode": 1,
+        "objectId": "j0b0B1gdgC",
+        "updatedAt": "2015-03-28T14:48:38.044Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:38.974Z",
+        "latitude": 27.75365589697189,
+        "longitude": -80.40065314164508,
+        "mode": 1,
+        "objectId": "Nox1SJCxFX",
+        "updatedAt": "2015-03-28T14:48:38.974Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:39.834Z",
+        "latitude": 27.753688867238,
+        "longitude": -80.40075416852687,
+        "mode": 1,
+        "objectId": "JKE0HR2oLk",
+        "updatedAt": "2015-03-28T14:48:39.834Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:40.678Z",
+        "latitude": 27.7536321897177,
+        "longitude": -80.40063115889384,
+        "mode": 1,
+        "objectId": "CHe30el20w",
+        "updatedAt": "2015-03-28T14:48:40.678Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:41.493Z",
+        "latitude": 27.75380215539735,
+        "longitude": -80.40053945589393,
+        "mode": 1,
+        "objectId": "g5roJN8Rkt",
+        "updatedAt": "2015-03-28T14:48:41.493Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:41.769Z",
+        "latitude": 27.75374123084827,
+        "longitude": -80.40034965182159,
+        "mode": 1,
+        "objectId": "cnx1G7prTk",
+        "updatedAt": "2015-03-28T14:48:41.769Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:42.021Z",
+        "latitude": 27.75388286233927,
+        "longitude": -80.40006258841986,
+        "mode": 1,
+        "objectId": "zHUjr1HCgb",
+        "updatedAt": "2015-03-28T14:48:42.021Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:42.253Z",
+        "latitude": 27.75374793963337,
+        "longitude": -80.39971880365947,
+        "mode": 1,
+        "objectId": "LZwkheM2hP",
+        "updatedAt": "2015-03-28T14:48:42.253Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:42.483Z",
+        "latitude": 27.75365045005169,
+        "longitude": -80.39973812065077,
+        "mode": 1,
+        "objectId": "M9Uwu0T5n7",
+        "updatedAt": "2015-03-28T14:48:42.483Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:42.731Z",
+        "latitude": 27.7536249243113,
+        "longitude": -80.39961008162577,
+        "mode": 1,
+        "objectId": "0CRipo0ewu",
+        "updatedAt": "2015-03-28T14:48:42.731Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:42.951Z",
+        "latitude": 27.75367821162091,
+        "longitude": -80.39975461100086,
+        "mode": 1,
+        "objectId": "XYX0PnynXz",
+        "updatedAt": "2015-03-28T14:48:42.951Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:43.181Z",
+        "latitude": 27.75374031405276,
+        "longitude": -80.39984660344004,
+        "mode": 1,
+        "objectId": "twZruRbHmP",
+        "updatedAt": "2015-03-28T14:48:43.181Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:43.392Z",
+        "latitude": 27.75342986475735,
+        "longitude": -80.39957121942976,
+        "mode": 1,
+        "objectId": "Nl7sNGwnQh",
+        "updatedAt": "2015-03-28T14:48:43.392Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:43.609Z",
+        "latitude": 27.7537979337295,
+        "longitude": -80.39951669864159,
+        "mode": 1,
+        "objectId": "szIbpA0xo7",
+        "updatedAt": "2015-03-28T14:48:43.609Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:43.829Z",
+        "latitude": 27.75382415303233,
+        "longitude": -80.39962926040273,
+        "mode": 1,
+        "objectId": "VfFlRDGIlk",
+        "updatedAt": "2015-03-28T14:48:43.829Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:44.030Z",
+        "latitude": 27.75374186985552,
+        "longitude": -80.39933970479663,
+        "mode": 1,
+        "objectId": "8IcYDbQlIN",
+        "updatedAt": "2015-03-28T14:48:44.030Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:44.231Z",
+        "latitude": 27.75382938888649,
+        "longitude": -80.39941756319816,
+        "mode": 1,
+        "objectId": "dvbR4YpGhr",
+        "updatedAt": "2015-03-28T14:48:44.231Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:44.414Z",
+        "latitude": 27.75365603046567,
+        "longitude": -80.39923312695915,
+        "mode": 1,
+        "objectId": "WzwBx95IX8",
+        "updatedAt": "2015-03-28T14:48:44.414Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:44.635Z",
+        "latitude": 27.7536375166869,
+        "longitude": -80.39925148309936,
+        "mode": 1,
+        "objectId": "LxaXW9VTZX",
+        "updatedAt": "2015-03-28T14:48:44.635Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:44.835Z",
+        "latitude": 27.75373708465687,
+        "longitude": -80.39892443329131,
+        "mode": 1,
+        "objectId": "o9KHf0KXHS",
+        "updatedAt": "2015-03-28T14:48:44.835Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:45.044Z",
+        "latitude": 27.75370337170065,
+        "longitude": -80.39868538446717,
+        "mode": 1,
+        "objectId": "FGZs7kTbDc",
+        "updatedAt": "2015-03-28T14:48:45.044Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:45.244Z",
+        "latitude": 27.7536347961729,
+        "longitude": -80.39880113126907,
+        "mode": 1,
+        "objectId": "4ITpzkZLNS",
+        "updatedAt": "2015-03-28T14:48:45.244Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:45.426Z",
+        "latitude": 27.75361429768702,
+        "longitude": -80.39895250667101,
+        "mode": 1,
+        "objectId": "RpzVf016PI",
+        "updatedAt": "2015-03-28T14:48:45.426Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:45.624Z",
+        "latitude": 27.75362083690498,
+        "longitude": -80.39907922156345,
+        "mode": 1,
+        "objectId": "tQAJAox2Zf",
+        "updatedAt": "2015-03-28T14:48:45.624Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:45.803Z",
+        "latitude": 27.75349868713969,
+        "longitude": -80.39908421381689,
+        "mode": 1,
+        "objectId": "uEeLAphcJE",
+        "updatedAt": "2015-03-28T14:48:45.803Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:45.990Z",
+        "latitude": 27.75349247177509,
+        "longitude": -80.39895433048291,
+        "mode": 1,
+        "objectId": "ohN6iEhSbh",
+        "updatedAt": "2015-03-28T14:48:45.990Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:46.167Z",
+        "latitude": 27.75340189593774,
+        "longitude": -80.39908311956711,
+        "mode": 1,
+        "objectId": "JkdPIJA9Ut",
+        "updatedAt": "2015-03-28T14:48:46.167Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:46.349Z",
+        "latitude": 27.75329441576021,
+        "longitude": -80.39908548055493,
+        "mode": 1,
+        "objectId": "5bBngG7P3J",
+        "updatedAt": "2015-03-28T14:48:46.349Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:46.521Z",
+        "latitude": 27.75311098164344,
+        "longitude": -80.39907482547606,
+        "mode": 1,
+        "objectId": "z9VLe8ZwTX",
+        "updatedAt": "2015-03-28T14:48:46.521Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:46.704Z",
+        "latitude": 27.7529928584604,
+        "longitude": -80.39906378994105,
+        "mode": 1,
+        "objectId": "nuQkAGSKjQ",
+        "updatedAt": "2015-03-28T14:48:46.704Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:46.849Z",
+        "latitude": 27.75297315076584,
+        "longitude": -80.39899594788498,
+        "mode": 1,
+        "objectId": "y3Kq5e2fud",
+        "updatedAt": "2015-03-28T14:48:46.849Z"
+    },
+	{
+        "accuracy": 65,
+        "createdAt": "2015-03-28T14:48:47.008Z",
+        "latitude": 27.75295484847154,
+        "longitude": -80.39892673842112,
+        "mode": 1,
+        "objectId": "1V66sigDMu",
+        "updatedAt": "2015-03-28T14:48:47.008Z"
+    }
+] }
