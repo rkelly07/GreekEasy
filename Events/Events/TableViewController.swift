@@ -8,7 +8,8 @@
 
 import UIKit
 
-class TableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var eventsTable: UITableView!
     
     var eventNames:[String] = []
     
@@ -23,7 +24,7 @@ class TableViewController: UITableViewController, UITableViewDelegate, UITableVi
                 for object in objects {
                     var currentEvent = object["name"] as String
                     self.eventNames.append(currentEvent)
-                    self.eventTable.reloadData()
+                    self.eventsTable.reloadData()
                 }
             } else {
                 NSLog(error.description)

@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="kS3-TK-UfO">
             <objects>
-                <viewController id="EgF-P2-0nW" customClass="ViewController" customModule="Events" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EgF-P2-0nW" customClass="TableViewController" customModule="Events" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5f5-Xj-Bef"/>
                         <viewControllerLayoutGuide type="bottom" id="acr-JM-Kkx"/>
@@ -37,6 +37,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="EgF-P2-0nW" id="R5v-tv-XUZ"/>
+                                    <outlet property="delegate" destination="EgF-P2-0nW" id="Xdv-ZP-jNT"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,6 +56,9 @@
                             <constraint firstAttribute="centerX" secondItem="A0Y-Oq-n8v" secondAttribute="centerX" id="f9x-LH-P1l"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="eventsTable" destination="bL1-9K-2eM" id="xYJ-ii-QvY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIb-Ip-0L5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
