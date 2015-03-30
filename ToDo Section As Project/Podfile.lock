@@ -1,0 +1,10 @@
+PODS:
+  - LPPopupListView (1.0.3)
+
+DEPENDENCIES:
+  - LPPopupListView
+
+SPEC CHECKSUMS:
+  LPPopupListView: 34e8b9e7f3468e415e193cfbf14ed5f46d805ae0
+
+COCOAPODS: 0.36.1

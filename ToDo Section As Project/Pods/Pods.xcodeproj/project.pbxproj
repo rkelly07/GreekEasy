@@ -1,0 +1,463 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04F891F8B72305A53932F8A8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B52C3062BAD5C8E1C7EE2A1 /* AVFoundation.framework */; };
+		0D79196F89424EA4A02696F0 /* LPPopupListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2EC298DA37F0474D404A67C /* LPPopupListViewCell.m */; };
+		289DCC9E7CA6D032B1D4AF45 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DCE6B7A501E2A9E029D7CA /* Foundation.framework */; };
+		32A395D1F6C529D6D644BBB7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAE39C18FA687249C3C1073 /* CoreLocation.framework */; };
+		64F4FC1AF81FC03FC0CFF178 /* LPPopupListViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F6A31D23623B8536DF8182B /* LPPopupListViewCell.h */; };
+		A734F5AF66CE7FD049DA0501 /* LPPopupListView.h in Headers */ = {isa = PBXBuildFile; fileRef = FF436D3885EF7A8125F07A9E /* LPPopupListView.h */; };
+		BF71D6B2429FF608D9DF23A5 /* Pods-LPPopupListView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4F7A9B035556EE869A0CC0 /* Pods-LPPopupListView-dummy.m */; };
+		CF4845A44DE79F2B9A13AFCC /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 452651E7E25F2ACEA96373CF /* Pods-dummy.m */; };
+		E464BA013E1B3060546A1B5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DCE6B7A501E2A9E029D7CA /* Foundation.framework */; };
+		FA4F5C6E0C19A6E07EE19291 /* LPPopupListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40569F6560CC11530DE3A698 /* LPPopupListView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7E38275AA391E13879C39DDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC3094196A78B9C545569C3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95A2E727499E5F6047DDE5CB;
+			remoteInfo = "Pods-LPPopupListView";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0F6A31D23623B8536DF8182B /* LPPopupListViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LPPopupListViewCell.h; path = LPPopupListView/LPPopupListViewCell.h; sourceTree = "<group>"; };
+		3A210F6D150C8B7CE59079F1 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		40569F6560CC11530DE3A698 /* LPPopupListView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LPPopupListView.m; path = LPPopupListView/LPPopupListView.m; sourceTree = "<group>"; };
+		452651E7E25F2ACEA96373CF /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		4B7AF72194D4025632C6F9B8 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		4D4D008DE39D1C28B04FCA6F /* checkMark.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = checkMark.png; path = LPPopupListView/Images/checkMark.png; sourceTree = "<group>"; };
+		50C8BF2D486714997CFC65C1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		5546B3873675497C644A0719 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		6F6A9DFA1CFEAF9280494A2F /* closeButton.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = closeButton.png; path = LPPopupListView/Images/closeButton.png; sourceTree = "<group>"; };
+		7B52C3062BAD5C8E1C7EE2A1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		7FE2EB118356513D215CEE08 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C5B8B8BABF9F358C25B2094 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8CF4142F3BA93BC853526430 /* Pods-LPPopupListView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LPPopupListView-Private.xcconfig"; sourceTree = "<group>"; };
+		A6769A42255241EF7D5DF22F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A682F97A03DC4A6356622583 /* closeButton@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "closeButton@2x.png"; path = "LPPopupListView/Images/closeButton@2x.png"; sourceTree = "<group>"; };
+		AF1D5D2DE68114F0004DB1F5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		B1BC9B69EC64D1D347F74FCA /* checkMark@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "checkMark@2x.png"; path = "LPPopupListView/Images/checkMark@2x.png"; sourceTree = "<group>"; };
+		B426B8B7E4A800C0E3308B55 /* Pods-LPPopupListView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LPPopupListView.xcconfig"; sourceTree = "<group>"; };
+		C0C6EFF3AC9B09C7B794E4BB /* libPods-LPPopupListView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LPPopupListView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9DCE6B7A501E2A9E029D7CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		EC2C7895BFF3804759F64782 /* Pods-LPPopupListView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LPPopupListView-prefix.pch"; sourceTree = "<group>"; };
+		EEAE39C18FA687249C3C1073 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		F2EC298DA37F0474D404A67C /* LPPopupListViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LPPopupListViewCell.m; path = LPPopupListView/LPPopupListViewCell.m; sourceTree = "<group>"; };
+		FF436D3885EF7A8125F07A9E /* LPPopupListView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LPPopupListView.h; path = LPPopupListView/LPPopupListView.h; sourceTree = "<group>"; };
+		FF4F7A9B035556EE869A0CC0 /* Pods-LPPopupListView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LPPopupListView-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0D37FBF3A217F189CC0F0531 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04F891F8B72305A53932F8A8 /* AVFoundation.framework in Frameworks */,
+				32A395D1F6C529D6D644BBB7 /* CoreLocation.framework in Frameworks */,
+				E464BA013E1B3060546A1B5F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11B4608D48B8A981978CE397 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				289DCC9E7CA6D032B1D4AF45 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		040D521ADD8F7D2397BD83B3 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				79AF605E04F27920A6A44639 /* Pods */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		14C5653A9D8D7C3E03F5158C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7FE2EB118356513D215CEE08 /* libPods.a */,
+				C0C6EFF3AC9B09C7B794E4BB /* libPods-LPPopupListView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2BF3803352699CC946ECF7F3 /* LPPopupListView */ = {
+			isa = PBXGroup;
+			children = (
+				FF436D3885EF7A8125F07A9E /* LPPopupListView.h */,
+				40569F6560CC11530DE3A698 /* LPPopupListView.m */,
+				0F6A31D23623B8536DF8182B /* LPPopupListViewCell.h */,
+				F2EC298DA37F0474D404A67C /* LPPopupListViewCell.m */,
+				74CF3010FE1938032FFC7EB7 /* Resources */,
+				FF4D3A3A88BFFD6282CBBC50 /* Support Files */,
+			);
+			path = LPPopupListView;
+			sourceTree = "<group>";
+		};
+		74CF3010FE1938032FFC7EB7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4D4D008DE39D1C28B04FCA6F /* checkMark.png */,
+				B1BC9B69EC64D1D347F74FCA /* checkMark@2x.png */,
+				6F6A9DFA1CFEAF9280494A2F /* closeButton.png */,
+				A682F97A03DC4A6356622583 /* closeButton@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		79AF605E04F27920A6A44639 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C5B8B8BABF9F358C25B2094 /* Pods-acknowledgements.markdown */,
+				4B7AF72194D4025632C6F9B8 /* Pods-acknowledgements.plist */,
+				452651E7E25F2ACEA96373CF /* Pods-dummy.m */,
+				3A210F6D150C8B7CE59079F1 /* Pods-environment.h */,
+				5546B3873675497C644A0719 /* Pods-resources.sh */,
+				AF1D5D2DE68114F0004DB1F5 /* Pods.debug.xcconfig */,
+				50C8BF2D486714997CFC65C1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = "Target Support Files/Pods";
+			sourceTree = "<group>";
+		};
+		7DC198E7C44D823586A2FFD8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2BF3803352699CC946ECF7F3 /* LPPopupListView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A7525AF727607CFF38E75A67 = {
+			isa = PBXGroup;
+			children = (
+				A6769A42255241EF7D5DF22F /* Podfile */,
+				CA0A71A9849E12A153201D4F /* Frameworks */,
+				7DC198E7C44D823586A2FFD8 /* Pods */,
+				14C5653A9D8D7C3E03F5158C /* Products */,
+				040D521ADD8F7D2397BD83B3 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		CA0A71A9849E12A153201D4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD7B8F718A5F2C3291A36649 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD7B8F718A5F2C3291A36649 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7B52C3062BAD5C8E1C7EE2A1 /* AVFoundation.framework */,
+				EEAE39C18FA687249C3C1073 /* CoreLocation.framework */,
+				D9DCE6B7A501E2A9E029D7CA /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		FF4D3A3A88BFFD6282CBBC50 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B426B8B7E4A800C0E3308B55 /* Pods-LPPopupListView.xcconfig */,
+				8CF4142F3BA93BC853526430 /* Pods-LPPopupListView-Private.xcconfig */,
+				FF4F7A9B035556EE869A0CC0 /* Pods-LPPopupListView-dummy.m */,
+				EC2C7895BFF3804759F64782 /* Pods-LPPopupListView-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-LPPopupListView";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6A42F5422350F6D3EE1BF301 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A734F5AF66CE7FD049DA0501 /* LPPopupListView.h in Headers */,
+				64F4FC1AF81FC03FC0CFF178 /* LPPopupListViewCell.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3C4D5C8BB63A5ACB74CBB50C /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BBC0AB895C1561940D06EB6 /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				8DA9FCF3C97CED0F8EADF0A6 /* Sources */,
+				11B4608D48B8A981978CE397 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				119551022D300C1A83F855A7 /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = 7FE2EB118356513D215CEE08 /* libPods.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		95A2E727499E5F6047DDE5CB /* Pods-LPPopupListView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FEE4AD86C48C7FD55F078CD /* Build configuration list for PBXNativeTarget "Pods-LPPopupListView" */;
+			buildPhases = (
+				D6D4F32A261C7BAD5CADDFBA /* Sources */,
+				0D37FBF3A217F189CC0F0531 /* Frameworks */,
+				6A42F5422350F6D3EE1BF301 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-LPPopupListView";
+			productName = "Pods-LPPopupListView";
+			productReference = C0C6EFF3AC9B09C7B794E4BB /* libPods-LPPopupListView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC3094196A78B9C545569C3C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 8FD52CD3949E5AAE127DF79F /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A7525AF727607CFF38E75A67;
+			productRefGroup = 14C5653A9D8D7C3E03F5158C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3C4D5C8BB63A5ACB74CBB50C /* Pods */,
+				95A2E727499E5F6047DDE5CB /* Pods-LPPopupListView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DA9FCF3C97CED0F8EADF0A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF4845A44DE79F2B9A13AFCC /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D4F32A261C7BAD5CADDFBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA4F5C6E0C19A6E07EE19291 /* LPPopupListView.m in Sources */,
+				0D79196F89424EA4A02696F0 /* LPPopupListViewCell.m in Sources */,
+				BF71D6B2429FF608D9DF23A5 /* Pods-LPPopupListView-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		119551022D300C1A83F855A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-LPPopupListView";
+			target = 95A2E727499E5F6047DDE5CB /* Pods-LPPopupListView */;
+			targetProxy = 7E38275AA391E13879C39DDF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3C98B88910BA1735602B76E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CF4142F3BA93BC853526430 /* Pods-LPPopupListView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-LPPopupListView/Pods-LPPopupListView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		493FA101B8903B05F93E36FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		54372C2396EF9E58A933EA15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CF4142F3BA93BC853526430 /* Pods-LPPopupListView-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-LPPopupListView/Pods-LPPopupListView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5E89D6D4983DF8CEDD48EC27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF1D5D2DE68114F0004DB1F5 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		75869DEFB70C0BA07A41CE05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		AC605BD5EC84B20929766C66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50C8BF2D486714997CFC65C1 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6BBC0AB895C1561940D06EB6 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E89D6D4983DF8CEDD48EC27 /* Debug */,
+				AC605BD5EC84B20929766C66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FEE4AD86C48C7FD55F078CD /* Build configuration list for PBXNativeTarget "Pods-LPPopupListView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C98B88910BA1735602B76E7 /* Debug */,
+				54372C2396EF9E58A933EA15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FD52CD3949E5AAE127DF79F /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75869DEFB70C0BA07A41CE05 /* Debug */,
+				493FA101B8903B05F93E36FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC3094196A78B9C545569C3C /* Project object */;
+}

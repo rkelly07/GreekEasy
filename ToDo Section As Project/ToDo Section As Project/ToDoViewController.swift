@@ -12,6 +12,8 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet var goToSecondSBButton: UIButton!
     @IBOutlet var goToChoreManagerButton: UIButton!
+    @IBOutlet var goToPointsLeaderboardButton: UIButton!
+    
 //    let secondSB : UIStoryboard = UIStoryboard(name: "SecondStoryboard.storyboard", bundle: nil)
 //    let secondVC = secondSB!.instantiateInitialViewController() as UIViewController
     
@@ -157,6 +159,13 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
         cell.textLabel!.text! = choreDescription
         cell.detailTextLabel!.text! = String("Points : " + String(chorePoints))
         
+        //temporary solution for too long titles
+        var title : String! = cell.textLabel!.text!
+        var numChars : Int = 20
+        if countElements(title) > 20 {
+            cell.textLabel!.text! = (title as NSString).substringToIndex(numChars) + String("...")
+        }
+        
         //if checkbox image is clicked
         cell.imageView!.userInteractionEnabled = true
         cell.imageView!.tag = indexPath.row
@@ -189,8 +198,9 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
     func TappedCheckbox(sender:UITapGestureRecognizer) {
         var imageView : UIImageView! = sender.view! as UIImageView
         //var cell : UITableViewCell! = view.superview! as UITableViewCell
-        var image : UIImage! = imageView.image!
-        image = UIImage(named: "unchecked_checkbox")
+        //var image : UIImage! = imageView.image!
+        //image = UIImage(named: "unchecked_checkbox")
+        imageView.image = UIImage(named: "unchecked_checkbox")
         //println(sender.view!.tag)
         println(sender.view!.tag) //gets us row number
         //need to get the cell from sender info
