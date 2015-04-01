@@ -9,3 +9,4 @@ proposal/
 *.developerprofile
 *.p12
 *.mobileprovision
+*.xcuserstate
