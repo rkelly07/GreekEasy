@@ -13,8 +13,6 @@
 		AED289991AC5938D00F429F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED289981AC5938D00F429F1 /* Images.xcassets */; };
 		AED2899C1AC5938D00F429F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED2899A1AC5938D00F429F1 /* LaunchScreen.xib */; };
 		AED289A81AC5938D00F429F1 /* EventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED289A71AC5938D00F429F1 /* EventsTests.swift */; };
-		AED289B31AC5941C00F429F1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED289B21AC5941C00F429F1 /* Bolts.framework */; };
-		AED289B51AC5942500F429F1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED289B41AC5942500F429F1 /* Parse.framework */; };
 		AED289B71AC5943000F429F1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED289B61AC5943000F429F1 /* AudioToolbox.framework */; };
 		AED289B91AC5943800F429F1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED289B81AC5943800F429F1 /* CFNetwork.framework */; };
 		AED289BC1AC5944500F429F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED289BA1AC5944500F429F1 /* CoreGraphics.framework */; };
@@ -25,6 +23,8 @@
 		AED289C71AC5946200F429F1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED289C31AC5946200F429F1 /* SystemConfiguration.framework */; };
 		AED289CA1AC5947A00F429F1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AED289C81AC5947A00F429F1 /* libsqlite3.dylib */; };
 		AED289CB1AC5947A00F429F1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AED289C91AC5947A00F429F1 /* libz.dylib */; };
+		B312A32E1ACC2DDB00D113E4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B312A32C1ACC2DDB00D113E4 /* Bolts.framework */; };
+		B312A32F1ACC2DDB00D113E4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B312A32D1ACC2DDB00D113E4 /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +48,6 @@
 		AED289A11AC5938D00F429F1 /* EventsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED289A61AC5938D00F429F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AED289A71AC5938D00F429F1 /* EventsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTests.swift; sourceTree = "<group>"; };
-		AED289B21AC5941C00F429F1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../parse-library-1.6.5/Bolts.framework"; sourceTree = "<group>"; };
-		AED289B41AC5942500F429F1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../parse-library-1.6.5/Parse.framework"; sourceTree = "<group>"; };
 		AED289B61AC5943000F429F1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AED289B81AC5943800F429F1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AED289BA1AC5944500F429F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,6 +59,8 @@
 		AED289C81AC5947A00F429F1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		AED289C91AC5947A00F429F1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		AED289CC1AC5985A00F429F1 /* Events-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Events-Bridging-Header.h"; sourceTree = "<group>"; };
+		B312A32C1ACC2DDB00D113E4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/parse-library-1.7.0/Bolts.framework"; sourceTree = "<group>"; };
+		B312A32D1ACC2DDB00D113E4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Downloads/parse-library-1.7.0/Parse.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +76,10 @@
 				AED289BF1AC5944E00F429F1 /* MobileCoreServices.framework in Frameworks */,
 				AED289BC1AC5944500F429F1 /* CoreGraphics.framework in Frameworks */,
 				AED289BD1AC5944500F429F1 /* CoreLocation.framework in Frameworks */,
+				B312A32E1ACC2DDB00D113E4 /* Bolts.framework in Frameworks */,
 				AED289B91AC5943800F429F1 /* CFNetwork.framework in Frameworks */,
+				B312A32F1ACC2DDB00D113E4 /* Parse.framework in Frameworks */,
 				AED289B71AC5943000F429F1 /* AudioToolbox.framework in Frameworks */,
-				AED289B51AC5942500F429F1 /* Parse.framework in Frameworks */,
-				AED289B31AC5941C00F429F1 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +154,8 @@
 		AED289B11AC593B000F429F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B312A32C1ACC2DDB00D113E4 /* Bolts.framework */,
+				B312A32D1ACC2DDB00D113E4 /* Parse.framework */,
 				AED289C81AC5947A00F429F1 /* libsqlite3.dylib */,
 				AED289C91AC5947A00F429F1 /* libz.dylib */,
 				AED289C01AC5946200F429F1 /* QuartzCore.framework */,
@@ -164,8 +166,6 @@
 				AED289BB1AC5944500F429F1 /* CoreLocation.framework */,
 				AED289B81AC5943800F429F1 /* CFNetwork.framework */,
 				AED289B61AC5943000F429F1 /* AudioToolbox.framework */,
-				AED289B41AC5942500F429F1 /* Parse.framework */,
-				AED289B21AC5941C00F429F1 /* Bolts.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -405,6 +405,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/atitus/parse-library-1.6.5",
+					"/Users/TylerFinkelstein/Downloads/parse-library-1.7.0",
 				);
 				INFOPLIST_FILE = Events/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -423,6 +424,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/atitus/parse-library-1.6.5",
+					"/Users/TylerFinkelstein/Downloads/parse-library-1.7.0",
 				);
 				INFOPLIST_FILE = Events/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
