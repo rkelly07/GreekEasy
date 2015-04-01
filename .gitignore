@@ -10,6 +10,7 @@ proposal/
 *.p12
 *.mobileprovision
 *xcuserstate
+*xcuserdata
 >>>>>>> events
 downloader/AlamoFire/
 >>>>>>> events

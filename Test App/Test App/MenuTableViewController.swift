@@ -14,9 +14,7 @@ class MenuTableViewController: UITableViewController {
         let name:String!
     }
     
-    let menuItems = [MenuItem(name: "Events"), MenuItem(name: "To-Dos"),
-        MenuItem(name: "Meal Menu"), MenuItem(name: "Shopping List"),
-        MenuItem(name: "Reimburse")]
+    let menuItems = [MenuItem(name: "Events"), MenuItem(name: "To-Dos"), MenuItem(name: "Reimburse")]
     
     let NUMBER_OF_SECTIONS:Int = 1
     
