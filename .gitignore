@@ -9,5 +9,5 @@ proposal/
 *.developerprofile
 *.p12
 *.mobileprovision
-*UserInterfaceState.xcuserstate
+*xcuserstate
 downloader/AlamoFire/
