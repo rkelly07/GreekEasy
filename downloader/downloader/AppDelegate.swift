@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  Events
+//  downloader
 //
-//  Created by Andrew Titus on 3/27/15.
-//  Copyright (c) 2015 GreekEasy. All rights reserved.
+//  Created by Ryan Kelly on 3/30/15.
+//  Copyright (c) 2015 ThreeGuys. All rights reserved.
 //
 
 import UIKit
@@ -15,46 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
-        Parse.enableLocalDatastore()
-        Parse.setApplicationId("wPoPnVj9UwFop3wfcx01uiMpX9UrVeWb07ks4vSk", clientKey: "JuWPCoeqymU9wf1vo0PJWrzapPF2klTxbPQhFTWR")
-        
-        /*
-        var sampleEvent1 = PFObject(className: "Event")
-        var sampleEvent2 = PFObject(className: "Event")
-        var sampleEvent3 = PFObject(className: "Event")
-        
-        // Create first sample event
-        sampleEvent1["name"] = "Make Ryan Kelly fix my code"
-        sampleEvent1["date"] = NSDate(timeIntervalSinceNow: 0)
-        sampleEvent1["location"] = "MIT"
-        sampleEvent1["description"] = "Do it"
-        sampleEvent1["category"] = "work"
-        sampleEvent1["createdBy"] = "drew"
-        sampleEvent1.save()
-        println("done")
-        
-        // Create second sample event
-        sampleEvent2["name"] = "Make Ryan Kelly do my taxes"
-        sampleEvent2["date"] = NSDate(timeIntervalSinceNow: 360.0)
-        sampleEvent2["location"] = "MIT"
-        sampleEvent2["description"] = "Munny"
-        sampleEvent2["category"] = "work"
-        sampleEvent2["createdBy"] = "drew"
-        sampleEvent2.save()
-        println("done")
-        
-        // Create third sample event
-        sampleEvent3["name"] = "Make Ryan Kelly clean"
-        sampleEvent3["date"] = NSDate(timeIntervalSinceNow: -1260.0)
-        sampleEvent3["location"] = "MIT"
-        sampleEvent3["description"] = "Lemon pledge"
-        sampleEvent3["category"] = "work"
-        sampleEvent3["createdBy"] = "drew"
-        sampleEvent3.save()
-        println("done")
-        */
-
+        // Override point for customization after application launch.
         return true
     }
 
