@@ -29,7 +29,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         manager.delegate = self
         manager.distanceFilter = 10 // Mark location changes only after >10 m changes
         manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
+        manager.requestAlwaysAuthorization()
         
         // Set up map view
         mapView.delegate = self
@@ -60,23 +60,43 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         switch selectIndex {
         case 0:
-            // Force GPS off
+            // Force location services off
+            manager.stopUpdatingLocation()
+            manager.delegate = nil
+            
+            // Restart location services to monitor significant changes
+            manager.delegate = self
             manager.desiredAccuracy = kCLLocationAccuracyKilometer
+            manager.startMonitoringSignificantLocationChanges()
             
             alertController.title = "Wifi OFF, GPS OFF"
-            alertController.message = "Please make sure that Wi-Fi is OFF"
+            alertController.message = "Please make sure that Airplane Mode is OFF, Cellular Data is OFF and Wi-Fi is OFF"
         case 1:
-            // Force GPS off
-            manager.desiredAccuracy = kCLLocationAccuracyKilometer
+            // Force location services off
+            manager.stopMonitoringSignificantLocationChanges()
+            manager.stopUpdatingLocation()
+            manager.delegate = nil
+            
+            // Restart location services to monitor location
+            manager.delegate = self
+            manager.desiredAccuracy = kCLLocationAccuracyBest
+            manager.startUpdatingLocation()
             
             alertController.title = "Wifi ON, GPS OFF"
-            alertController.message = "Please make sure that Wi-Fi is ON"
+            alertController.message = "Please make sure that Airplane Mode is ON and Wi-Fi is ON"
         case 2:
-            // Look for most accurate location
+            // Force location services off
+            manager.stopMonitoringSignificantLocationChanges()
+            manager.stopUpdatingLocation()
+            manager.delegate = nil
+            
+            // Restart location services to monitor location
+            manager.delegate = self
             manager.desiredAccuracy = kCLLocationAccuracyBest
+            manager.startUpdatingLocation()
             
             alertController.title = "Wifi ON, GPS ON"
-            alertController.message = "Please make sure that Wi-Fi is ON"
+            alertController.message = "Please make sure that Airplane Mode is OFF, Cellular Data is ON and Wi-Fi is ON"
         default:
             println("error in mode selector")
         }
@@ -122,7 +142,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
 
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == CLAuthorizationStatus.AuthorizedWhenInUse {
+        if status == CLAuthorizationStatus.Authorized {
             mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: true)
             manager.startUpdatingLocation()
         }
