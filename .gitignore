@@ -9,10 +9,7 @@ proposal/
 *.developerprofile
 *.p12
 *.mobileprovision
-xcuserstate
-<<<<<<< HEAD
-*.xcuserstate
-=======
-*UserInterfaceState.xcuserstate
+*xcuserstate
+>>>>>>> events
 downloader/AlamoFire/
 >>>>>>> events
