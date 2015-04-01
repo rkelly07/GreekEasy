@@ -114,7 +114,7 @@ class ManualChoreManagerViewController: UIViewController, UITableViewDataSource 
         var startPointForPopup = CGPoint(x: padding, y: navframeHeight + 2*padding)
         var sizeOfPopup = CGSize(width: self.view!.frame.size.width - 2*padding, height: -1*navframeHeight + 1*padding + frameHeight)
         
-        var popup : LPPopupListView! = LPPopupListView(title: "View People to Select From", list: peopleNames, selectedIndexes: indexSet, point: startPointForPopup, size: sizeOfPopup, multipleSelection: true)
+        var popup : LPPopupListView! = LPPopupListView(title: "View People to Select From", list: peopleNames, selectedIndexes: indexSet, point: startPointForPopup, size: sizeOfPopup, multipleSelection: true, disableBackgroundInteraction: true)
 //        var popup : LPPopupListView! = LPPopupListView(title: "View People to Select From", list: ["test1","test2","test3"], selectedIndexes: NSIndexSet(indexesInRange: NSMakeRange(1,3)), point: CGPoint(x: 20, y: 100), size: CGSize(width: 60, height: 100), multipleSelection: true)
         //popup.delegate = self
         popup.showInView(self.view, animated: true)
