@@ -104,7 +104,9 @@ class ManualChoreManagerViewController: UIViewController, UITableViewDataSource 
             peopleNames.append(person.name)
         }
         peopleNames = sorted(peopleNames, {$0 < $1})
-        var indexSet : NSIndexSet! = NSIndexSet(indexesInRange: NSMakeRange(1,people.count))
+        
+        //determine what is selected before popup is up
+        var indexSet : NSIndexSet! = NSIndexSet(indexesInRange: NSMakeRange(0,1))
         
         var padding : CGFloat = 20.0
         var navframeHeight : CGFloat = CGFloat(self.navigationController!.navigationBar.frame.size.height)
@@ -112,20 +114,24 @@ class ManualChoreManagerViewController: UIViewController, UITableViewDataSource 
         var startPointForPopup = CGPoint(x: padding, y: navframeHeight + 2*padding)
         var sizeOfPopup = CGSize(width: self.view!.frame.size.width - 2*padding, height: -1*navframeHeight + 1*padding + frameHeight)
         
-        var popup : LPPopupListView! = LPPopupListView(title: "View People to Select From", list: peopleNames, selectedIndexes: indexSet, point: startPointForPopup, size: sizeOfPopup, multipleSelection: true)
+        var popup : LPPopupListView! = LPPopupListView(title: "View People to Select From", list: peopleNames, selectedIndexes: indexSet, point: startPointForPopup, size: sizeOfPopup, multipleSelection: true, disableBackgroundInteraction: true)
 //        var popup : LPPopupListView! = LPPopupListView(title: "View People to Select From", list: ["test1","test2","test3"], selectedIndexes: NSIndexSet(indexesInRange: NSMakeRange(1,3)), point: CGPoint(x: 20, y: 100), size: CGSize(width: 60, height: 100), multipleSelection: true)
         //popup.delegate = self
         popup.showInView(self.view, animated: true)
     }
     
-    func popUpListView(popUpListView: LPPopupListView!, didSelectIndex index: NSInteger) {
-        println("popUpListView - didSelectIndex: %d")//+ index)
-    }
-    
-    func popupListViewDidHide(popUpListView: LPPopupListView!, selectedIndexes indicesSelected: NSIndexSet) {
-        println("popUpListView - selectedIndexes: %d")//+ index)
-    }
-    
+//    func popUpListView(popUpListView : LPPopupListView!, selectedIndices selectedIndexes : NSIndexSet!) {
+//        println("Test worked")
+//    }
+//    
+////    func popUpListView(popUpListView: LPPopupListView!, didSelectIx index: NSInteger) {
+////        println("popUpListView - didSelectIndex: %d")//+ index)
+////    }
+//    
+//    func popupListViewDidHide(popUpListView: LPPopupListView!, selectedIndexes indicesSelected: NSIndexSet) {
+//        println("popUpListView - selectedIndexes: %d")//+ index)
+//    }
+//    
     func populateChoreIDtoNameDictionary() {
         for chore in chores {
             choreIDtoNameDictionary[chore.ID] = []
@@ -250,6 +256,7 @@ class ManualChoreManagerViewController: UIViewController, UITableViewDataSource 
         //var cell : UITableViewCell! = view.superview!
         //println(sender.view!.tag)
         println(sender.view!.tag) //gets us row number
+        openPopup(self)
         //need to get the cell from sender info
         //sender is the image
         //sender.view!.backgroundColor = UIColor.redColor()
@@ -282,3 +289,27 @@ class ManualChoreManagerViewController: UIViewController, UITableViewDataSource 
 //        }
 //    }
 }
+
+// MARK: - LPPopUpListViewDelegate
+func popUpListView(popUpListView : LPPopupListView!, selectedIndices selectedIndexes : NSIndexSet!) {
+    println("Test worked")
+}
+
+func popupListViewDidHide(popUpListView: LPPopupListView!, selectedIndices indicesSelected: NSIndexSet) {
+    println("popUpListView - selectedIndexes: %d")//+ index)
+}
+
+
+//extension ManualChoreManagerViewController : LPPopupListViewDelegate {
+//    func popUpListView(popUpListView : LPPopupListView!, selectedIndices selectedIndexes : NSIndexSet!) {
+//        println("Test worked")
+//    }
+//    
+//    //    func popUpListView(popUpListView: LPPopupListView!, didSelectIx index: NSInteger) {
+//    //        println("popUpListView - didSelectIndex: %d")//+ index)
+//    //    }
+//    
+//    func popupListViewDidHide(popUpListView: LPPopupListView!, selectedIndexes indicesSelected: NSIndexSet) {
+//        println("popUpListView - selectedIndexes: %d")//+ index)
+//    }
+//}

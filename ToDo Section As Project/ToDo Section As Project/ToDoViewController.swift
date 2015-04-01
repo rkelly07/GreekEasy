@@ -10,6 +10,7 @@ import UIKit
 
 class ToDoViewController: UIViewController, UITableViewDataSource {
 
+    @IBOutlet var tableView: UITableView!
     @IBOutlet var goToSecondSBButton: UIButton!
     @IBOutlet var goToChoreManagerButton: UIButton!
     @IBOutlet var goToPointsLeaderboardButton: UIButton!
@@ -188,30 +189,35 @@ class ToDoViewController: UIViewController, UITableViewDataSource {
         var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
         var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
         if cell.imageView!.image == checked_checkbox_image {
-            cell.imageView!.image = unchecked_checkbox_image
+            println("Box is currently checked. Let's uncheck it.")
+            //cell.imageView!.image = unchecked_checkbox_image
+            cell.imageView!.image = UIImage(named: "unchecked_checkbox")
         } else {
+            println("Box is currently unchecked. Let's check it.")
             cell.imageView!.image = checked_checkbox_image
         }
     }
+//    
+//    protocol tableViewDelegate {
+//        func tableView(
+//    }
     
     //checks which checkbox was clicked
     func TappedCheckbox(sender:UITapGestureRecognizer) {
-        var imageView : UIImageView! = sender.view! as UIImageView
-        //var cell : UITableViewCell! = view.superview! as UITableViewCell
-        //var image : UIImage! = imageView.image!
-        //image = UIImage(named: "unchecked_checkbox")
-        imageView.image = UIImage(named: "unchecked_checkbox")
-        //println(sender.view!.tag)
-        println(sender.view!.tag) //gets us row number
-        //need to get the cell from sender info
-        //sender is the image
-        //sender.view!.backgroundColor = UIColor.redColor()
-        //sender.view!.hidden = true
-        //sender.view! = UIImage(named: "unchecked_checkbox")
-        //UIImageView *selectedImageView=(UIImageView*)[gesture view];
-        //var selectedImageView : UIImageView =
-        //changeCheckbox(cell)
-        //change chore to done or not done
+//        var imageView : UIImageView! = sender.view! as UIImageView
+//        imageView.image = UIImage(named: "unchecked_checkbox")
+        
+        var position : CGPoint = sender.locationInView(self.tableView)
+//        var indexPath2 : NSIndexPath = tableView.indexPathForRowAtPoint(position)!
+        var indexPath: NSIndexPath = self.tableView.indexPathForRowAtPoint(position)!
+////        //println("Indexpath is on next line")
+////        //println(indexPath)
+//        var cell = tableView(tableView, cellForRowAtIndexPath: indexPath2)
+        var cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        //cell.textLabel!.text! = "change it"
+        changeCheckbox(cell)
+        
+        //println(sender.view!.tag) //gets us row number
     }
     
     

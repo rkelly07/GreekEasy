@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8B985692-B684-42AB-B012-7001E1A05182</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LPPopupListViewExample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1BFCFC960BA0388B853F82F3F22AECEE8F44E52A</key>
+		<string>https://github.com/luka1995/LPPopupListView.git</string>
+		<key>56E6D2B7F37F2626E33BF34DE8399A21777F672E</key>
+		<string>https://bitbucket.org/atitus/21w789.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LPPopupListViewExample/LPPopupListViewExample.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1BFCFC960BA0388B853F82F3F22AECEE8F44E52A</key>
+		<string>../../..</string>
+		<key>56E6D2B7F37F2626E33BF34DE8399A21777F672E</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/luka1995/LPPopupListView.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1BFCFC960BA0388B853F82F3F22AECEE8F44E52A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>56E6D2B7F37F2626E33BF34DE8399A21777F672E</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1BFCFC960BA0388B853F82F3F22AECEE8F44E52A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LPPopupListView</string>
+		</dict>
+	</array>
+</dict>
+</plist>

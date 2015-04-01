@@ -90,6 +90,7 @@
                         <outlet property="goToChoreManagerButton" destination="FmO-zx-Kmj" id="0Nd-Yb-XEt"/>
                         <outlet property="goToPointsLeaderboardButton" destination="jmr-NF-Xgz" id="j1M-0d-V0R"/>
                         <outlet property="goToSecondSBButton" destination="XeS-Qz-BJa" id="SmW-aG-oZV"/>
+                        <outlet property="tableView" destination="tZy-i1-3A1" id="bC8-uF-CaC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

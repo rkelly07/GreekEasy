@@ -10,6 +10,8 @@
 	<string>ToDo Section As Project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>1BFCFC960BA0388B853F82F3F22AECEE8F44E52A</key>
+		<string>https://github.com/luka1995/LPPopupListView.git</string>
 		<key>56E6D2B7F37F2626E33BF34DE8399A21777F672E</key>
 		<string>https://bitbucket.org/atitus/21w789.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>ToDo Section As Project/ToDo Section As Project.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>1BFCFC960BA0388B853F82F3F22AECEE8F44E52A</key>
+		<string>../../../ToDo%20Section%20As%20Project/LPPopupListView/</string>
 		<key>56E6D2B7F37F2626E33BF34DE8399A21777F672E</key>
 		<string>../../..</string>
 	</dict>
@@ -35,6 +39,14 @@
 			<string>56E6D2B7F37F2626E33BF34DE8399A21777F672E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>21w789</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1BFCFC960BA0388B853F82F3F22AECEE8F44E52A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LPPopupListView</string>
 		</dict>
 	</array>
 </dict>
