@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="downloader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEf-Df-a8Q">
+                                <rect key="frame" x="246" y="323" width="109" height="31"/>
+                                <state key="normal" title="RESET">
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fCY-4W-O71"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latency:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUw-Dy-Kvo">
+                                <rect key="frame" x="16" y="362" width="66" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4P8-pJ-Xcr">
+                                <rect key="frame" x="246" y="284" width="109" height="31"/>
+                                <state key="normal" title="DOWNLOAD">
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="downloadButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MvA-Ir-7pU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Throughput:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBf-QT-lDW">
+                                <rect key="frame" x="16" y="401" width="94" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NEf-Df-a8Q" firstAttribute="top" secondItem="4P8-pJ-Xcr" secondAttribute="bottom" constant="8" id="BSE-g9-Q56"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FBf-QT-lDW" secondAttribute="bottom" constant="178" id="GiZ-rg-QLn"/>
+                            <constraint firstAttribute="centerX" secondItem="NEf-Df-a8Q" secondAttribute="centerX" constant="-0.5" id="I6u-no-xul"/>
+                            <constraint firstItem="FBf-QT-lDW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="KtN-sy-uca"/>
+                            <constraint firstAttribute="centerX" secondItem="4P8-pJ-Xcr" secondAttribute="centerX" constant="-0.5" id="TCc-bs-HWI"/>
+                            <constraint firstItem="FBf-QT-lDW" firstAttribute="top" secondItem="RUw-Dy-Kvo" secondAttribute="bottom" constant="18" id="Xxq-qN-20e"/>
+                            <constraint firstAttribute="centerY" secondItem="4P8-pJ-Xcr" secondAttribute="centerY" constant="0.5" id="ZPt-W4-gTh"/>
+                            <constraint firstItem="RUw-Dy-Kvo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="egA-Bh-NBu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="latencyLabel" destination="RUw-Dy-Kvo" id="bkP-yV-nHG"/>
+                        <outlet property="throughputLabel" destination="FBf-QT-lDW" id="oxc-dE-MoU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
