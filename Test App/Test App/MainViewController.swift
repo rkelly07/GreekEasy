@@ -16,8 +16,9 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.revealViewController().revealToggle(nil)
 
-        //menuButton.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside)
         menuButton.target = self.revealViewController()
         menuButton.action = "revealToggle:"
 
