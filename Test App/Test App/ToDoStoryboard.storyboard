@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< HEAD
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
-=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
->>>>>>> 3888833cc10a12be3f05fcd1a30c8d21e1be7d79
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -21,11 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="fPY-e0-rfE">
-                                <rect key="frame" x="0.0" y="20" width="600" height="644"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOk-z6-qIs">
                                 <rect key="frame" x="277" y="16" width="46" height="30"/>
                                 <state key="normal" title="Button">
@@ -69,7 +60,6 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
->>>>>>> 3888833cc10a12be3f05fcd1a30c8d21e1be7d79
                                 <connections>
                                     <outlet property="dataSource" destination="dxX-5H-pgT" id="Pdp-DA-WUm"/>
                                     <outlet property="delegate" destination="dxX-5H-pgT" id="ZLP-HC-YHW"/>
@@ -90,11 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kkq-jI-6vO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="139" y="-940"/>
-=======
             <point key="canvasLocation" x="-835" y="-976"/>
->>>>>>> 3888833cc10a12be3f05fcd1a30c8d21e1be7d79
         </scene>
     </scenes>
 </document>
