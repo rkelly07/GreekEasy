@@ -16,8 +16,6 @@ class MenuTableViewController: UITableViewController {
     
     let menuItems = [MenuItem(name: "Events"), MenuItem(name: "To-Dos"), MenuItem(name: "Reimburse")]
     
-    let NUMBER_OF_SECTIONS:Int = 1
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +34,7 @@ class MenuTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return NUMBER_OF_SECTIONS
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,9 +44,34 @@ class MenuTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
         cell.textLabel?.text = menuItems[indexPath.row].name
+        
         // Configure the cell...
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.row {
+        case 0: // Events
+            var storyboard = UIStoryboard(name: "Events", bundle: nil)
+            var vc = storyboard.instantiateViewControllerWithIdentifier("events") as UIViewController
+            presentViewController(vc, animated: false, completion: nil)
+            break
+        case 1: // To-Dos
+            /*
+            var storyboard = UIStoryboard(name: "To Do", bundle: nil)
+            var vc = storyboard.instantiateViewControllerWithIdentifier("todo") as UIViewController
+            presentViewController(vc, animated: false, completion: nil)
+            */
+            println("awaiting push")
+            break
+        case 2: // Reimburse
+            println("implement yo shit")
+            break
+        default: // Error
+            NSLog("error; invalid row tapped")
+            break
+        }
     }
 
     /*

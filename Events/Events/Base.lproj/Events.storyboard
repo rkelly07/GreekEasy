@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Events Table View Controller-->
         <scene sceneID="kS3-TK-UfO">
             <objects>
-                <viewController id="EgF-P2-0nW" customClass="TableViewController" customModule="Events" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="events" id="EgF-P2-0nW" customClass="EventsTableViewController" customModule="Test_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5f5-Xj-Bef"/>
                         <viewControllerLayoutGuide type="bottom" id="acr-JM-Kkx"/>
@@ -21,7 +21,12 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Events" id="i6U-NO-9a3">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NOa-iE-aB5"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="Uqm-tK-ABR"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NOa-iE-aB5">
+                                            <connections>
+                                                <segue destination="UD7-36-Csd" kind="presentation" modalTransitionStyle="flipHorizontal" id="HUb-cW-gNY"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -58,11 +63,60 @@
                     </view>
                     <connections>
                         <outlet property="eventsTable" destination="bL1-9K-2eM" id="z44-3h-ja3"/>
+                        <outlet property="menuButton" destination="Uqm-tK-ABR" id="R3h-U0-2RD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIb-Ip-0L5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="177" y="-15"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tYw-ra-qcE">
+            <objects>
+                <viewController id="UD7-36-Csd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TZB-Um-zVl"/>
+                        <viewControllerLayoutGuide type="bottom" id="veJ-Mi-DS2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KE2-jK-Pde">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZs-YG-Z7W">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Add New Event" id="G2d-eV-bjF">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4sA-M3-y9q">
+                                            <connections>
+                                                <segue destination="EgF-P2-0nW" kind="presentation" modalTransitionStyle="flipHorizontal" id="m2C-CF-qT1"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bah-hc-wkH">
+                                <rect key="frame" x="260" y="538" width="81" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="rZs-YG-Z7W" secondAttribute="trailing" constant="-16" id="ARV-NQ-0lH"/>
+                            <constraint firstItem="veJ-Mi-DS2" firstAttribute="top" secondItem="bah-hc-wkH" secondAttribute="bottom" constant="16" id="ElS-zy-DTR"/>
+                            <constraint firstItem="rZs-YG-Z7W" firstAttribute="top" secondItem="TZB-Um-zVl" secondAttribute="bottom" id="fTh-eY-jMz"/>
+                            <constraint firstItem="rZs-YG-Z7W" firstAttribute="leading" secondItem="KE2-jK-Pde" secondAttribute="leadingMargin" constant="-16" id="i4X-vh-Njd"/>
+                            <constraint firstAttribute="centerX" secondItem="bah-hc-wkH" secondAttribute="centerX" id="m61-db-2m3"/>
+                            <constraint firstAttribute="centerX" secondItem="rZs-YG-Z7W" secondAttribute="centerX" id="wce-y6-3HL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="09T-nj-ixb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qdJ-9i-KpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="960" y="109"/>
         </scene>
     </scenes>
 </document>

@@ -1,5 +1,5 @@
 //
-//  TableViewController.swift
+//  EventsTableViewController.swift
 //  Events
 //
 //  Created by Andrew Titus on 3/27/15.
@@ -8,8 +8,9 @@
 
 import UIKit
 
-class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EventsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var eventsTable: UITableView!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     var eventNames:[String] = []
     
@@ -49,6 +50,16 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.textLabel?.text = (self.eventNames.isEmpty) ? "" : self.eventNames[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
     }
 }
 

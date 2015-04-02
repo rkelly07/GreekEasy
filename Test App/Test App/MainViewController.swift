@@ -12,8 +12,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    @IBOutlet var tempToDoButton: UIButton!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,12 +29,6 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func ToDoClicked(sender: AnyObject) {
-        
-    }
-    
-    
 
     /*
     // MARK: - Navigation
