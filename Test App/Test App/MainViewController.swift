@@ -12,8 +12,82 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
+    @IBOutlet var tempToDoButton: UIButton!
+    
+    var allUsers : [PFUser] = []
+    var allChores : [PFObject] = []
+    var allEvents : [PFObject] = []
+    var allReimbursements : [PFObject] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        //TODO temporary dummy login
+        PFUser.logInWithUsernameInBackground("tylerf", password:"greek") {
+            (user: PFUser!, error: NSError!) -> Void in
+            if user != nil {
+                println(PFUser.currentUser())
+            } else {
+                println("error")
+            }
+        }
+        
+        //get all users and add to allUsers array
+        var usersQuery = PFQuery(className: "_User")
+        usersQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
+        usersQuery.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                for object in objects {
+                    self.allUsers.append(object as PFUser)
+                    println(object)
+                }
+            } else {
+                NSLog(error.description)
+            }
+        }
+        
+        var choresQuery = PFQuery(className: "Chores")
+        choresQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
+        choresQuery.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                for object in objects {
+                    self.allChores.append(object as PFObject)
+                    println(object)
+                }
+            } else {
+                NSLog(error.description)
+            }
+        }
+        
+        var eventsQuery = PFQuery(className: "_User")
+        eventsQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
+        eventsQuery.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                for object in objects {
+                    self.allEvents.append(object as PFObject)
+                    println(object)
+                }
+            } else {
+                NSLog(error.description)
+            }
+        }
+        
+        var reimbursementsQuery = PFQuery(className: "_User")
+        reimbursementsQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
+        reimbursementsQuery.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                for object in objects {
+                    self.allEvents.append(object as PFObject)
+                    println(object)
+                }
+            } else {
+                NSLog(error.description)
+            }
+        }
         
         self.revealViewController().revealToggle(nil)
 
