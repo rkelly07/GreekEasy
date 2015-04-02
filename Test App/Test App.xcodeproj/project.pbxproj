@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE4D69321ACC405A00DB8831 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69311ACC405A00DB8831 /* Bolts.framework */; };
-		AE4D69341ACC406A00DB8831 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69331ACC406A00DB8831 /* Parse.framework */; };
 		AE4D69401ACC40C100DB8831 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */; };
 		AE4D69411ACC40C100DB8831 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69361ACC40C100DB8831 /* CFNetwork.framework */; };
 		AE4D69421ACC40C100DB8831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69371ACC40C100DB8831 /* CoreGraphics.framework */; };
@@ -27,6 +25,8 @@
 		AED289281AB0DE8300F429F1 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED289271AB0DE8300F429F1 /* SWRevealViewController.m */; };
 		AED2892E1AB0E7CA00F429F1 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED2892D1AB0E7CA00F429F1 /* MenuTableViewController.swift */; };
 		AED289301AB0ECB300F429F1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED2892F1AB0ECB300F429F1 /* MainViewController.swift */; };
+		B34C12E21ACCF39E0014BE2D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B34C12E01ACCF39E0014BE2D /* Bolts.framework */; };
+		B34C12E31ACCF39F0014BE2D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B34C12E11ACCF39E0014BE2D /* Parse.framework */; };
 		B3813C3E1ABCCF1800DBAF63 /* ToDoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C3D1ABCCF1700DBAF63 /* ToDoStoryboard.storyboard */; };
 		B3813C451ABCD16500DBAF63 /* EventsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C441ABCD16500DBAF63 /* EventsStoryboard.storyboard */; };
 		B3813C471ABCD17500DBAF63 /* MealsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */; };
@@ -46,8 +46,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AE4D69311ACC405A00DB8831 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../parse-library-1.6.5/Bolts.framework"; sourceTree = "<group>"; };
-		AE4D69331ACC406A00DB8831 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../parse-library-1.6.5/Parse.framework"; sourceTree = "<group>"; };
 		AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AE4D69361ACC40C100DB8831 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AE4D69371ACC40C100DB8831 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,6 +70,8 @@
 		AED289271AB0DE8300F429F1 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ../../SWRevealViewController/SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		AED2892D1AB0E7CA00F429F1 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		AED2892F1AB0ECB300F429F1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B34C12E01ACCF39E0014BE2D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/parse-library-1.7.0/Bolts.framework"; sourceTree = "<group>"; };
+		B34C12E11ACCF39E0014BE2D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Downloads/parse-library-1.7.0/Parse.framework"; sourceTree = "<group>"; };
 		B3813C3D1ABCCF1700DBAF63 /* ToDoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ToDoStoryboard.storyboard; sourceTree = "<group>"; };
 		B3813C441ABCD16500DBAF63 /* EventsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventsStoryboard.storyboard; sourceTree = "<group>"; };
 		B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MealsStoryboard.storyboard; sourceTree = "<group>"; };
@@ -93,10 +93,10 @@
 				AE4D69451ACC40C100DB8831 /* libz.dylib in Frameworks */,
 				AE4D69461ACC40C100DB8831 /* MobileCoreServices.framework in Frameworks */,
 				AE4D69471ACC40C100DB8831 /* QuartzCore.framework in Frameworks */,
+				B34C12E21ACCF39E0014BE2D /* Bolts.framework in Frameworks */,
 				AE4D69481ACC40C100DB8831 /* Security.framework in Frameworks */,
+				B34C12E31ACCF39F0014BE2D /* Parse.framework in Frameworks */,
 				AE4D694A1ACC40C100DB8831 /* SystemConfiguration.framework in Frameworks */,
-				AE4D69341ACC406A00DB8831 /* Parse.framework in Frameworks */,
-				AE4D69321ACC405A00DB8831 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +113,8 @@
 		AE4D69301ACC404000DB8831 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B34C12E01ACCF39E0014BE2D /* Bolts.framework */,
+				B34C12E11ACCF39E0014BE2D /* Parse.framework */,
 				AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */,
 				AE4D69361ACC40C100DB8831 /* CFNetwork.framework */,
 				AE4D69371ACC40C100DB8831 /* CoreGraphics.framework */,
@@ -123,8 +125,6 @@
 				AE4D693C1ACC40C100DB8831 /* QuartzCore.framework */,
 				AE4D693D1ACC40C100DB8831 /* Security.framework */,
 				AE4D693F1ACC40C100DB8831 /* SystemConfiguration.framework */,
-				AE4D69331ACC406A00DB8831 /* Parse.framework */,
-				AE4D69311ACC405A00DB8831 /* Bolts.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -489,6 +489,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/atitus/parse-library-1.6.5",
+					"/Users/TylerFinkelstein/Downloads/parse-library-1.7.0",
 				);
 				INFOPLIST_FILE = "Test App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -508,6 +509,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/atitus/parse-library-1.6.5",
+					"/Users/TylerFinkelstein/Downloads/parse-library-1.7.0",
 				);
 				INFOPLIST_FILE = "Test App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
