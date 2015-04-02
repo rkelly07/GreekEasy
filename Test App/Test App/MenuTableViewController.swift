@@ -58,12 +58,10 @@ class MenuTableViewController: UITableViewController {
             presentViewController(vc, animated: false, completion: nil)
             break
         case 1: // To-Dos
-            /*
-            var storyboard = UIStoryboard(name: "To Do", bundle: nil)
-            var vc = storyboard.instantiateViewControllerWithIdentifier("todo") as UIViewController
-            presentViewController(vc, animated: false, completion: nil)
-            */
-            println("awaiting push")
+            var storyboard2 = UIStoryboard(name: "ToDoStoryboard", bundle: nil)
+            var vc2 = storyboard2.instantiateViewControllerWithIdentifier("todo") as UIViewController
+            println(vc2)
+            presentViewController(vc2, animated: false, completion: nil)
             break
         case 2: // Reimburse
             println("implement yo shit")
