@@ -20,8 +20,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="ZqO-VE-hsM"/>
                     <connections>
-                        <segue destination="wv9-lc-tM1" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="Hcn-D9-Xm1"/>
-                        <segue destination="Oxp-pS-8yr" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="GpX-DF-wAh"/>
+                        <segue destination="wv9-lc-tM1" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="80b-Jl-X1Z"/>
+                        <segue destination="Oxp-pS-8yr" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="I0Q-Is-Hvz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -66,7 +66,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="menuButton" destination="7b5-tI-K1z" id="XQd-CM-1mC"/>
+                        <outlet property="menuButton" destination="7b5-tI-K1z" id="IIL-ub-um1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80q-ls-nYN" userLabel="First Responder" sceneMemberID="firstResponder"/>

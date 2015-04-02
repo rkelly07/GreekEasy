@@ -9,7 +9,6 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     var allUsers : [PFUser] = []
@@ -21,6 +20,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         //TODO temporary dummy login
+        /*
         PFUser.logInWithUsernameInBackground("tylerf", password:"greek") {
             (user: PFUser!, error: NSError!) -> Void in
             if user != nil {
@@ -86,6 +86,7 @@ class MainViewController: UIViewController {
                 NSLog(error.description)
             }
         }
+        */
         
         self.revealViewController().revealToggle(nil)
 
