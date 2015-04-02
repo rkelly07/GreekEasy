@@ -12,8 +12,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    @IBOutlet var tempToDoButton: UIButton!
-    
     var allUsers : [PFUser] = []
     var allChores : [PFObject] = []
     var allEvents : [PFObject] = []
