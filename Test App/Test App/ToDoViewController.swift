@@ -17,76 +17,60 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
     var allEvents : [PFObject] = []
     var allReimbursements : [PFObject] = []
     var currentUser : PFUser = PFUser.currentUser()
+    var sectionTitles : [String]! = []
     
     @IBOutlet var goToChoreManager: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //hide chore manager button based on user role
+        if (currentUser.objectForKey("houseManager") as Bool) == true {
+            println("currentuser is housemanager")
+            goToChoreManager.hidden = false
+            goToChoreManager.backgroundColor = UIColor.yellowColor()
+        } else {
+            println("currentuser is not housemanager")
+            goToChoreManager.hidden = true
+        }
+        
         println(currentUser.objectForKey("houseID"))
         
         //get all users and add to allUsers array
+        println("Before usersQuery")
         var usersQuery = PFQuery(className: "_User")
+        println("Right after usersQuery")
         usersQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
+        println("Right after whereKey")
         usersQuery.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
+                println("Inside find objects block")
                 self.allUsers = objects as [PFUser]!
+                self.populateSectionTitlesArray()
+                println("going to print user array")
                 println(self.allUsers)
-//                for object in objects {
-//                    self.allUsers.append(object as PFUser)
-//                    println(object)
-//                }
-            } else {
-                NSLog(error.description)
-            }
-        }
-        
-        var choresQuery = PFQuery(className: "ToDo")
-        choresQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
-        choresQuery.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]!, error: NSError!) -> Void in
-            if error == nil {
-                for object in objects {
-                    self.allChores.append(object as PFObject)
-                    //println(object)
+                var choresQuery = PFQuery(className: "ToDo")
+                choresQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
+                choresQuery.findObjectsInBackgroundWithBlock {
+                    (objects: [AnyObject]!, error: NSError!) -> Void in
+                    if error == nil {
+                        self.allChores = objects as [PFObject]!
+                        self.tableView.reloadData()
+                    } else {
+                        NSLog(error.description)
+                    }
                 }
             } else {
+                println("In userquery error")
                 NSLog(error.description)
             }
         }
-        
-        var eventsQuery = PFQuery(className: "_User")
-        eventsQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
-        eventsQuery.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]!, error: NSError!) -> Void in
-            if error == nil {
-                for object in objects {
-                    self.allEvents.append(object as PFObject)
-                    //println(object)
-                }
-            } else {
-                NSLog(error.description)
-            }
-        }
-        
-        var reimbursementsQuery = PFQuery(className: "_User")
-        reimbursementsQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
-        reimbursementsQuery.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]!, error: NSError!) -> Void in
-            if error == nil {
-                for object in objects {
-                    self.allEvents.append(object as PFObject)
-                    //println(object)
-                }
-            } else {
-                NSLog(error.description)
-            }
-        }
+        println("before reload data after usersquery")
 
     }
     
-    var sectionTitles : [String]! = []
+    //TODO move current user to top
     
     func populateSectionTitlesArray() {
         
@@ -94,19 +78,19 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         //println(self.allChores)
         
         for person in self.allUsers {
-            println("self.allUsers is not empty")
+            //println("self.allUsers is not empty")
             var firstName : String = person.objectForKey("firstName") as String
             var lastName : String = person.objectForKey("lastName") as String
             var fullName : String = firstName + " " + lastName
             self.sectionTitles.append(fullName)
+            //println(fullName)
         }
-        self.sectionTitles.append("Fake Test User")
+        println("self.allUsers is:")
+        println(self.allUsers)
+        println("sectionTitles is:")
+        println(self.sectionTitles)
+        //self.sectionTitles.append("Fake Test User")
         self.sectionTitles = sorted(sectionTitles, {$0 < $1})
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //how many sections in the chores table = number of people
@@ -114,10 +98,12 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - Table view data source
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        populateSectionTitlesArray()
+        //populateSectionTitlesArray()
+        println("In numberOfSectionsInTableView")
         println("Number of sections is " + String(sectionTitles.count))
-        //return sectionTitles.count
-        return 1
+        println(sectionTitles)
+        return sectionTitles.count
+        //return 1
     }
     
     func findUserByFullName(userFullName : String) -> PFUser {
@@ -131,6 +117,7 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        println("In numberOfRowsInSection")
         //TODO I don't know if this userForSection declaration is okay
         var userForSection : PFUser = PFUser()
         var userFullName : String = sectionTitles[section]
@@ -142,10 +129,10 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        }
         
         var userChores : [Int] = []
-        //userChores = userForSection.objectForKey("currentChores") as [Int]
-        //return userChores.count
+        userChores = userForSection.objectForKey("currentChores") as [Int]
+        return userChores.count
 
-        return 5
+        //return 5
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -153,79 +140,89 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
         
         //TODO I don't know if this userForSection declaration is okay
-//        var userForSection : PFUser = PFUser()
-//        var userFullName : String = sectionTitles[indexPath.section]
-//        userForSection = findUserByFullName(userFullName)
-//
-//        var userChores : [Int] = []
-//        userChores = userForSection.objectForKey("currentChores") as [Int]
-//        var specificChoreID : Int = userChores[indexPath.row]
-//        //TODO I don't know if this userForSection declaration is okay
-//        var specificChore : PFObject = PFObject()
-//        
-//        
-//        var findChore = PFQuery(className: "ToDo")
-//        findChore.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
-//        findChore.whereKey("choreID", equalTo:specificChoreID)
-//        findChore.findObjectsInBackgroundWithBlock {
-//            (objects: [AnyObject]!, error: NSError!) -> Void in
-//            if error == nil {
-//                for object in objects {
-//                    specificChore = object as PFObject
-//                    //println(object)
-//                }
-//            } else {
-//                NSLog(error.description)
-//            }
-//        }
-//        
-//        var choreTitle : String = specificChore.objectForKey("description") as String
-//        var chorePoints : Int = specificChore.objectForKey("points") as Int
-//        //TODO should this be Bool or Boolean?
-//        var choreStatus : Bool = specificChore.objectForKey("doneOrNot") as Bool
-//        var otherPeopleOnChore : [PFUser] = []
-//        
-//        //go through other users and see who has the same choreID
-//        for person in self.allUsers {
-//            if (person.objectForKey("currentChores") as NSArray).containsObject(specificChoreID) {
-//                otherPeopleOnChore.append(person)
-//            }
-//        }
-//        
-//        var otherPeopleFullNames : [String] = []
-//        for person in otherPeopleOnChore {
-//            var personFirstName : String = person.objectForKey("firstName") as String
-//            var personLastName : String = person.objectForKey("lastName") as String
-//            otherPeopleFullNames.append(personFirstName + " " + personLastName)
-//        }
-//        var otherPeopleNamesString : String = ""
-//        for name in otherPeopleFullNames {
-//            if otherPeopleNamesString == "" {
-//                otherPeopleNamesString = otherPeopleNamesString + name
-//            } else {
-//                otherPeopleNamesString = otherPeopleNamesString + ", " + name
-//            }
-//        }
-//        //TODO if otherPeopleFullNames is empty that label shouldn't be displayed and cell resized
-//        
-//        (cell.contentView.viewWithTag(11) as UILabel).text = choreTitle
-//        (cell.contentView.viewWithTag(11) as UILabel).font = UIFont.boldSystemFontOfSize(18.0)
-//        (cell.contentView.viewWithTag(12) as UILabel).text = "test"
-//        (cell.contentView.viewWithTag(13) as UILabel).text = otherPeopleNamesString
-//        
-//        var buttonInCell : UIButton = (cell.contentView.viewWithTag(111) as UIButton)
-//        var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
-//        var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
-//        if choreStatus == true {
-//            buttonInCell.setImage(checked_checkbox_image, forState: .Normal)
-//        } else {
-//            buttonInCell.setImage(unchecked_checkbox_image, forState: .Normal)
-//        }
+        var userForSection : PFUser = PFUser()
+        var userFullName : String = sectionTitles[indexPath.section]
+        userForSection = findUserByFullName(userFullName)
+        println("userForSection is ")
+        println(userForSection)
+
+        var userChores : [Int] = []
+        userChores = userForSection.objectForKey("currentChores") as [Int]
+        var specificChoreID : Int = userChores[indexPath.row]
+        //TODO I don't know if this userForSection declaration is okay
+        var specificChore : PFObject?
+        println("SpecificChoreID is ")
+        println(specificChoreID)
         
-        (cell.contentView.viewWithTag(11) as UILabel).text = "test"
+        for chore in self.allChores {
+            if (chore.objectForKey("ID") as Int) == specificChoreID {
+                specificChore = chore
+            }
+        }
+        
+        //TODO fix finding specificChore
+        println("specific chore is ")
+        println(specificChore)
+        
+        var choreTitle : String = specificChore!.objectForKey("description") as String
+        var chorePoints : Int = specificChore!.objectForKey("points") as Int
+        //TODO should this be Bool or Boolean?
+        var choreStatus : Bool = specificChore!.objectForKey("doneOrNot") as Bool
+        var otherPeopleOnChore : [PFUser] = []
+        
+        //go through other users and see who has the same choreID
+        for person in self.allUsers {
+            if (person.objectForKey("currentChores") as NSArray).containsObject(specificChoreID) {
+                //need to exclude person whose section it is
+                var firstName : String = person.objectForKey("firstName") as String
+                var lastName : String = person.objectForKey("lastName") as String
+                var fullName : String = firstName + " " + lastName
+                if fullName != sectionTitles[indexPath.section] {
+                    otherPeopleOnChore.append(person)
+                }
+            }
+        }
+        
+        var otherPeopleFullNames : [String] = []
+        for person in otherPeopleOnChore {
+            var personFirstName : String = person.objectForKey("firstName") as String
+            var personLastName : String = person.objectForKey("lastName") as String
+            otherPeopleFullNames.append(personFirstName + " " + personLastName)
+        }
+        var otherPeopleNamesString : String = ""
+        for name in otherPeopleFullNames {
+            if otherPeopleNamesString == "" {
+                otherPeopleNamesString = otherPeopleNamesString + name
+            } else {
+                otherPeopleNamesString = otherPeopleNamesString + ", " + name
+            }
+        }
+        //TODO if otherPeopleFullNames is empty that label shouldn't be displayed and cell resized
+        //temporary solution for too long titles
+        var numChars : Int = 25
+        if countElements(choreTitle) > numChars {
+            choreTitle = (choreTitle as NSString).substringToIndex(numChars) + String("...")
+        }
+        (cell.contentView.viewWithTag(11) as UILabel).text = choreTitle
         (cell.contentView.viewWithTag(11) as UILabel).font = UIFont.boldSystemFontOfSize(18.0)
-        (cell.contentView.viewWithTag(12) as UILabel).text = "test"
-        (cell.contentView.viewWithTag(13) as UILabel).text = "other peeps"
+        (cell.contentView.viewWithTag(12) as UILabel).text = "Points: " + String(chorePoints)
+        
+        if otherPeopleNamesString != "" {
+            (cell.contentView.viewWithTag(13) as UILabel).text = "With: " + String(otherPeopleNamesString)
+        } else {
+            (cell.contentView.viewWithTag(13) as UILabel).text = ""
+        }
+        
+        var buttonInCell : UIButton = (cell.contentView.viewWithTag(111) as UIButton)
+        var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
+        var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
+        if choreStatus == true {
+            println("chore is done")
+            buttonInCell.setImage(checked_checkbox_image, forState: .Normal)
+        } else {
+            println("chore is not done")
+            buttonInCell.setImage(unchecked_checkbox_image, forState: .Normal)
+        }
         
         return cell
     }
@@ -245,38 +242,34 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         userChores = userForSection.objectForKey("currentChores") as [Int]
         var specificChoreID : Int = userChores[indexPath.row]
         //TODO I don't know if this userForSection declaration is okay
-        var specificChore : PFObject = PFObject()
+        var specificChore : PFObject?
 
-        var findChore = PFQuery(className: "ToDo")
-        findChore.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
-        findChore.whereKey("choreID", equalTo:specificChoreID)
-        findChore.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]!, error: NSError!) -> Void in
-            if error == nil {
-                for object in objects {
-                    specificChore = object as PFObject
-                    //println(object)
-                }
-            } else {
-                NSLog(error.description)
+        for chore in self.allChores {
+            if (chore.objectForKey("ID") as Int) == specificChoreID {
+                specificChore = chore
             }
         }
         
-        var choreStatus : Bool = specificChore.objectForKey("doneOrNot") as Bool
+        var choreStatus : Bool = specificChore!.objectForKey("doneOrNot") as Bool
         
         //change chorestatus - need to make sure this saves on parse
         if choreStatus == false {
-            choreStatus = true
+            //choreStatus = true
+            specificChore!["doneOrNot"] = true
+            tableView.reloadData()
         } else {
-            choreStatus = false
+            //choreStatus = false
+            specificChore!["doneOrNot"] = false
+            tableView.reloadData()
         }
-        specificChore.saveEventually()
+        println(specificChore)
+        specificChore!.saveEventually()
     }
     
     
     //gives table sections titles = person's name and points
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "title"
+        return self.sectionTitles[section]
     }
 
     //says you can edit a cell in the table. Only true if role = house manager
