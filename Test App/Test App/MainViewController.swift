@@ -16,8 +16,6 @@ class MainViewController: UIViewController {
     var allEvents : [PFObject] = []
     var allReimbursements : [PFObject] = []
     
-    var cache = NSCache()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +30,6 @@ class MainViewController: UIViewController {
         }
         
         //get all users and add to allUsers array
-        /*
         var usersQuery = PFQuery(className: "_User")
         usersQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
         usersQuery.findObjectsInBackgroundWithBlock {
