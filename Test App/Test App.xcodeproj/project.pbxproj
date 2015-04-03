@@ -29,6 +29,7 @@
 		AED289301AB0ECB300F429F1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED2892F1AB0ECB300F429F1 /* MainViewController.swift */; };
 		B325B4C71ACD74FC00214401 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B325B4C51ACD74FC00214401 /* Bolts.framework */; };
 		B325B4C81ACD74FC00214401 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B325B4C61ACD74FC00214401 /* Parse.framework */; };
+		B33092171ACEE36C004A5718 /* ManualAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33092161ACEE36C004A5718 /* ManualAssignmentViewController.swift */; };
 		B3813C3E1ABCCF1800DBAF63 /* ToDoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C3D1ABCCF1700DBAF63 /* ToDoStoryboard.storyboard */; };
 		B3813C471ABCD17500DBAF63 /* MealsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */; };
 		B3813C491ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C481ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard */; };
@@ -75,6 +76,7 @@
 		AED2892F1AB0ECB300F429F1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B325B4C51ACD74FC00214401 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/parse-library-1.7.0/Bolts.framework"; sourceTree = "<group>"; };
 		B325B4C61ACD74FC00214401 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Downloads/parse-library-1.7.0/Parse.framework"; sourceTree = "<group>"; };
+		B33092161ACEE36C004A5718 /* ManualAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualAssignmentViewController.swift; sourceTree = "<group>"; };
 		B3813C3D1ABCCF1700DBAF63 /* ToDoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ToDoStoryboard.storyboard; sourceTree = "<group>"; };
 		B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MealsStoryboard.storyboard; sourceTree = "<group>"; };
 		B3813C481ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShoppingListStoryboard.storyboard; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			children = (
 				B3813C3D1ABCCF1700DBAF63 /* ToDoStoryboard.storyboard */,
 				B3813C4C1ABCD45600DBAF63 /* ToDoViewController.swift */,
+				B33092161ACEE36C004A5718 /* ManualAssignmentViewController.swift */,
 			);
 			name = "To Do";
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			files = (
 				B3813C4D1ABCD45600DBAF63 /* ToDoViewController.swift in Sources */,
 				AE4D69501ACCF83400DB8831 /* EventsTableViewController.swift in Sources */,
+				B33092171ACEE36C004A5718 /* ManualAssignmentViewController.swift in Sources */,
 				AED2892E1AB0E7CA00F429F1 /* MenuTableViewController.swift in Sources */,
 				AED289051AB0DE3400F429F1 /* AppDelegate.swift in Sources */,
 				AED289281AB0DE8300F429F1 /* SWRevealViewController.m in Sources */,
