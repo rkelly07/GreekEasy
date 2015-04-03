@@ -8,21 +8,30 @@
 
 import UIKit
 
-class EventsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var eventsTable: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var eventNames:[String] = []
+    var menu:SWRevealViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.activityIndicator.startAnimating()
         self.activityIndicator.hidden = false
+        
+        menuButton.target = self.revealViewController()
+        menuButton.action = "revealToggle:"
+        
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+
+        // Load events
 
         var query = PFQuery(className: "Event")
-        query.whereKey("houseID", equalTo: PFUser.currentUser()["houseID"])
+        var user = PFUser.currentUser()
+        query.whereKey("houseID", equalTo: user["houseID"])
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {

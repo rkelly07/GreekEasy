@@ -58,8 +58,6 @@ class EventAddController: UIViewController, UITextFieldDelegate {
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
         }
-        
-        
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

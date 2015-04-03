@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EgF-P2-0nW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KbH-aN-S7c">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Events Table View Controller-->
+        <!--Reveal View Controller-->
+        <scene sceneID="uy8-E1-Q1m">
+            <objects>
+                <viewController id="KbH-aN-S7c" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L3a-DH-OW1"/>
+                        <viewControllerLayoutGuide type="bottom" id="hvG-bZ-cs9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zzq-bz-qEd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="EgF-P2-0nW" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="vB4-x5-PtK"/>
+                        <segue destination="aCH-33-ZCB" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="a90-cI-0hx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U2F-X9-Vh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-586" y="-15"/>
+        </scene>
+        <!--Events Menu Controller-->
+        <scene sceneID="VDV-HZ-qpJ">
+            <objects>
+                <tableViewController id="aCH-33-ZCB" customClass="EventsMenuController" customModule="Test_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="CRu-4H-otZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="RrW-L0-zCm">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RrW-L0-zCm" id="Xsm-At-KvA">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aCH-33-ZCB" id="PNC-tH-NXe"/>
+                            <outlet property="delegate" destination="aCH-33-ZCB" id="zS2-1t-jYV"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H2o-3Y-hcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="177" y="-767"/>
+        </scene>
+        <!--Events View Controller-->
         <scene sceneID="kS3-TK-UfO">
             <objects>
-                <viewController storyboardIdentifier="events" id="EgF-P2-0nW" customClass="EventsTableViewController" customModule="Test_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="events" id="EgF-P2-0nW" customClass="EventsViewController" customModule="Test_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5f5-Xj-Bef"/>
                         <viewControllerLayoutGuide type="bottom" id="acr-JM-Kkx"/>
@@ -24,7 +72,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Menu" id="Uqm-tK-ABR"/>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NOa-iE-aB5">
                                             <connections>
-                                                <segue destination="UD7-36-Csd" kind="presentation" modalTransitionStyle="crossDissolve" id="HUb-cW-gNY"/>
+                                                <segue destination="UD7-36-Csd" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Fcd-wQ-0mz"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -94,7 +142,7 @@
                                     <navigationItem title="Add New Event" id="G2d-eV-bjF">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4sA-M3-y9q">
                                             <connections>
-                                                <segue destination="EgF-P2-0nW" kind="presentation" modalTransitionStyle="crossDissolve" id="m2C-CF-qT1"/>
+                                                <segue destination="EgF-P2-0nW" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="3YF-2n-7Wk"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -357,7 +405,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdJ-9i-KpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="277"/>
+            <point key="canvasLocation" x="934" y="-15"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3YF-2n-7Wk"/>
+    </inferredMetricsTieBreakers>
 </document>
