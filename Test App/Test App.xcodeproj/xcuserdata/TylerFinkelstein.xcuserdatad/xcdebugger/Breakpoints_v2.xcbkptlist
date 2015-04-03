@@ -74,13 +74,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Test App/ToDoDetailViewController.swift"
-            timestampString = "449789046.542844"
+            timestampString = "449793463.207155"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "pickerView(_:titleForRow:forComponent:)"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "numberOfComponentsInPickerView(_:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Test App/ToDoDetailViewController.swift"
+            timestampString = "449793463.207155"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "ToDoDetailViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

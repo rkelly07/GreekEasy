@@ -170,18 +170,41 @@ class ManualAssignmentViewController: UIViewController {
         tableView.reloadData()
     }
     
+    //TODO do I maybe need to call reload in this?
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "showDetail") {
+            var indexPath : NSIndexPath! = tableView.indexPathForSelectedRow()
+            //need to pass the choreID
+            var specificChore : PFObject = self.allChores[indexPath.row]
+            var specificChoreID : Int = specificChore.objectForKey("ID") as Int
+            var choreTitle : String = specificChore.objectForKey("description") as String
+            var chorePoints : Int = specificChore.objectForKey("points") as Int
+            var detailVC = segue.destinationViewController as ToDoDetailViewController
+            println(detailVC.titleTextField)
+            //passes choreID to the detailVC
+            detailVC.choreObject = specificChore
+            detailVC.chorePoints = chorePoints
+            detailVC.choreID = specificChoreID
+            detailVC.choreTitle = choreTitle
+            detailVC.allUsers = self.allUsers
+            var peopleOnChore : [PFUser] = []
+            //go through other users and see who has the same choreID
+            for person in self.allUsers {
+                if (person.objectForKey("currentChores") as NSArray).containsObject(specificChoreID) {
+                    //need to exclude person whose section it is
+                    var firstName : String = person.objectForKey("firstName") as String
+                    var lastName : String = person.objectForKey("lastName") as String
+                    var fullName : String = firstName + " " + lastName
+                    peopleOnChore.append(person)
+                }
+            }
+            detailVC.peopleOnChore = peopleOnChore
+        }
+    }
+    
     func tableView(tableView : UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         println("Row " + String(indexPath.row) + " selected")
         self.performSegueWithIdentifier("showDetail", sender: self.tableView)
-//        var alertView = UIAlertController(title: "Sample Popup", message: "You clicked cell at index : \(indexPath!.row)", preferredStyle: UIAlertControllerStyle.Alert)
-//        var textField:UITextField = UITextField(frame: CGRectMake(0, 0, 10, 10))
-//        textField.text = "textfield test"
-//        //let textField = alert.textFieldAtIndex(0)
-//        alertView.addTextFieldWithConfigurationHandler(textField as UITextField)
-//        textField.placeholder = "Foo!"
-//        textField.key
-//        alertView.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: nil))
-//        self.presentViewController(alertView, animated: true, completion: nil)
     }
     
     //need to have checkboxes be editable
