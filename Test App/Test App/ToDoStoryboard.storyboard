@@ -30,12 +30,15 @@
                                 <state key="normal" title="Go To Chore Manager">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="o03-K3-lUw" kind="show" id="xWx-Z3-S51"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9Vr-JW-PP5">
                                 <rect key="frame" x="0.0" y="101" width="600" height="546"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="75" id="L2F-BM-jju">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="65" id="L2F-BM-jju">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L2F-BM-jju" id="pzt-Wy-ifb">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -100,7 +103,90 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kkq-jI-6vO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-835" y="-976"/>
+            <point key="canvasLocation" x="-1113" y="-1004"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="j06-3o-S2k">
+            <objects>
+                <viewController id="o03-K3-lUw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S0S-jH-qLB"/>
+                        <viewControllerLayoutGuide type="bottom" id="p9v-4G-M12"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bIx-bw-DVq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mfr-2l-lIr">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Select ToDo Assignment Method" id="fok-CU-bs3">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="cZc-Bh-TqC">
+                                            <connections>
+                                                <segue destination="dxX-5H-pgT" kind="show" id="7iS-Og-OnM"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" id="zT5-gR-68l"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QS3-AU-kHR">
+                                <rect key="frame" x="223" y="120" width="135" height="30"/>
+                                <state key="normal" title="Manual Assignment">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMd-hi-Msg">
+                                <rect key="frame" x="213" y="193" width="155" height="30"/>
+                                <state key="normal" title="Automatic Assignment">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QS3-AU-kHR" firstAttribute="leading" secondItem="bIx-bw-DVq" secondAttribute="leadingMargin" constant="-16" id="3dT-2d-QrP"/>
+                            <constraint firstAttribute="centerX" secondItem="JMd-hi-Msg" secondAttribute="centerX" id="6cf-j6-x4F"/>
+                            <constraint firstAttribute="centerX" secondItem="Mfr-2l-lIr" secondAttribute="centerX" id="8BW-F6-dgB"/>
+                            <constraint firstItem="QS3-AU-kHR" firstAttribute="top" secondItem="Mfr-2l-lIr" secondAttribute="bottom" constant="56" id="8Wt-wq-Y7D"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QS3-AU-kHR" secondAttribute="trailing" constant="-16" id="ApD-Jr-Cx3"/>
+                            <constraint firstItem="QS3-AU-kHR" firstAttribute="top" secondItem="Mfr-2l-lIr" secondAttribute="bottom" constant="56" id="DDs-cr-TCD"/>
+                            <constraint firstItem="JMd-hi-Msg" firstAttribute="top" secondItem="QS3-AU-kHR" secondAttribute="bottom" constant="20" id="JZZ-K7-sZh"/>
+                            <constraint firstAttribute="centerX" secondItem="QS3-AU-kHR" secondAttribute="centerX" id="MEg-fW-F9x"/>
+                            <constraint firstItem="JMd-hi-Msg" firstAttribute="top" secondItem="QS3-AU-kHR" secondAttribute="bottom" id="PZw-JZ-UZ9"/>
+                            <constraint firstItem="JMd-hi-Msg" firstAttribute="top" secondItem="QS3-AU-kHR" secondAttribute="bottom" constant="43" id="Xkq-cu-Pil"/>
+                            <constraint firstItem="QS3-AU-kHR" firstAttribute="leading" secondItem="bIx-bw-DVq" secondAttribute="leadingMargin" constant="-16" id="cyv-dp-jv8"/>
+                            <constraint firstItem="JMd-hi-Msg" firstAttribute="leading" secondItem="bIx-bw-DVq" secondAttribute="leadingMargin" constant="-16" id="jEm-nr-Hiv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JMd-hi-Msg" secondAttribute="trailing" constant="-16" id="k2d-gO-ECz"/>
+                            <constraint firstItem="p9v-4G-M12" firstAttribute="top" secondItem="JMd-hi-Msg" secondAttribute="bottom" id="koe-1Z-Sen"/>
+                            <constraint firstItem="JMd-hi-Msg" firstAttribute="leading" secondItem="bIx-bw-DVq" secondAttribute="leadingMargin" constant="-16" id="mNw-Cd-Gda"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QS3-AU-kHR" secondAttribute="trailing" constant="226" id="pih-Zl-Kd9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JMd-hi-Msg" secondAttribute="trailing" constant="-16" id="vVn-QF-RMu"/>
+                            <constraint firstItem="Mfr-2l-lIr" firstAttribute="top" secondItem="S0S-jH-qLB" secondAttribute="bottom" id="x4Y-yt-yVp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3dT-2d-QrP"/>
+                                <exclude reference="8Wt-wq-Y7D"/>
+                                <exclude reference="ApD-Jr-Cx3"/>
+                                <exclude reference="DDs-cr-TCD"/>
+                                <exclude reference="cyv-dp-jv8"/>
+                                <exclude reference="pih-Zl-Kd9"/>
+                                <exclude reference="JZZ-K7-sZh"/>
+                                <exclude reference="PZw-JZ-UZ9"/>
+                                <exclude reference="Xkq-cu-Pil"/>
+                                <exclude reference="jEm-nr-Hiv"/>
+                                <exclude reference="k2d-gO-ECz"/>
+                                <exclude reference="mNw-Cd-Gda"/>
+                                <exclude reference="vVn-QF-RMu"/>
+                                <exclude reference="koe-1Z-Sen"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bDW-al-u9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-384" y="-1004"/>
         </scene>
     </scenes>
 </document>
