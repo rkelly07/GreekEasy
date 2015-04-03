@@ -11,7 +11,7 @@ import UIKit
 class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //TODO get rid of print statements
-    
+    //TODO adding and deleting chores
     //TODO you can only select or deselect your own chores
     
     @IBOutlet var tableView: UITableView!
