@@ -172,6 +172,7 @@ class ManualAssignmentViewController: UIViewController {
     
     func tableView(tableView : UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         println("Row " + String(indexPath.row) + " selected")
+        self.performSegueWithIdentifier("showDetail", sender: self.tableView)
 //        var alertView = UIAlertController(title: "Sample Popup", message: "You clicked cell at index : \(indexPath!.row)", preferredStyle: UIAlertControllerStyle.Alert)
 //        var textField:UITextField = UITextField(frame: CGRectMake(0, 0, 10, 10))
 //        textField.text = "textfield test"

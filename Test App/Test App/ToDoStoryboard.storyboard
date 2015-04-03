@@ -290,6 +290,7 @@
                     <connections>
                         <outlet property="ResetAllToIncompleteButton" destination="mHL-gh-6LU" id="WVw-e5-lfz"/>
                         <outlet property="tableView" destination="f9z-ip-FDc" id="i2e-eH-uUa"/>
+                        <segue destination="CYS-sd-hpi" kind="show" identifier="showDetail" id="KTl-ID-xmE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kNv-23-mQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -332,13 +333,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cd-sF-ooC">
+                            <pickerView tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cd-sF-ooC">
                                 <rect key="frame" x="214" y="170" width="172" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="172" id="1CD-1u-YDB"/>
                                 </constraints>
                             </pickerView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ip-lA-Ko4">
+                            <pickerView tag="12" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ip-lA-Ko4">
                                 <rect key="frame" x="214" y="340" width="172" height="162"/>
                             </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m4o-Zd-AJk">
@@ -375,6 +376,11 @@
                             <constraint firstItem="m4o-Zd-AJk" firstAttribute="leading" secondItem="tJg-Db-5TH" secondAttribute="trailing" constant="15" id="zrx-4R-8a7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="peoplePickerView" destination="3Ip-lA-Ko4" id="14a-l6-pBu"/>
+                        <outlet property="pointsPickerView" destination="2cd-sF-ooC" id="28N-ea-TqY"/>
+                        <outlet property="titleTextField" destination="m4o-Zd-AJk" id="Fs7-ve-OSh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZ3-aF-wln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
