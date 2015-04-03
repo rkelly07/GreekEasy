@@ -255,6 +255,7 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         var choreStatus : Bool = specificChore!.objectForKey("doneOrNot") as Bool
         
+        //TODO not working for all chores
         //change chorestatus - need to make sure this saves on parse
         if userForSection == currentUser {
             if choreStatus == false {
@@ -262,11 +263,13 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
                 specificChore!["doneOrNot"] = true
                 tableView.reloadData()
                 //TODO update user points - add here
-            } else {
+            } else if choreStatus == true {
                 //choreStatus = false
                 specificChore!["doneOrNot"] = false
                 tableView.reloadData()
                 //TODO update user points - subtract here
+            } else {
+                println("shouldn't get here")
             }
             println(specificChore)
             specificChore!.saveEventually()

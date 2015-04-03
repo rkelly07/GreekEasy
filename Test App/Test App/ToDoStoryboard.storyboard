@@ -221,7 +221,7 @@
                                 <rect key="frame" x="0.0" y="117" width="600" height="546"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="myCell" rowHeight="65" id="CVv-jW-eXk">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="65" id="CVv-jW-eXk">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CVv-jW-eXk" id="1fF-CR-wFX">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -296,8 +296,93 @@
             </objects>
             <point key="canvasLocation" x="287" y="-1004"/>
         </scene>
+        <!--tododetail-->
+        <scene sceneID="6kp-Cz-jap">
+            <objects>
+                <viewController title="tododetail" id="CYS-sd-hpi" customClass="ToDoDetailViewController" customModule="Test_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a3m-7T-KEr"/>
+                        <viewControllerLayoutGuide type="bottom" id="UYR-mn-SPh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B7n-wt-zer">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJY-TW-IgU">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Edit ToDo" id="hkA-Pm-uS6">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="VNW-wi-50B">
+                                            <connections>
+                                                <segue destination="LW9-MT-f3O" kind="show" id="tFu-1Y-6sC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ToDo Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJg-Db-5TH">
+                                <rect key="frame" x="122" y="142" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points (1 min = 1 point)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbO-vL-fup">
+                                <rect key="frame" x="16" y="240" width="183" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cd-sF-ooC">
+                                <rect key="frame" x="214" y="170" width="172" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="172" id="1CD-1u-YDB"/>
+                                </constraints>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ip-lA-Ko4">
+                                <rect key="frame" x="214" y="340" width="172" height="162"/>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m4o-Zd-AJk">
+                                <rect key="frame" x="214" y="138" width="326" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highlight the person or people you'd like to assign to this ToDo." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJa-cI-cdp">
+                                <rect key="frame" x="16" y="328" width="487" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZJY-TW-IgU" firstAttribute="leading" secondItem="B7n-wt-zer" secondAttribute="leading" id="3Dc-2I-gk0"/>
+                            <constraint firstItem="BbO-vL-fup" firstAttribute="trailing" secondItem="tJg-Db-5TH" secondAttribute="trailing" id="3Gc-P5-9Dq"/>
+                            <constraint firstAttribute="trailing" secondItem="ZJY-TW-IgU" secondAttribute="trailing" id="Hli-yD-tTF"/>
+                            <constraint firstItem="ZJY-TW-IgU" firstAttribute="top" secondItem="a3m-7T-KEr" secondAttribute="bottom" id="KJR-Z6-Qtu"/>
+                            <constraint firstItem="m4o-Zd-AJk" firstAttribute="leading" secondItem="2cd-sF-ooC" secondAttribute="leading" id="YuJ-M6-FcT"/>
+                            <constraint firstItem="2cd-sF-ooC" firstAttribute="trailing" secondItem="3Ip-lA-Ko4" secondAttribute="trailing" id="ZAs-Yz-c6I"/>
+                            <constraint firstItem="2cd-sF-ooC" firstAttribute="leading" secondItem="3Ip-lA-Ko4" secondAttribute="leading" id="cpd-Sb-boK"/>
+                            <constraint firstItem="m4o-Zd-AJk" firstAttribute="top" secondItem="ZJY-TW-IgU" secondAttribute="bottom" constant="74" id="eFG-GM-da8"/>
+                            <constraint firstItem="BbO-vL-fup" firstAttribute="top" secondItem="tJg-Db-5TH" secondAttribute="bottom" constant="77" id="fWz-4J-f0O"/>
+                            <constraint firstItem="vJa-cI-cdp" firstAttribute="leading" secondItem="BbO-vL-fup" secondAttribute="leading" id="gOg-mJ-Qu7"/>
+                            <constraint firstItem="2cd-sF-ooC" firstAttribute="top" secondItem="m4o-Zd-AJk" secondAttribute="bottom" constant="2" id="ktl-HG-Q1p"/>
+                            <constraint firstItem="ZJY-TW-IgU" firstAttribute="centerX" secondItem="2cd-sF-ooC" secondAttribute="centerX" id="mpC-9o-OMz"/>
+                            <constraint firstItem="vJa-cI-cdp" firstAttribute="top" secondItem="BbO-vL-fup" secondAttribute="bottom" constant="67" id="mpm-OQ-PTW"/>
+                            <constraint firstItem="vJa-cI-cdp" firstAttribute="leading" secondItem="B7n-wt-zer" secondAttribute="leadingMargin" id="rOP-JZ-eMw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="m4o-Zd-AJk" secondAttribute="trailing" constant="44" id="up5-zh-ipc"/>
+                            <constraint firstItem="3Ip-lA-Ko4" firstAttribute="top" secondItem="2cd-sF-ooC" secondAttribute="bottom" constant="8" symbolic="YES" id="yso-C2-JBw"/>
+                            <constraint firstItem="tJg-Db-5TH" firstAttribute="top" secondItem="ZJY-TW-IgU" secondAttribute="bottom" constant="78" id="zbR-ZP-qix"/>
+                            <constraint firstItem="m4o-Zd-AJk" firstAttribute="leading" secondItem="tJg-Db-5TH" secondAttribute="trailing" constant="15" id="zrx-4R-8a7"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZ3-aF-wln" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="963" y="-1004"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="imr-Eu-bHI"/>
+        <segue reference="tFu-1Y-6sC"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -170,6 +170,19 @@ class ManualAssignmentViewController: UIViewController {
         tableView.reloadData()
     }
     
+    func tableView(tableView : UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        println("Row " + String(indexPath.row) + " selected")
+//        var alertView = UIAlertController(title: "Sample Popup", message: "You clicked cell at index : \(indexPath!.row)", preferredStyle: UIAlertControllerStyle.Alert)
+//        var textField:UITextField = UITextField(frame: CGRectMake(0, 0, 10, 10))
+//        textField.text = "textfield test"
+//        //let textField = alert.textFieldAtIndex(0)
+//        alertView.addTextFieldWithConfigurationHandler(textField as UITextField)
+//        textField.placeholder = "Foo!"
+//        textField.key
+//        alertView.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: nil))
+//        self.presentViewController(alertView, animated: true, completion: nil)
+    }
+    
     //need to have checkboxes be editable
     func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
         return true
