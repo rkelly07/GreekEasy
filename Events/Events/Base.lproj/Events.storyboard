@@ -24,7 +24,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Menu" id="Uqm-tK-ABR"/>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NOa-iE-aB5">
                                             <connections>
-                                                <segue destination="UD7-36-Csd" kind="presentation" modalTransitionStyle="flipHorizontal" id="HUb-cW-gNY"/>
+                                                <segue destination="UD7-36-Csd" kind="presentation" modalTransitionStyle="crossDissolve" id="HUb-cW-gNY"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -47,6 +47,9 @@
                                     <outlet property="delegate" destination="EgF-P2-0nW" id="Xdv-ZP-jNT"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="IbN-5S-2HT">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -57,11 +60,14 @@
                             <constraint firstItem="bL1-9K-2eM" firstAttribute="top" secondItem="A0Y-Oq-n8v" secondAttribute="bottom" id="WY7-8r-1zN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bL1-9K-2eM" secondAttribute="trailing" constant="-16" id="Xhr-Vx-jbe"/>
                             <constraint firstAttribute="centerX" secondItem="bL1-9K-2eM" secondAttribute="centerX" id="bho-Ob-Q1w"/>
+                            <constraint firstAttribute="centerY" secondItem="IbN-5S-2HT" secondAttribute="centerY" id="blG-0N-4nc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="A0Y-Oq-n8v" secondAttribute="trailing" constant="-16" id="dk6-N6-EJK"/>
                             <constraint firstAttribute="centerX" secondItem="A0Y-Oq-n8v" secondAttribute="centerX" id="f9x-LH-P1l"/>
+                            <constraint firstAttribute="centerX" secondItem="IbN-5S-2HT" secondAttribute="centerX" id="w2M-wr-bLn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="IbN-5S-2HT" id="p2T-oD-eLJ"/>
                         <outlet property="eventsTable" destination="bL1-9K-2eM" id="z44-3h-ja3"/>
                         <outlet property="menuButton" destination="Uqm-tK-ABR" id="R3h-U0-2RD"/>
                     </connections>
@@ -88,7 +94,7 @@
                                     <navigationItem title="Add New Event" id="G2d-eV-bjF">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4sA-M3-y9q">
                                             <connections>
-                                                <segue destination="EgF-P2-0nW" kind="presentation" modalTransitionStyle="flipHorizontal" id="m2C-CF-qT1"/>
+                                                <segue destination="EgF-P2-0nW" kind="presentation" modalTransitionStyle="crossDissolve" id="m2C-CF-qT1"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

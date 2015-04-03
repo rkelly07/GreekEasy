@@ -16,6 +16,8 @@ class MainViewController: UIViewController {
     var allEvents : [PFObject] = []
     var allReimbursements : [PFObject] = []
     
+    var cache = NSCache()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

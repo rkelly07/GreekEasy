@@ -11,17 +11,23 @@ import UIKit
 class EventsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var eventsTable: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var eventNames:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load events from Parse
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.hidden = false
+
         var query = PFQuery(className: "Event")
+        query.whereKey("houseID", equalTo: PFUser.currentUser()["houseID"])
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.hidden = true
                 for object in objects {
                     var currentEvent = object["name"] as String
                     self.eventNames.append(currentEvent)

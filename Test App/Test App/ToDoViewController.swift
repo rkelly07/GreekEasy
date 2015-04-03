@@ -28,7 +28,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if error == nil {
                 for object in objects {
                     self.allUsers.append(object as PFUser)
-                    println(object)
+                    //println(object)
                 }
             } else {
                 NSLog(error.description)
@@ -42,7 +42,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if error == nil {
                 for object in objects {
                     self.allChores.append(object as PFObject)
-                    println(object)
+                    //println(object)
                 }
             } else {
                 NSLog(error.description)
@@ -56,7 +56,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if error == nil {
                 for object in objects {
                     self.allEvents.append(object as PFObject)
-                    println(object)
+                    //println(object)
                 }
             } else {
                 NSLog(error.description)
@@ -70,7 +70,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if error == nil {
                 for object in objects {
                     self.allEvents.append(object as PFObject)
-                    println(object)
+                    //println(object)
                 }
             } else {
                 NSLog(error.description)
