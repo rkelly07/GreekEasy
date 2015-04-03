@@ -21,6 +21,7 @@
 		AE4D69501ACCF83400DB8831 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D694F1ACCF83400DB8831 /* EventsTableViewController.swift */; };
 		AE4D69741ACD205500DB8831 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69731ACD205500DB8831 /* Bolts.framework */; };
 		AE4D69761ACD205C00DB8831 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69751ACD205C00DB8831 /* Parse.framework */; };
+		AE4D69781ACE5A6900DB8831 /* EventAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69771ACE5A6900DB8831 /* EventAddController.swift */; };
 		AED289051AB0DE3400F429F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED289041AB0DE3400F429F1 /* AppDelegate.swift */; };
 		AED2890A1AB0DE3400F429F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AED289081AB0DE3400F429F1 /* Main.storyboard */; };
 		AED2890C1AB0DE3400F429F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED2890B1AB0DE3400F429F1 /* Images.xcassets */; };
@@ -61,6 +62,7 @@
 		AE4D694F1ACCF83400DB8831 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsTableViewController.swift; path = ../../Events/Events/EventsTableViewController.swift; sourceTree = "<group>"; };
 		AE4D69731ACD205500DB8831 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../parse-library-1.6.5/Bolts.framework"; sourceTree = "<group>"; };
 		AE4D69751ACD205C00DB8831 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../parse-library-1.6.5/Parse.framework"; sourceTree = "<group>"; };
+		AE4D69771ACE5A6900DB8831 /* EventAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAddController.swift; sourceTree = "<group>"; };
 		AED288FF1AB0DE3400F429F1 /* Test App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED289031AB0DE3400F429F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AED289041AB0DE3400F429F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			children = (
 				AE4D694F1ACCF83400DB8831 /* EventsTableViewController.swift */,
 				AE4D694C1ACCF81400DB8831 /* Events.storyboard */,
+				AE4D69771ACE5A6900DB8831 /* EventAddController.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE4D69781ACE5A6900DB8831 /* EventAddController.swift in Sources */,
 				B3813C4D1ABCD45600DBAF63 /* ToDoViewController.swift in Sources */,
 				AE4D69501ACCF83400DB8831 /* EventsTableViewController.swift in Sources */,
 				AED2892E1AB0E7CA00F429F1 /* MenuTableViewController.swift in Sources */,

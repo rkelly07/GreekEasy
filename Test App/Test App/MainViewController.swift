@@ -20,7 +20,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         //TODO temporary dummy login
-        /*
         PFUser.logInWithUsernameInBackground("tylerf", password:"greek") {
             (user: PFUser!, error: NSError!) -> Void in
             if user != nil {
@@ -31,6 +30,7 @@ class MainViewController: UIViewController {
         }
         
         //get all users and add to allUsers array
+        /*
         var usersQuery = PFQuery(className: "_User")
         usersQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
         usersQuery.findObjectsInBackgroundWithBlock {
@@ -79,7 +79,7 @@ class MainViewController: UIViewController {
             (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
                 for object in objects {
-                    self.allEvents.append(object as PFObject)
+                    self.allReimbursements.append(object as PFObject)
                     println(object)
                 }
             } else {
