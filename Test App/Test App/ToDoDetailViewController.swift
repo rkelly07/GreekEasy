@@ -17,6 +17,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     var allUsers : [PFUser]! = []
     var allUsersFullNames : [String]! = []
     var peopleOnChore : [PFUser] = []
+    
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var pointsPickerView: UIPickerView!
     @IBOutlet var peoplePickerView: UIPickerView!
@@ -47,6 +48,57 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     //MARK: - Delegates and data sources
     //MARK: Data Sources
+    var selectedItems : [Int] = []
+    
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
+        pickerView.userInteractionEnabled = true
+        var cell : UITableViewCell? = view as UITableViewCell?
+        if (cell == nil) {
+            //cell.init(style: UITableViewCellStyle.Default, reuseIdentifier: String?)
+            cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
+            cell!.backgroundColor = UIColor.clearColor()
+            cell!.tintColor = UIColor.blackColor()
+            //TODO get this right - should work with x: 0
+            cell!.bounds = CGRect(x: -100, y:0, width: cell!.frame.size.width, height: 44)
+            cell!.tag = row
+            cell!.userInteractionEnabled = true
+            let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "toggleCheckmark:")
+            tapRecognizer.numberOfTapsRequired = 1
+            cell!.addGestureRecognizer(tapRecognizer)
+            var title : String!
+            if (pickerView.tag == 11) {
+                title = String(pointsArray[row])
+            } else if (pickerView.tag == 12) {
+                title = String(allUsersFullNames[row])
+            } else {
+                println("pickerView not found")
+            }
+            cell!.textLabel!.text = title
+        }
+        if !contains(selectedItems, row) {
+            cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
+            println("checkmark accessory")
+        } else {
+            cell!.accessoryType = UITableViewCellAccessoryType.None
+            println("no accessory")
+        }
+        return cell!
+    }
+    
+    func toggleCheckmark(sender:UITapGestureRecognizer) {
+        var row : Int = sender.view!.tag
+        var indexInSelectedItems : Int? = find(selectedItems, row)
+        if (indexInSelectedItems != nil) {
+            selectedItems.removeAtIndex(row)
+            (sender.view as UITableViewCell).accessoryType = UITableViewCellAccessoryType.None
+            println("row " + String(row) + " checkmark removed")
+        } else {
+            selectedItems.append(row)
+            (sender.view as UITableViewCell).accessoryType = UITableViewCellAccessoryType.Checkmark
+            println("row " + String(row) + " checkmark added")
+        }
+    }
+
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -64,30 +116,30 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     //MARK: Delegates
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        var title : String!
-        if (pickerView.tag == 11) {
-            title = String(pointsArray[row])
-        } else if (pickerView.tag == 12) {
-            title = String(allUsersFullNames[row])
-        } else {
-            println("pickerView not found")
-        }
-        return title
-    }
+    
+    //Don't need titleForRow b/c have viewForRow
+//    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+//        var title : String!
+//        if (pickerView.tag == 11) {
+//            title = String(pointsArray[row])
+//        } else if (pickerView.tag == 12) {
+//            title = String(allUsersFullNames[row])
+//        } else {
+//            println("pickerView not found")
+//        }
+//        return title
+//    }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         println("row " + String(row) + " selected")
+        if !contains(selectedItems, row) {
+            selectedItems.append(row)
+            //cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
+        } else {
+            var indexInSelectedItems : Int? = find(selectedItems, row)
+            selectedItems.removeAtIndex(indexInSelectedItems!)
+            //cell!.accessoryType = UITableViewCellAccessoryType.None
+        }
+        println(selectedItems)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
