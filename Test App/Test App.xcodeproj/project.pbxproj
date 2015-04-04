@@ -23,6 +23,7 @@
 		AE4D69761ACD205C00DB8831 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69751ACD205C00DB8831 /* Parse.framework */; };
 		AE4D69781ACE5A6900DB8831 /* EventAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69771ACE5A6900DB8831 /* EventAddController.swift */; };
 		AE4D697A1ACF4BD200DB8831 /* EventsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69791ACF4BD200DB8831 /* EventsMenuController.swift */; };
+		AE4D69801ACF70DE00DB8831 /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D697F1ACF70DE00DB8831 /* EventDetailController.swift */; };
 		AED289051AB0DE3400F429F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED289041AB0DE3400F429F1 /* AppDelegate.swift */; };
 		AED2890C1AB0DE3400F429F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED2890B1AB0DE3400F429F1 /* Images.xcassets */; };
 		AED2890F1AB0DE3400F429F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED2890D1AB0DE3400F429F1 /* LaunchScreen.xib */; };
@@ -63,6 +64,7 @@
 		AE4D69751ACD205C00DB8831 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../parse-library-1.6.5/Parse.framework"; sourceTree = "<group>"; };
 		AE4D69771ACE5A6900DB8831 /* EventAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAddController.swift; sourceTree = "<group>"; };
 		AE4D69791ACF4BD200DB8831 /* EventsMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsMenuController.swift; sourceTree = "<group>"; };
+		AE4D697F1ACF70DE00DB8831 /* EventDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
 		AED288FF1AB0DE3400F429F1 /* Test App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED289031AB0DE3400F429F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AED289041AB0DE3400F429F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 		B3813C401ABCD0F600DBAF63 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				AE4D697F1ACF70DE00DB8831 /* EventDetailController.swift */,
 				AE4D694F1ACCF83400DB8831 /* EventsViewController.swift */,
 				AE4D694C1ACCF81400DB8831 /* Events.storyboard */,
 				AE4D69771ACE5A6900DB8831 /* EventAddController.swift */,
@@ -366,6 +369,7 @@
 				AED2892E1AB0E7CA00F429F1 /* MenuViewController.swift in Sources */,
 				AED289051AB0DE3400F429F1 /* AppDelegate.swift in Sources */,
 				AED289281AB0DE8300F429F1 /* SWRevealViewController.m in Sources */,
+				AE4D69801ACF70DE00DB8831 /* EventDetailController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

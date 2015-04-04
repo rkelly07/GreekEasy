@@ -14,7 +14,9 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var eventNames:[String] = []
+    var events:[PFObject] = []
     var menu:SWRevealViewController!
+    var currentEvent:PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +40,24 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.activityIndicator.stopAnimating()
                 self.activityIndicator.hidden = true
                 for object in objects {
+                    self.events.append(object as PFObject)
+                    
                     var currentEvent = object["name"] as String
                     self.eventNames.append(currentEvent)
+                    
                     self.eventsTable.reloadData()
                 }
             } else {
                 NSLog(error.description)
             }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "showDetail" {
+            var destination = segue.destinationViewController as EventDetailController
+            
+            destination.incoming = self.currentEvent
         }
     }
 
@@ -62,14 +75,9 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            // handle delete (by removing the data from your array and updating the tableview)
-        }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.currentEvent = self.events[indexPath.row]
+        performSegueWithIdentifier("showDetail", sender:nil)
     }
 }
 
