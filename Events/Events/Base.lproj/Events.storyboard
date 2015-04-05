@@ -8,7 +8,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="uy8-E1-Q1m">
             <objects>
-                <viewController id="KbH-aN-S7c" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="events" id="KbH-aN-S7c" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L3a-DH-OW1"/>
                         <viewControllerLayoutGuide type="bottom" id="hvG-bZ-cs9"/>
@@ -25,7 +25,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U2F-X9-Vh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-586" y="-15"/>
+            <point key="canvasLocation" x="-588" y="-9"/>
         </scene>
         <!--Events Menu Controller-->
         <scene sceneID="VDV-HZ-qpJ">
@@ -56,7 +56,7 @@
         <!--Events View Controller-->
         <scene sceneID="kS3-TK-UfO">
             <objects>
-                <viewController storyboardIdentifier="events" id="EgF-P2-0nW" customClass="EventsViewController" customModule="Test_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EgF-P2-0nW" customClass="EventsViewController" customModule="Test_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5f5-Xj-Bef"/>
                         <viewControllerLayoutGuide type="bottom" id="acr-JM-Kkx"/>
@@ -420,18 +420,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dP-ev-h0W">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Event Detail" id="imK-i8-uQL">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jhB-JX-KOc">
-                                            <connections>
-                                                <segue destination="EgF-P2-0nW" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="9xM-FC-u5q"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4Z-57-cAv">
                                 <rect key="frame" x="24" y="156" width="70" height="22"/>
                                 <constraints>
@@ -581,6 +569,18 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dP-ev-h0W">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Event Detail" id="imK-i8-uQL">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="NkI-0C-bm5">
+                                            <connections>
+                                                <segue destination="EgF-P2-0nW" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="UYO-xE-5Zg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -650,7 +650,6 @@
                         <outlet property="currentDescription" destination="469-ix-vHd" id="1zf-o5-DLg"/>
                         <outlet property="currentLocation" destination="iog-eB-kGG" id="tXT-BS-qMB"/>
                         <outlet property="currentName" destination="kbG-9t-pmV" id="pIX-pi-XWU"/>
-                        <outlet property="doneButton" destination="jhB-JX-KOc" id="dcn-sr-8i9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ch9-Bw-Di8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -659,6 +658,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9xM-FC-u5q"/>
+        <segue reference="UYO-xE-5Zg"/>
     </inferredMetricsTieBreakers>
 </document>

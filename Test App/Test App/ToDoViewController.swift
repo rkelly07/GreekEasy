@@ -9,6 +9,7 @@
 import UIKit
 
 class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     //TODO get rid of print statements
     //TODO adding and deleting chores
@@ -26,6 +27,11 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set up menu
+        self.menuButton.target = self.revealViewController()
+        self.menuButton.action = "revealToggle:"
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+
         //hide chore manager button based on user role
         if (currentUser.objectForKey("houseManager") as Bool) == true {
             println("currentuser is housemanager")

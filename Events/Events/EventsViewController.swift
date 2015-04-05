@@ -15,8 +15,13 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var eventNames:[String] = []
     var events:[PFObject] = []
-    var menu:SWRevealViewController!
     var currentEvent:PFObject!
+    
+    // TODO: Granularity of time in detail view
+    // TODO: Formatting of menu cells in events
+    // TODO: Button presses on current view
+    // TODO: Signups and accounts
+    // TODO: Cacheing?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +29,12 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.activityIndicator.startAnimating()
         self.activityIndicator.hidden = false
         
-        menuButton.target = self.revealViewController()
-        menuButton.action = "revealToggle:"
-        
+        // Set up menu
+        self.menuButton.target = self.revealViewController()
+        self.menuButton.action = "revealToggle:"
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-
+        
         // Load events
-
         var query = PFQuery(className: "Event")
         var user = PFUser.currentUser()
         query.whereKey("houseID", equalTo: user["houseID"])

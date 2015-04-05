@@ -9,8 +9,6 @@
 import UIKit
 
 class EventDetailController: UIViewController {
-    @IBOutlet weak var doneButton: UIBarButtonItem!
-
     @IBOutlet weak var currentName: UILabel!
     @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var currentLocation: UILabel!
