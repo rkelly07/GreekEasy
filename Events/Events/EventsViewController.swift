@@ -8,23 +8,43 @@
 
 import UIKit
 
-class EventsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var eventsTable: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var eventNames:[String] = []
+    var events:[PFObject] = []
+    var menu:SWRevealViewController!
+    var currentEvent:PFObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load events from Parse
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.hidden = false
+        
+        menuButton.target = self.revealViewController()
+        menuButton.action = "revealToggle:"
+        
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+
+        // Load events
+
         var query = PFQuery(className: "Event")
+        var user = PFUser.currentUser()
+        query.whereKey("houseID", equalTo: user["houseID"])
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.hidden = true
                 for object in objects {
+                    self.events.append(object as PFObject)
+                    
                     var currentEvent = object["name"] as String
                     self.eventNames.append(currentEvent)
+                    
                     self.eventsTable.reloadData()
                 }
             } else {
@@ -32,12 +52,15 @@ class EventsTableViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "showDetail" {
+            var destination = segue.destinationViewController as EventDetailController
+            
+            destination.incoming = self.currentEvent
+        }
+    }
+
     // MARK: - Table view data source
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,14 +75,9 @@ class EventsTableViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
-    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            // handle delete (by removing the data from your array and updating the tableview)
-        }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.currentEvent = self.events[indexPath.row]
+        performSegueWithIdentifier("showDetail", sender:nil)
     }
 }
 
