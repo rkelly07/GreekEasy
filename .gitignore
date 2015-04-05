@@ -1,7 +1,9 @@
 *.docx
 *.pdf
+Location Logger/data0/*.png
+Location Logger/data1/*.png
+Location Logger/data2/*.png
 Playground.playground/
-*.png
 SWRevealViewController/
 .DS_Store
 usability/
