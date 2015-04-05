@@ -1,8 +1,8 @@
 *.docx
 *.pdf
-Location Logger/data0/*.png
-Location Logger/data1/*.png
-Location Logger/data2/*.png
+Location\ Logger/data_0/*.png
+Location\ Logger/data_1/*.png
+Location\ Logger/data_2/*.png
 Playground.playground/
 SWRevealViewController/
 .DS_Store
