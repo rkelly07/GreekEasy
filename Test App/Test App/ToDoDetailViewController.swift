@@ -48,52 +48,110 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     //MARK: - Delegates and data sources
     //MARK: Data Sources
-    var selectedItems : [Int] = []
+    var selectedPeople : [Int] = []
+    var selectedPoints : Int = 5 //default = 5 points
+//    
+//    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
+//        var cell : UITableViewCell? = view as UITableViewCell?
+//        var title : String!
+//        //pickerView.bounds.size.width = 400
+//        if (pickerView.tag == 12) {
+//            pickerView.userInteractionEnabled = true
+//            if (cell == nil) {
+//                //cell.init(style: UITableViewCellStyle.Default, reuseIdentifier: String?)
+//                cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
+//                cell?.selectionStyle = UITableViewCellSelectionStyle.Blue
+//                cell!.backgroundColor = UIColor.clearColor()
+//                cell!.tintColor = UIColor.blackColor()
+//                //TODO get this right - should work with x: 0
+//                cell!.bounds = CGRect(x: -100, y:0, width: cell!.frame.size.width, height: 44)
+//                cell!.tag = row
+//                cell!.userInteractionEnabled = true
+//                let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "toggleCheckmark:")
+//                tapRecognizer.numberOfTapsRequired = 1
+//                cell!.addGestureRecognizer(tapRecognizer)
+//                title = String(allUsersFullNames[row])
+//                cell!.textLabel!.text = title
+//            }
+//            if !contains(selectedPeople, row) {
+//                //var img:UIImage = UIImage(named: "checked_checkbox")!
+//                //var imgView:UIImageView = UIImageView(image: img)
+//                //cell!.accessoryView = imgView as UIView
+//                cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
+//                println("checkmark accessory")
+//            } else {
+//                cell!.accessoryType = UITableViewCellAccessoryType.None
+//                println("no accessory")
+//            }
+//            //self.peoplePickerView.reloadComponent(row)
+//        } else if (pickerView.tag == 11) {
+//            if (cell == nil) {
+//                //cell.init(style: UITableViewCellStyle.Default, reuseIdentifier: String?)
+//                cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
+//                cell!.backgroundColor = UIColor.clearColor()
+//                cell!.tintColor = UIColor.blackColor()
+//                //TODO get this right - should work with x: 0
+//                cell!.bounds = CGRect(x: -100, y:0, width: cell!.frame.size.width, height: 44)
+//                cell!.tag = row
+//                cell!.userInteractionEnabled = true
+//                title = String(pointsArray[row])
+//                cell!.textLabel!.text = title
+//            }
+//        } else {
+//            println("Pickkerview not found")
+//        }
+//        return cell!
+//    }
     
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
-        pickerView.userInteractionEnabled = true
-        var cell : UITableViewCell? = view as UITableViewCell?
-        if (cell == nil) {
-            //cell.init(style: UITableViewCellStyle.Default, reuseIdentifier: String?)
-            cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
-            cell!.backgroundColor = UIColor.clearColor()
-            cell!.tintColor = UIColor.blackColor()
-            //TODO get this right - should work with x: 0
-            cell!.bounds = CGRect(x: -100, y:0, width: cell!.frame.size.width, height: 44)
-            cell!.tag = row
-            cell!.userInteractionEnabled = true
-            let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "toggleCheckmark:")
-            tapRecognizer.numberOfTapsRequired = 1
-            cell!.addGestureRecognizer(tapRecognizer)
-            var title : String!
-            if (pickerView.tag == 11) {
-                title = String(pointsArray[row])
-            } else if (pickerView.tag == 12) {
-                title = String(allUsersFullNames[row])
-            } else {
-                println("pickerView not found")
-            }
-            cell!.textLabel!.text = title
-        }
-        if !contains(selectedItems, row) {
-            cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
-            println("checkmark accessory")
-        } else {
-            cell!.accessoryType = UITableViewCellAccessoryType.None
-            println("no accessory")
-        }
-        return cell!
+        var pickerCustomView : UIView
+        var pickerViewLabel : UILabel
+        var pickerImageView : UIImageView
+        pickerCustomView = UIView(frame: CGRectMake(0, 0, pickerView.frame.size.width - 10, pickerView.frame.size.height))
+        pickerImageView = UIImageView(frame: CGRectMake(0, 0, 35, 35))
+        pickerViewLabel = UILabel(frame: CGRectMake(37, -5, pickerView.rowSizeForComponent(component).width - 10, pickerView.rowSizeForComponent(component).height))
+        pickerView.addSubview(pickerImageView)
+        pickerView.addSubview(pickerViewLabel)
+        pickerImageView.image = UIImage(named: "checked_checkbox")
+        pickerViewLabel.backgroundColor = UIColor.clearColor()
+        pickerViewLabel.text = String(pointsArray[row])
+        return pickerCustomView
     }
+    
+//    - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+//    {
+//    UIView *pickerCustomView = (id)view;
+//    UILabel *pickerViewLabel;
+//    UIImageView *pickerImageView;
+//    
+//    if (!pickerCustomView) {
+//    pickerCustomView= [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f,
+//    [pickerView rowSizeForComponent:component].width - 10.0f, [pickerView rowSizeForComponent:component].height)];
+//    pickerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 35.0f, 35.0f)];
+//    pickerViewLabel= [[UILabel alloc] initWithFrame:CGRectMake(37.0f, -5.0f,
+//    [pickerView rowSizeForComponent:component].width - 10.0f, [pickerView rowSizeForComponent:component].height)];
+//    // the values for x and y are specific for my example
+//    [pickerCustomView addSubview:pickerImageView];
+//    [pickerCustomView addSubview:pickerViewLabel];
+//    }
+//    
+//    pickerImageView.image = [self selectTherapyImageFor:therapyTypes[row]];
+//    pickerViewLabel.backgroundColor = [UIColor clearColor];
+//    pickerViewLabel.text = therapyTypes[row]; // where therapyTypes[row] is a specific example from my code
+//    pickerViewLabel.font = [UIFont fontWithName:@"ChalkboardSE-Regular" size:20];
+//    
+//    return pickerCustomView;
+//    }
     
     func toggleCheckmark(sender:UITapGestureRecognizer) {
         var row : Int = sender.view!.tag
-        var indexInSelectedItems : Int? = find(selectedItems, row)
-        if (indexInSelectedItems != nil) {
-            selectedItems.removeAtIndex(row)
+        var indexInselectedPeople : Int? = find(selectedPeople, row)
+        if (indexInselectedPeople != nil) {
+            selectedPeople.removeAtIndex(row)
             (sender.view as UITableViewCell).accessoryType = UITableViewCellAccessoryType.None
             println("row " + String(row) + " checkmark removed")
         } else {
-            selectedItems.append(row)
+            selectedPeople.append(row)
             (sender.view as UITableViewCell).accessoryType = UITableViewCellAccessoryType.Checkmark
             println("row " + String(row) + " checkmark added")
         }
@@ -131,15 +189,20 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
 //    }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        println("row " + String(row) + " selected")
-        if !contains(selectedItems, row) {
-            selectedItems.append(row)
-            //cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
-        } else {
-            var indexInSelectedItems : Int? = find(selectedItems, row)
-            selectedItems.removeAtIndex(indexInSelectedItems!)
-            //cell!.accessoryType = UITableViewCellAccessoryType.None
+        if (pickerView.tag == 12) {
+            println("Person at row " + String(row) + " selected")
+            if !contains(selectedPeople, row) {
+                selectedPeople.append(row)
+                //cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
+            } else {
+                var indexInselectedPeople : Int? = find(selectedPeople, row)
+                selectedPeople.removeAtIndex(indexInselectedPeople!)
+                //cell!.accessoryType = UITableViewCellAccessoryType.None
+            }
+            println(selectedPeople)
+        } else if (pickerView.tag == 11) {
+            selectedPoints = row + 1
+            println("Chore is worth " + String(selectedPoints) + " points")
         }
-        println(selectedItems)
     }
 }
