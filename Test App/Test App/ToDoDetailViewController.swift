@@ -20,7 +20,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var pointsPickerView: UIPickerView!
-    @IBOutlet var peoplePickerView: UIPickerView!
+    
     //let maxPoints : Int = 100
     let pointsArray : [Int] = Array(1...100)
     override func viewDidLoad() {
