@@ -14,6 +14,10 @@ class MenuViewController: UITableViewController {
         let name:String!
     }
     
+    let blueR = CGFloat(13.0 / 255.0)
+    let blueG = CGFloat(86.0 / 255.0)
+    let blueB = CGFloat(95.0 / 255.0)
+    
     let menuItems = [MenuItem(name: "Events"), MenuItem(name: "To-Dos"), MenuItem(name: "Reimburse")]
     // MARK: - Table view data source
 
@@ -27,6 +31,7 @@ class MenuViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
+        cell.textLabel?.textColor = UIColor(red: self.blueR, green: self.blueG, blue: self.blueB, alpha: 1.0)
         cell.textLabel?.text = menuItems[indexPath.row].name
         
         // Configure the cell...

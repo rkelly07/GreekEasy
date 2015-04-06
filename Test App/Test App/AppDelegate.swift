@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {        
         // Set up Parse
         Parse.enableLocalDatastore()
         Parse.setApplicationId("wPoPnVj9UwFop3wfcx01uiMpX9UrVeWb07ks4vSk", clientKey: "JuWPCoeqymU9wf1vo0PJWrzapPF2klTxbPQhFTWR")
