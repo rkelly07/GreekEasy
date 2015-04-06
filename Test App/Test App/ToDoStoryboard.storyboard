@@ -49,10 +49,13 @@
                             <outlet property="delegate" destination="V5b-ho-HZO" id="YJ2-Pt-yOF"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="dxX-5H-pgT" kind="custom" identifier="todoPress" customClass="SWRevealViewControllerSeguePushController" id="ze3-73-f7X"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEY-P2-y3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1113" y="-1728"/>
+            <point key="canvasLocation" x="-1175" y="-1752"/>
         </scene>
         <!--To Do View Controller-->
         <scene sceneID="HvV-iF-JaD">
@@ -415,15 +418,6 @@
                                     <outlet property="delegate" destination="LW9-MT-f3O" id="c3j-Dd-gXg"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHL-gh-6LU">
-                                <rect key="frame" x="153" y="72" width="294" height="30"/>
-                                <state key="normal" title="New Week - Reset All ToDos to Incomplete">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetAllToIncomplete:" destination="LW9-MT-f3O" eventType="touchUpInside" id="zTO-fV-6M7"/>
-                                </connections>
-                            </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Tb-x3-25y">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
@@ -437,6 +431,15 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHL-gh-6LU">
+                                <rect key="frame" x="153" y="72" width="294" height="30"/>
+                                <state key="normal" title="New Week - Reset All ToDos to Incomplete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetAllToIncomplete:" destination="LW9-MT-f3O" eventType="touchUpInside" id="zTO-fV-6M7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -634,16 +637,16 @@
                                                 <mask key="constraints">
                                                     <exclude reference="btm-vb-jIm"/>
                                                     <exclude reference="g1l-h3-i4t"/>
+                                                    <exclude reference="5A0-az-i19"/>
+                                                    <exclude reference="H62-or-izP"/>
+                                                    <exclude reference="Nk5-3C-WVF"/>
+                                                    <exclude reference="aMS-CA-Tsi"/>
                                                     <exclude reference="FgY-gQ-KJ1"/>
                                                     <exclude reference="Ge8-JG-t4D"/>
                                                     <exclude reference="Iua-cZ-qB0"/>
                                                     <exclude reference="KhC-8W-zNp"/>
                                                     <exclude reference="LES-cO-C98"/>
                                                     <exclude reference="gug-lX-Q6S"/>
-                                                    <exclude reference="5A0-az-i19"/>
-                                                    <exclude reference="H62-or-izP"/>
-                                                    <exclude reference="Nk5-3C-WVF"/>
-                                                    <exclude reference="aMS-CA-Tsi"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -735,6 +738,14 @@
                                 <exclude reference="kz1-F9-UjG"/>
                                 <exclude reference="up5-zh-ipc"/>
                                 <exclude reference="zrx-4R-8a7"/>
+                                <exclude reference="L9f-Qz-b2G"/>
+                                <exclude reference="e9E-X2-ag0"/>
+                                <exclude reference="ktl-HG-Q1p"/>
+                                <exclude reference="q9H-Ez-QNj"/>
+                                <exclude reference="uwV-fB-xQU"/>
+                                <exclude reference="xtW-Mc-b5l"/>
+                                <exclude reference="y0Q-Kj-9Jb"/>
+                                <exclude reference="z8e-Qg-i02"/>
                                 <exclude reference="3Gc-P5-9Dq"/>
                                 <exclude reference="PGI-Ug-644"/>
                                 <exclude reference="e5y-Q8-VN8"/>
@@ -746,14 +757,6 @@
                                 <exclude reference="gOg-mJ-Qu7"/>
                                 <exclude reference="mpm-OQ-PTW"/>
                                 <exclude reference="rOP-JZ-eMw"/>
-                                <exclude reference="L9f-Qz-b2G"/>
-                                <exclude reference="e9E-X2-ag0"/>
-                                <exclude reference="ktl-HG-Q1p"/>
-                                <exclude reference="q9H-Ez-QNj"/>
-                                <exclude reference="uwV-fB-xQU"/>
-                                <exclude reference="xtW-Mc-b5l"/>
-                                <exclude reference="y0Q-Kj-9Jb"/>
-                                <exclude reference="z8e-Qg-i02"/>
                                 <exclude reference="omH-bT-HQE"/>
                                 <exclude reference="rBK-Ay-rFT"/>
                             </mask>
@@ -771,8 +774,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="QJ0-vx-A9F"/>
         <segue reference="f4C-t0-cFf"/>
-        <segue reference="SJu-Tz-DFM"/>
-        <segue reference="b8m-j1-rWU"/>
+        <segue reference="ze3-73-f7X"/>
     </inferredMetricsTieBreakers>
 </document>

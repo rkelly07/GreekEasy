@@ -53,6 +53,18 @@ class ManualAssignmentViewController: UIViewController {
         
     }
     
+    func getMaxChoreIDForHouse(choresObjectsArray : [PFObject]) -> Int {
+        var maxID : Int = 0
+        for chore in self.allChores {
+            var currentChoreID : Int = 0
+            currentChoreID = chore.objectForKey("ID") as Int
+            if (currentChoreID > maxID) {
+                maxID = currentChoreID
+            }
+        }
+        return maxID
+    }
+    
     // MARK: - Table view data source
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -172,6 +184,8 @@ class ManualAssignmentViewController: UIViewController {
     
     //TODO do I maybe need to call reload in this?
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        var detailVC = segue.destinationViewController as ToDoDetailViewController
+        detailVC.allUsers = self.allUsers
         if (segue.identifier == "showDetail") {
             var indexPath : NSIndexPath! = tableView.indexPathForSelectedRow()
             //need to pass the choreID
@@ -179,14 +193,13 @@ class ManualAssignmentViewController: UIViewController {
             var specificChoreID : Int = specificChore.objectForKey("ID") as Int
             var choreTitle : String = specificChore.objectForKey("description") as String
             var chorePoints : Int = specificChore.objectForKey("points") as Int
-            var detailVC = segue.destinationViewController as ToDoDetailViewController
             println(detailVC.titleTextField)
             //passes choreID to the detailVC
             detailVC.choreObject = specificChore
             detailVC.chorePoints = chorePoints
             detailVC.choreID = specificChoreID
-            detailVC.choreTitle = choreTitle
-            detailVC.allUsers = self.allUsers
+            detailVC.originalChoreTitle = choreTitle
+            detailVC.editingNotAdding = true
             var peopleOnChore : [PFUser] = []
             //go through other users and see who has the same choreID
             for person in self.allUsers {
@@ -199,6 +212,11 @@ class ManualAssignmentViewController: UIViewController {
                 }
             }
             detailVC.peopleOnChore = peopleOnChore
+            detailVC.peopleOriginallyOnChore = peopleOnChore
+        } else if (segue.identifier) == "addNew" {
+            println("adding new chore")
+            detailVC.editingNotAdding = false
+            detailVC.choreID = getMaxChoreIDForHouse(self.allChores)
         }
     }
     
