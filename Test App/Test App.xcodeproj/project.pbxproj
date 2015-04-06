@@ -36,10 +36,8 @@
 		B3813C471ABCD17500DBAF63 /* MealsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */; };
 		B3813C491ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C481ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard */; };
 		B3813C4B1ABCD19300DBAF63 /* ReimbursementsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C4A1ABCD19300DBAF63 /* ReimbursementsStoryboard.storyboard */; };
-		B3A7871B1AD24B990022CA9F /* ToDoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3A787191AD24B990022CA9F /* ToDoStoryboard.storyboard */; };
 		B3A7871E1AD24BC60022CA9F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3A7871C1AD24BC60022CA9F /* Bolts.framework */; };
 		B3A7871F1AD24BC60022CA9F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3A7871D1AD24BC60022CA9F /* Parse.framework */; };
-		B3A787211AD24EA00022CA9F /* ToDoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A787201AD24EA00022CA9F /* ToDoDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,10 +86,8 @@
 		B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MealsStoryboard.storyboard; sourceTree = "<group>"; };
 		B3813C481ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShoppingListStoryboard.storyboard; sourceTree = "<group>"; };
 		B3813C4A1ABCD19300DBAF63 /* ReimbursementsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReimbursementsStoryboard.storyboard; sourceTree = "<group>"; };
-		B3A787191AD24B990022CA9F /* ToDoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ToDoStoryboard.storyboard; path = "../../../Test App/Test App/ToDoStoryboard.storyboard"; sourceTree = "<group>"; };
 		B3A7871C1AD24BC60022CA9F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/parse-library-1.7.0/Bolts.framework"; sourceTree = "<group>"; };
 		B3A7871D1AD24BC60022CA9F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Downloads/parse-library-1.7.0/Parse.framework"; sourceTree = "<group>"; };
-		B3A787201AD24EA00022CA9F /* ToDoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoDetailViewController.swift; path = ../../../../Desktop/ToDoDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,13 +216,11 @@
 		B3813C3F1ABCCF2200DBAF63 /* To Do */ = {
 			isa = PBXGroup;
 			children = (
-				B3A787191AD24B990022CA9F /* ToDoStoryboard.storyboard */,
 				AEECDDCC1AD259DF00839F72 /* ToDoDetailViewController.swift */,
 				AE4D69811AD1B23B00DB8831 /* ManualAssignmentViewController.swift */,
 				AEECDDCD1AD259DF00839F72 /* ToDoStoryboard.storyboard */,
 				AE4D69841AD1B23B00DB8831 /* ToDoViewController.swift */,
 				AE4D69911AD1B90D00DB8831 /* ToDoMenuController.swift */,
-				B3A787201AD24EA00022CA9F /* ToDoDetailViewController.swift */,
 			);
 			name = "To Do";
 			sourceTree = "<group>";
@@ -382,7 +376,6 @@
 				AE4D69781ACE5A6900DB8831 /* EventAddController.swift in Sources */,
 				AE4D69501ACCF83400DB8831 /* EventsViewController.swift in Sources */,
 				AE4D697A1ACF4BD200DB8831 /* EventsMenuController.swift in Sources */,
-				B3A787211AD24EA00022CA9F /* ToDoDetailViewController.swift in Sources */,
 				AEECDDCE1AD259DF00839F72 /* ToDoDetailViewController.swift in Sources */,
 				AED2892E1AB0E7CA00F429F1 /* MenuViewController.swift in Sources */,
 				AED289051AB0DE3400F429F1 /* AppDelegate.swift in Sources */,
@@ -543,6 +536,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "91f5f44b-274f-4ae5-9f05-9ea77f255521";
 				SWIFT_OBJC_BRIDGING_HEADER = "Test App/Test App-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};

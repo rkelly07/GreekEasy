@@ -9,16 +9,19 @@
 import UIKit
 
 class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource {
-
+    
     var choreObject : PFObject!
     var choreID : Int!
-    var choreTitle : String!
-    var chorePoints : Int!
+    var originalChoreTitle : String! = ""
+    var chorePoints : Int! = 0
     var allUsers : [PFUser]! = []
     var allUsersFullNames : [String]! = []
     var peopleOnChore : [PFUser] = []
+    var peopleOriginallyOnChore : [PFUser] = []
     var selectedPeople : [Int] = []
     var selectedPoints : Int = 0
+    
+    var editingNotAdding : Bool = true //true if editing, false if adding
     
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var pointsPickerView: UIPickerView!
@@ -31,12 +34,9 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         super.viewDidLoad()
         pointsPickerView.dataSource = self
         pointsPickerView.delegate = self
-        //peoplePickerView.dataSource = self
-        //peoplePickerView.delegate = self
-        pointsPickerView.selectRow(chorePoints - 1, inComponent: 0, animated: true)
-        pointsPickerView.selectRow(chorePoints, inComponent: 0, animated: true)
+        pointsPickerView.selectRow(self.chorePoints, inComponent: 0, animated: true)
         populateUserFullNamesArray()
-        titleTextField.text = self.choreTitle
+        titleTextField.text = self.originalChoreTitle
     }
     
     func populateUserFullNamesArray() {
@@ -56,7 +56,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allUsersFullNames.count
+        return self.allUsersFullNames.count
     }
     
     func findUserByFullName(userFullName : String) -> PFUser {
@@ -108,8 +108,8 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         //TODO if otherPeopleFullNames is empty that label shouldn't be displayed and cell resized
         //temporary solution for too long titles
         var numChars : Int = 25
-        if countElements(choreTitle) > numChars {
-            choreTitle = (choreTitle as NSString).substringToIndex(numChars) + String("...")
+        if countElements(self.titleTextField.text) > numChars {
+            self.titleTextField.text = (self.titleTextField.text as NSString).substringToIndex(numChars) + String("...")
         }
         if countElements(userChoresAsString) > numChars {
             userChoresAsString = (userChoresAsString as NSString).substringToIndex(numChars) + String("...")
@@ -123,15 +123,37 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         var buttonInCell : UIButton = (cell.contentView.viewWithTag(111) as UIButton)
         var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
         var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
-        if contains(peopleOnChore, userPF) {
+        if contains(self.peopleOnChore, userPF) {
             println("Chore is assigned to " + userFullName)
             buttonInCell.setImage(checked_checkbox_image, forState: .Normal)
         } else {
             println("Chore is not assigned to " + userFullName)
             buttonInCell.setImage(unchecked_checkbox_image, forState: .Normal)
         }
-        
         return cell
+    }
+    
+    @IBAction func goBackWithoutMakingOrEditingChore(sender: AnyObject) {
+        if editingNotAdding {
+            self.choreObject["description"] = self.originalChoreTitle
+            self.choreObject["points"] = selectedPoints
+            //if you hit back, you only want the original users to have the chore assigned to them
+            for user in self.allUsers {
+                if contains(user.objectForKey("currentChores") as [Int], self.choreID) {
+                    var indexOfChore : Int = find(user.objectForKey("currentChores") as [Int], self.choreID)!
+                    var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
+                    newArray.removeAtIndex(indexOfChore)
+                    user["currentChores"] = newArray
+                }
+                if contains(self.peopleOriginallyOnChore, user) {
+                    var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
+                    newArray.append(self.choreID)
+                    user["currentChores"] = newArray
+                }
+            }
+        } else {
+            println("User went back after beginning to add chore. Nothing should happen")
+        }
     }
     
     @IBAction func addOrRemovePersonFromChore(sender: AnyObject) {
@@ -176,23 +198,23 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         }
         userPF.saveEventually()
     }
-
+    
     @IBAction func saveEditedChore(sender: AnyObject) {
         //query using choreid to get object
-        self.choreObject["description"] = self.choreTitle //don't know if this works
+        self.choreObject["description"] = self.titleTextField //don't know if this works
         self.choreObject["points"] = selectedPoints
-//        var userChores : [Int] = []
-//        for user in self.allUsers {
-//            userChores = (user.objectForKey("currentChores") as [Int])
-//            if contains(userChores,self.choreID) {
-//                
-//            }
+        //        var userChores : [Int] = []
+        //        for user in self.allUsers {
+        //            userChores = (user.objectForKey("currentChores") as [Int])
+        //            if contains(userChores,self.choreID) {
+        //
+        //            }
         //save chore
     }
     
     //MARK: - Delegates and data sources
     //MARK: Data Sources
-
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
