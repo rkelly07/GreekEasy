@@ -15,20 +15,19 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var events:[PFObject] = []
     var currentEvent:PFObject!
+    var user:PFUser?
     
     var eventNames:[String] = []
     var eventDates:[String] = []
     var eventLocations:[String] = []
     
-    var dateFormatter = NSDateFormatter()
+    let dateFormatter = NSDateFormatter()
+    let dateFormatString = "MM/dd"
     
-    // TODO: Granularity of time in detail view
-    // TODO: Formatting of menu cells in events
     // TODO: Enum and PickerView for category of events
     // TODO: Sort events/sections by category
-    // TODO: User can delete their own events
     // TODO: Signups and accounts
-    // TODO: Cacheing?
+    // TODO: Caching?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +36,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.activityIndicator.hidden = false
         
         // Set up date formatter
-        self.dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        self.dateFormatter.dateFormat = dateFormatString
         
         // Set up menu
         self.menuButton.target = self.revealViewController()
@@ -46,28 +45,35 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // Load events
         var query = PFQuery(className: "Event")
-        var user = PFUser.currentUser()
-        query.whereKey("houseID", equalTo: user["houseID"])
+        self.user = PFUser.currentUser()
+        query.whereKey("houseID", equalTo: self.user!["houseID"])
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
-                self.activityIndicator.stopAnimating()
-                self.activityIndicator.hidden = true
+                var unsortedEvents: [PFObject] = []
+                
                 for object in objects {
-                    self.events.append(object as PFObject)
-                    
-                    var currentEvent = object["name"] as String
+                    unsortedEvents.append(object as PFObject)
+                }
+                
+                self.events = unsortedEvents.sorted( { ($0["date"] as NSDate).compare($1["date"] as NSDate) == NSComparisonResult.OrderedAscending } )
+                
+                for event in self.events {
+                    var currentEvent = event["name"] as String
                     self.eventNames.append(currentEvent)
                     
-                    var currentDate = object["date"] as NSDate
+                    var currentDate = event["date"] as NSDate
                     var formattedDate = self.dateFormatter.stringFromDate(currentDate)
                     self.eventDates.append(formattedDate)
                     
-                    var currentLocation = object["location"] as String
+                    var currentLocation = event["location"] as String
                     self.eventLocations.append(currentLocation)
-                    
-                    self.eventsTable.reloadData()
                 }
+                
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.hidden = true
+                
+                self.eventsTable.reloadData()
             } else {
                 NSLog(error.description)
             }
@@ -92,7 +98,10 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Configure the cell...
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = (self.eventNames.isEmpty) ? "" : self.eventNames[indexPath.row]
+        
+        (cell.contentView.viewWithTag(1) as UILabel).text = (self.eventDates.isEmpty) ? "" : self.eventDates[indexPath.row]
+        (cell.contentView.viewWithTag(2) as UILabel).text = (self.eventNames.isEmpty) ? "" : self.eventNames[indexPath.row]
+        (cell.contentView.viewWithTag(3) as UILabel).text = (self.eventLocations.isEmpty) ? "" : self.eventLocations[indexPath.row]
         
         return cell
     }
@@ -100,6 +109,28 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.currentEvent = self.events[indexPath.row]
         performSegueWithIdentifier("showDetail", sender:nil)
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        let creator = self.events[indexPath.row]["createdBy"] as String
+        return (creator == self.user!["username"] as String)
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            let itemToDelete = self.events[indexPath.row]
+            
+            itemToDelete.deleteEventually()
+            
+            self.events.removeAtIndex(indexPath.row)
+            self.eventNames.removeAtIndex(indexPath.row)
+            self.eventLocations.removeAtIndex(indexPath.row)
+            self.eventDates.removeAtIndex(indexPath.row)
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            
+            self.eventsTable.reloadData()
+        }
     }
 }
 
