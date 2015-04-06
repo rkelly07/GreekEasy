@@ -10,8 +10,10 @@
 		7B01D62E1AD0EA0500A1534A /* ReimburseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B01D62D1AD0EA0500A1534A /* ReimburseViewController.swift */; };
 		7B01D6301AD0EA2200A1534A /* ReimburseCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B01D62F1AD0EA2200A1534A /* ReimburseCreateViewController.swift */; };
 		7B01D6321AD0EA4600A1534A /* ReimburseSingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B01D6311AD0EA4600A1534A /* ReimburseSingleViewController.swift */; };
-		7B52B32F1AD0528E00854F8B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B52B32D1AD0528E00854F8B /* Bolts.framework */; };
-		7B52B3301AD0528F00854F8B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B52B32E1AD0528E00854F8B /* Parse.framework */; };
+		7B8331CD1AD26A5200E9F3D3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8331CB1AD26A5200E9F3D3 /* Bolts.framework */; };
+		7B8331CE1AD26A5200E9F3D3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8331CC1AD26A5200E9F3D3 /* Parse.framework */; };
+		7B9F41F51AD2700000050158 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED289271AB0DE8300F429F1 /* SWRevealViewController.m */; };
+		7B9F41F61AD27EDD00050158 /* ReimbursementsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B9F41F81AD27EDD00050158 /* ReimbursementsStoryboard.storyboard */; };
 		AE4D69401ACC40C100DB8831 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */; };
 		AE4D69411ACC40C100DB8831 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69361ACC40C100DB8831 /* CFNetwork.framework */; };
 		AE4D69421ACC40C100DB8831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69371ACC40C100DB8831 /* CoreGraphics.framework */; };
@@ -34,15 +36,11 @@
 		AED2890C1AB0DE3400F429F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED2890B1AB0DE3400F429F1 /* Images.xcassets */; };
 		AED2890F1AB0DE3400F429F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED2890D1AB0DE3400F429F1 /* LaunchScreen.xib */; };
 		AED2891B1AB0DE3400F429F1 /* Test_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED2891A1AB0DE3400F429F1 /* Test_AppTests.swift */; };
-		AED289281AB0DE8300F429F1 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED289271AB0DE8300F429F1 /* SWRevealViewController.m */; };
 		AED2892E1AB0E7CA00F429F1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED2892D1AB0E7CA00F429F1 /* MenuViewController.swift */; };
 		AEECDDCE1AD259DF00839F72 /* ToDoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECDDCC1AD259DF00839F72 /* ToDoDetailViewController.swift */; };
 		AEECDDCF1AD259DF00839F72 /* ToDoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEECDDCD1AD259DF00839F72 /* ToDoStoryboard.storyboard */; };
 		B3813C471ABCD17500DBAF63 /* MealsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */; };
 		B3813C491ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C481ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard */; };
-		B3813C4B1ABCD19300DBAF63 /* ReimbursementsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C4A1ABCD19300DBAF63 /* ReimbursementsStoryboard.storyboard */; };
-		B3A7871E1AD24BC60022CA9F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3A7871C1AD24BC60022CA9F /* Bolts.framework */; };
-		B3A7871F1AD24BC60022CA9F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3A7871D1AD24BC60022CA9F /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +57,9 @@
 		7B01D62D1AD0EA0500A1534A /* ReimburseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimburseViewController.swift; sourceTree = "<group>"; };
 		7B01D62F1AD0EA2200A1534A /* ReimburseCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimburseCreateViewController.swift; sourceTree = "<group>"; };
 		7B01D6311AD0EA4600A1534A /* ReimburseSingleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimburseSingleViewController.swift; sourceTree = "<group>"; };
-		7B52B32D1AD0528E00854F8B /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		7B52B32E1AD0528E00854F8B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		7B8331CB1AD26A5200E9F3D3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		7B8331CC1AD26A5200E9F3D3 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		7B9F41F71AD27EDD00050158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReimbursementsStoryboard.storyboard; sourceTree = "<group>"; };
 		AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AE4D69361ACC40C100DB8831 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AE4D69371ACC40C100DB8831 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -95,9 +94,6 @@
 		AEECDDCD1AD259DF00839F72 /* ToDoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ToDoStoryboard.storyboard; sourceTree = "<group>"; };
 		B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MealsStoryboard.storyboard; sourceTree = "<group>"; };
 		B3813C481ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShoppingListStoryboard.storyboard; sourceTree = "<group>"; };
-		B3813C4A1ABCD19300DBAF63 /* ReimbursementsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ReimbursementsStoryboard.storyboard; sourceTree = "<group>"; };
-		B3A7871C1AD24BC60022CA9F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/parse-library-1.7.0/Bolts.framework"; sourceTree = "<group>"; };
-		B3A7871D1AD24BC60022CA9F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Downloads/parse-library-1.7.0/Parse.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,17 +104,15 @@
 				AE4D69401ACC40C100DB8831 /* AudioToolbox.framework in Frameworks */,
 				AE4D69411ACC40C100DB8831 /* CFNetwork.framework in Frameworks */,
 				AE4D69421ACC40C100DB8831 /* CoreGraphics.framework in Frameworks */,
+				7B8331CD1AD26A5200E9F3D3 /* Bolts.framework in Frameworks */,
 				AE4D69431ACC40C100DB8831 /* CoreLocation.framework in Frameworks */,
 				AE4D69441ACC40C100DB8831 /* libsqlite3.dylib in Frameworks */,
+				7B8331CE1AD26A5200E9F3D3 /* Parse.framework in Frameworks */,
 				AE4D69451ACC40C100DB8831 /* libz.dylib in Frameworks */,
 				AE4D69461ACC40C100DB8831 /* MobileCoreServices.framework in Frameworks */,
-				7B52B32F1AD0528E00854F8B /* Bolts.framework in Frameworks */,
 				AE4D69471ACC40C100DB8831 /* QuartzCore.framework in Frameworks */,
-				7B52B3301AD0528F00854F8B /* Parse.framework in Frameworks */,
 				AE4D69481ACC40C100DB8831 /* Security.framework in Frameworks */,
-				B3A7871E1AD24BC60022CA9F /* Bolts.framework in Frameworks */,
 				AE4D69481ACC40C100DB8831 /* Security.framework in Frameworks */,
-				B3A7871F1AD24BC60022CA9F /* Parse.framework in Frameworks */,
 				AE4D694A1ACC40C100DB8831 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,10 +130,8 @@
 		AE4D69301ACC404000DB8831 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7B52B32D1AD0528E00854F8B /* Bolts.framework */,
-				7B52B32E1AD0528E00854F8B /* Parse.framework */,
-				B3A7871C1AD24BC60022CA9F /* Bolts.framework */,
-				B3A7871D1AD24BC60022CA9F /* Parse.framework */,
+				7B8331CB1AD26A5200E9F3D3 /* Bolts.framework */,
+				7B8331CC1AD26A5200E9F3D3 /* Parse.framework */,
 				AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */,
 				AE4D69361ACC40C100DB8831 /* CFNetwork.framework */,
 				AE4D69371ACC40C100DB8831 /* CoreGraphics.framework */,
@@ -271,7 +263,7 @@
 		B3813C431ABCD0FF00DBAF63 /* Reimbursements */ = {
 			isa = PBXGroup;
 			children = (
-				B3813C4A1ABCD19300DBAF63 /* ReimbursementsStoryboard.storyboard */,
+				7B9F41F81AD27EDD00050158 /* ReimbursementsStoryboard.storyboard */,
 				7B01D62D1AD0EA0500A1534A /* ReimburseViewController.swift */,
 				7B01D62F1AD0EA2200A1534A /* ReimburseCreateViewController.swift */,
 				7B01D6311AD0EA4600A1534A /* ReimburseSingleViewController.swift */,
@@ -365,7 +357,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3813C4B1ABCD19300DBAF63 /* ReimbursementsStoryboard.storyboard in Resources */,
+				7B9F41F61AD27EDD00050158 /* ReimbursementsStoryboard.storyboard in Resources */,
 				AEECDDCF1AD259DF00839F72 /* ToDoStoryboard.storyboard in Resources */,
 				AED2890F1AB0DE3400F429F1 /* LaunchScreen.xib in Resources */,
 				AE4D694E1ACCF81400DB8831 /* Events.storyboard in Resources */,
@@ -393,19 +385,16 @@
 				AE4D69881AD1B23B00DB8831 /* ToDoViewController.swift in Sources */,
 				AE4D69781ACE5A6900DB8831 /* EventAddController.swift in Sources */,
 				7B01D6301AD0EA2200A1534A /* ReimburseCreateViewController.swift in Sources */,
-				B3813C4D1ABCD45600DBAF63 /* ToDoViewController.swift in Sources */,
 				AE4D69501ACCF83400DB8831 /* EventsViewController.swift in Sources */,
 				AE4D697A1ACF4BD200DB8831 /* EventsMenuController.swift in Sources */,
 				AEECDDCE1AD259DF00839F72 /* ToDoDetailViewController.swift in Sources */,
+				7B9F41F51AD2700000050158 /* SWRevealViewController.m in Sources */,
 				AED2892E1AB0E7CA00F429F1 /* MenuViewController.swift in Sources */,
 				AED289051AB0DE3400F429F1 /* AppDelegate.swift in Sources */,
 				7B01D6321AD0EA4600A1534A /* ReimburseSingleViewController.swift in Sources */,
-				AED289281AB0DE8300F429F1 /* SWRevealViewController.m in Sources */,
 				7B01D62E1AD0EA0500A1534A /* ReimburseViewController.swift in Sources */,
-				AE4D69801ACF70DE00DB8831 /* EventDetailController.swift in Sources */,
 				AE4D69851AD1B23B00DB8831 /* ManualAssignmentViewController.swift in Sources */,
 				AE4D69921AD1B90D00DB8831 /* ToDoMenuController.swift in Sources */,
-				AED289281AB0DE8300F429F1 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +417,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7B9F41F81AD27EDD00050158 /* ReimbursementsStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B9F41F71AD27EDD00050158 /* Base */,
+			);
+			name = ReimbursementsStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
 		AE4D694C1ACCF81400DB8831 /* Events.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -536,6 +533,12 @@
 					"$(PROJECT_DIR)",
 					"/Users/TylerFinkelstein/Downloads/parse-library-1.7.0",
 				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"/Users/atitus/parse-library-1.6.5",
+					"$(PROJECT_DIR)",
+					"/Users/TylerFinkelstein/Downloads/parse-library-1.7.0",
+				);
 				INFOPLIST_FILE = "Test App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -552,6 +555,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Tyler Finkelstein (R3WGE2DKXV)";
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/atitus/parse-library-1.6.5",
+					"$(PROJECT_DIR)",
+					"/Users/TylerFinkelstein/Downloads/parse-library-1.7.0",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
 					"/Users/atitus/parse-library-1.6.5",
 					"$(PROJECT_DIR)",
