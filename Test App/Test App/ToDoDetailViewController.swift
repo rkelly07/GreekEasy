@@ -31,13 +31,10 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         super.viewDidLoad()
         pointsPickerView.dataSource = self
         pointsPickerView.delegate = self
-<<<<<<< HEAD
         //peoplePickerView.dataSource = self
         //peoplePickerView.delegate = self
         pointsPickerView.selectRow(chorePoints - 1, inComponent: 0, animated: true)
-=======
         pointsPickerView.selectRow(chorePoints, inComponent: 0, animated: true)
->>>>>>> tyler2
         populateUserFullNamesArray()
         titleTextField.text = self.choreTitle
     }
