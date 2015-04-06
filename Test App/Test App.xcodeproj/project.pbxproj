@@ -575,6 +575,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7233f63e-42fc-4fdc-b9f6-e59bf331c708";
 				SWIFT_OBJC_BRIDGING_HEADER = "Test App/Test App-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
