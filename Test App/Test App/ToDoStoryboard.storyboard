@@ -418,15 +418,6 @@
                                     <outlet property="delegate" destination="LW9-MT-f3O" id="c3j-Dd-gXg"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHL-gh-6LU">
-                                <rect key="frame" x="153" y="72" width="294" height="30"/>
-                                <state key="normal" title="New Week - Reset All ToDos to Incomplete">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetAllToIncomplete:" destination="LW9-MT-f3O" eventType="touchUpInside" id="zTO-fV-6M7"/>
-                                </connections>
-                            </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Tb-x3-25y">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
@@ -440,6 +431,15 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHL-gh-6LU">
+                                <rect key="frame" x="153" y="72" width="294" height="30"/>
+                                <state key="normal" title="New Week - Reset All ToDos to Incomplete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetAllToIncomplete:" destination="LW9-MT-f3O" eventType="touchUpInside" id="zTO-fV-6M7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -774,8 +774,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ze3-73-f7X"/>
-        <segue reference="f4C-t0-cFf"/>
         <segue reference="QJ0-vx-A9F"/>
+        <segue reference="f4C-t0-cFf"/>
+        <segue reference="ze3-73-f7X"/>
     </inferredMetricsTieBreakers>
 </document>

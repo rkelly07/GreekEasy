@@ -69,6 +69,41 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         return userForSection
     }
     
+    func getUserChoresString(userOb: PFObject) -> String {
+        var choreDescripsString : String = ""
+//        var userChores : [Int] = []
+//        userChores = userOb.objectForKey("currentChores") as [Int]
+//        //println(userOb.objectForKey("firstName"))
+//        //println(userChores)
+//        for choreNumber in userChores {
+//            //println("entered iteration through choreNumbers")
+//            //println(choreNumber)
+//            var choreQuery = PFQuery(className: "ToDo")
+//            choreQuery.whereKey("ID", equalTo:choreNumber)
+//            choreQuery.findObjectsInBackgroundWithBlock {
+//                (objects: [AnyObject]!, error: NSError!) -> Void in
+//                //println("Matches are ")
+//                if error == nil {
+//                    //println("looking for " + String(choreNumber))
+//                    for object in objects {
+//                        println("iterating through objects")
+//                        if choreDescripsString == "" {
+//                            choreDescripsString = choreDescripsString + (object.objectForKey("description") as String)
+//                        } else {
+//                            choreDescripsString = choreDescripsString + ", " + (object.objectForKey("description") as String)
+//                        }
+//                    }
+//                } else {
+//                    NSLog(error.description)
+//                }
+//                //println("After adding this, string is " + choreDescripsString)
+//            }
+//        }
+        //println("End string for user is: " + choreDescripsString)
+        choreDescripsString = "Balls this don't work"
+        return choreDescripsString
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Configure the cell...
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
@@ -78,32 +113,8 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         var userPF : PFUser = findUserByFullName(userFullName)
         var userPoints : Int = userPF.objectForKey("totalPoints") as Int
         var userChores : [Int] = []
-        userChores = userPF.objectForKey("currentChores") as [Int]
-        println(userChores)
-        var userChoresAsString : String = ""
-        for chore in userChores {
-            println(chore)
-            var choreQuery = PFQuery(className: "ToDo")
-            choreQuery.whereKey("ID", equalTo:chore)
-            choreQuery.findObjectsInBackgroundWithBlock {
-                (objects: [AnyObject]!, error: NSError!) -> Void in
-                println("Matches are ")
-                println(objects)
-                for object in objects {
-                    if error == nil {
-                        if userChoresAsString == "" {
-                            userChoresAsString = userChoresAsString + (object.objectForKey("description") as String)
-                        } else {
-                            userChoresAsString = userChoresAsString + ", " + (object.objectForKey("description") as String)
-                        }
-                    } else {
-                        NSLog(error.description)
-                    }
-                }
-            }
-        }
-        println("String of chores for user is ")
-        println(userChoresAsString)
+        var userChoresAsString = getUserChoresString(userPF)
+        //println("String of chores for user is " + String(userChoresAsString))
         
         //TODO if otherPeopleFullNames is empty that label shouldn't be displayed and cell resized
         //temporary solution for too long titles
@@ -124,10 +135,10 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
         var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
         if contains(self.peopleOnChore, userPF) {
-            println("Chore is assigned to " + userFullName)
+            println("Chore is currently assigned to " + userFullName)
             buttonInCell.setImage(checked_checkbox_image, forState: .Normal)
         } else {
-            println("Chore is not assigned to " + userFullName)
+            println("Chore is not currently assigned to " + userFullName)
             buttonInCell.setImage(unchecked_checkbox_image, forState: .Normal)
         }
         return cell
@@ -183,6 +194,8 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
             userPF["currentChores"] = newArray
             //println("Actually assigned in parse are ")
             //println((userPF.objectForKey("currentChores") as [Int]))
+            var indexOfPerson : Int = find(self.peopleOnChore, userPF)!
+            self.peopleOnChore.removeAtIndex(indexOfPerson)
             self.peopleTable.reloadData()
             //TODO update to new array without chore
         } else {
@@ -194,6 +207,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
             userPF["currentChores"] = newArray
             //println("Actually assigned in parse are ")
             //println((userPF.objectForKey("currentChores") as [Int]))
+            self.peopleOnChore.append(userPF)
             self.peopleTable.reloadData()
         }
         userPF.saveEventually()
