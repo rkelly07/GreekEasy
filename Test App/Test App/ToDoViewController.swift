@@ -36,7 +36,7 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         if (currentUser.objectForKey("houseManager") as Bool) == true {
             println("currentuser is housemanager")
             goToChoreManager.hidden = false
-            goToChoreManager.backgroundColor = UIColor.yellowColor()
+            //goToChoreManager.backgroundColor = UIColor.yellowColor()
         } else {
             println("currentuser is not housemanager")
             goToChoreManager.hidden = true

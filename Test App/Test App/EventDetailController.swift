@@ -16,6 +16,7 @@ class EventDetailController: UIViewController {
     @IBOutlet weak var currentDescription: UILabel!
     
     var incoming:PFObject?
+    var formatter:NSDateFormatter?
     
     override func viewDidLoad() {
         super.viewDidLoad()

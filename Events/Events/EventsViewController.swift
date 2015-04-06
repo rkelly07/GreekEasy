@@ -13,9 +13,14 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var eventNames:[String] = []
     var events:[PFObject] = []
     var currentEvent:PFObject!
+    
+    var eventNames:[String] = []
+    var eventDates:[String] = []
+    var eventLocations:[String] = []
+    
+    var dateFormatter = NSDateFormatter()
     
     // TODO: Granularity of time in detail view
     // TODO: Formatting of menu cells in events
@@ -30,6 +35,9 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         self.activityIndicator.startAnimating()
         self.activityIndicator.hidden = false
+        
+        // Set up date formatter
+        self.dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         
         // Set up menu
         self.menuButton.target = self.revealViewController()
@@ -51,6 +59,13 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     var currentEvent = object["name"] as String
                     self.eventNames.append(currentEvent)
                     
+                    var currentDate = object["date"] as NSDate
+                    var formattedDate = self.dateFormatter.stringFromDate(currentDate)
+                    self.eventDates.append(formattedDate)
+                    
+                    var currentLocation = object["location"] as String
+                    self.eventLocations.append(currentLocation)
+                    
                     self.eventsTable.reloadData()
                 }
             } else {
@@ -64,13 +79,14 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             var destination = segue.destinationViewController as EventDetailController
             
             destination.incoming = self.currentEvent
+            destination.formatter = self.dateFormatter
         }
     }
 
     // MARK: - Table view data source
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.eventNames.count
+        return self.events.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
