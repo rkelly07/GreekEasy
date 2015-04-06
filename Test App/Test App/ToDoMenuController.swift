@@ -17,6 +17,7 @@ class ToDoMenuController: MenuViewController {
             presentViewController(vc2, animated: false, completion: nil)
             break
         case 1: // To-Dos - current view
+            self.performSegueWithIdentifier("todoPress", sender: nil)
             break
         case 2: // Reimburse
             println("implement yo shit")

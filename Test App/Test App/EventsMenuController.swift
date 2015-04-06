@@ -12,6 +12,7 @@ class EventsMenuController: MenuViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch indexPath.row {
         case 0: // Events - current view
+            self.performSegueWithIdentifier("eventsPress", sender: nil)
             break
         case 1: // To-Dos
             var storyboard2 = UIStoryboard(name: "ToDoStoryboard", bundle: nil)

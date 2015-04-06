@@ -19,7 +19,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // TODO: Granularity of time in detail view
     // TODO: Formatting of menu cells in events
-    // TODO: Button presses on current view
+    // TODO: Enum and PickerView for category of events
     // TODO: Signups and accounts
     // TODO: Cacheing?
     

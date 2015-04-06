@@ -48,10 +48,13 @@
                             <outlet property="delegate" destination="aCH-33-ZCB" id="zS2-1t-jYV"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="EgF-P2-0nW" kind="custom" identifier="eventsPress" customClass="SWRevealViewControllerSeguePushController" id="zDj-jt-Lp6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H2o-3Y-hcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="177" y="-767"/>
+            <point key="canvasLocation" x="83" y="-763"/>
         </scene>
         <!--Events View Controller-->
         <scene sceneID="kS3-TK-UfO">
@@ -658,6 +661,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UYO-xE-5Zg"/>
+        <segue reference="zDj-jt-Lp6"/>
     </inferredMetricsTieBreakers>
 </document>
