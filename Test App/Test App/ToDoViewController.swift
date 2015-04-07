@@ -295,10 +295,10 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     //removes data from array and updates table view when deleting
-    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            // remove data from array and udpate tableview
-        }
-    }
+//    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+//        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+//            // remove data from array and udpate tableview
+//        }
+//    }
     
 }

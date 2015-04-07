@@ -184,9 +184,9 @@ class ManualAssignmentViewController: UIViewController {
     
     //TODO do I maybe need to call reload in this?
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var detailVC = segue.destinationViewController as ToDoDetailViewController
-        detailVC.allUsers = self.allUsers
         if (segue.identifier == "showDetail") {
+            var detailVC = segue.destinationViewController as ToDoDetailViewController
+            detailVC.allUsers = self.allUsers
             var indexPath : NSIndexPath! = tableView.indexPathForSelectedRow()
             //need to pass the choreID
             var specificChore : PFObject = self.allChores[indexPath.row]
@@ -200,6 +200,7 @@ class ManualAssignmentViewController: UIViewController {
             detailVC.choreID = specificChoreID
             detailVC.originalChoreTitle = choreTitle
             detailVC.editingNotAdding = true
+            detailVC.allChores = self.allChores
             var peopleOnChore : [PFUser] = []
             //go through other users and see who has the same choreID
             for person in self.allUsers {
@@ -214,9 +215,12 @@ class ManualAssignmentViewController: UIViewController {
             detailVC.peopleOnChore = peopleOnChore
             detailVC.peopleOriginallyOnChore = peopleOnChore
         } else if (segue.identifier) == "addNew" {
+            var detailVC = segue.destinationViewController as ToDoDetailViewController
+            detailVC.allUsers = self.allUsers
             println("adding new chore")
             detailVC.editingNotAdding = false
             detailVC.choreID = getMaxChoreIDForHouse(self.allChores) + 1
+            detailVC.allChores = self.allChores
         }
     }
     
@@ -234,6 +238,25 @@ class ManualAssignmentViewController: UIViewController {
     func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // remove data from array and udpate tableview
+            let itemToDelete = self.allChores[indexPath.row]
+            let itemToDeleteID : Int = itemToDelete.objectForKey("ID") as Int
+            itemToDelete.deleteEventually()
+            
+            for person in self.allUsers {
+                if (person.objectForKey("currentChores") as NSArray).containsObject(itemToDeleteID) {
+                    var indexOfChore : Int = find(person.objectForKey("currentChores") as [Int], itemToDeleteID)!
+                    var newArray : [Int] = person.objectForKey("currentChores") as [Int]
+                    newArray.removeAtIndex(indexOfChore)
+                    person["currentChores"] = newArray
+                    person.saveEventually()
+                }
+            }
+            
+            self.allChores.removeAtIndex(indexPath.row)
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            
+            self.tableView.reloadData()
         }
     }
     

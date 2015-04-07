@@ -20,6 +20,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     var peopleOriginallyOnChore : [PFUser] = []
     var selectedPeople : [Int] = []
     var selectedPoints : Int = 0
+    var allChores : [PFObject] = []
     
     var editingNotAdding : Bool = true //true if editing, false if adding
     
@@ -35,6 +36,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         self.pointsPickerView.dataSource = self
         self.pointsPickerView.delegate = self
         self.pointsPickerView.selectRow(self.chorePoints, inComponent: 0, animated: true)
+        self.peopleTable.flashScrollIndicators()
         populateUserFullNamesArray()
         self.titleTextField.text = self.originalChoreTitle
     }
@@ -70,38 +72,20 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func getUserChoresString(userOb: PFObject) -> String {
-        var choreDescripsString : String = ""
-//        var userChores : [Int] = []
-//        userChores = userOb.objectForKey("currentChores") as [Int]
-//        //println(userOb.objectForKey("firstName"))
-//        //println(userChores)
-//        for choreNumber in userChores {
-//            //println("entered iteration through choreNumbers")
-//            //println(choreNumber)
-//            var choreQuery = PFQuery(className: "ToDo")
-//            choreQuery.whereKey("ID", equalTo:choreNumber)
-//            choreQuery.findObjectsInBackgroundWithBlock {
-//                (objects: [AnyObject]!, error: NSError!) -> Void in
-//                //println("Matches are ")
-//                if error == nil {
-//                    //println("looking for " + String(choreNumber))
-//                    for object in objects {
-//                        println("iterating through objects")
-//                        if choreDescripsString == "" {
-//                            choreDescripsString = choreDescripsString + (object.objectForKey("description") as String)
-//                        } else {
-//                            choreDescripsString = choreDescripsString + ", " + (object.objectForKey("description") as String)
-//                        }
-//                    }
-//                } else {
-//                    NSLog(error.description)
-//                }
-//                //println("After adding this, string is " + choreDescripsString)
-//            }
-//        }
-        //println("End string for user is: " + choreDescripsString)
-        choreDescripsString = "Balls this don't work"
-        return choreDescripsString
+        var choreTitlesString : String = ""
+        var userChores : [Int] = userOb.objectForKey("currentChores") as [Int]
+        for choreID in userChores {
+            for chore in self.allChores {
+                if contains(userChores, chore.objectForKey("ID") as Int) {
+                    if (choreTitlesString == "") {
+                        choreTitlesString = chore.objectForKey("description") as String
+                    } else {
+                        choreTitlesString = choreTitlesString + ", " + (chore.objectForKey("description") as String)
+                    }
+                }
+            }
+        }
+        return choreTitlesString
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -163,8 +147,18 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
                 }
             }
         } else {
+            //need to remove choreID for nonexistent chore from users
             println("User went back after beginning to add chore. Nothing should happen because chore was never created")
+            for user in self.allUsers {
+                if contains(user.objectForKey("currentChores") as [Int], self.choreID) {
+                    var indexOfChore : Int = find(user.objectForKey("currentChores") as [Int], self.choreID)!
+                    var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
+                    newArray.removeAtIndex(indexOfChore)
+                    user.saveEventually()
+                }
+            }
         }
+        self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
     }
     
     @IBAction func addOrRemovePersonFromChore(sender: AnyObject) {
@@ -215,32 +209,40 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     @IBAction func saveEditedChore(sender: AnyObject) {
-        //query using choreid to get object
-        println("trying to save chore")
-        self.choreObject["description"] = self.titleTextField.text as String //don't know if this works
-        self.choreObject["points"] = self.selectedPoints as Int
-        //        var userChores : [Int] = []
-        //        for user in self.allUsers {
-        //            userChores = (user.objectForKey("currentChores") as [Int])
-        //            if contains(userChores,self.choreID) {
-        //
-        //            }
-        //save chore
-        self.choreObject.saveEventually()
-        for user in self.allUsers {
-            user.saveEventually()
+        if (self.editingNotAdding) {
+            //query using choreid to get object
+            println("trying to save chore")
+            self.choreObject["description"] = self.titleTextField.text as String //don't know if this works
+            self.choreObject["points"] = self.selectedPoints as Int
+            //        var userChores : [Int] = []
+            //        for user in self.allUsers {
+            //            userChores = (user.objectForKey("currentChores") as [Int])
+            //            if contains(userChores,self.choreID) {
+            //
+            //            }
+            //save chore
+            self.choreObject.saveEventually()
+//            for user in self.allUsers {
+//                user.saveEventually()
+//            }
+            self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
+        } else {
+            var newChore : PFObject = PFObject(className: "ToDo")
+            newChore["ID"] = self.choreID as Int
+            newChore["points"] = self.selectedPoints as Int
+            newChore["description"] = self.titleTextField.text as String
+            newChore.saveEventually()
         }
-        self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
     }
     
-    //TODO make @IBAction
-    func createNewChore(sender: AnyObject) {
-        var newChore : PFObject = PFObject(className: "ToDo")
-        newChore["ID"] = self.choreID as Int
-        newChore["points"] = self.selectedPoints as Int
-        newChore["description"] = self.titleTextField.text as String
-        newChore.saveEventually()
-    }
+//    //TODO make @IBAction
+//    func createNewChore(sender: AnyObject) {
+//        var newChore : PFObject = PFObject(className: "ToDo")
+//        newChore["ID"] = self.choreID as Int
+//        newChore["points"] = self.selectedPoints as Int
+//        newChore["description"] = self.titleTextField.text as String
+//        newChore.saveEventually()
+//    }
     
     //MARK: - Delegates and data sources
     //MARK: Data Sources

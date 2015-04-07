@@ -40,6 +40,7 @@
 		AEECDDD21AD3788500839F72 /* ReimburseCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECDDD11AD3788500839F72 /* ReimburseCreateViewController.swift */; };
 		B349C4EA1AD37E700072B98A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B349C4E81AD37E700072B98A /* Bolts.framework */; };
 		B349C4EB1AD37E700072B98A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B349C4E91AD37E700072B98A /* Parse.framework */; };
+		B35468301AD392EC00AFBE92 /* AutoAssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B354682F1AD392EC00AFBE92 /* AutoAssignViewController.swift */; };
 		B3813C471ABCD17500DBAF63 /* MealsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */; };
 		B3813C491ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C481ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		AEECDDD11AD3788500839F72 /* ReimburseCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimburseCreateViewController.swift; sourceTree = "<group>"; };
 		B349C4E81AD37E700072B98A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/parse-library-1.7.0/Bolts.framework"; sourceTree = "<group>"; };
 		B349C4E91AD37E700072B98A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Downloads/parse-library-1.7.0/Parse.framework"; sourceTree = "<group>"; };
+		B354682F1AD392EC00AFBE92 /* AutoAssignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoAssignViewController.swift; sourceTree = "<group>"; };
 		B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MealsStoryboard.storyboard; sourceTree = "<group>"; };
 		B3813C481ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShoppingListStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,6 +228,7 @@
 			children = (
 				AEECDDCC1AD259DF00839F72 /* ToDoDetailViewController.swift */,
 				AE4D69811AD1B23B00DB8831 /* ManualAssignmentViewController.swift */,
+				B354682F1AD392EC00AFBE92 /* AutoAssignViewController.swift */,
 				AEECDDCD1AD259DF00839F72 /* ToDoStoryboard.storyboard */,
 				AE4D69841AD1B23B00DB8831 /* ToDoViewController.swift */,
 				AE4D69911AD1B90D00DB8831 /* ToDoMenuController.swift */,
@@ -389,6 +392,7 @@
 				AE4D69501ACCF83400DB8831 /* EventsViewController.swift in Sources */,
 				AE4D697A1ACF4BD200DB8831 /* EventsMenuController.swift in Sources */,
 				AEECDDCE1AD259DF00839F72 /* ToDoDetailViewController.swift in Sources */,
+				B35468301AD392EC00AFBE92 /* AutoAssignViewController.swift in Sources */,
 				AEECDDD21AD3788500839F72 /* ReimburseCreateViewController.swift in Sources */,
 				7B9F41F51AD2700000050158 /* SWRevealViewController.m in Sources */,
 				AED2892E1AB0E7CA00F429F1 /* MenuViewController.swift in Sources */,
