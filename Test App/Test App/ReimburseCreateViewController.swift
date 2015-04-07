@@ -11,12 +11,14 @@ import MobileCoreServices
 
 class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
+    
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
-    
-    @IBOutlet weak var photoView: UIImageView!
-    @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var amountField: UITextField!
+    @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var takePhotoButton: UIButton!
+    @IBOutlet weak var uploadPhotoButton: UIButton!
+    @IBOutlet weak var createButton: UIButton!
     let imagePicker = UIImagePickerController()
     
     var newMedia: Bool?
@@ -30,18 +32,6 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
     
     }
     
-    @IBAction func uploadPhotoButton(sender: AnyObject) {
-        
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-            imagePicker.mediaTypes = [kUTTypeImage as NSString]
-            imagePicker.allowsEditing = false
-            self.presentViewController(imagePicker, animated: true, completion: nil)
-            newMedia = false
-        }
-    }
     @IBAction func takePhotoButton(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
             imagePicker.delegate = self
@@ -52,6 +42,17 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
             self.presentViewController(imagePicker, animated: true, completion: nil)
             
             newMedia = true
+        }
+    }
+    @IBAction func uploadPhotoButton(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imagePicker.mediaTypes = [kUTTypeImage as NSString]
+            imagePicker.allowsEditing = false
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+            newMedia = false
         }
     }
 
