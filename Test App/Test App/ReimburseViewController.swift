@@ -47,7 +47,7 @@ class ReimburseViewController: UIViewController, UITableViewDelegate {
                 for object in objects{
                     unsortedReimbursements.append(object as PFObject)
                 }
-                self.reimbursements = unsortedReimbursements.sorted( { ($0["date"] as NSDate).compare($1["date"] as NSDate) == NSComparisonResult.OrderedAscending } )
+                self.reimbursements = unsortedReimbursements.sorted( { ($0["updatedAt"] as NSDate).compare($1["updatedAt"] as NSDate) == NSComparisonResult.OrderedAscending } )
                 
                 for reimbursement in self.reimbursements {
                     var currentReimbursement = reimbursement["description"] as String
