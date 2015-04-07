@@ -244,6 +244,47 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
         peopleTable.reloadData()
     }
     
+    @IBAction func addOrRemovePerson(sender: AnyObject) {
+        println("Button press works")
+        var position: CGPoint = sender.convertPoint(CGPointZero, toView: self.peopleTable)
+        var indexPath: NSIndexPath = self.peopleTable.indexPathForRowAtPoint(position)!
+        var personNumberInTable : Int! = indexPath.row
+        var user : PFUser = self.allUsers[indexPath.row]
+        
+        if contains(self.selectedUsers, user) {
+            var indexOfPerson : Int = find(self.selectedUsers, user)!
+            self.selectedUsers.removeAtIndex(indexOfPerson)
+            println("user removed")
+            println(self.selectedUsers)
+            self.peopleTable.reloadData()
+        } else {
+            self.selectedUsers.append(user)
+            println("user added")
+            println(self.selectedUsers)
+            self.peopleTable.reloadData()
+        }
+    }
+    @IBAction func addOrRemoveChore(sender: AnyObject) {
+        println("Button press works")
+        var position: CGPoint = sender.convertPoint(CGPointZero, toView: self.peopleTable)
+        var indexPath: NSIndexPath = self.choresTable.indexPathForRowAtPoint(position)!
+        var personNumberInTable : Int! = indexPath.row
+        var chore : PFObject = self.allChores[indexPath.row]
+        
+        if contains(self.selectedChores, chore) {
+            var indexOfPerson : Int = find(self.selectedChores, chore)!
+            self.selectedChores.removeAtIndex(indexOfPerson)
+            println("user removed")
+            println(self.selectedChores)
+            self.choresTable.reloadData()
+        } else {
+            self.selectedChores.append(chore)
+            println("user added")
+            println(self.selectedChores)
+            self.choresTable.reloadData()
+        }
+    }
+    
     func autoAssignChores() -> Void {
     
         //get all chores sorted by points high to low

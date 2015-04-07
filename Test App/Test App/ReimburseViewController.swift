@@ -112,7 +112,7 @@ class ReimburseViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         let creator = self.reimbursements[indexPath.row]["createdBy"] as String
-        return (creator == self.user!["username"] as String)
+        return (self.user!["treasurer"] as Bool == true) || (creator == self.user!["username"] as String)
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
