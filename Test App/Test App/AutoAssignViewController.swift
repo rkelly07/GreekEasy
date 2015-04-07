@@ -202,7 +202,7 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
             (cell.contentView.viewWithTag(32) as UILabel).text = "Points: " + String(userPoints)
             (cell.contentView.viewWithTag(33) as UILabel).text = userChoresAsString
             
-            var buttonInCell : UIButton = (cell.contentView.viewWithTag(111) as UIButton)
+            var buttonInCell : UIButton = (cell.contentView.viewWithTag(333) as UIButton)
             var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
             var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
             if contains(self.selectedUsers, userPF) {

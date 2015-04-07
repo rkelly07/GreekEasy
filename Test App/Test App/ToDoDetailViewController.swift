@@ -71,13 +71,14 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func findUserByFullName(userFullName : String) -> PFUser {
-        var userForSection : PFUser = PFUser()
+        //var userForSection : PFUser = PFUser()
         for user in self.allUsers {
             if ((user.objectForKey("firstName") as String) + " " + (user.objectForKey("lastName") as String)) == userFullName {
-                userForSection = user
+                return user
             }
         }
-        return userForSection
+        return PFUser()
+        //return userForSection
     }
     
     func getUserChoresString(userOb: PFObject) -> String {
@@ -138,38 +139,6 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     @IBAction func goBackWithoutMakingOrEditingChore(sender: AnyObject) {
-        if editingNotAdding {
-//            println(choreObject)
-//            println(self.originalChoreTitle)
-//            self.choreObject["description"] = self.originalChoreTitle
-//            self.choreObject["points"] = self.selectedPoints
-//            //if you hit back, you only want the original users to have the chore assigned to them
-//            for user in self.allUsers {
-//                if contains(user.objectForKey("currentChores") as [Int], self.choreID) {
-//                    var indexOfChore : Int = find(user.objectForKey("currentChores") as [Int], self.choreID)!
-//                    var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
-//                    newArray.removeAtIndex(indexOfChore)
-//                    user["currentChores"] = newArray
-//                }
-//                if contains(self.peopleOriginallyOnChore, user) {
-//                    var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
-//                    newArray.append(self.choreID)
-//                    user["currentChores"] = newArray
-//                }
-//            }
-            println("Fuck that we editing but don't want to save")
-        } else {
-            //need to remove choreID for nonexistent chore from users
-            println("User went back after beginning to add chore. Nothing should happen because chore was never created")
-//            for user in self.allUsers {
-//                if contains(user.objectForKey("currentChores") as [Int], self.choreID) {
-//                    var indexOfChore : Int = find(user.objectForKey("currentChores") as [Int], self.choreID)!
-//                    var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
-//                    newArray.removeAtIndex(indexOfChore)
-//                    user.saveEventually()
-//                }
-//            }
-        }
         self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
     }
     
@@ -178,7 +147,6 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         var position: CGPoint = sender.convertPoint(CGPointZero, toView: self.peopleTable)
         var indexPath: NSIndexPath = self.peopleTable.indexPathForRowAtPoint(position)!
         var personNumberInTable : Int! = indexPath.row
-        var user : PFUser = PFUser()
         var userFullName : String = self.allUsersFullNames[indexPath.row]
         println("Trying to select/deselect " + userFullName)
         var userPF : PFUser = findUserByFullName(userFullName)
@@ -221,7 +189,9 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
                         println(objectID)
                         println(object)
                         object["currentChores"] = [2]
-                        object.saveEventually()
+                        object.save()
+                        self.peopleTable.reloadData()
+                        //object.saveEventually()
                     }
                 }
             }
@@ -399,6 +369,8 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
 //        newChore["description"] = self.titleTextField.text as String
 //        newChore.saveEventually()
 //    }
+    
+    
     
     //MARK: - Delegates and data sources
     //MARK: Data Sources

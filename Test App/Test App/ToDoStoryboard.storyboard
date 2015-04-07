@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Bmu-Ze-z8i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Bmu-Ze-z8i">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -542,6 +542,9 @@
                                 <state key="normal" title="Select all ToDos">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="selectAllChoresClicked:" destination="4Eh-a1-Pl3" eventType="touchUpInside" id="6n4-ry-4Ih"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" tag="21" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yOJ-B9-1AQ">
                                 <rect key="frame" x="32" y="133" width="536" height="200"/>
@@ -638,6 +641,9 @@
                                 <state key="normal" title="Select all People">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="selectAllPeopleClicked:" destination="4Eh-a1-Pl3" eventType="touchUpInside" id="6F4-RE-Ztg"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" tag="22" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a2h-yA-saW">
                                 <rect key="frame" x="32" y="400" width="536" height="200"/>
@@ -1180,12 +1186,12 @@
                             <mask key="constraints">
                                 <exclude reference="lBn-UP-Jfc"/>
                                 <exclude reference="sUT-Ar-r8c"/>
+                                <exclude reference="6yu-sd-odf"/>
                                 <exclude reference="ZwL-S5-8Qa"/>
                                 <exclude reference="iXM-lq-RWW"/>
-                                <exclude reference="6yu-sd-odf"/>
                                 <exclude reference="HIS-Dd-yJh"/>
-                                <exclude reference="ujt-KO-ky9"/>
                                 <exclude reference="V4e-m9-mM8"/>
+                                <exclude reference="ujt-KO-ky9"/>
                             </mask>
                         </variation>
                     </view>
@@ -1204,9 +1210,9 @@
         <image name="full_logo" width="424" height="98"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fxq-Kc-ek6"/>
-        <segue reference="qMr-z6-JCG"/>
         <segue reference="FD7-y7-Cf0"/>
         <segue reference="kwR-TF-71C"/>
+        <segue reference="jj2-db-E0U"/>
+        <segue reference="Fxq-Kc-ek6"/>
     </inferredMetricsTieBreakers>
 </document>
