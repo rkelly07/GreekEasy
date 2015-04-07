@@ -27,8 +27,14 @@ class ReimburseViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Start activity indicator
         self.activityIndicator.startAnimating()
         self.activityIndicator.hidden = false
+        
+        // Set up menu
+        self.menuButton.target = self.revealViewController()
+        self.menuButton.action = "revealToggle:"
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         //Load Reimbursements (Description, Name, Amount)
         var query = PFQuery(className: "Reimburse")
