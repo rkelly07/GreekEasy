@@ -543,8 +543,7 @@
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="FIn-I0-gHR">
                                             <color key="tintColor" red="0.85558712120000002" green="0.42805547620000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <action selector="saveEditedChore:" destination="CYS-sd-hpi" id="Dv3-Uk-H6e"/>
-                                                <segue destination="LW9-MT-f3O" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="SJu-Tz-DFM"/>
+                                                <action selector="saveEditedChore:" destination="CYS-sd-hpi" id="I99-mQ-Grf"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -794,6 +793,7 @@
                         <outlet property="peopleTable" destination="qg9-ED-EIT" id="Gmz-kt-le6"/>
                         <outlet property="pointsPickerView" destination="2cd-sF-ooC" id="28N-ea-TqY"/>
                         <outlet property="titleTextField" destination="m4o-Zd-AJk" id="Fs7-ve-OSh"/>
+                        <segue destination="LW9-MT-f3O" kind="custom" identifier="goBackAfterSavingOrEditing" customClass="SWRevealViewControllerSeguePushController" id="FD7-y7-Cf0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZ3-aF-wln" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -802,8 +802,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b8m-j1-rWU"/>
-        <segue reference="f4C-t0-cFf"/>
-        <segue reference="QJ0-vx-A9F"/>
+        <segue reference="FD7-y7-Cf0"/>
+        <segue reference="8uD-2y-Gzg"/>
+        <segue reference="lbc-F0-QMl"/>
     </inferredMetricsTieBreakers>
 </document>

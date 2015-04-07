@@ -32,11 +32,11 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pointsPickerView.dataSource = self
-        pointsPickerView.delegate = self
-        pointsPickerView.selectRow(self.chorePoints, inComponent: 0, animated: true)
+        self.pointsPickerView.dataSource = self
+        self.pointsPickerView.delegate = self
+        self.pointsPickerView.selectRow(self.chorePoints, inComponent: 0, animated: true)
         populateUserFullNamesArray()
-        titleTextField.text = self.originalChoreTitle
+        self.titleTextField.text = self.originalChoreTitle
     }
     
     func populateUserFullNamesArray() {
@@ -163,7 +163,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
                 }
             }
         } else {
-            println("User went back after beginning to add chore. Nothing should happen")
+            println("User went back after beginning to add chore. Nothing should happen because chore was never created")
         }
     }
     
@@ -185,17 +185,17 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         if userCurrentlyAssignedToChore {
             var indexOfChore : Int = find(userPF.objectForKey("currentChores") as [Int], self.choreID)!
             var newArray : [Int] = (userPF.objectForKey("currentChores") as [Int])
-            //println("Old chores for person are ")
-            //println(newArray)
+            println("Old chores for person are ")
+            println(newArray)
             newArray.removeAtIndex(indexOfChore)
-            //println("New chores for person are ")
-            //println(newArray)
-            //println(newArray)
+            println("New chores for person are ")
+            println(newArray)
             userPF["currentChores"] = newArray
-            //println("Actually assigned in parse are ")
-            //println((userPF.objectForKey("currentChores") as [Int]))
+            println("Actually assigned in parse are ")
+            println((userPF.objectForKey("currentChores") as [Int]))
             var indexOfPerson : Int = find(self.peopleOnChore, userPF)!
             self.peopleOnChore.removeAtIndex(indexOfPerson)
+            userPF.saveEventually()
             self.peopleTable.reloadData()
             //TODO update to new array without chore
         } else {
@@ -208,6 +208,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
             //println("Actually assigned in parse are ")
             //println((userPF.objectForKey("currentChores") as [Int]))
             self.peopleOnChore.append(userPF)
+            userPF.saveEventually()
             self.peopleTable.reloadData()
         }
         userPF.saveEventually()
@@ -215,8 +216,9 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     @IBAction func saveEditedChore(sender: AnyObject) {
         //query using choreid to get object
-        self.choreObject["description"] = self.titleTextField //don't know if this works
-        self.choreObject["points"] = selectedPoints
+        println("trying to save chore")
+        self.choreObject["description"] = self.titleTextField.text as String //don't know if this works
+        self.choreObject["points"] = self.selectedPoints as Int
         //        var userChores : [Int] = []
         //        for user in self.allUsers {
         //            userChores = (user.objectForKey("currentChores") as [Int])
@@ -224,6 +226,20 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         //
         //            }
         //save chore
+        self.choreObject.saveEventually()
+        for user in self.allUsers {
+            user.saveEventually()
+        }
+        self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
+    }
+    
+    //TODO make @IBAction
+    func createNewChore(sender: AnyObject) {
+        var newChore : PFObject = PFObject(className: "ToDo")
+        newChore["ID"] = self.choreID as Int
+        newChore["points"] = self.selectedPoints as Int
+        newChore["description"] = self.titleTextField.text as String
+        newChore.saveEventually()
     }
     
     //MARK: - Delegates and data sources
@@ -244,7 +260,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedPoints = row
+        self.selectedPoints = row
         println("Chore is worth " + String(selectedPoints) + " points")
     }
 }
