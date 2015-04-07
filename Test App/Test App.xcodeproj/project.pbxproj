@@ -15,6 +15,7 @@
 		7BCBFEEF1AD3E5C00059F32E /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCBFEEE1AD3E5C00059F32E /* ParseUI.framework */; };
 		7BCBFEF21AD3E5F70059F32E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCBFEF01AD3E5F70059F32E /* Bolts.framework */; };
 		7BCBFEF31AD3E5F70059F32E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCBFEF11AD3E5F70059F32E /* Parse.framework */; };
+		AE1CEA0D1AD42C2A00B56BF9 /* ManualAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1CEA0C1AD42C2A00B56BF9 /* ManualAssignmentViewController.swift */; };
 		AE4D69401ACC40C100DB8831 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */; };
 		AE4D69411ACC40C100DB8831 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69361ACC40C100DB8831 /* CFNetwork.framework */; };
 		AE4D69421ACC40C100DB8831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69371ACC40C100DB8831 /* CoreGraphics.framework */; };
@@ -28,7 +29,6 @@
 		AE4D69501ACCF83400DB8831 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D694F1ACCF83400DB8831 /* EventsViewController.swift */; };
 		AE4D69781ACE5A6900DB8831 /* EventAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69771ACE5A6900DB8831 /* EventAddController.swift */; };
 		AE4D697A1ACF4BD200DB8831 /* EventsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69791ACF4BD200DB8831 /* EventsMenuController.swift */; };
-		AE4D69851AD1B23B00DB8831 /* ManualAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69811AD1B23B00DB8831 /* ManualAssignmentViewController.swift */; };
 		AE4D69881AD1B23B00DB8831 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69841AD1B23B00DB8831 /* ToDoViewController.swift */; };
 		AE4D69921AD1B90D00DB8831 /* ToDoMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69911AD1B90D00DB8831 /* ToDoMenuController.swift */; };
 		AE4D69981AD1D6B700DB8831 /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69971AD1D6B700DB8831 /* EventDetailController.swift */; };
@@ -66,6 +66,7 @@
 		7BCBFEEE1AD3E5C00059F32E /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		7BCBFEF01AD3E5F70059F32E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		7BCBFEF11AD3E5F70059F32E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		AE1CEA0C1AD42C2A00B56BF9 /* ManualAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualAssignmentViewController.swift; sourceTree = "<group>"; };
 		AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AE4D69361ACC40C100DB8831 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AE4D69371ACC40C100DB8831 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -80,7 +81,6 @@
 		AE4D694F1ACCF83400DB8831 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsViewController.swift; path = ../../Events/Events/EventsViewController.swift; sourceTree = "<group>"; };
 		AE4D69771ACE5A6900DB8831 /* EventAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAddController.swift; sourceTree = "<group>"; };
 		AE4D69791ACF4BD200DB8831 /* EventsMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsMenuController.swift; sourceTree = "<group>"; };
-		AE4D69811AD1B23B00DB8831 /* ManualAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualAssignmentViewController.swift; sourceTree = "<group>"; };
 		AE4D69841AD1B23B00DB8831 /* ToDoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		AE4D69911AD1B90D00DB8831 /* ToDoMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoMenuController.swift; sourceTree = "<group>"; };
 		AE4D69971AD1D6B700DB8831 /* EventDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
@@ -238,8 +238,8 @@
 		B3813C3F1ABCCF2200DBAF63 /* To Do */ = {
 			isa = PBXGroup;
 			children = (
+				AE1CEA0C1AD42C2A00B56BF9 /* ManualAssignmentViewController.swift */,
 				AEECDDCC1AD259DF00839F72 /* ToDoDetailViewController.swift */,
-				AE4D69811AD1B23B00DB8831 /* ManualAssignmentViewController.swift */,
 				B354682F1AD392EC00AFBE92 /* AutoAssignViewController.swift */,
 				AEECDDCD1AD259DF00839F72 /* ToDoStoryboard.storyboard */,
 				AE4D69841AD1B23B00DB8831 /* ToDoViewController.swift */,
@@ -403,6 +403,7 @@
 				AE4D69781ACE5A6900DB8831 /* EventAddController.swift in Sources */,
 				AE4D69501ACCF83400DB8831 /* EventsViewController.swift in Sources */,
 				AE4D697A1ACF4BD200DB8831 /* EventsMenuController.swift in Sources */,
+				AE1CEA0D1AD42C2A00B56BF9 /* ManualAssignmentViewController.swift in Sources */,
 				AEECDDCE1AD259DF00839F72 /* ToDoDetailViewController.swift in Sources */,
 				B35468301AD392EC00AFBE92 /* AutoAssignViewController.swift in Sources */,
 				AEECDDD21AD3788500839F72 /* ReimburseCreateViewController.swift in Sources */,
@@ -412,7 +413,6 @@
 				7B9F41FA1AD31D0300050158 /* ReimbursementsMenuController.swift in Sources */,
 				7B01D6321AD0EA4600A1534A /* ReimburseSingleViewController.swift in Sources */,
 				7B01D62E1AD0EA0500A1534A /* ReimburseViewController.swift in Sources */,
-				AE4D69851AD1B23B00DB8831 /* ManualAssignmentViewController.swift in Sources */,
 				AE4D69921AD1B90D00DB8831 /* ToDoMenuController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

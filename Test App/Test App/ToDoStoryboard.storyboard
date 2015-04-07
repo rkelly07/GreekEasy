@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Bmu-Ze-z8i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Bmu-Ze-z8i">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -189,6 +189,9 @@
                                     <outlet property="delegate" destination="dxX-5H-pgT" id="ZLP-HC-YHW"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tal-y6-AbD">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -198,8 +201,10 @@
                             <constraint firstAttribute="centerX" secondItem="YOk-z6-qIs" secondAttribute="centerX" id="8M2-Cs-zaT"/>
                             <constraint firstItem="HOj-sY-AVK" firstAttribute="leading" secondItem="TtF-2M-3PM" secondAttribute="leadingMargin" constant="-16" id="8lE-6N-SCp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9Vr-JW-PP5" secondAttribute="trailing" constant="-16" id="9ws-5B-4DT"/>
+                            <constraint firstAttribute="centerY" secondItem="tal-y6-AbD" secondAttribute="centerY" id="Neb-Gb-XsW"/>
                             <constraint firstAttribute="bottomMargin" secondItem="9Vr-JW-PP5" secondAttribute="bottom" id="T59-y9-3h2"/>
                             <constraint firstAttribute="centerX" secondItem="YOk-z6-qIs" secondAttribute="centerX" id="UyX-4o-tcp"/>
+                            <constraint firstAttribute="centerX" secondItem="tal-y6-AbD" secondAttribute="centerX" id="V02-VS-y8E"/>
                             <constraint firstItem="YOk-z6-qIs" firstAttribute="top" secondItem="HOj-sY-AVK" secondAttribute="bottom" constant="5" id="db3-09-DHa"/>
                             <constraint firstItem="9Vr-JW-PP5" firstAttribute="leading" secondItem="TtF-2M-3PM" secondAttribute="leadingMargin" constant="-16" id="eAh-V5-8aP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YOk-z6-qIs" secondAttribute="trailing" constant="-16" id="gs3-2v-fEH"/>
@@ -219,6 +224,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="tal-y6-AbD" id="xND-kw-nO4"/>
                         <outlet property="goToChoreManager" destination="YOk-z6-qIs" id="bhQ-e2-INz"/>
                         <outlet property="menuButton" destination="5nm-17-RBR" id="mXm-Dk-tke"/>
                         <outlet property="tableView" destination="9Vr-JW-PP5" id="JJS-OJ-1ZQ"/>
@@ -468,6 +474,9 @@
                                     <action selector="resetAllToIncomplete:" destination="LW9-MT-f3O" eventType="touchUpInside" id="zTO-fV-6M7"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="A65-ac-7aM">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -477,12 +486,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="7Tb-x3-25y" secondAttribute="trailing" constant="-16" id="4tn-ll-kBX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="f9z-ip-FDc" secondAttribute="trailing" constant="-16" id="All-5E-iii"/>
                             <constraint firstItem="7Tb-x3-25y" firstAttribute="leading" secondItem="qS7-Qp-Ujr" secondAttribute="leadingMargin" constant="-16" id="GJR-Ie-lhQ"/>
+                            <constraint firstAttribute="centerY" secondItem="A65-ac-7aM" secondAttribute="centerY" id="GgG-qs-MwX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mHL-gh-6LU" secondAttribute="trailing" constant="-16" id="OSn-a9-1fy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Tb-x3-25y" secondAttribute="trailing" constant="-16" id="OmJ-7H-8p2"/>
                             <constraint firstItem="f9z-ip-FDc" firstAttribute="leading" secondItem="qS7-Qp-Ujr" secondAttribute="leadingMargin" constant="-16" id="RCO-bU-NGO"/>
                             <constraint firstAttribute="centerX" secondItem="f9z-ip-FDc" secondAttribute="centerX" id="X98-sM-ezN"/>
                             <constraint firstItem="7Tb-x3-25y" firstAttribute="leading" secondItem="qS7-Qp-Ujr" secondAttribute="leadingMargin" constant="-16" id="aee-Ke-N7w"/>
                             <constraint firstItem="mHL-gh-6LU" firstAttribute="leading" secondItem="qS7-Qp-Ujr" secondAttribute="leadingMargin" constant="-16" id="eVG-7c-ddx"/>
+                            <constraint firstAttribute="centerX" secondItem="A65-ac-7aM" secondAttribute="centerX" id="fmm-VR-3Q2"/>
                             <constraint firstItem="7Tb-x3-25y" firstAttribute="leading" secondItem="qS7-Qp-Ujr" secondAttribute="leadingMargin" constant="-16" id="iZI-lB-kk4"/>
                             <constraint firstItem="f9z-ip-FDc" firstAttribute="leading" secondItem="qS7-Qp-Ujr" secondAttribute="leadingMargin" constant="-16" id="kC9-qi-sgZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Tb-x3-25y" secondAttribute="trailing" constant="-16" id="mly-kN-Eqd"/>
@@ -514,6 +525,7 @@
                     </view>
                     <connections>
                         <outlet property="ResetAllToIncompleteButton" destination="mHL-gh-6LU" id="WVw-e5-lfz"/>
+                        <outlet property="activityIndicator" destination="A65-ac-7aM" id="G7a-du-gLc"/>
                         <outlet property="tableView" destination="f9z-ip-FDc" id="i2e-eH-uUa"/>
                         <segue destination="CYS-sd-hpi" kind="custom" identifier="showDetail" customClass="SWRevealViewControllerSeguePushController" id="gSk-4O-qCq"/>
                     </connections>
@@ -1099,9 +1111,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b8m-j1-rWU"/>
-        <segue reference="jj2-db-E0U"/>
+        <segue reference="qMr-z6-JCG"/>
         <segue reference="FD7-y7-Cf0"/>
         <segue reference="kwR-TF-71C"/>
+        <segue reference="b8m-j1-rWU"/>
     </inferredMetricsTieBreakers>
 </document>

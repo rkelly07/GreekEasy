@@ -11,6 +11,7 @@ import UIKit
 class ManualAssignmentViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var allUsers : [PFUser] = []
     var allChores : [PFObject] = []
@@ -22,6 +23,10 @@ class ManualAssignmentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         println(currentUser.objectForKey("houseID"))
+        
+        // Start activity indicator
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.hidden = false
         
         //get all users and add to allUsers array
         var usersQuery = PFQuery(className: "_User")
@@ -54,6 +59,10 @@ class ManualAssignmentViewController: UIViewController {
                     } else {
                         NSLog(error.description)
                     }
+                    
+                    // Stop activity indicator
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.hidden = true
                 }
             } else {
                 println("In userquery error")

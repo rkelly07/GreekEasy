@@ -10,6 +10,8 @@ import UIKit
 
 class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var choreObject : PFObject!
     var choreID : Int!
     var originalChoreTitle : String! = ""

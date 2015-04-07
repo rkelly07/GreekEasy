@@ -10,6 +10,7 @@ import UIKit
 
 class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //TODO get rid of print statements
     //TODO adding and deleting chores
@@ -26,6 +27,10 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Start activity indicator
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.hidden = false
         
         // Set up menu
         self.menuButton.target = self.revealViewController()
@@ -66,6 +71,9 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
                         NSLog(error.description)
                     }
                 }
+                // Stop activity indicator
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.hidden = true
             } else {
                 NSLog(error.description)
             }
