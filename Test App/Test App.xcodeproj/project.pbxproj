@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7B01D62E1AD0EA0500A1534A /* ReimburseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B01D62D1AD0EA0500A1534A /* ReimburseViewController.swift */; };
-		7B01D6301AD0EA2200A1534A /* ReimburseCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B01D62F1AD0EA2200A1534A /* ReimburseCreateViewController.swift */; };
 		7B01D6321AD0EA4600A1534A /* ReimburseSingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B01D6311AD0EA4600A1534A /* ReimburseSingleViewController.swift */; };
 		7B8331CD1AD26A5200E9F3D3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8331CB1AD26A5200E9F3D3 /* Bolts.framework */; };
 		7B8331CE1AD26A5200E9F3D3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8331CC1AD26A5200E9F3D3 /* Parse.framework */; };
@@ -23,7 +22,6 @@
 		AE4D69451ACC40C100DB8831 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D693A1ACC40C100DB8831 /* libz.dylib */; };
 		AE4D69461ACC40C100DB8831 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D693B1ACC40C100DB8831 /* MobileCoreServices.framework */; };
 		AE4D69471ACC40C100DB8831 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D693C1ACC40C100DB8831 /* QuartzCore.framework */; };
-		AE4D69481ACC40C100DB8831 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D693D1ACC40C100DB8831 /* Security.framework */; };
 		AE4D694A1ACC40C100DB8831 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D693F1ACC40C100DB8831 /* SystemConfiguration.framework */; };
 		AE4D694E1ACCF81400DB8831 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4D694C1ACCF81400DB8831 /* Events.storyboard */; };
 		AE4D69501ACCF83400DB8831 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D694F1ACCF83400DB8831 /* EventsViewController.swift */; };
@@ -40,6 +38,8 @@
 		AED2892E1AB0E7CA00F429F1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED2892D1AB0E7CA00F429F1 /* MenuViewController.swift */; };
 		AEECDDCE1AD259DF00839F72 /* ToDoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECDDCC1AD259DF00839F72 /* ToDoDetailViewController.swift */; };
 		AEECDDCF1AD259DF00839F72 /* ToDoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEECDDCD1AD259DF00839F72 /* ToDoStoryboard.storyboard */; };
+		AEECDDD01AD3759500839F72 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D693D1ACC40C100DB8831 /* Security.framework */; };
+		AEECDDD21AD3788500839F72 /* ReimburseCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECDDD11AD3788500839F72 /* ReimburseCreateViewController.swift */; };
 		B3813C471ABCD17500DBAF63 /* MealsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */; };
 		B3813C491ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C481ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard */; };
 /* End PBXBuildFile section */
@@ -56,7 +56,6 @@
 
 /* Begin PBXFileReference section */
 		7B01D62D1AD0EA0500A1534A /* ReimburseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimburseViewController.swift; sourceTree = "<group>"; };
-		7B01D62F1AD0EA2200A1534A /* ReimburseCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimburseCreateViewController.swift; sourceTree = "<group>"; };
 		7B01D6311AD0EA4600A1534A /* ReimburseSingleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimburseSingleViewController.swift; sourceTree = "<group>"; };
 		7B8331CB1AD26A5200E9F3D3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		7B8331CC1AD26A5200E9F3D3 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		AED2892D1AB0E7CA00F429F1 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		AEECDDCC1AD259DF00839F72 /* ToDoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoDetailViewController.swift; sourceTree = "<group>"; };
 		AEECDDCD1AD259DF00839F72 /* ToDoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ToDoStoryboard.storyboard; sourceTree = "<group>"; };
+		AEECDDD11AD3788500839F72 /* ReimburseCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimburseCreateViewController.swift; sourceTree = "<group>"; };
 		B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MealsStoryboard.storyboard; sourceTree = "<group>"; };
 		B3813C481ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShoppingListStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,8 +113,7 @@
 				AE4D69451ACC40C100DB8831 /* libz.dylib in Frameworks */,
 				AE4D69461ACC40C100DB8831 /* MobileCoreServices.framework in Frameworks */,
 				AE4D69471ACC40C100DB8831 /* QuartzCore.framework in Frameworks */,
-				AE4D69481ACC40C100DB8831 /* Security.framework in Frameworks */,
-				AE4D69481ACC40C100DB8831 /* Security.framework in Frameworks */,
+				AEECDDD01AD3759500839F72 /* Security.framework in Frameworks */,
 				AE4D694A1ACC40C100DB8831 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,11 +176,11 @@
 				AED2892D1AB0E7CA00F429F1 /* MenuViewController.swift */,
 				AED2890B1AB0DE3400F429F1 /* Images.xcassets */,
 				AED2890D1AB0DE3400F429F1 /* LaunchScreen.xib */,
-				B3813C3F1ABCCF2200DBAF63 /* To Do */,
 				B3813C401ABCD0F600DBAF63 /* Events */,
+				B3813C3F1ABCCF2200DBAF63 /* To Do */,
+				B3813C431ABCD0FF00DBAF63 /* Reimbursements */,
 				B3813C411ABCD0F900DBAF63 /* Meals */,
 				B3813C421ABCD0FC00DBAF63 /* Shopping List */,
-				B3813C431ABCD0FF00DBAF63 /* Reimbursements */,
 			);
 			path = "Test App";
 			sourceTree = "<group>";
@@ -265,10 +264,10 @@
 		B3813C431ABCD0FF00DBAF63 /* Reimbursements */ = {
 			isa = PBXGroup;
 			children = (
+				AEECDDD11AD3788500839F72 /* ReimburseCreateViewController.swift */,
 				7B9F41F91AD31D0300050158 /* ReimbursementsMenuController.swift */,
 				7B9F41F81AD27EDD00050158 /* ReimbursementsStoryboard.storyboard */,
 				7B01D62D1AD0EA0500A1534A /* ReimburseViewController.swift */,
-				7B01D62F1AD0EA2200A1534A /* ReimburseCreateViewController.swift */,
 				7B01D6311AD0EA4600A1534A /* ReimburseSingleViewController.swift */,
 			);
 			name = Reimbursements;
@@ -318,7 +317,7 @@
 		AED288F71AB0DE3400F429F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = GreekEasy;
 				TargetAttributes = {
 					AED288FE1AB0DE3400F429F1 = {
@@ -387,10 +386,10 @@
 				AE4D69981AD1D6B700DB8831 /* EventDetailController.swift in Sources */,
 				AE4D69881AD1B23B00DB8831 /* ToDoViewController.swift in Sources */,
 				AE4D69781ACE5A6900DB8831 /* EventAddController.swift in Sources */,
-				7B01D6301AD0EA2200A1534A /* ReimburseCreateViewController.swift in Sources */,
 				AE4D69501ACCF83400DB8831 /* EventsViewController.swift in Sources */,
 				AE4D697A1ACF4BD200DB8831 /* EventsMenuController.swift in Sources */,
 				AEECDDCE1AD259DF00839F72 /* ToDoDetailViewController.swift in Sources */,
+				AEECDDD21AD3788500839F72 /* ReimburseCreateViewController.swift in Sources */,
 				7B9F41F51AD2700000050158 /* SWRevealViewController.m in Sources */,
 				AED2892E1AB0E7CA00F429F1 /* MenuViewController.swift in Sources */,
 				AED289051AB0DE3400F429F1 /* AppDelegate.swift in Sources */,
@@ -530,7 +529,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Tyler Finkelstein (R3WGE2DKXV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/atitus/parse-library-1.6.5",
@@ -546,7 +546,7 @@
 				INFOPLIST_FILE = "Test App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7233f63e-42fc-4fdc-b9f6-e59bf331c708";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Test App/Test App-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -557,7 +557,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Tyler Finkelstein (R3WGE2DKXV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/atitus/parse-library-1.6.5",
@@ -573,7 +574,7 @@
 				INFOPLIST_FILE = "Test App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7233f63e-42fc-4fdc-b9f6-e59bf331c708";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Test App/Test App-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};

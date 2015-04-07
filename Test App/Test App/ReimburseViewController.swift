@@ -93,7 +93,7 @@ class ReimburseViewController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.currentReimbursement = self.reimbursements[indexPath.row]
-        //performSegueWithIdentifier("showDetail", sender:nil)
+        performSegueWithIdentifier("showDetail", sender:nil)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

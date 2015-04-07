@@ -21,7 +21,7 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
     
     var newMedia: Bool?
     
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         nameField.delegate = self
@@ -93,7 +93,7 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
         
         newReimbursement["name"] = self.nameField.text?
         newReimbursement["description"] = self.descriptionField.text?
-        //newReimbursement["amount"] = Double(self.amountField.text?)
+        newReimbursement["amount"] = (self.amountField.text! as NSString).doubleValue
         newReimbursement["createdBy"] = PFUser.currentUser().objectForKey("username")
         newReimbursement["houseID"] = PFUser.currentUser().objectForKey("houseID")
         newReimbursement["photo"] = self.photoView.image?
