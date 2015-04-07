@@ -10,14 +10,15 @@ import UIKit
 
 class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var choresTable: UITableView!
+    @IBOutlet weak var peopleTable: UITableView!
     var allUsers : [PFUser] = []
     var allChores : [PFObject] = []
     var currentUser : PFUser = PFUser.currentUser()
     var selectedUsers : [PFUser] = []
     var selectedChores : [PFObject] = []
     
-    @IBOutlet var choresTable: UITableView!
-    @IBOutlet var peopleTable: UITableView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -23,14 +23,15 @@ class ReimburseSingleViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.formatter?.dateFormat = formatString
         self.formatter?.locale = NSLocale(localeIdentifier: "en_us_POSIX")
+        
         let photoFile = self.incoming!["photo"] as PFFile
         photoFile.getDataInBackgroundWithBlock{
             (imageData: NSData!, error: NSError!) -> Void in
             if error == nil {
-            self.photo = UIImage(data: imageData)
+                self.photo = UIImage(data: imageData)
+                self.currentReceipt.image = self.photo
             }
         }
         
@@ -39,8 +40,6 @@ class ReimburseSingleViewController: UIViewController{
         currentDescription.text = self.incoming!["description"] as? String
         currentAmount.text = String(format:"$%.2f", self.incoming!["amount"] as Double)
         currentDate.text = self.formatter!.stringFromDate(self.incoming!.createdAt as NSDate)
-        currentReceipt.image = self.photo
-        println(self.photo)
         
     }
 }

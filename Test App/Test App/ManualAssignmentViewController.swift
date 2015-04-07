@@ -14,6 +14,7 @@ class ManualAssignmentViewController: UIViewController {
     
     var allUsers : [PFUser] = []
     var allChores : [PFObject] = []
+    var allChoresInGreekEasy : [PFObject] = []
     var currentUser : PFUser = PFUser.currentUser()
     
     @IBOutlet var ResetAllToIncompleteButton: UIButton!
@@ -39,7 +40,17 @@ class ManualAssignmentViewController: UIViewController {
                     (objects: [AnyObject]!, error: NSError!) -> Void in
                     if error == nil {
                         self.allChores = objects as [PFObject]!
-                        self.tableView.reloadData()
+                        var greekChoresQuery = PFQuery(className: "ToDo")
+                        greekChoresQuery.findObjectsInBackgroundWithBlock {
+                            (objects: [AnyObject]!, error: NSError!) -> Void in
+                            if error == nil {
+                                self.allChoresInGreekEasy = objects as [PFObject]!
+                                self.tableView.reloadData()
+                            } else {
+                                NSLog(error.description)
+                            }
+                        }
+                        //self.tableView.reloadData()
                     } else {
                         NSLog(error.description)
                     }
@@ -55,7 +66,7 @@ class ManualAssignmentViewController: UIViewController {
     
     func getMaxChoreIDForHouse(choresObjectsArray : [PFObject]) -> Int {
         var maxID : Int = 0
-        for chore in self.allChores {
+        for chore in self.allChoresInGreekEasy {
             var currentChoreID : Int = 0
             currentChoreID = chore.objectForKey("ID") as Int
             if (currentChoreID > maxID) {

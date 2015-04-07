@@ -137,35 +137,36 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     @IBAction func goBackWithoutMakingOrEditingChore(sender: AnyObject) {
         if editingNotAdding {
-            println(choreObject)
-            println(self.originalChoreTitle)
-            self.choreObject["description"] = self.originalChoreTitle
-            self.choreObject["points"] = self.selectedPoints
-            //if you hit back, you only want the original users to have the chore assigned to them
-            for user in self.allUsers {
-                if contains(user.objectForKey("currentChores") as [Int], self.choreID) {
-                    var indexOfChore : Int = find(user.objectForKey("currentChores") as [Int], self.choreID)!
-                    var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
-                    newArray.removeAtIndex(indexOfChore)
-                    user["currentChores"] = newArray
-                }
-                if contains(self.peopleOriginallyOnChore, user) {
-                    var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
-                    newArray.append(self.choreID)
-                    user["currentChores"] = newArray
-                }
-            }
+//            println(choreObject)
+//            println(self.originalChoreTitle)
+//            self.choreObject["description"] = self.originalChoreTitle
+//            self.choreObject["points"] = self.selectedPoints
+//            //if you hit back, you only want the original users to have the chore assigned to them
+//            for user in self.allUsers {
+//                if contains(user.objectForKey("currentChores") as [Int], self.choreID) {
+//                    var indexOfChore : Int = find(user.objectForKey("currentChores") as [Int], self.choreID)!
+//                    var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
+//                    newArray.removeAtIndex(indexOfChore)
+//                    user["currentChores"] = newArray
+//                }
+//                if contains(self.peopleOriginallyOnChore, user) {
+//                    var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
+//                    newArray.append(self.choreID)
+//                    user["currentChores"] = newArray
+//                }
+//            }
+            println("Fuck that we editing but don't want to save")
         } else {
             //need to remove choreID for nonexistent chore from users
             println("User went back after beginning to add chore. Nothing should happen because chore was never created")
-            for user in self.allUsers {
-                if contains(user.objectForKey("currentChores") as [Int], self.choreID) {
-                    var indexOfChore : Int = find(user.objectForKey("currentChores") as [Int], self.choreID)!
-                    var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
-                    newArray.removeAtIndex(indexOfChore)
-                    user.saveEventually()
-                }
-            }
+//            for user in self.allUsers {
+//                if contains(user.objectForKey("currentChores") as [Int], self.choreID) {
+//                    var indexOfChore : Int = find(user.objectForKey("currentChores") as [Int], self.choreID)!
+//                    var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
+//                    newArray.removeAtIndex(indexOfChore)
+//                    user.saveEventually()
+//                }
+//            }
         }
         self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
     }
@@ -179,64 +180,70 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         var userFullName : String = self.allUsersFullNames[indexPath.row]
         println("Trying to select/deselect " + userFullName)
         var userPF : PFUser = findUserByFullName(userFullName)
-        var userCurrentlyAssignedToChore : Bool = false
         
-        if contains(userPF.objectForKey("currentChores") as [Int], self.choreID) {
-            userCurrentlyAssignedToChore = true
-        }
-        
-        if userCurrentlyAssignedToChore {
-            var indexOfChore : Int = find(userPF.objectForKey("currentChores") as [Int], self.choreID)!
-            var newArray : [Int] = (userPF.objectForKey("currentChores") as [Int])
-            println("Old chores for person are ")
-            println(newArray)
-            newArray.removeAtIndex(indexOfChore)
-            println("New chores for person are ")
-            println(newArray)
-            userPF["currentChores"] = newArray
-            println("Actually assigned in parse are ")
-            println((userPF.objectForKey("currentChores") as [Int]))
+        if contains(self.peopleOnChore, userPF) {
             var indexOfPerson : Int = find(self.peopleOnChore, userPF)!
             self.peopleOnChore.removeAtIndex(indexOfPerson)
-            userPF.saveEventually()
+            println("user removed")
+            println(self.peopleOnChore)
             self.peopleTable.reloadData()
-            //TODO update to new array without chore
         } else {
-            var newArray : [Int] = (userPF.objectForKey("currentChores") as [Int])
-            //println(newArray)
-            newArray.append(choreID)
-            //println("New chores for person are ")
-            //println(newArray)
-            userPF["currentChores"] = newArray
-            //println("Actually assigned in parse are ")
-            //println((userPF.objectForKey("currentChores") as [Int]))
             self.peopleOnChore.append(userPF)
-            userPF.saveEventually()
+            println("user added")
+            println(self.peopleOnChore)
             self.peopleTable.reloadData()
         }
-        userPF.saveEventually()
     }
     
     @IBAction func saveEditedChore(sender: AnyObject) {
+        //editing a chore
         if (self.editingNotAdding) {
             //query using choreid to get object
             println("trying to save chore")
             self.choreObject["description"] = self.titleTextField.text as String //don't know if this works
             self.choreObject["points"] = self.selectedPoints as Int
             self.choreObject["doneOrNot"] = false as Bool
-            //        var userChores : [Int] = []
-            //        for user in self.allUsers {
-            //            userChores = (user.objectForKey("currentChores") as [Int])
-            //            if contains(userChores,self.choreID) {
-            //
-            //            }
-            //save chore
             self.choreObject.saveEventually()
-//            for user in self.allUsers {
-//                user.saveEventually()
-//            }
+
+            for user in self.allUsers {
+                println("all users are ")
+                println(self.allUsers)
+                //if people on chore doesn't contains user but user's choreslist contains choreID -> remove
+                if !contains(self.peopleOnChore, user) {
+                    if contains(user.objectForKey("currentChores") as [Int], self.choreID) {
+                        var indexOfChore : Int = find(user.objectForKey("currentChores") as [Int], self.choreID)!
+                        var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
+                        println("Old chores for person are ")
+                        println(newArray)
+                        newArray.removeAtIndex(indexOfChore)
+                        println("New chores for person are ")
+                        println(newArray)
+                        user["currentChores"] = newArray
+                        //user["currentChores"] = [11]
+                        println("Actually assigned in parse are ")
+                        println((user.objectForKey("currentChores") as [Int]))
+                        user.saveEventually()
+                        //self.peopleTable.reloadData()
+                    }
+                //if people on chore does contains user but user's choreslist doesn't contains choreID -> add
+                } else if contains(self.peopleOnChore, user) {
+                    if !contains(user.objectForKey("currentChores") as [Int], self.choreID) {
+                        var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
+                        //println(newArray)
+                        newArray.append(choreID)
+                        //println("New chores for person are ")
+                        //println(newArray)
+                        user["currentChores"] = newArray
+                        //println("Actually assigned in parse are ")
+                        //println((userPF.objectForKey("currentChores") as [Int]))
+                        user.saveEventually()
+                        //self.peopleTable.reloadData()
+                    }
+                }
+            }
             self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
             self.peopleTable.reloadData()
+        //adding a new chore
         } else {
             println("You're trying to add a new chore ")
             var newChore : PFObject = PFObject(className: "ToDo")
@@ -244,9 +251,21 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
             newChore["points"] = self.selectedPoints as Int
             newChore["description"] = self.titleTextField.text as String
             newChore["doneOrNot"] = false as Bool
-            newChore["description"] = self.titleTextField.text as String
             newChore["houseID"] = PFUser.currentUser().objectForKey("houseID") as Int
             newChore.saveEventually()
+            //because chore is new, we know no one is assigned to it yet
+            for user in self.peopleOnChore {
+                var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
+                //println(newArray)
+                newArray.append(choreID)
+                //println("New chores for person are ")
+                //println(newArray)
+                user["currentChores"] = newArray
+                //println("Actually assigned in parse are ")
+                //println((userPF.objectForKey("currentChores") as [Int]))
+                user.saveEventually()
+                self.peopleTable.reloadData()
+            }
             self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
             self.peopleTable.reloadData()
         }
