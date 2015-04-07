@@ -230,17 +230,17 @@
                                     <action selector="takePhotoButton:" destination="OvR-LE-0Jp" eventType="touchUpInside" id="gN7-Wu-GDu"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rzh-V2-Zkr">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rzh-V2-Zkr">
                                 <rect key="frame" x="146" y="153" width="438" height="30"/>
                                 <color key="textColor" red="0.85558712120000002" green="0.42805547620000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cq9-we-cDL">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Cq9-we-cDL">
                                 <rect key="frame" x="146" y="77" width="438" height="30"/>
                                 <color key="textColor" red="0.85558712120000002" green="0.42805547620000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Gc-gO-R89">
                                 <rect key="frame" x="213" y="318" width="174" height="208"/>
@@ -262,11 +262,11 @@
                                     <action selector="createButton:" destination="OvR-LE-0Jp" eventType="touchUpInside" id="wyB-xf-krj"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZJR-Qi-J6J">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ZJR-Qi-J6J">
                                 <rect key="frame" x="146" y="115" width="438" height="30"/>
                                 <color key="textColor" red="0.85558712120000002" green="0.42805547620000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -666,11 +666,11 @@
                             <mask key="constraints">
                                 <exclude reference="ygg-Ko-dif"/>
                                 <exclude reference="B4I-g4-mro"/>
-                                <exclude reference="Vta-Mv-DhU"/>
                                 <exclude reference="KcX-ic-A3Z"/>
+                                <exclude reference="Vta-Mv-DhU"/>
                                 <exclude reference="bct-cj-WY6"/>
-                                <exclude reference="VsO-yH-pwd"/>
                                 <exclude reference="9sy-Y7-8tn"/>
+                                <exclude reference="VsO-yH-pwd"/>
                                 <exclude reference="tYx-16-DLj"/>
                             </mask>
                         </variation>
@@ -690,7 +690,7 @@
         <image name="full_logo" width="424" height="98"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="xt5-fy-xfh"/>
         <segue reference="aCD-LI-CGl"/>
-        <segue reference="ajy-dg-EHp"/>
     </inferredMetricsTieBreakers>
 </document>

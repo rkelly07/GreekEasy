@@ -31,14 +31,15 @@
 		AE4D69881AD1B23B00DB8831 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69841AD1B23B00DB8831 /* ToDoViewController.swift */; };
 		AE4D69921AD1B90D00DB8831 /* ToDoMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69911AD1B90D00DB8831 /* ToDoMenuController.swift */; };
 		AE4D69981AD1D6B700DB8831 /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69971AD1D6B700DB8831 /* EventDetailController.swift */; };
+		AE5BB4911AD47B84002F58BD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5BB4901AD47B84002F58BD /* SignUpViewController.swift */; };
 		AEABA8841AD458C200442F60 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEABA8821AD458C200442F60 /* Bolts.framework */; };
 		AEABA8851AD458C200442F60 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEABA8831AD458C200442F60 /* Parse.framework */; };
-		AEABA8871AD45F3B00442F60 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABA8861AD45F3B00442F60 /* SignUpViewController.swift */; };
 		AED289051AB0DE3400F429F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED289041AB0DE3400F429F1 /* AppDelegate.swift */; };
 		AED2890C1AB0DE3400F429F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED2890B1AB0DE3400F429F1 /* Images.xcassets */; };
 		AED2890F1AB0DE3400F429F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED2890D1AB0DE3400F429F1 /* LaunchScreen.xib */; };
 		AED2891B1AB0DE3400F429F1 /* Test_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED2891A1AB0DE3400F429F1 /* Test_AppTests.swift */; };
 		AED2892E1AB0E7CA00F429F1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED2892D1AB0E7CA00F429F1 /* MenuViewController.swift */; };
+		AEE05D001AD475220055052B /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE05CFF1AD475220055052B /* ForgotPasswordViewController.swift */; };
 		AEECDDCE1AD259DF00839F72 /* ToDoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECDDCC1AD259DF00839F72 /* ToDoDetailViewController.swift */; };
 		AEECDDCF1AD259DF00839F72 /* ToDoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEECDDCD1AD259DF00839F72 /* ToDoStoryboard.storyboard */; };
 		AEECDDD01AD3759500839F72 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D693D1ACC40C100DB8831 /* Security.framework */; };
@@ -85,9 +86,9 @@
 		AE4D69841AD1B23B00DB8831 /* ToDoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		AE4D69911AD1B90D00DB8831 /* ToDoMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoMenuController.swift; sourceTree = "<group>"; };
 		AE4D69971AD1D6B700DB8831 /* EventDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
+		AE5BB4901AD47B84002F58BD /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AEABA8821AD458C200442F60 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../parse-library-1.6.5/Bolts.framework"; sourceTree = "<group>"; };
 		AEABA8831AD458C200442F60 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../parse-library-1.6.5/Parse.framework"; sourceTree = "<group>"; };
-		AEABA8861AD45F3B00442F60 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AED288FF1AB0DE3400F429F1 /* Test App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED289031AB0DE3400F429F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AED289041AB0DE3400F429F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 		AED289261AB0DE8300F429F1 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ../../SWRevealViewController/SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		AED289271AB0DE8300F429F1 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ../../SWRevealViewController/SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		AED2892D1AB0E7CA00F429F1 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		AEE05CFF1AD475220055052B /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		AEECDDCC1AD259DF00839F72 /* ToDoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoDetailViewController.swift; sourceTree = "<group>"; };
 		AEECDDCD1AD259DF00839F72 /* ToDoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ToDoStoryboard.storyboard; sourceTree = "<group>"; };
 		AEECDDD11AD3788500839F72 /* ReimburseCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimburseCreateViewController.swift; sourceTree = "<group>"; };
@@ -191,8 +193,9 @@
 				AED289041AB0DE3400F429F1 /* AppDelegate.swift */,
 				AED2892D1AB0E7CA00F429F1 /* MenuViewController.swift */,
 				AE1CEA0E1AD4570A00B56BF9 /* LogIn.storyboard */,
+				AEE05CFF1AD475220055052B /* ForgotPasswordViewController.swift */,
 				AE1CEA101AD4572000B56BF9 /* LogInViewController.swift */,
-				AEABA8861AD45F3B00442F60 /* SignUpViewController.swift */,
+				AE5BB4901AD47B84002F58BD /* SignUpViewController.swift */,
 				AED2890B1AB0DE3400F429F1 /* Images.xcassets */,
 				AED2890D1AB0DE3400F429F1 /* LaunchScreen.xib */,
 				B3813C401ABCD0F600DBAF63 /* Events */,
@@ -410,7 +413,8 @@
 				AE4D69501ACCF83400DB8831 /* EventsViewController.swift in Sources */,
 				AE1CEA111AD4572000B56BF9 /* LogInViewController.swift in Sources */,
 				AE4D697A1ACF4BD200DB8831 /* EventsMenuController.swift in Sources */,
-				AEABA8871AD45F3B00442F60 /* SignUpViewController.swift in Sources */,
+				AEE05D001AD475220055052B /* ForgotPasswordViewController.swift in Sources */,
+				AE5BB4911AD47B84002F58BD /* SignUpViewController.swift in Sources */,
 				AE1CEA0D1AD42C2A00B56BF9 /* ManualAssignmentViewController.swift in Sources */,
 				AEECDDCE1AD259DF00839F72 /* ToDoDetailViewController.swift in Sources */,
 				B35468301AD392EC00AFBE92 /* AutoAssignViewController.swift in Sources */,

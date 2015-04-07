@@ -12,7 +12,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var forgotPWButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -29,10 +28,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             // Start login
             activityIndicator.startAnimating()
             activityIndicator.hidden = false
-            var success = PFUser.logInWithUsername(usernameField.text!, password: passwordField.text!)
+            let success = PFUser.logInWithUsername(usernameField.text!, password: passwordField.text!)
             activityIndicator.stopAnimating()
             activityIndicator.hidden = true
             
+            // Display error message or go to events
             if success == nil {
                 let alertController = UIAlertController(title: "GreekEasy", message:
                     "Invalid login credentials", preferredStyle: UIAlertControllerStyle.Alert)
@@ -43,6 +43,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 var eventsVC = eventsStoryboard.instantiateViewControllerWithIdentifier("events") as UIViewController
                 presentViewController(eventsVC, animated: false, completion: nil)
             }
+        } else {
+            let alertController = UIAlertController(title: "GreekEasy", message:
+                "Please enter a username and password", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
     
