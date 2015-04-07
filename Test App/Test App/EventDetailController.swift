@@ -22,9 +22,11 @@ class EventDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Configure formatter
         self.formatter?.dateFormat = formatString
         self.formatter?.locale = NSLocale(localeIdentifier: "en_us_POSIX")
         
+        // Set text to be displayed
         currentName.text = self.incoming!["name"] as? String
         currentDate.text = self.formatter!.stringFromDate(self.incoming!["date"] as NSDate)
         currentLocation.text = self.incoming!["location"] as? String

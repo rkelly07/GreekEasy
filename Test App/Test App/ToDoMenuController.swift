@@ -20,7 +20,9 @@ class ToDoMenuController: MenuViewController {
             self.performSegueWithIdentifier("todoPress", sender: nil)
             break
         case 2: // Reimburse
-            println("implement yo shit")
+            var storyboard3 = UIStoryboard(name: "ReimbursementsStoryboard", bundle: nil)
+            var vc3 = storyboard3.instantiateViewControllerWithIdentifier("reimburse") as UIViewController
+            presentViewController(vc3, animated: false, completion: nil)
             break
         default: // Error
             NSLog("error; invalid row tapped")
