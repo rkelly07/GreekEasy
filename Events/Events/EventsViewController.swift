@@ -108,12 +108,21 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.menuButton.target = self.revealViewController()
         self.menuButton.action = "revealToggle:"
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         // Load events
         var query = PFQuery(className: "Event")
         self.user = PFUser.currentUser()
         
-        if self.user != nil {
+        // Check if user signed in. If not, present login; else load data
+        if self.user == nil {
+            var loginStoryboard = UIStoryboard(name: "LogIn", bundle: nil)
+            var logInVC = loginStoryboard.instantiateViewControllerWithIdentifier("logIn") as UIViewController
+            presentViewController(logInVC, animated: true, completion: nil)
+        } else {
             query.whereKey("houseID", equalTo: self.user!["houseID"])
             query.findObjectsInBackgroundWithBlock {
                 (objects: [AnyObject]!, error: NSError!) -> Void in
@@ -147,62 +156,6 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 } else {
                     // Error occurred; check description
                     NSLog(error.description)
-                }
-            }
-        }
-    }
-
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if (PFUser.currentUser() == nil) {
-            // TODO: Present signup screen
-            PFUser.logInWithUsername("tylerf", password: "greek")
-        } else {
-            // Start activity indicator
-            self.activityIndicator.startAnimating()
-            self.activityIndicator.hidden = false
-            
-            // Load events
-            var query = PFQuery(className: "Event")
-            self.user = PFUser.currentUser()
-            
-            if self.user != nil {
-                query.whereKey("houseID", equalTo: self.user!["houseID"])
-                query.findObjectsInBackgroundWithBlock {
-                    (objects: [AnyObject]!, error: NSError!) -> Void in
-                    if error == nil {
-                        // Extract events in unspecified order
-                        var unsortedEvents: [PFObject] = []
-                        for object in objects {
-                            unsortedEvents.append(object as PFObject)
-                        }
-                        
-                        // Sort events by increasing date
-                        self.events = unsortedEvents.sorted( { ($0["date"] as NSDate).compare($1["date"] as NSDate) == NSComparisonResult.OrderedAscending } )
-                        
-                        // Fill relevant fields
-                        for event in self.events {
-                            var currentEvent = event["name"] as String
-                            self.eventNames.append(currentEvent)
-                            
-                            var currentDate = event["date"] as NSDate
-                            var formattedDate = self.dateFormatter.stringFromDate(currentDate)
-                            self.eventDates.append(formattedDate)
-                            
-                            var currentLocation = event["location"] as String
-                            self.eventLocations.append(currentLocation)
-                        }
-                        
-                        // Stop activity indicator and reload table view
-                        self.activityIndicator.stopAnimating()
-                        self.activityIndicator.hidden = true
-                        self.eventsTable.reloadData()
-                    } else {
-                        // Error occurred; check description
-                        NSLog(error.description)
-                    }
                 }
             }
         }

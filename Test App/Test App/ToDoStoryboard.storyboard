@@ -20,42 +20,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="V5b-ho-HZO" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="1uB-B6-Jnd"/>
                         <segue destination="dxX-5H-pgT" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="8uD-2y-Gzg"/>
+                        <segue destination="Lou-ya-Y0b" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="LUW-CP-ljU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w7d-x4-MsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1875" y="-1004"/>
-        </scene>
-        <!--To Do Menu Controller-->
-        <scene sceneID="Byy-5W-aqz">
-            <objects>
-                <tableViewController id="V5b-ho-HZO" customClass="ToDoMenuController" customModule="Test_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bC8-Ti-kcE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="cyM-QJ-jMo">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cyM-QJ-jMo" id="t7n-DI-m7f">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="V5b-ho-HZO" id="ZeS-ih-TSV"/>
-                            <outlet property="delegate" destination="V5b-ho-HZO" id="YJ2-Pt-yOF"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <segue destination="dxX-5H-pgT" kind="custom" identifier="todoPress" customClass="SWRevealViewControllerSeguePushController" id="ze3-73-f7X"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rEY-P2-y3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1175" y="-1752"/>
         </scene>
         <!--To Do View Controller-->
         <scene sceneID="HvV-iF-JaD">
@@ -1109,11 +1080,133 @@
             </objects>
             <point key="canvasLocation" x="963" y="-1008"/>
         </scene>
+        <!--To Do Menu Controller-->
+        <scene sceneID="8ks-Sh-anK">
+            <objects>
+                <viewController id="Lou-ya-Y0b" customClass="ToDoMenuController" customModule="Test_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gFk-Qx-OGh"/>
+                        <viewControllerLayoutGuide type="bottom" id="24k-eA-eIP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qD5-dj-bhQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hI0-9V-CE0">
+                                <rect key="frame" x="0.0" y="20" width="600" height="453"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Qha-Ro-LiF"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="07P-Nb-Qw5">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="07P-Nb-Qw5" id="3eh-bu-PgM">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Qha-Ro-LiF"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="Lou-ya-Y0b" id="c42-ut-Bmb"/>
+                                    <outlet property="delegate" destination="Lou-ya-Y0b" id="99F-wo-G6C"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name, last name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZiJ-DV-g2n">
+                                <rect key="frame" x="50" y="524" width="165" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xUD-zW-Tpo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.85558712120000002" green="0.42805547620000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="full_logo" translatesAutoresizingMaskIntoConstraints="NO" id="xRR-vW-49W">
+                                <rect key="frame" x="16" y="473" width="232" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="Avc-R2-ivQ"/>
+                                    <constraint firstAttribute="width" constant="448" id="EoX-Ox-RnZ"/>
+                                    <constraint firstAttribute="width" secondItem="xRR-vW-49W" secondAttribute="height" multiplier="448:83" id="O4X-Ij-Nsp"/>
+                                    <constraint firstAttribute="height" constant="43" id="VT0-6P-Vmd"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Avc-R2-ivQ"/>
+                                        <exclude reference="EoX-Ox-RnZ"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7f-eu-AQt">
+                                <rect key="frame" x="105" y="562" width="56" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="wsq-sB-Gsf"/>
+                                </constraints>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="0.066666666669999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOut" destination="Lou-ya-Y0b" eventType="touchUpInside" id="CcH-Vv-Q8d"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZiJ-DV-g2n" firstAttribute="centerX" secondItem="xRR-vW-49W" secondAttribute="centerX" id="2eb-il-So5"/>
+                            <constraint firstItem="hI0-9V-CE0" firstAttribute="leading" secondItem="qD5-dj-bhQ" secondAttribute="leadingMargin" constant="-16" id="5fm-Kc-nzZ"/>
+                            <constraint firstItem="ZiJ-DV-g2n" firstAttribute="leading" secondItem="qD5-dj-bhQ" secondAttribute="leadingMargin" id="6yu-sd-odf"/>
+                            <constraint firstItem="xRR-vW-49W" firstAttribute="leading" secondItem="qD5-dj-bhQ" secondAttribute="leadingMargin" id="7Pc-O2-FbK"/>
+                            <constraint firstItem="hI0-9V-CE0" firstAttribute="top" secondItem="gFk-Qx-OGh" secondAttribute="bottom" id="BWu-Es-JE7"/>
+                            <constraint firstItem="ZiJ-DV-g2n" firstAttribute="centerX" secondItem="t7f-eu-AQt" secondAttribute="centerX" id="DtB-Vk-x12"/>
+                            <constraint firstAttribute="centerX" secondItem="t7f-eu-AQt" secondAttribute="centerX" id="HIS-Dd-yJh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hI0-9V-CE0" secondAttribute="trailing" constant="-16" id="LkH-O6-cwD"/>
+                            <constraint firstItem="t7f-eu-AQt" firstAttribute="top" secondItem="ZiJ-DV-g2n" secondAttribute="bottom" constant="8" id="UdY-7q-ePF"/>
+                            <constraint firstItem="t7f-eu-AQt" firstAttribute="leading" secondItem="xRR-vW-49W" secondAttribute="trailing" id="V4e-m9-mM8"/>
+                            <constraint firstItem="24k-eA-eIP" firstAttribute="top" secondItem="t7f-eu-AQt" secondAttribute="bottom" constant="8" id="VS9-0v-6pv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZiJ-DV-g2n" secondAttribute="trailing" id="ZwL-S5-8Qa"/>
+                            <constraint firstItem="ZiJ-DV-g2n" firstAttribute="centerX" secondItem="t7f-eu-AQt" secondAttribute="centerX" id="iXM-lq-RWW"/>
+                            <constraint firstItem="hI0-9V-CE0" firstAttribute="top" secondItem="qD5-dj-bhQ" secondAttribute="topMargin" constant="16" id="lBn-UP-Jfc"/>
+                            <constraint firstItem="ZiJ-DV-g2n" firstAttribute="top" secondItem="xRR-vW-49W" secondAttribute="bottom" constant="8" id="r7K-N8-dra"/>
+                            <constraint firstAttribute="centerX" secondItem="xRR-vW-49W" secondAttribute="centerX" id="sUT-Ar-r8c"/>
+                            <constraint firstItem="xRR-vW-49W" firstAttribute="top" secondItem="hI0-9V-CE0" secondAttribute="bottom" id="sh7-Cw-Ech"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t7f-eu-AQt" secondAttribute="trailing" id="ujt-KO-ky9"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lBn-UP-Jfc"/>
+                                <exclude reference="sUT-Ar-r8c"/>
+                                <exclude reference="ZwL-S5-8Qa"/>
+                                <exclude reference="iXM-lq-RWW"/>
+                                <exclude reference="6yu-sd-odf"/>
+                                <exclude reference="HIS-Dd-yJh"/>
+                                <exclude reference="ujt-KO-ky9"/>
+                                <exclude reference="V4e-m9-mM8"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="logOutButton" destination="t7f-eu-AQt" id="R8t-K0-ZwT"/>
+                        <outlet property="nameLabel" destination="ZiJ-DV-g2n" id="Zsn-jg-J0e"/>
+                        <segue destination="dxX-5H-pgT" kind="custom" identifier="todoPress" customClass="SWRevealViewControllerSeguePushController" id="Fxq-Kc-ek6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FCq-j8-q5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1211" y="-1732"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="full_logo" width="424" height="98"/>
+    </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Fxq-Kc-ek6"/>
         <segue reference="qMr-z6-JCG"/>
         <segue reference="FD7-y7-Cf0"/>
         <segue reference="kwR-TF-71C"/>
-        <segue reference="b8m-j1-rWU"/>
     </inferredMetricsTieBreakers>
 </document>

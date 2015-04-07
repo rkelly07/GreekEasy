@@ -9,7 +9,21 @@
 import UIKit
 
 class EventsMenuController: MenuViewController {
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var logOutButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        var user = PFUser.currentUser()
+        var firstName = (user == nil) ? "" : user.objectForKey("firstName") as String
+        var lastName = (user == nil) ? "" : user.objectForKey("lastName") as String
+        var fullName = firstName + " " + lastName
+        
+        nameLabel.text = fullName
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch indexPath.row {
         case 0: // Events - current view
             self.performSegueWithIdentifier("eventsPress", sender: nil)
