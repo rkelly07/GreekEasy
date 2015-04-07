@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		7B01D62E1AD0EA0500A1534A /* ReimburseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B01D62D1AD0EA0500A1534A /* ReimburseViewController.swift */; };
 		7B01D6321AD0EA4600A1534A /* ReimburseSingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B01D6311AD0EA4600A1534A /* ReimburseSingleViewController.swift */; };
-		7B8331CD1AD26A5200E9F3D3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8331CB1AD26A5200E9F3D3 /* Bolts.framework */; };
-		7B8331CE1AD26A5200E9F3D3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8331CC1AD26A5200E9F3D3 /* Parse.framework */; };
 		7B9F41F51AD2700000050158 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED289271AB0DE8300F429F1 /* SWRevealViewController.m */; };
 		7B9F41F61AD27EDD00050158 /* ReimbursementsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B9F41F81AD27EDD00050158 /* ReimbursementsStoryboard.storyboard */; };
 		7B9F41FA1AD31D0300050158 /* ReimbursementsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9F41F91AD31D0300050158 /* ReimbursementsMenuController.swift */; };
@@ -40,6 +38,8 @@
 		AEECDDCF1AD259DF00839F72 /* ToDoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEECDDCD1AD259DF00839F72 /* ToDoStoryboard.storyboard */; };
 		AEECDDD01AD3759500839F72 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D693D1ACC40C100DB8831 /* Security.framework */; };
 		AEECDDD21AD3788500839F72 /* ReimburseCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECDDD11AD3788500839F72 /* ReimburseCreateViewController.swift */; };
+		B349C4EA1AD37E700072B98A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B349C4E81AD37E700072B98A /* Bolts.framework */; };
+		B349C4EB1AD37E700072B98A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B349C4E91AD37E700072B98A /* Parse.framework */; };
 		B3813C471ABCD17500DBAF63 /* MealsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */; };
 		B3813C491ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C481ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard */; };
 /* End PBXBuildFile section */
@@ -57,8 +57,6 @@
 /* Begin PBXFileReference section */
 		7B01D62D1AD0EA0500A1534A /* ReimburseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimburseViewController.swift; sourceTree = "<group>"; };
 		7B01D6311AD0EA4600A1534A /* ReimburseSingleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimburseSingleViewController.swift; sourceTree = "<group>"; };
-		7B8331CB1AD26A5200E9F3D3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		7B8331CC1AD26A5200E9F3D3 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		7B9F41F71AD27EDD00050158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReimbursementsStoryboard.storyboard; sourceTree = "<group>"; };
 		7B9F41F91AD31D0300050158 /* ReimbursementsMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimbursementsMenuController.swift; sourceTree = "<group>"; };
 		AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -94,6 +92,8 @@
 		AEECDDCC1AD259DF00839F72 /* ToDoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoDetailViewController.swift; sourceTree = "<group>"; };
 		AEECDDCD1AD259DF00839F72 /* ToDoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ToDoStoryboard.storyboard; sourceTree = "<group>"; };
 		AEECDDD11AD3788500839F72 /* ReimburseCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimburseCreateViewController.swift; sourceTree = "<group>"; };
+		B349C4E81AD37E700072B98A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/parse-library-1.7.0/Bolts.framework"; sourceTree = "<group>"; };
+		B349C4E91AD37E700072B98A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Downloads/parse-library-1.7.0/Parse.framework"; sourceTree = "<group>"; };
 		B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MealsStoryboard.storyboard; sourceTree = "<group>"; };
 		B3813C481ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShoppingListStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,14 +106,14 @@
 				AE4D69401ACC40C100DB8831 /* AudioToolbox.framework in Frameworks */,
 				AE4D69411ACC40C100DB8831 /* CFNetwork.framework in Frameworks */,
 				AE4D69421ACC40C100DB8831 /* CoreGraphics.framework in Frameworks */,
-				7B8331CD1AD26A5200E9F3D3 /* Bolts.framework in Frameworks */,
 				AE4D69431ACC40C100DB8831 /* CoreLocation.framework in Frameworks */,
 				AE4D69441ACC40C100DB8831 /* libsqlite3.dylib in Frameworks */,
-				7B8331CE1AD26A5200E9F3D3 /* Parse.framework in Frameworks */,
 				AE4D69451ACC40C100DB8831 /* libz.dylib in Frameworks */,
 				AE4D69461ACC40C100DB8831 /* MobileCoreServices.framework in Frameworks */,
 				AE4D69471ACC40C100DB8831 /* QuartzCore.framework in Frameworks */,
+				B349C4EA1AD37E700072B98A /* Bolts.framework in Frameworks */,
 				AEECDDD01AD3759500839F72 /* Security.framework in Frameworks */,
+				B349C4EB1AD37E700072B98A /* Parse.framework in Frameworks */,
 				AE4D694A1ACC40C100DB8831 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,8 +131,8 @@
 		AE4D69301ACC404000DB8831 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7B8331CB1AD26A5200E9F3D3 /* Bolts.framework */,
-				7B8331CC1AD26A5200E9F3D3 /* Parse.framework */,
+				B349C4E81AD37E700072B98A /* Bolts.framework */,
+				B349C4E91AD37E700072B98A /* Parse.framework */,
 				AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */,
 				AE4D69361ACC40C100DB8831 /* CFNetwork.framework */,
 				AE4D69371ACC40C100DB8831 /* CoreGraphics.framework */,
