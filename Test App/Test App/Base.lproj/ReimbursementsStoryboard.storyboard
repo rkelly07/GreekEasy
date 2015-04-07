@@ -22,42 +22,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="p4K-4e-vKN" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="S5G-PR-ML4"/>
                         <segue destination="fdE-a0-C7N" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="dm4-Ru-TdC"/>
+                        <segue destination="cQI-Xk-rZx" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="K5n-Gt-7Zl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4up-eK-osq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-953" y="744"/>
-        </scene>
-        <!--Reimbursements Menu Controller-->
-        <scene sceneID="7Qp-n8-nOc">
-            <objects>
-                <tableViewController id="p4K-4e-vKN" customClass="ReimbursementsMenuController" customModule="Test_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jvi-5N-KCc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="aKn-dp-kuq">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aKn-dp-kuq" id="fAS-TI-2t5">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="p4K-4e-vKN" id="X9r-vk-tMt"/>
-                            <outlet property="delegate" destination="p4K-4e-vKN" id="O13-aa-gAh"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <segue destination="fdE-a0-C7N" kind="custom" identifier="reimbursePress" customClass="SWRevealViewControllerSeguePushController" id="14B-St-nRR"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Sg-Dv-oU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-212" y="-48"/>
         </scene>
         <!--Reimburse View Controller-->
         <scene sceneID="2ex-a1-erU">
@@ -598,9 +569,128 @@
             </objects>
             <point key="canvasLocation" x="-172" y="1553"/>
         </scene>
+        <!--Reimbursements Menu Controller-->
+        <scene sceneID="56y-Wp-a4c">
+            <objects>
+                <viewController id="cQI-Xk-rZx" customClass="ReimbursementsMenuController" customModule="Test_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rCq-RT-5cr"/>
+                        <viewControllerLayoutGuide type="bottom" id="qea-MU-DYc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IYK-kv-xu2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Lbl-8P-kdZ">
+                                <rect key="frame" x="0.0" y="20" width="600" height="453"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="f0Q-Vx-dGO"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="OZ0-sj-idB">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OZ0-sj-idB" id="b2m-9U-0JP">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="f0Q-Vx-dGO"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="cQI-Xk-rZx" id="55L-I0-fSL"/>
+                                    <outlet property="delegate" destination="cQI-Xk-rZx" id="VDt-vY-1RT"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name, last name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0K-qa-R5G">
+                                <rect key="frame" x="50" y="524" width="165" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ea4-kz-Z6t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.85558712120000002" green="0.42805547620000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="full_logo" translatesAutoresizingMaskIntoConstraints="NO" id="XUy-hU-oRB">
+                                <rect key="frame" x="16" y="473" width="232" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="N45-Ji-fHn"/>
+                                    <constraint firstAttribute="width" constant="448" id="Vc5-5b-15Q"/>
+                                    <constraint firstAttribute="height" constant="43" id="d92-Nl-Mgr"/>
+                                    <constraint firstAttribute="width" secondItem="XUy-hU-oRB" secondAttribute="height" multiplier="448:83" id="zZ0-sP-hVG"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="N45-Ji-fHn"/>
+                                        <exclude reference="Vc5-5b-15Q"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9j-BU-UbK">
+                                <rect key="frame" x="105" y="562" width="56" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="d1t-fV-xXd"/>
+                                </constraints>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="0.066666666669999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qea-MU-DYc" firstAttribute="top" secondItem="r9j-BU-UbK" secondAttribute="bottom" constant="8" id="2w3-FR-hO3"/>
+                            <constraint firstItem="A0K-qa-R5G" firstAttribute="centerX" secondItem="XUy-hU-oRB" secondAttribute="centerX" id="395-y1-l8Q"/>
+                            <constraint firstItem="Lbl-8P-kdZ" firstAttribute="leading" secondItem="IYK-kv-xu2" secondAttribute="leadingMargin" constant="-16" id="7zK-wv-gSF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="r9j-BU-UbK" secondAttribute="trailing" id="9sy-Y7-8tn"/>
+                            <constraint firstAttribute="centerX" secondItem="XUy-hU-oRB" secondAttribute="centerX" id="B4I-g4-mro"/>
+                            <constraint firstItem="A0K-qa-R5G" firstAttribute="centerX" secondItem="r9j-BU-UbK" secondAttribute="centerX" id="KcX-ic-A3Z"/>
+                            <constraint firstItem="A0K-qa-R5G" firstAttribute="centerX" secondItem="r9j-BU-UbK" secondAttribute="centerX" id="RHg-Rf-jZU"/>
+                            <constraint firstAttribute="centerX" secondItem="r9j-BU-UbK" secondAttribute="centerX" id="VsO-yH-pwd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="A0K-qa-R5G" secondAttribute="trailing" id="Vta-Mv-DhU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lbl-8P-kdZ" secondAttribute="trailing" constant="-16" id="XuD-KB-gae"/>
+                            <constraint firstItem="XUy-hU-oRB" firstAttribute="top" secondItem="Lbl-8P-kdZ" secondAttribute="bottom" id="Yiu-eo-JXs"/>
+                            <constraint firstItem="A0K-qa-R5G" firstAttribute="leading" secondItem="IYK-kv-xu2" secondAttribute="leadingMargin" id="bct-cj-WY6"/>
+                            <constraint firstItem="Lbl-8P-kdZ" firstAttribute="top" secondItem="rCq-RT-5cr" secondAttribute="bottom" id="mri-Mw-bk3"/>
+                            <constraint firstItem="XUy-hU-oRB" firstAttribute="leading" secondItem="IYK-kv-xu2" secondAttribute="leadingMargin" id="pU4-QQ-fGv"/>
+                            <constraint firstItem="r9j-BU-UbK" firstAttribute="leading" secondItem="XUy-hU-oRB" secondAttribute="trailing" id="tYx-16-DLj"/>
+                            <constraint firstItem="r9j-BU-UbK" firstAttribute="top" secondItem="A0K-qa-R5G" secondAttribute="bottom" constant="8" id="uCp-Bl-toW"/>
+                            <constraint firstItem="A0K-qa-R5G" firstAttribute="top" secondItem="XUy-hU-oRB" secondAttribute="bottom" constant="8" id="uLY-Dz-XXm"/>
+                            <constraint firstItem="Lbl-8P-kdZ" firstAttribute="top" secondItem="IYK-kv-xu2" secondAttribute="topMargin" constant="16" id="ygg-Ko-dif"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ygg-Ko-dif"/>
+                                <exclude reference="B4I-g4-mro"/>
+                                <exclude reference="Vta-Mv-DhU"/>
+                                <exclude reference="KcX-ic-A3Z"/>
+                                <exclude reference="bct-cj-WY6"/>
+                                <exclude reference="VsO-yH-pwd"/>
+                                <exclude reference="9sy-Y7-8tn"/>
+                                <exclude reference="tYx-16-DLj"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="logOutButton" destination="r9j-BU-UbK" id="yeQ-bS-YT7"/>
+                        <outlet property="nameLabel" destination="A0K-qa-R5G" id="q1w-TN-fM9"/>
+                        <segue destination="fdE-a0-C7N" kind="custom" identifier="reimbursePress" customClass="SWRevealViewControllerSeguePushController" id="ajy-dg-EHp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tMd-ci-eA6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-255" y="28"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="full_logo" width="424" height="98"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8OG-ZK-m3U"/>
         <segue reference="aCD-LI-CGl"/>
+        <segue reference="ajy-dg-EHp"/>
     </inferredMetricsTieBreakers>
 </document>

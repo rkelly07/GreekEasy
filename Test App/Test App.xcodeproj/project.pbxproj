@@ -12,10 +12,9 @@
 		7B9F41F51AD2700000050158 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED289271AB0DE8300F429F1 /* SWRevealViewController.m */; };
 		7B9F41F61AD27EDD00050158 /* ReimbursementsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B9F41F81AD27EDD00050158 /* ReimbursementsStoryboard.storyboard */; };
 		7B9F41FA1AD31D0300050158 /* ReimbursementsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9F41F91AD31D0300050158 /* ReimbursementsMenuController.swift */; };
-		7BCBFEEF1AD3E5C00059F32E /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCBFEEE1AD3E5C00059F32E /* ParseUI.framework */; };
-		7BCBFEF21AD3E5F70059F32E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCBFEF01AD3E5F70059F32E /* Bolts.framework */; };
-		7BCBFEF31AD3E5F70059F32E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCBFEF11AD3E5F70059F32E /* Parse.framework */; };
 		AE1CEA0D1AD42C2A00B56BF9 /* ManualAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1CEA0C1AD42C2A00B56BF9 /* ManualAssignmentViewController.swift */; };
+		AE1CEA0F1AD4570A00B56BF9 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE1CEA0E1AD4570A00B56BF9 /* LogIn.storyboard */; };
+		AE1CEA111AD4572000B56BF9 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1CEA101AD4572000B56BF9 /* LogInViewController.swift */; };
 		AE4D69401ACC40C100DB8831 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */; };
 		AE4D69411ACC40C100DB8831 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69361ACC40C100DB8831 /* CFNetwork.framework */; };
 		AE4D69421ACC40C100DB8831 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4D69371ACC40C100DB8831 /* CoreGraphics.framework */; };
@@ -32,6 +31,9 @@
 		AE4D69881AD1B23B00DB8831 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69841AD1B23B00DB8831 /* ToDoViewController.swift */; };
 		AE4D69921AD1B90D00DB8831 /* ToDoMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69911AD1B90D00DB8831 /* ToDoMenuController.swift */; };
 		AE4D69981AD1D6B700DB8831 /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69971AD1D6B700DB8831 /* EventDetailController.swift */; };
+		AEABA8841AD458C200442F60 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEABA8821AD458C200442F60 /* Bolts.framework */; };
+		AEABA8851AD458C200442F60 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEABA8831AD458C200442F60 /* Parse.framework */; };
+		AEABA8871AD45F3B00442F60 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEABA8861AD45F3B00442F60 /* SignUpViewController.swift */; };
 		AED289051AB0DE3400F429F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED289041AB0DE3400F429F1 /* AppDelegate.swift */; };
 		AED2890C1AB0DE3400F429F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED2890B1AB0DE3400F429F1 /* Images.xcassets */; };
 		AED2890F1AB0DE3400F429F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED2890D1AB0DE3400F429F1 /* LaunchScreen.xib */; };
@@ -63,10 +65,9 @@
 		7B01D6311AD0EA4600A1534A /* ReimburseSingleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimburseSingleViewController.swift; sourceTree = "<group>"; };
 		7B9F41F71AD27EDD00050158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReimbursementsStoryboard.storyboard; sourceTree = "<group>"; };
 		7B9F41F91AD31D0300050158 /* ReimbursementsMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimbursementsMenuController.swift; sourceTree = "<group>"; };
-		7BCBFEEE1AD3E5C00059F32E /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
-		7BCBFEF01AD3E5F70059F32E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		7BCBFEF11AD3E5F70059F32E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		AE1CEA0C1AD42C2A00B56BF9 /* ManualAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualAssignmentViewController.swift; sourceTree = "<group>"; };
+		AE1CEA0E1AD4570A00B56BF9 /* LogIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
+		AE1CEA101AD4572000B56BF9 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AE4D69361ACC40C100DB8831 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AE4D69371ACC40C100DB8831 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,6 +85,9 @@
 		AE4D69841AD1B23B00DB8831 /* ToDoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		AE4D69911AD1B90D00DB8831 /* ToDoMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoMenuController.swift; sourceTree = "<group>"; };
 		AE4D69971AD1D6B700DB8831 /* EventDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
+		AEABA8821AD458C200442F60 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../parse-library-1.6.5/Bolts.framework"; sourceTree = "<group>"; };
+		AEABA8831AD458C200442F60 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../parse-library-1.6.5/Parse.framework"; sourceTree = "<group>"; };
+		AEABA8861AD45F3B00442F60 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AED288FF1AB0DE3400F429F1 /* Test App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED289031AB0DE3400F429F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AED289041AB0DE3400F429F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,17 +119,16 @@
 				AEECDDE41AD39D9E00839F72 /* Social.framework in Frameworks */,
 				AE4D69401ACC40C100DB8831 /* AudioToolbox.framework in Frameworks */,
 				AE4D69411ACC40C100DB8831 /* CFNetwork.framework in Frameworks */,
-				7BCBFEF31AD3E5F70059F32E /* Parse.framework in Frameworks */,
 				AE4D69421ACC40C100DB8831 /* CoreGraphics.framework in Frameworks */,
-				7BCBFEEF1AD3E5C00059F32E /* ParseUI.framework in Frameworks */,
 				AE4D69431ACC40C100DB8831 /* CoreLocation.framework in Frameworks */,
 				AE4D69441ACC40C100DB8831 /* libsqlite3.dylib in Frameworks */,
+				AEABA8841AD458C200442F60 /* Bolts.framework in Frameworks */,
 				AE4D69451ACC40C100DB8831 /* libz.dylib in Frameworks */,
 				AE4D69461ACC40C100DB8831 /* MobileCoreServices.framework in Frameworks */,
+				AEABA8851AD458C200442F60 /* Parse.framework in Frameworks */,
 				AE4D69471ACC40C100DB8831 /* QuartzCore.framework in Frameworks */,
 				AEECDDD01AD3759500839F72 /* Security.framework in Frameworks */,
 				AE4D694A1ACC40C100DB8831 /* SystemConfiguration.framework in Frameworks */,
-				7BCBFEF21AD3E5F70059F32E /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,9 +145,8 @@
 		AE4D69301ACC404000DB8831 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7BCBFEF01AD3E5F70059F32E /* Bolts.framework */,
-				7BCBFEF11AD3E5F70059F32E /* Parse.framework */,
-				7BCBFEEE1AD3E5C00059F32E /* ParseUI.framework */,
+				AEABA8821AD458C200442F60 /* Bolts.framework */,
+				AEABA8831AD458C200442F60 /* Parse.framework */,
 				AEECDDE11AD39D9E00839F72 /* Accounts.framework */,
 				AEECDDE21AD39D9E00839F72 /* Social.framework */,
 				AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */,
@@ -188,6 +190,9 @@
 				AED289251AB0DE8300F429F1 /* Test App-Bridging-Header.h */,
 				AED289041AB0DE3400F429F1 /* AppDelegate.swift */,
 				AED2892D1AB0E7CA00F429F1 /* MenuViewController.swift */,
+				AE1CEA0E1AD4570A00B56BF9 /* LogIn.storyboard */,
+				AE1CEA101AD4572000B56BF9 /* LogInViewController.swift */,
+				AEABA8861AD45F3B00442F60 /* SignUpViewController.swift */,
 				AED2890B1AB0DE3400F429F1 /* Images.xcassets */,
 				AED2890D1AB0DE3400F429F1 /* LaunchScreen.xib */,
 				B3813C401ABCD0F600DBAF63 /* Events */,
@@ -374,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE1CEA0F1AD4570A00B56BF9 /* LogIn.storyboard in Resources */,
 				7B9F41F61AD27EDD00050158 /* ReimbursementsStoryboard.storyboard in Resources */,
 				AEECDDCF1AD259DF00839F72 /* ToDoStoryboard.storyboard in Resources */,
 				AED2890F1AB0DE3400F429F1 /* LaunchScreen.xib in Resources */,
@@ -402,7 +408,9 @@
 				AE4D69881AD1B23B00DB8831 /* ToDoViewController.swift in Sources */,
 				AE4D69781ACE5A6900DB8831 /* EventAddController.swift in Sources */,
 				AE4D69501ACCF83400DB8831 /* EventsViewController.swift in Sources */,
+				AE1CEA111AD4572000B56BF9 /* LogInViewController.swift in Sources */,
 				AE4D697A1ACF4BD200DB8831 /* EventsMenuController.swift in Sources */,
+				AEABA8871AD45F3B00442F60 /* SignUpViewController.swift in Sources */,
 				AE1CEA0D1AD42C2A00B56BF9 /* ManualAssignmentViewController.swift in Sources */,
 				AEECDDCE1AD259DF00839F72 /* ToDoDetailViewController.swift in Sources */,
 				B35468301AD392EC00AFBE92 /* AutoAssignViewController.swift in Sources */,

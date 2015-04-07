@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuViewController: UITableViewController {
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     struct MenuItem {
         let name:String!
@@ -21,15 +21,15 @@ class MenuViewController: UITableViewController {
     let menuItems = [MenuItem(name: "Events"), MenuItem(name: "To-Dos"), MenuItem(name: "Reimburse")]
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
         cell.textLabel?.textColor = UIColor(red: self.blueR, green: self.blueG, blue: self.blueB, alpha: 1.0)
         cell.textLabel?.text = menuItems[indexPath.row].name
@@ -37,5 +37,13 @@ class MenuViewController: UITableViewController {
         // Configure the cell...
 
         return cell
+    }
+    
+    @IBAction func logOut() {
+        PFUser.logOut()
+        
+        var loginStoryboard = UIStoryboard(name: "LogIn", bundle: nil)
+        var logInVC = loginStoryboard.instantiateViewControllerWithIdentifier("logIn") as UIViewController
+        presentViewController(logInVC, animated: true, completion: nil)
     }
 }
