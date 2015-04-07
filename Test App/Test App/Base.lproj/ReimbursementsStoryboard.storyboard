@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NGf-rU-2Lv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NGf-rU-2Lv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -184,7 +184,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="uploadPhotoButton:" destination="OvR-LE-0Jp" eventType="touchUpInside" id="A4G-nc-Czi"/>
+                                    <action selector="uploadPhotoButton:" destination="OvR-LE-0Jp" eventType="touchUpInside" id="Yto-rk-BLL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibL-ic-i8z">
@@ -194,7 +194,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="takePhotoButton:" destination="OvR-LE-0Jp" eventType="touchUpInside" id="D4B-lV-uBT"/>
+                                    <action selector="takePhotoButton:" destination="OvR-LE-0Jp" eventType="touchUpInside" id="gN7-Wu-GDu"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rzh-V2-Zkr">
@@ -293,12 +293,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="iRp-zO-ive"/>
                     <connections>
-                        <outlet property="amountField" destination="rzh-V2-Zkr" id="qhV-2Y-BP6"/>
+                        <outlet property="amountField" destination="rzh-V2-Zkr" id="Si6-9o-hFm"/>
                         <outlet property="createButton" destination="SDe-Ti-v89" id="dJm-bh-Flh"/>
-                        <outlet property="descriptionField" destination="ZJR-Qi-J6J" id="QE7-ke-wuJ"/>
-                        <outlet property="nameField" destination="Cq9-we-cDL" id="D2o-Xr-Kca"/>
+                        <outlet property="descriptionField" destination="ZJR-Qi-J6J" id="Vjr-DY-97c"/>
+                        <outlet property="nameField" destination="Cq9-we-cDL" id="CJm-cG-9p6"/>
                         <outlet property="photoView" destination="7Gc-gO-R89" id="Pla-NH-45i"/>
-                        <outlet property="uploadPhotoButton" destination="B5D-um-MHI" id="ZYD-Yl-rn3"/>
+                        <outlet property="takePhotoButton" destination="ibL-ic-i8z" id="7xd-gJ-8Iv"/>
+                        <outlet property="uploadPhotoButton" destination="B5D-um-MHI" id="jJN-GF-Qll"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0W-wF-tGR" userLabel="First Responder" sceneMemberID="firstResponder"/>
