@@ -216,7 +216,7 @@ class ManualAssignmentViewController: UIViewController {
         } else if (segue.identifier) == "addNew" {
             println("adding new chore")
             detailVC.editingNotAdding = false
-            detailVC.choreID = getMaxChoreIDForHouse(self.allChores)
+            detailVC.choreID = getMaxChoreIDForHouse(self.allChores) + 1
         }
     }
     
