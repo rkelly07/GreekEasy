@@ -774,8 +774,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="8uD-2y-Gzg"/>
+        <segue reference="lbc-F0-QMl"/>
         <segue reference="QJ0-vx-A9F"/>
-        <segue reference="f4C-t0-cFf"/>
-        <segue reference="ze3-73-f7X"/>
     </inferredMetricsTieBreakers>
 </document>

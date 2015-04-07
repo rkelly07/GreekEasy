@@ -24,14 +24,14 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let dateFormatter = NSDateFormatter()
     let dateFormatString = "MM/dd"
     
-    // TODO: Enum and PickerView for category of events
-    // TODO: Sort events/sections by category
     // TODO: Signups and accounts
+    // TODO: Check for network connection
     // TODO: Caching?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Start activity indicator
         self.activityIndicator.startAnimating()
         self.activityIndicator.hidden = false
         
@@ -50,14 +50,16 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
+                // Extract events in unspecified order
                 var unsortedEvents: [PFObject] = []
-                
                 for object in objects {
                     unsortedEvents.append(object as PFObject)
                 }
                 
+                // Sort events by increasing date
                 self.events = unsortedEvents.sorted( { ($0["date"] as NSDate).compare($1["date"] as NSDate) == NSComparisonResult.OrderedAscending } )
                 
+                // Fill relevant fields
                 for event in self.events {
                     var currentEvent = event["name"] as String
                     self.eventNames.append(currentEvent)
@@ -70,11 +72,12 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     self.eventLocations.append(currentLocation)
                 }
                 
+                // Stop activity indicator and reload table view
                 self.activityIndicator.stopAnimating()
                 self.activityIndicator.hidden = true
-                
                 self.eventsTable.reloadData()
             } else {
+                // Error occurred; check description
                 NSLog(error.description)
             }
         }
@@ -84,6 +87,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if segue.identifier == "showDetail" {
             var destination = segue.destinationViewController as EventDetailController
             
+            // Send event and formatter to detail view
             destination.incoming = self.currentEvent
             destination.formatter = self.dateFormatter
         }
@@ -96,9 +100,9 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Configure the cell...
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
         
+        // Set labels
         (cell.contentView.viewWithTag(1) as UILabel).text = (self.eventDates.isEmpty) ? "" : self.eventDates[indexPath.row]
         (cell.contentView.viewWithTag(2) as UILabel).text = (self.eventNames.isEmpty) ? "" : self.eventNames[indexPath.row]
         (cell.contentView.viewWithTag(3) as UILabel).text = (self.eventLocations.isEmpty) ? "" : self.eventLocations[indexPath.row]
@@ -112,11 +116,13 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Allow events to be edited by those who created them
         let creator = self.events[indexPath.row]["createdBy"] as String
         return (creator == self.user!["username"] as String)
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // Delete cell from Parse DB and table view; reload data
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let itemToDelete = self.events[indexPath.row]
             

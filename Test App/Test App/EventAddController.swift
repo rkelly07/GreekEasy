@@ -26,8 +26,8 @@ class EventAddController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveEvent() {
+        // Set object
         var newEvent = PFObject(className: "Event")
-        
         newEvent["name"] = self.nameField.text?
         newEvent["location"] = self.locationField.text?
         newEvent["category"] = self.categoryField.text?
@@ -36,10 +36,12 @@ class EventAddController: UIViewController, UITextFieldDelegate {
         newEvent["createdBy"] = PFUser.currentUser().objectForKey("username")
         newEvent["houseID"] = PFUser.currentUser().objectForKey("houseID")
         
+        // Set up alert to display
         let alertController = UIAlertController(title: "GreekEasy", message:
             "Event saved!", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
         
+        // Save asynchronously to Parse
         newEvent.saveEventually() {
             (success: Bool, error: NSError!) -> Void in
             if (success) {
@@ -54,13 +56,14 @@ class EventAddController: UIViewController, UITextFieldDelegate {
             } else {
                 // Problem; check error.description
                 NSLog(error.description)
-                alertController.message = "Error occurred; please check network connection"
+                alertController.message = "Error in saving event; please try again"
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
         }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // Allows text field to be exited after entering text
         textField.resignFirstResponder()
         return true
     }
