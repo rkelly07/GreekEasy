@@ -1087,9 +1087,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kwR-TF-71C"/>
-        <segue reference="FD7-y7-Cf0"/>
-        <segue reference="qMr-z6-JCG"/>
         <segue reference="ze3-73-f7X"/>
+        <segue reference="lbc-F0-QMl"/>
+        <segue reference="FD7-y7-Cf0"/>
     </inferredMetricsTieBreakers>
 </document>

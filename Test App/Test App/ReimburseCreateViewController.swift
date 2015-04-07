@@ -20,6 +20,8 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
     @IBOutlet weak var uploadPhotoButton: UIButton!
     @IBOutlet weak var createButton: UIButton!
     let imagePicker = UIImagePickerController()
+    var imageData = NSData()
+    var imageFile = PFFile()
     
     var newMedia: Bool?
     
@@ -34,8 +36,9 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
     
     @IBAction func takePhotoButton(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
+            let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
             imagePicker.mediaTypes = [kUTTypeImage as NSString]
             imagePicker.allowsEditing = false
             
@@ -65,16 +68,19 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
             let image = info[UIImagePickerControllerOriginalImage] as UIImage
             
             photoView.image = image
+            self.imageData = UIImageJPEGRepresentation(image, 0.0)
+            self.imageFile = PFFile(data: self.imageData)
+            self.imageFile.saveInBackground()
             
             if (newMedia == true) {
-                UIImageWriteToSavedPhotosAlbum(image, self, "image:didFinishSavingWithError:contextInfo", nil)
+                UIImageWriteToSavedPhotosAlbum(image, self, "image:didFinishSavingWithError:contextInfo:", nil)
             } //else if mediaType.isEqualToString(kUTTypeMovie as NSString){
                 
                 
             //}
         }
     }
-    func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfor:UnsafePointer<Void>) {
+    func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafePointer<Void>) {
         
         if error != nil {
             let alert = UIAlertController(title: "Save Failed", message: "Failed to save image", preferredStyle: UIAlertControllerStyle.Alert)
@@ -92,25 +98,27 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
     @IBAction func createButton(sender: AnyObject) {
         var newReimbursement = PFObject(className: "Reimburse")
         
+        
+        
         newReimbursement["name"] = self.nameField.text?
         newReimbursement["description"] = self.descriptionField.text?
         newReimbursement["amount"] = (self.amountField.text! as NSString).doubleValue
         newReimbursement["createdBy"] = PFUser.currentUser().objectForKey("username")
         newReimbursement["houseID"] = PFUser.currentUser().objectForKey("houseID")
-        newReimbursement["photo"] = self.photoView.image?
+        newReimbursement["photo"] = self.imageFile
         
         let alertController = UIAlertController(title: "GreekEasy", message:
             "Reimbursement saved!", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
         
-        newReimbursement.saveEventually(){
+        newReimbursement.saveEventually {
             (success: Bool, error: NSError!) -> Void in
             if (success){
                 // Reimbursement Saved, clear fields 
                 self.nameField.text = ""
                 self.descriptionField.text = ""
                 self.amountField.text = ""
-                // Reset photo view
+                self.photoView.image = nil
                 self.presentViewController(alertController, animated: true, completion: nil)
             } else {
                 // Problem; check error.description
