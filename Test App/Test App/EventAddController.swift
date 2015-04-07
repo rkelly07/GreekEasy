@@ -25,6 +25,7 @@ class EventAddController: UIViewController, UITextFieldDelegate {
         descriptionField.delegate = self
     }
     
+    // TODO: Input validation
     @IBAction func saveEvent() {
         // Set object
         var newEvent = PFObject(className: "Event")
