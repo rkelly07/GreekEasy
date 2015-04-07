@@ -41,6 +41,11 @@
 		B349C4EA1AD37E700072B98A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B349C4E81AD37E700072B98A /* Bolts.framework */; };
 		B349C4EB1AD37E700072B98A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B349C4E91AD37E700072B98A /* Parse.framework */; };
 		B35468301AD392EC00AFBE92 /* AutoAssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B354682F1AD392EC00AFBE92 /* AutoAssignViewController.swift */; };
+		AEECDDD81AD3942200839F72 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEECDDD71AD3942200839F72 /* ParseUI.framework */; };
+		AEECDDDF1AD39C9200839F72 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEECDDDD1AD39C9200839F72 /* Bolts.framework */; };
+		AEECDDE01AD39C9200839F72 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEECDDDE1AD39C9200839F72 /* Parse.framework */; };
+		AEECDDE31AD39D9E00839F72 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEECDDE11AD39D9E00839F72 /* Accounts.framework */; };
+		AEECDDE41AD39D9E00839F72 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEECDDE21AD39D9E00839F72 /* Social.framework */; };
 		B3813C471ABCD17500DBAF63 /* MealsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */; };
 		B3813C491ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3813C481ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard */; };
 /* End PBXBuildFile section */
@@ -96,6 +101,11 @@
 		B349C4E81AD37E700072B98A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Downloads/parse-library-1.7.0/Bolts.framework"; sourceTree = "<group>"; };
 		B349C4E91AD37E700072B98A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Downloads/parse-library-1.7.0/Parse.framework"; sourceTree = "<group>"; };
 		B354682F1AD392EC00AFBE92 /* AutoAssignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoAssignViewController.swift; sourceTree = "<group>"; };
+		AEECDDD71AD3942200839F72 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = ../../ParseUI.framework; sourceTree = "<group>"; };
+		AEECDDDD1AD39C9200839F72 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../parse-library-1.6.5/Bolts.framework"; sourceTree = "<group>"; };
+		AEECDDDE1AD39C9200839F72 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../parse-library-1.6.5/Parse.framework"; sourceTree = "<group>"; };
+		AEECDDE11AD39D9E00839F72 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		AEECDDE21AD39D9E00839F72 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		B3813C461ABCD17500DBAF63 /* MealsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MealsStoryboard.storyboard; sourceTree = "<group>"; };
 		B3813C481ABCD18400DBAF63 /* ShoppingListStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShoppingListStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,18 +115,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEECDDE31AD39D9E00839F72 /* Accounts.framework in Frameworks */,
+				AEECDDE41AD39D9E00839F72 /* Social.framework in Frameworks */,
 				AE4D69401ACC40C100DB8831 /* AudioToolbox.framework in Frameworks */,
 				AE4D69411ACC40C100DB8831 /* CFNetwork.framework in Frameworks */,
 				AE4D69421ACC40C100DB8831 /* CoreGraphics.framework in Frameworks */,
+				AEECDDDF1AD39C9200839F72 /* Bolts.framework in Frameworks */,
 				AE4D69431ACC40C100DB8831 /* CoreLocation.framework in Frameworks */,
 				AE4D69441ACC40C100DB8831 /* libsqlite3.dylib in Frameworks */,
+				AEECDDE01AD39C9200839F72 /* Parse.framework in Frameworks */,
 				AE4D69451ACC40C100DB8831 /* libz.dylib in Frameworks */,
 				AE4D69461ACC40C100DB8831 /* MobileCoreServices.framework in Frameworks */,
 				AE4D69471ACC40C100DB8831 /* QuartzCore.framework in Frameworks */,
-				B349C4EA1AD37E700072B98A /* Bolts.framework in Frameworks */,
 				AEECDDD01AD3759500839F72 /* Security.framework in Frameworks */,
-				B349C4EB1AD37E700072B98A /* Parse.framework in Frameworks */,
 				AE4D694A1ACC40C100DB8831 /* SystemConfiguration.framework in Frameworks */,
+				AEECDDD81AD3942200839F72 /* ParseUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,8 +146,11 @@
 		AE4D69301ACC404000DB8831 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B349C4E81AD37E700072B98A /* Bolts.framework */,
-				B349C4E91AD37E700072B98A /* Parse.framework */,
+				AEECDDE11AD39D9E00839F72 /* Accounts.framework */,
+				AEECDDE21AD39D9E00839F72 /* Social.framework */,
+				AEECDDDD1AD39C9200839F72 /* Bolts.framework */,
+				AEECDDDE1AD39C9200839F72 /* Parse.framework */,
+				AEECDDD71AD3942200839F72 /* ParseUI.framework */,
 				AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */,
 				AE4D69361ACC40C100DB8831 /* CFNetwork.framework */,
 				AE4D69371ACC40C100DB8831 /* CoreGraphics.framework */,
@@ -540,6 +556,7 @@
 					"/Users/atitus/parse-library-1.6.5",
 					"$(PROJECT_DIR)",
 					"/Users/TylerFinkelstein/Downloads/parse-library-1.7.0",
+					/Users/atitus,
 				);
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
@@ -568,6 +585,7 @@
 					"/Users/atitus/parse-library-1.6.5",
 					"$(PROJECT_DIR)",
 					"/Users/TylerFinkelstein/Downloads/parse-library-1.7.0",
+					/Users/atitus,
 				);
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
