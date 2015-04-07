@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource {
+class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     var choreObject : PFObject!
     var choreID : Int!
@@ -36,6 +36,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         self.pointsPickerView.dataSource = self
         self.pointsPickerView.delegate = self
         self.pointsPickerView.selectRow(self.chorePoints, inComponent: 0, animated: true)
+        //self.pointsPickerView.frame = CGRectMake(0,0,100,20)
         self.peopleTable.flashScrollIndicators()
         populateUserFullNamesArray()
         self.titleTextField.text = self.originalChoreTitle
@@ -55,6 +56,12 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // Allows text field to be exited after entering text
+        textField.resignFirstResponder()
+        return true
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -130,8 +137,10 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     @IBAction func goBackWithoutMakingOrEditingChore(sender: AnyObject) {
         if editingNotAdding {
+            println(choreObject)
+            println(self.originalChoreTitle)
             self.choreObject["description"] = self.originalChoreTitle
-            self.choreObject["points"] = selectedPoints
+            self.choreObject["points"] = self.selectedPoints
             //if you hit back, you only want the original users to have the chore assigned to them
             for user in self.allUsers {
                 if contains(user.objectForKey("currentChores") as [Int], self.choreID) {
@@ -214,6 +223,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
             println("trying to save chore")
             self.choreObject["description"] = self.titleTextField.text as String //don't know if this works
             self.choreObject["points"] = self.selectedPoints as Int
+            self.choreObject["doneOrNot"] = false as Bool
             //        var userChores : [Int] = []
             //        for user in self.allUsers {
             //            userChores = (user.objectForKey("currentChores") as [Int])
@@ -226,12 +236,19 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
 //                user.saveEventually()
 //            }
             self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
+            self.peopleTable.reloadData()
         } else {
+            println("You're trying to add a new chore ")
             var newChore : PFObject = PFObject(className: "ToDo")
             newChore["ID"] = self.choreID as Int
             newChore["points"] = self.selectedPoints as Int
             newChore["description"] = self.titleTextField.text as String
+            newChore["doneOrNot"] = false as Bool
+            newChore["description"] = self.titleTextField.text as String
+            newChore["houseID"] = PFUser.currentUser().objectForKey("houseID") as Int
             newChore.saveEventually()
+            self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
+            self.peopleTable.reloadData()
         }
     }
     
