@@ -12,14 +12,14 @@ class ReimbursementsMenuController: MenuViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch indexPath.row {
         case 0: // Events
-            var storyboard1 = UIStoryboard(name: "EventsStoryboard", bundle: nil)
-            var vc3 = storyboard1.instantiateViewControllerWithIdentifier("events") as UIViewController
-            presentViewController(vc3, animated: false, completion: nil)
+            var storyboard2 = UIStoryboard(name: "Events", bundle: nil)
+            var vc2 = storyboard2.instantiateViewControllerWithIdentifier("events") as UIViewController
+            presentViewController(vc2, animated: false, completion: nil)
             break
         case 1: // To-Dos
-            var storyboard2 = UIStoryboard(name: "ToDoStoryboard", bundle: nil)
-            var vc2 = storyboard2.instantiateViewControllerWithIdentifier("todo") as UIViewController
-            presentViewController(vc2, animated: false, completion: nil)
+            var storyboard3 = UIStoryboard(name: "ToDoStoryboard", bundle: nil)
+            var vc3 = storyboard3.instantiateViewControllerWithIdentifier("todo") as UIViewController
+            presentViewController(vc3, animated: false, completion: nil)
             break
         case 2: // Reimburse - current view
             self.performSegueWithIdentifier("reimbursePress", sender: nil)
