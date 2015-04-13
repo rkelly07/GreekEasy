@@ -25,6 +25,8 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
     var imageData = NSData()
     var imageFile = PFFile()
     
+    var imageSet: Bool?
+    
     var newMedia: Bool?
     
     let maxNameLength: Int = 32
@@ -39,6 +41,8 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
         amountField.delegate = self
     
         self.activityIndicator.hidden = true
+        
+        self.imageSet = false
     }
     
     @IBAction func takePhotoButton(sender: AnyObject) {
@@ -78,6 +82,7 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
             self.imageData = UIImageJPEGRepresentation(image, 0.0)
             self.imageFile = PFFile(data: self.imageData)
             self.imageFile.saveInBackground()
+            self.imageSet = true
             
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image, self, "image:didFinishSavingWithError:contextInfo:", nil)
@@ -98,6 +103,7 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
             self.presentViewController(alert, animated: true, completion: nil)
         }
     }
+    
     func imagePickerControllerDidCancel(picker: UIImagePickerController){
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -117,7 +123,7 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
             
             alertController.message = "Please fill out all fields"
             self.presentViewController(alertController, animated: true, completion: nil)
-        } else if (self.imageFile.getData() == nil) {
+        } else if !(self.imageSet!) {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.hidden = true
             
