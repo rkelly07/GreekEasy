@@ -61,11 +61,11 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject: AnyObject]){
     
-        let mediaType = info[UIImagePickerControllerMediaType] as NSString
+        let mediaType = info[UIImagePickerControllerMediaType] as! NSString
         self.dismissViewControllerAnimated(true, completion: nil)
         
-        if mediaType.isEqualToString(kUTTypeImage as NSString) {
-            let image = info[UIImagePickerControllerOriginalImage] as UIImage
+        if mediaType.isEqualToString(kUTTypeImage as String) {
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
             
             photoView.image = image
             self.imageData = UIImageJPEGRepresentation(image, 0.0)
@@ -100,11 +100,11 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
         
         
         
-        newReimbursement["name"] = self.nameField.text?
-        newReimbursement["description"] = self.descriptionField.text?
+        newReimbursement["name"] = self.nameField.text
+        newReimbursement["description"] = self.descriptionField.text
         newReimbursement["amount"] = (self.amountField.text! as NSString).doubleValue
-        newReimbursement["createdBy"] = PFUser.currentUser().objectForKey("username")
-        newReimbursement["houseID"] = PFUser.currentUser().objectForKey("houseID")
+        newReimbursement["createdBy"] = PFUser.currentUser()!.objectForKey("username")
+        newReimbursement["houseID"] = PFUser.currentUser()!.objectForKey("houseID")
         newReimbursement["photo"] = self.imageFile
         
         let alertController = UIAlertController(title: "GreekEasy", message:
@@ -112,7 +112,7 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
         
         newReimbursement.saveEventually {
-            (success: Bool, error: NSError!) -> Void in
+            (success: Bool, error: NSError?) -> Void in
             if (success){
                 // Reimbursement Saved, clear fields 
                 self.nameField.text = ""
@@ -122,7 +122,7 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
                 self.presentViewController(alertController, animated: true, completion: nil)
             } else {
                 // Problem; check error.description
-                NSLog(error.description)
+                NSLog(error!.description)
                 alertController.message = "Error occurred; please check network connection"
                 self.presentViewController(alertController, animated: true, completion: nil)
             }

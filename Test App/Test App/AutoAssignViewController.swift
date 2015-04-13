@@ -14,7 +14,7 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var peopleTable: UITableView!
     var allUsers : [PFUser] = []
     var allChores : [PFObject] = []
-    var currentUser : PFUser = PFUser.currentUser()
+    var currentUser : PFUser = PFUser.currentUser()!
     var selectedUsers : [PFUser] = []
     var selectedChores : [PFObject] = []
     
@@ -26,32 +26,32 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
         
         //get all users and add to allUsers array
         var usersQuery = PFQuery(className: "_User")
-        usersQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
+        usersQuery.whereKey("houseID", equalTo:PFUser.currentUser()!.objectForKey("houseID")!)
         usersQuery.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]!, error: NSError!) -> Void in
+            (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
                 println("Inside find objects block")
-                self.allUsers = objects as [PFUser]!
+                self.allUsers = objects as! [PFUser]!
                 println("going to print user array")
                 println(self.allUsers)
                 var choresQuery = PFQuery(className: "ToDo")
-                choresQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
+                choresQuery.whereKey("houseID", equalTo:PFUser.currentUser()!.objectForKey("houseID")!)
                 choresQuery.orderByAscending("description")
                 choresQuery.findObjectsInBackgroundWithBlock {
-                    (objects: [AnyObject]!, error: NSError!) -> Void in
+                    (objects: [AnyObject]?, error: NSError?) -> Void in
                     if error == nil {
-                        self.allChores = objects as [PFObject]!
+                        self.allChores = objects as! [PFObject]!
                         //self.allChores.sort({ $0.fileID > $1.fileID })
                         //TODO sort alphabetically
                         self.choresTable.reloadData()
                         self.peopleTable.reloadData()
                     } else {
-                        NSLog(error.description)
+                        NSLog(error!.description)
                     }
                 }
             } else {
                 println("In userquery error")
-                NSLog(error.description)
+                NSLog(error!.description)
             }
         }
         println("before reload data after usersquery")
@@ -71,7 +71,7 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
     func findUserByFullName(userFullName : String) -> PFUser {
         var userForSection : PFUser = PFUser()
         for user in self.allUsers {
-            if ((user.objectForKey("firstName") as String) + " " + (user.objectForKey("lastName") as String)) == userFullName {
+            if ((user.objectForKey("firstName") as! String) + " " + (user.objectForKey("lastName") as! String)) == userFullName {
                 userForSection = user
             }
         }
@@ -91,14 +91,14 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func getUserChoresString(userOb: PFObject) -> String {
         var choreTitlesString : String = ""
-        var userChores : [Int] = userOb.objectForKey("currentChores") as [Int]
+        var userChores : [Int] = userOb.objectForKey("currentChores") as! [Int]
         for choreID in userChores {
             for chore in self.allChores {
-                if contains(userChores, chore.objectForKey("ID") as Int) {
+                if contains(userChores, chore.objectForKey("ID") as! Int) {
                     if (choreTitlesString == "") {
-                        choreTitlesString = chore.objectForKey("description") as String
+                        choreTitlesString = chore.objectForKey("description") as! String
                     } else {
-                        choreTitlesString = choreTitlesString + ", " + (chore.objectForKey("description") as String)
+                        choreTitlesString = choreTitlesString + ", " + (chore.objectForKey("description") as! String)
                     }
                 }
             }
@@ -107,7 +107,7 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as! UITableViewCell
         if (tableView.tag == 21) {
             println("this is not exactly the same as in the view to view all")
             
@@ -115,22 +115,22 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
             //TODO I don't know if this userForSection declaration is okay
             
             var specificChore : PFObject = self.allChores[indexPath.row]
-            var choreTitle : String = specificChore.objectForKey("description") as String
-            var specificChoreID : Int = specificChore.objectForKey("ID") as Int
+            var choreTitle : String = specificChore.objectForKey("description") as! String
+            var specificChoreID : Int = specificChore.objectForKey("ID") as! Int
         
             //TODO fix finding specificChore
             println("specific chore is ")
             println(specificChore)
-            var chorePoints : Int = specificChore.objectForKey("points") as Int
-            var choreStatus : Bool = specificChore.objectForKey("doneOrNot") as Bool
+            var chorePoints : Int = specificChore.objectForKey("points") as! Int
+            var choreStatus : Bool = specificChore.objectForKey("doneOrNot") as! Bool
             var peopleOnChore : [PFUser] = []
             
             //go through other users and see who has the same choreID
             for person in self.allUsers {
-                if (person.objectForKey("currentChores") as NSArray).containsObject(specificChoreID) {
+                if (person.objectForKey("currentChores") as! NSArray).containsObject(specificChoreID) {
                 //need to exclude person whose section it is
-                    var firstName : String = person.objectForKey("firstName") as String
-                    var lastName : String = person.objectForKey("lastName") as String
+                    var firstName : String = person.objectForKey("firstName") as! String
+                    var lastName : String = person.objectForKey("lastName") as! String
                     var fullName : String = firstName + " " + lastName
                     peopleOnChore.append(person)
                 }
@@ -138,8 +138,8 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
             
             var peopleFullNames : [String] = []
             for person in peopleOnChore {
-                var personFirstName : String = person.objectForKey("firstName") as String
-                var personLastName : String = person.objectForKey("lastName") as String
+                var personFirstName : String = person.objectForKey("firstName") as! String
+                var personLastName : String = person.objectForKey("lastName") as! String
                 peopleFullNames.append(personFirstName + " " + personLastName)
             }
             var peopleNamesString : String = ""
@@ -153,15 +153,15 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
             //TODO if otherPeopleFullNames is empty that label shouldn't be displayed and cell resized
             //temporary solution for too long titles
             var numChars : Int = 25
-            if countElements(choreTitle) > numChars {
+            if count(choreTitle) > numChars {
                 choreTitle = (choreTitle as NSString).substringToIndex(numChars) + String("...")
             }
-            (cell.contentView.viewWithTag(11) as UILabel).text = choreTitle
-            (cell.contentView.viewWithTag(11) as UILabel).font = UIFont.boldSystemFontOfSize(18.0)
-            (cell.contentView.viewWithTag(12) as UILabel).text = "Points: " + String(chorePoints)
-            (cell.contentView.viewWithTag(13) as UILabel).text = peopleNamesString
+            (cell.contentView.viewWithTag(11) as! UILabel).text = choreTitle
+            (cell.contentView.viewWithTag(11) as! UILabel).font = UIFont.boldSystemFontOfSize(18.0)
+            (cell.contentView.viewWithTag(12) as! UILabel).text = "Points: " + String(chorePoints)
+            (cell.contentView.viewWithTag(13) as! UILabel).text = peopleNamesString
 
-            var buttonInCell : UIButton = (cell.contentView.viewWithTag(111) as UIButton)
+            var buttonInCell : UIButton = (cell.contentView.viewWithTag(111) as! UIButton)
             var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
             var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
             if contains(self.selectedChores, specificChore) {
@@ -175,14 +175,14 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
             println("this should be exactly the same as in manual once it works, minus clickable checkboxes")
             var peopleFullNames : [String] = []
             for person in self.allUsers {
-                var personFirstName : String = person.objectForKey("firstName") as String
-                var personLastName : String = person.objectForKey("lastName") as String
+                var personFirstName : String = person.objectForKey("firstName") as! String
+                var personLastName : String = person.objectForKey("lastName") as! String
                 peopleFullNames.append(personFirstName + " " + personLastName)
             }
             var userFullName : String = peopleFullNames[indexPath.row]
             println("Looking at row for " + userFullName)
             var userPF : PFUser = findUserByFullName(userFullName)
-            var userPoints : Int = userPF.objectForKey("totalPoints") as Int
+            var userPoints : Int = userPF.objectForKey("totalPoints") as! Int
             var userChores : [Int] = []
             var userChoresAsString = getUserChoresString(userPF)
             //println("String of chores for user is " + String(userChoresAsString))
@@ -197,12 +197,12 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
 //                userChoresAsString = (userChoresAsString as NSString).substringToIndex(numChars) + String("...")
 //            }
             
-            (cell.contentView.viewWithTag(31) as UILabel).text = userFullName
-            (cell.contentView.viewWithTag(31) as UILabel).font = UIFont.boldSystemFontOfSize(18.0)
-            (cell.contentView.viewWithTag(32) as UILabel).text = "Points: " + String(userPoints)
-            (cell.contentView.viewWithTag(33) as UILabel).text = userChoresAsString
+            (cell.contentView.viewWithTag(31) as! UILabel).text = userFullName
+            (cell.contentView.viewWithTag(31) as! UILabel).font = UIFont.boldSystemFontOfSize(18.0)
+            (cell.contentView.viewWithTag(32) as! UILabel).text = "Points: " + String(userPoints)
+            (cell.contentView.viewWithTag(33) as! UILabel).text = userChoresAsString
             
-            var buttonInCell : UIButton = (cell.contentView.viewWithTag(333) as UIButton)
+            var buttonInCell : UIButton = (cell.contentView.viewWithTag(333) as! UIButton)
             var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
             var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
             if contains(self.selectedUsers, userPF) {
@@ -290,14 +290,14 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
         //get all chores sorted by points high to low
         var choresSortedHighToLow : [PFObject] = []
         var choresQuery = PFQuery(className: "ToDo")
-        choresQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
+        choresQuery.whereKey("houseID", equalTo:PFUser.currentUser()!.objectForKey("houseID")!)
         choresQuery.orderByDescending("points")
         choresQuery.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]!, error: NSError!) -> Void in
+            (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
-                choresSortedHighToLow = objects as [PFObject]!
+                choresSortedHighToLow = objects as! [PFObject]!
             } else {
-                NSLog(error.description)
+                NSLog(error!.description)
             }
         }
         
@@ -313,14 +313,14 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
         //get all people sorted by points low to high
         var peopleSortedLowToHigh : [PFUser] = []
         var peopleQuery = PFQuery(className: "_User")
-        peopleQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
+        peopleQuery.whereKey("houseID", equalTo:PFUser.currentUser()!.objectForKey("houseID")!)
         peopleQuery.orderByAscending("totalPoints")
         peopleQuery.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]!, error: NSError!) -> Void in
+            (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
-                peopleSortedLowToHigh = objects as [PFUser]!
+                peopleSortedLowToHigh = objects as! [PFUser]!
             } else {
-                NSLog(error.description)
+                NSLog(error!.description)
             }
         }
         
@@ -340,7 +340,7 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
         for chore in choresSortedHighToLow {
             var numberOfPeopleAssigned : Int = 0
             for person in self.allUsers {
-                if (person.objectForKey("currentChores") as NSArray).containsObject(chore.objectForKey("ID")) {
+                if (person.objectForKey("currentChores") as! NSArray).containsObject(chore.objectForKey("ID")!) {
                     numberOfPeopleAssigned = numberOfPeopleAssigned + 1
                 }
             }
@@ -352,9 +352,9 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
             var numberOfPeopleToAssign : Int = choresToNumberOfPeople[chore] as Int!
             //need to remove chore being assigned from all currently assigned users
             for person in self.allUsers {
-                if (person.objectForKey("currentChores") as NSArray).containsObject(chore.objectForKey("ID")) {
-                    var indexOfPerson : Int = find(person.objectForKey("currentChores") as [Int], chore.objectForKey("ID") as Int)!
-                    var newArray : [Int] = person.objectForKey("currentChores") as [Int]
+                if (person.objectForKey("currentChores") as! NSArray).containsObject(chore.objectForKey("ID")!) {
+                    var indexOfPerson : Int = find(person.objectForKey("currentChores") as! [Int], chore.objectForKey("ID") as! Int)!
+                    var newArray : [Int] = person.objectForKey("currentChores") as! [Int]
                     newArray.removeAtIndex(indexOfPerson)
                     person["currentChores"] = newArray
                     person.saveEventually()
@@ -366,8 +366,8 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             //add chore to person's currentChores
             for person in peopleSortedLowToHigh[0..<numberOfPeopleToAssign] {
-                var newArray : [Int] = person.objectForKey("currentChores") as [Int]
-                newArray.append(chore.objectForKey("ID") as Int)
+                var newArray : [Int] = person.objectForKey("currentChores") as! [Int]
+                newArray.append(chore.objectForKey("ID") as! Int)
                 person["currentChores"] = newArray
                 person.saveEventually()
             }
@@ -383,12 +383,12 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
-    func tableView(tableView : UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView : UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("Row " + String(indexPath.row) + " selected")
     }
     
     //need to have checkboxes be editable
-    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     

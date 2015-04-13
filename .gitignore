@@ -13,7 +13,6 @@ proposal/
 *.mobileprovision
 *xcuserstate
 *xcuserdata
->>>>>>> events
 downloader/AlamoFire/
->>>>>>> events
+frameworks/
 *.framework

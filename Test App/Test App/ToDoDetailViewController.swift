@@ -47,8 +47,8 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     func populateUserFullNamesArray() {
         for person in self.allUsers {
             //println("self.allUsers is not empty")
-            var firstName : String = person.objectForKey("firstName") as String
-            var lastName : String = person.objectForKey("lastName") as String
+            var firstName : String = person.objectForKey("firstName") as! String
+            var lastName : String = person.objectForKey("lastName") as! String
             var fullName : String = firstName + " " + lastName
             self.allUsersFullNames.append(fullName)
             //println(fullName)
@@ -73,7 +73,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     func findUserByFullName(userFullName : String) -> PFUser {
         //var userForSection : PFUser = PFUser()
         for user in self.allUsers {
-            if ((user.objectForKey("firstName") as String) + " " + (user.objectForKey("lastName") as String)) == userFullName {
+            if ((user.objectForKey("firstName") as! String) + " " + (user.objectForKey("lastName") as! String)) == userFullName {
                 return user
             }
         }
@@ -83,14 +83,14 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     func getUserChoresString(userOb: PFObject) -> String {
         var choreTitlesString : String = ""
-        var userChores : [Int] = userOb.objectForKey("currentChores") as [Int]
+        var userChores : [Int] = userOb.objectForKey("currentChores") as! [Int]
         for choreID in userChores {
             for chore in self.allChores {
-                if contains(userChores, chore.objectForKey("ID") as Int) {
+                if contains(userChores, chore.objectForKey("ID") as! Int) {
                     if (choreTitlesString == "") {
-                        choreTitlesString = chore.objectForKey("description") as String
+                        choreTitlesString = chore.objectForKey("description") as! String
                     } else {
-                        choreTitlesString = choreTitlesString + ", " + (chore.objectForKey("description") as String)
+                        choreTitlesString = choreTitlesString + ", " + (chore.objectForKey("description") as! String)
                     }
                 }
             }
@@ -100,12 +100,12 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Configure the cell...
-        let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as! UITableViewCell
         
         var userFullName : String = self.allUsersFullNames[indexPath.row]
         println("Looking at row for " + userFullName)
         var userPF : PFUser = findUserByFullName(userFullName)
-        var userPoints : Int = userPF.objectForKey("totalPoints") as Int
+        var userPoints : Int = userPF.objectForKey("totalPoints") as! Int
         var userChores : [Int] = []
         var userChoresAsString = getUserChoresString(userPF)
         //println("String of chores for user is " + String(userChoresAsString))
@@ -113,19 +113,19 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         //TODO if otherPeopleFullNames is empty that label shouldn't be displayed and cell resized
         //temporary solution for too long titles
         var numChars : Int = 25
-        if countElements(self.titleTextField.text) > numChars {
+        if count(self.titleTextField.text) > numChars {
             self.titleTextField.text = (self.titleTextField.text as NSString).substringToIndex(numChars) + String("...")
         }
-        if countElements(userChoresAsString) > numChars {
+        if count(userChoresAsString) > numChars {
             userChoresAsString = (userChoresAsString as NSString).substringToIndex(numChars) + String("...")
         }
         
-        (cell.contentView.viewWithTag(11) as UILabel).text = userFullName
-        (cell.contentView.viewWithTag(11) as UILabel).font = UIFont.boldSystemFontOfSize(18.0)
-        (cell.contentView.viewWithTag(12) as UILabel).text = "Points: " + String(userPoints)
-        (cell.contentView.viewWithTag(13) as UILabel).text = userChoresAsString
+        (cell.contentView.viewWithTag(11) as! UILabel).text = userFullName
+        (cell.contentView.viewWithTag(11) as! UILabel).font = UIFont.boldSystemFontOfSize(18.0)
+        (cell.contentView.viewWithTag(12) as! UILabel).text = "Points: " + String(userPoints)
+        (cell.contentView.viewWithTag(13) as! UILabel).text = userChoresAsString
         
-        var buttonInCell : UIButton = (cell.contentView.viewWithTag(111) as UIButton)
+        var buttonInCell : UIButton = (cell.contentView.viewWithTag(111) as! UIButton)
         var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
         var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
         if contains(self.peopleOnChore, userPF) {
@@ -181,15 +181,15 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
             for objectID in objectIDArray {
                 var query = PFQuery(className:"_User")
                 query.getObjectInBackgroundWithId(objectID) {
-                    (object: PFObject!, error: NSError!) -> Void in
+                    (object: PFObject?, error: NSError?) -> Void in
                     if error != nil {
                         println(error)
                     } else {
                         println("OBJECT RETRIEVED RETRIEVED")
                         println(objectID)
                         println(object)
-                        object["currentChores"] = [2]
-                        object.save()
+                        object!["currentChores"] = [2]
+                        object!.save()
                         self.peopleTable.reloadData()
                         //object.saveEventually()
                     }
@@ -265,11 +265,11 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
             newChore["points"] = self.selectedPoints as Int
             newChore["description"] = self.titleTextField.text as String
             newChore["doneOrNot"] = false as Bool
-            newChore["houseID"] = PFUser.currentUser().objectForKey("houseID") as Int
+            newChore["houseID"] = PFUser.currentUser()!.objectForKey("houseID") as! Int
             newChore.saveEventually()
             //because chore is new, we know no one is assigned to it yet
             for user in self.peopleOnChore {
-                var newArray : [Int] = (user.objectForKey("currentChores") as [Int])
+                var newArray : [Int] = (user.objectForKey("currentChores") as! [Int])
                 //println(newArray)
                 newArray.append(choreID)
                 //println("New chores for person are ")

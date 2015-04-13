@@ -45,28 +45,28 @@ class ReimburseViewController: UIViewController, UITableViewDelegate, UITableVie
         //Load Reimbursements (Date, Name, Amount)
         var query = PFQuery(className: "Reimburse")
         self.user = PFUser.currentUser()
-        query.whereKey("houseID", equalTo: self.user!["houseID"])
+        query.whereKey("houseID", equalTo: self.user!["houseID"]!)
         query.findObjectsInBackgroundWithBlock{
-            (objects: [AnyObject]!, error: NSError!) -> Void in
+            (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
                 // Extract reimbursements in unspecified order
                 var unsortedReimbursements: [PFObject] = []
-                for object in objects{
-                    unsortedReimbursements.append(object as PFObject)
+                for object in objects! {
+                    unsortedReimbursements.append(object as! PFObject)
                 }
                 // Sort reimbursements by increasing date
-                self.reimbursements = unsortedReimbursements.sorted( { ($0.updatedAt as NSDate).compare($1.updatedAt as NSDate) == NSComparisonResult.OrderedAscending } )
+                self.reimbursements = unsortedReimbursements.sorted( { ($0.updatedAt!).compare($1.updatedAt!) == NSComparisonResult.OrderedAscending } )
                 
                 // Fill relevant fields
                 for reimbursement in self.reimbursements {
-                    var currentDate = reimbursement.updatedAt as NSDate
+                    var currentDate = reimbursement.updatedAt!
                     var formattedDate = self.dateFormatter.stringFromDate(currentDate)
                     self.reimbursementDates.append(formattedDate)
                     
-                    var currentName = reimbursement["name"] as String
+                    var currentName = reimbursement["name"] as! String
                     self.reimbursementNames.append(currentName)
                     
-                    var currentAmount = reimbursement["amount"] as Double
+                    var currentAmount = reimbursement["amount"] as! Double
                     var formattedAmount = String(format:"$%.2f", currentAmount)
                     self.reimbursementAmounts.append(formattedAmount)
                 }
@@ -74,7 +74,7 @@ class ReimburseViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.activityIndicator.hidden = true
                 self.reimburseTable.reloadData()
             } else {
-                NSLog(error.description)
+                NSLog(error!.description)
             }
         }
     
@@ -82,7 +82,7 @@ class ReimburseViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "showDetail" {
-            var destination = segue.destinationViewController as ReimburseSingleViewController
+            var destination = segue.destinationViewController as! ReimburseSingleViewController
             
             // Send event and formatter to detail view
             destination.incoming = self.currentReimbursement
@@ -95,12 +95,12 @@ class ReimburseViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as! UITableViewCell
         
         // Set Labels
-        (cell.contentView.viewWithTag(1) as UILabel).text = (self.reimbursementDates.isEmpty) ? "" : self.reimbursementDates[indexPath.row]
-        (cell.contentView.viewWithTag(2) as UILabel).text = (self.reimbursementNames.isEmpty) ? "" : self.reimbursementNames[indexPath.row]
-        (cell.contentView.viewWithTag(3) as UILabel).text = (self.reimbursementAmounts.isEmpty) ? "" : self.reimbursementAmounts[indexPath.row]
+        (cell.contentView.viewWithTag(1) as! UILabel).text = (self.reimbursementDates.isEmpty) ? "" : self.reimbursementDates[indexPath.row]
+        (cell.contentView.viewWithTag(2) as! UILabel).text = (self.reimbursementNames.isEmpty) ? "" : self.reimbursementNames[indexPath.row]
+        (cell.contentView.viewWithTag(3) as! UILabel).text = (self.reimbursementAmounts.isEmpty) ? "" : self.reimbursementAmounts[indexPath.row]
         
         return cell
     }
@@ -111,8 +111,8 @@ class ReimburseViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        let creator = self.reimbursements[indexPath.row]["createdBy"] as String
-        return (self.user!["treasurer"] as Bool == true) || (creator == self.user!["username"] as String)
+        let creator = self.reimbursements[indexPath.row]["createdBy"] as! String
+        return (self.user!["treasurer"] as! Bool == true) || (creator == self.user!["username"] as! String)
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

@@ -30,7 +30,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as! UITableViewCell
         cell.textLabel?.textColor = UIColor(red: self.blueR, green: self.blueG, blue: self.blueB, alpha: 1.0)
         cell.textLabel?.text = menuItems[indexPath.row].name
         
@@ -43,7 +43,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         PFUser.logOut()
         
         var loginStoryboard = UIStoryboard(name: "LogIn", bundle: nil)
-        var logInVC = loginStoryboard.instantiateViewControllerWithIdentifier("logIn") as UIViewController
+        var logInVC = loginStoryboard.instantiateViewControllerWithIdentifier("logIn") as! UIViewController
         presentViewController(logInVC, animated: true, completion: nil)
     }
 }

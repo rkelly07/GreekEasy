@@ -32,8 +32,8 @@
 		AE4D69921AD1B90D00DB8831 /* ToDoMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69911AD1B90D00DB8831 /* ToDoMenuController.swift */; };
 		AE4D69981AD1D6B700DB8831 /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D69971AD1D6B700DB8831 /* EventDetailController.swift */; };
 		AE5BB4911AD47B84002F58BD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5BB4901AD47B84002F58BD /* SignUpViewController.swift */; };
-		AEABA8841AD458C200442F60 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEABA8821AD458C200442F60 /* Bolts.framework */; };
-		AEABA8851AD458C200442F60 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEABA8831AD458C200442F60 /* Parse.framework */; };
+		AE6AAE891ADB50DF006ECEC4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6AAE871ADB50DF006ECEC4 /* Bolts.framework */; };
+		AE6AAE8A1ADB50DF006ECEC4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6AAE881ADB50DF006ECEC4 /* Parse.framework */; };
 		AED289051AB0DE3400F429F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED289041AB0DE3400F429F1 /* AppDelegate.swift */; };
 		AED2890C1AB0DE3400F429F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED2890B1AB0DE3400F429F1 /* Images.xcassets */; };
 		AED2890F1AB0DE3400F429F1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED2890D1AB0DE3400F429F1 /* LaunchScreen.xib */; };
@@ -87,8 +87,8 @@
 		AE4D69911AD1B90D00DB8831 /* ToDoMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoMenuController.swift; sourceTree = "<group>"; };
 		AE4D69971AD1D6B700DB8831 /* EventDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
 		AE5BB4901AD47B84002F58BD /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		AEABA8821AD458C200442F60 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../parse-library-1.6.5/Bolts.framework"; sourceTree = "<group>"; };
-		AEABA8831AD458C200442F60 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../parse-library-1.6.5/Parse.framework"; sourceTree = "<group>"; };
+		AE6AAE871ADB50DF006ECEC4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = frameworks/Bolts.framework; sourceTree = "<group>"; };
+		AE6AAE881ADB50DF006ECEC4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = frameworks/Parse.framework; sourceTree = "<group>"; };
 		AED288FF1AB0DE3400F429F1 /* Test App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED289031AB0DE3400F429F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AED289041AB0DE3400F429F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,10 +124,10 @@
 				AE4D69421ACC40C100DB8831 /* CoreGraphics.framework in Frameworks */,
 				AE4D69431ACC40C100DB8831 /* CoreLocation.framework in Frameworks */,
 				AE4D69441ACC40C100DB8831 /* libsqlite3.dylib in Frameworks */,
-				AEABA8841AD458C200442F60 /* Bolts.framework in Frameworks */,
+				AE6AAE891ADB50DF006ECEC4 /* Bolts.framework in Frameworks */,
 				AE4D69451ACC40C100DB8831 /* libz.dylib in Frameworks */,
 				AE4D69461ACC40C100DB8831 /* MobileCoreServices.framework in Frameworks */,
-				AEABA8851AD458C200442F60 /* Parse.framework in Frameworks */,
+				AE6AAE8A1ADB50DF006ECEC4 /* Parse.framework in Frameworks */,
 				AE4D69471ACC40C100DB8831 /* QuartzCore.framework in Frameworks */,
 				AEECDDD01AD3759500839F72 /* Security.framework in Frameworks */,
 				AE4D694A1ACC40C100DB8831 /* SystemConfiguration.framework in Frameworks */,
@@ -147,8 +147,8 @@
 		AE4D69301ACC404000DB8831 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AEABA8821AD458C200442F60 /* Bolts.framework */,
-				AEABA8831AD458C200442F60 /* Parse.framework */,
+				AE6AAE871ADB50DF006ECEC4 /* Bolts.framework */,
+				AE6AAE881ADB50DF006ECEC4 /* Parse.framework */,
 				AEECDDE11AD39D9E00839F72 /* Accounts.framework */,
 				AEECDDE21AD39D9E00839F72 /* Social.framework */,
 				AE4D69351ACC40C100DB8831 /* AudioToolbox.framework */,
@@ -560,17 +560,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/atitus/parse-library-1.6.5",
-					"$(PROJECT_DIR)",
-					"/Users/TylerFinkelstein/Downloads/parse-library-1.7.0",
-					/Users/atitus,
-				);
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
-					"$(inherited)",
-					"/Users/atitus/parse-library-1.6.5",
-					"$(PROJECT_DIR)",
-					"/Users/TylerFinkelstein/Downloads/parse-library-1.7.0",
+					"$(SRCROOT)/frameworks",
+					"$(PROJECT_DIR)/frameworks",
 				);
 				INFOPLIST_FILE = "Test App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -589,17 +580,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/atitus/parse-library-1.6.5",
-					"$(PROJECT_DIR)",
-					"/Users/TylerFinkelstein/Downloads/parse-library-1.7.0",
-					/Users/atitus,
-				);
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
-					"$(inherited)",
-					"/Users/atitus/parse-library-1.6.5",
-					"$(PROJECT_DIR)",
-					"/Users/TylerFinkelstein/Downloads/parse-library-1.7.0",
+					"$(SRCROOT)/frameworks",
+					"$(PROJECT_DIR)/frameworks",
 				);
 				INFOPLIST_FILE = "Test App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

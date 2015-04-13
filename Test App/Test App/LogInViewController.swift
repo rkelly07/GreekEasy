@@ -40,7 +40,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 self.presentViewController(alertController, animated: true, completion: nil)
             } else {
                 var eventsStoryboard = UIStoryboard(name: "Events", bundle: nil)
-                var eventsVC = eventsStoryboard.instantiateViewControllerWithIdentifier("events") as UIViewController
+                var eventsVC = eventsStoryboard.instantiateViewControllerWithIdentifier("events") as! UIViewController
                 presentViewController(eventsVC, animated: false, completion: nil)
             }
         } else {

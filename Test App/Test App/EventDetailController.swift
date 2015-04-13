@@ -12,7 +12,6 @@ class EventDetailController: UIViewController {
     @IBOutlet weak var currentName: UILabel!
     @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var currentLocation: UILabel!
-    @IBOutlet weak var currentCategory: UILabel!
     @IBOutlet weak var currentDescription: UILabel!
     
     var incoming:PFObject?
@@ -28,9 +27,8 @@ class EventDetailController: UIViewController {
         
         // Set text to be displayed
         currentName.text = self.incoming!["name"] as? String
-        currentDate.text = self.formatter!.stringFromDate(self.incoming!["date"] as NSDate)
+        currentDate.text = self.formatter!.stringFromDate(self.incoming!["date"] as! NSDate)
         currentLocation.text = self.incoming!["location"] as? String
-        currentCategory.text = self.incoming!["category"] as? String
         currentDescription.text = self.incoming!["description"] as? String
     }
 }

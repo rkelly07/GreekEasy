@@ -16,7 +16,7 @@ class ManualAssignmentViewController: UIViewController {
     var allUsers : [PFUser] = []
     var allChores : [PFObject] = []
     var allChoresInGreekEasy : [PFObject] = []
-    var currentUser : PFUser = PFUser.currentUser()
+    var currentUser : PFUser = PFUser.currentUser()!
     
     @IBOutlet var ResetAllToIncompleteButton: UIButton!
     
@@ -30,34 +30,34 @@ class ManualAssignmentViewController: UIViewController {
         
         //get all users and add to allUsers array
         var usersQuery = PFQuery(className: "_User")
-        usersQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
+        usersQuery.whereKey("houseID", equalTo:PFUser.currentUser()!.objectForKey("houseID")!)
         usersQuery.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]!, error: NSError!) -> Void in
+            (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
                 println("Inside find objects block")
-                self.allUsers = objects as [PFUser]!
+                self.allUsers = objects as! [PFUser]!
                 println("going to print user array")
                 println(self.allUsers)
                 var choresQuery = PFQuery(className: "ToDo")
-                choresQuery.whereKey("houseID", equalTo:PFUser.currentUser().objectForKey("houseID"))
+                choresQuery.whereKey("houseID", equalTo:PFUser.currentUser()!.objectForKey("houseID")!)
                 choresQuery.orderByAscending("description")
                 choresQuery.findObjectsInBackgroundWithBlock {
-                    (objects: [AnyObject]!, error: NSError!) -> Void in
+                    (objects: [AnyObject]?, error: NSError?) -> Void in
                     if error == nil {
-                        self.allChores = objects as [PFObject]!
+                        self.allChores = objects as! [PFObject]!
                         var greekChoresQuery = PFQuery(className: "ToDo")
                         greekChoresQuery.findObjectsInBackgroundWithBlock {
-                            (objects: [AnyObject]!, error: NSError!) -> Void in
+                            (objects: [AnyObject]?, error: NSError?) -> Void in
                             if error == nil {
-                                self.allChoresInGreekEasy = objects as [PFObject]!
+                                self.allChoresInGreekEasy = objects as! [PFObject]!
                                 self.tableView.reloadData()
                             } else {
-                                NSLog(error.description)
+                                NSLog(error!.description)
                             }
                         }
                         //self.tableView.reloadData()
                     } else {
-                        NSLog(error.description)
+                        NSLog(error!.description)
                     }
                     
                     // Stop activity indicator
@@ -66,7 +66,7 @@ class ManualAssignmentViewController: UIViewController {
                 }
             } else {
                 println("In userquery error")
-                NSLog(error.description)
+                NSLog(error!.description)
             }
         }
         println("before reload data after usersquery")
@@ -77,7 +77,7 @@ class ManualAssignmentViewController: UIViewController {
         var maxID : Int = 0
         for chore in self.allChoresInGreekEasy {
             var currentChoreID : Int = 0
-            currentChoreID = chore.objectForKey("ID") as Int
+            currentChoreID = chore.objectForKey("ID") as! Int
             if (currentChoreID > maxID) {
                 maxID = currentChoreID
             }
@@ -94,7 +94,7 @@ class ManualAssignmentViewController: UIViewController {
     func findUserByFullName(userFullName : String) -> PFUser {
         var userForSection : PFUser = PFUser()
         for user in self.allUsers {
-            if ((user.objectForKey("firstName") as String) + " " + (user.objectForKey("lastName") as String)) == userFullName {
+            if ((user.objectForKey("firstName") as! String) + " " + (user.objectForKey("lastName") as! String)) == userFullName {
                 userForSection = user
             }
         }
@@ -107,21 +107,21 @@ class ManualAssignmentViewController: UIViewController {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Configure the cell...
-        let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as! UITableViewCell
         
         var specificChore : PFObject = self.allChores[indexPath.row]
-        var specificChoreID : Int = specificChore.objectForKey("ID") as Int
-        var choreTitle : String = specificChore.objectForKey("description") as String
-        var chorePoints : Int = specificChore.objectForKey("points") as Int
-        var choreStatus : Bool = specificChore.objectForKey("doneOrNot") as Bool
+        var specificChoreID : Int = specificChore.objectForKey("ID") as! Int
+        var choreTitle : String = specificChore.objectForKey("description") as! String
+        var chorePoints : Int = specificChore.objectForKey("points") as! Int
+        var choreStatus : Bool = specificChore.objectForKey("doneOrNot") as! Bool
         var peopleOnChore : [PFUser] = []
         
         //go through other users and see who has the same choreID
         for person in self.allUsers {
-            if (person.objectForKey("currentChores") as NSArray).containsObject(specificChoreID) {
+            if (person.objectForKey("currentChores") as! NSArray).containsObject(specificChoreID) {
                 //need to exclude person whose section it is
-                var firstName : String = person.objectForKey("firstName") as String
-                var lastName : String = person.objectForKey("lastName") as String
+                var firstName : String = person.objectForKey("firstName") as! String
+                var lastName : String = person.objectForKey("lastName") as! String
                 var fullName : String = firstName + " " + lastName
                 peopleOnChore.append(person)
             }
@@ -129,8 +129,8 @@ class ManualAssignmentViewController: UIViewController {
         
         var peopleFullNames : [String] = []
         for person in peopleOnChore {
-            var personFirstName : String = person.objectForKey("firstName") as String
-            var personLastName : String = person.objectForKey("lastName") as String
+            var personFirstName : String = person.objectForKey("firstName") as! String
+            var personLastName : String = person.objectForKey("lastName") as! String
             peopleFullNames.append(personFirstName + " " + personLastName)
         }
         var peopleNamesString : String = ""
@@ -144,15 +144,15 @@ class ManualAssignmentViewController: UIViewController {
         //TODO if no one is one chore don't display
         //temporary solution for too long titles
         var numChars : Int = 25
-        if countElements(choreTitle) > numChars {
+        if count(choreTitle) > numChars {
             choreTitle = (choreTitle as NSString).substringToIndex(numChars) + String("...")
         }
-        (cell.contentView.viewWithTag(11) as UILabel).text = choreTitle
-        (cell.contentView.viewWithTag(11) as UILabel).font = UIFont.boldSystemFontOfSize(18.0)
-        (cell.contentView.viewWithTag(12) as UILabel).text = "Points: " + String(chorePoints)
-        (cell.contentView.viewWithTag(13) as UILabel).text = peopleNamesString
+        (cell.contentView.viewWithTag(11) as! UILabel).text = choreTitle
+        (cell.contentView.viewWithTag(11) as! UILabel).font = UIFont.boldSystemFontOfSize(18.0)
+        (cell.contentView.viewWithTag(12) as! UILabel).text = "Points: " + String(chorePoints)
+        (cell.contentView.viewWithTag(13) as! UILabel).text = peopleNamesString
         
-        var buttonInCell : UIButton = (cell.contentView.viewWithTag(111) as UIButton)
+        var buttonInCell : UIButton = (cell.contentView.viewWithTag(111) as! UIButton)
         var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
         var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
         if choreStatus == true {
@@ -172,8 +172,8 @@ class ManualAssignmentViewController: UIViewController {
         var position: CGPoint = sender.convertPoint(CGPointZero, toView: self.tableView)
         var indexPath: NSIndexPath = self.tableView.indexPathForRowAtPoint(position)!
         var specificChore : PFObject = self.allChores[indexPath.row]
-        var specificChoreID : Int = specificChore.objectForKey("ID") as Int
-        var choreStatus : Bool = specificChore.objectForKey("doneOrNot") as Bool
+        var specificChoreID : Int = specificChore.objectForKey("ID") as! Int
+        var choreStatus : Bool = specificChore.objectForKey("doneOrNot") as! Bool
         
         println(indexPath.section)
         println(indexPath.row)
@@ -205,14 +205,14 @@ class ManualAssignmentViewController: UIViewController {
     //TODO do I maybe need to call reload in this?
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "showDetail") {
-            var detailVC = segue.destinationViewController as ToDoDetailViewController
+            var detailVC = segue.destinationViewController as! ToDoDetailViewController
             detailVC.allUsers = self.allUsers
             var indexPath : NSIndexPath! = tableView.indexPathForSelectedRow()
             //need to pass the choreID
             var specificChore : PFObject = self.allChores[indexPath.row]
-            var specificChoreID : Int = specificChore.objectForKey("ID") as Int
-            var choreTitle : String = specificChore.objectForKey("description") as String
-            var chorePoints : Int = specificChore.objectForKey("points") as Int
+            var specificChoreID : Int = specificChore.objectForKey("ID") as! Int
+            var choreTitle : String = specificChore.objectForKey("description") as! String
+            var chorePoints : Int = specificChore.objectForKey("points") as! Int
             println(detailVC.titleTextField)
             //passes choreID to the detailVC
             detailVC.choreObject = specificChore
@@ -224,10 +224,10 @@ class ManualAssignmentViewController: UIViewController {
             var peopleOnChore : [PFUser] = []
             //go through other users and see who has the same choreID
             for person in self.allUsers {
-                if (person.objectForKey("currentChores") as NSArray).containsObject(specificChoreID) {
+                if (person.objectForKey("currentChores") as! NSArray).containsObject(specificChoreID) {
                     //need to exclude person whose section it is
-                    var firstName : String = person.objectForKey("firstName") as String
-                    var lastName : String = person.objectForKey("lastName") as String
+                    var firstName : String = person.objectForKey("firstName") as! String
+                    var lastName : String = person.objectForKey("lastName") as! String
                     var fullName : String = firstName + " " + lastName
                     peopleOnChore.append(person)
                 }
@@ -235,7 +235,7 @@ class ManualAssignmentViewController: UIViewController {
             detailVC.peopleOnChore = peopleOnChore
             detailVC.peopleOriginallyOnChore = peopleOnChore
         } else if (segue.identifier) == "addNew" {
-            var detailVC = segue.destinationViewController as ToDoDetailViewController
+            var detailVC = segue.destinationViewController as! ToDoDetailViewController
             detailVC.allUsers = self.allUsers
             println("adding new chore")
             detailVC.editingNotAdding = false
@@ -259,13 +259,13 @@ class ManualAssignmentViewController: UIViewController {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // remove data from array and udpate tableview
             let itemToDelete = self.allChores[indexPath.row]
-            let itemToDeleteID : Int = itemToDelete.objectForKey("ID") as Int
+            let itemToDeleteID : Int = itemToDelete.objectForKey("ID") as! Int
             itemToDelete.deleteEventually()
             
             for person in self.allUsers {
-                if (person.objectForKey("currentChores") as NSArray).containsObject(itemToDeleteID) {
-                    var indexOfChore : Int = find(person.objectForKey("currentChores") as [Int], itemToDeleteID)!
-                    var newArray : [Int] = person.objectForKey("currentChores") as [Int]
+                if (person.objectForKey("currentChores") as! NSArray).containsObject(itemToDeleteID) {
+                    var indexOfChore : Int = find(person.objectForKey("currentChores") as! [Int], itemToDeleteID)!
+                    var newArray : [Int] = person.objectForKey("currentChores") as! [Int]
                     newArray.removeAtIndex(indexOfChore)
                     person["currentChores"] = newArray
                     person.saveEventually()
