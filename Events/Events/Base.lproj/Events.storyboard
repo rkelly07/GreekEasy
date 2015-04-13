@@ -364,7 +364,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="fvN-8v-d1s">
-                                <rect key="frame" x="0.0" y="287" width="600" height="216"/>
+                                <rect key="frame" x="0.0" y="251" width="600" height="162"/>
                                 <color key="tintColor" red="0.0" green="0.29405381940000003" blue="0.29405381940000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <date key="date" timeIntervalSinceReferenceDate="449730705.90134102">
                                     <!--2015-04-03 05:11:45 +0000-->
@@ -413,6 +413,7 @@
                                 <exclude reference="MDV-HG-lrf"/>
                                 <exclude reference="zov-cp-gTp"/>
                                 <exclude reference="iDd-kW-Wgz"/>
+                                <exclude reference="hug-EH-tGW"/>
                             </mask>
                         </variation>
                     </view>
@@ -563,10 +564,10 @@
                                 <exclude reference="AEh-mH-ETO"/>
                                 <exclude reference="bLi-Lh-BI6"/>
                                 <exclude reference="gHb-eO-6Fq"/>
-                                <exclude reference="69n-mh-MyQ"/>
                                 <exclude reference="WB7-cj-BC3"/>
                                 <exclude reference="ghb-l1-0DJ"/>
                                 <exclude reference="smu-7b-9Pt"/>
+                                <exclude reference="69n-mh-MyQ"/>
                             </mask>
                         </variation>
                     </view>
@@ -586,6 +587,6 @@
         <image name="full_logo" width="424" height="98"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UYO-xE-5Zg"/>
+        <segue reference="3YF-2n-7Wk"/>
     </inferredMetricsTieBreakers>
 </document>
