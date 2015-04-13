@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.4.2"
+  },
+  "applications": {
+    "GreekEasy": {
+      "applicationId": "wPoPnVj9UwFop3wfcx01uiMpX9UrVeWb07ks4vSk",
+      "masterKey": "TWr97ZfqKA0g7MupErOcZPJ0FusASFfcReBAv4M3"
+    },
+    "_default": {
+      "link": "GreekEasy"
+    }
+  }
+}

@@ -172,29 +172,31 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     @IBAction func saveEditedChore(sender: AnyObject) {
-        
-        var objectIDArray : [String] = []
-        
-        for user in self.peopleOnChore {
-            var objectIDOfUser: String? = user.objectForKey("_objectId") as? String
-            objectIDArray.append(objectIDOfUser!)
-        }
-        
         //editing a chore
         if (self.editingNotAdding) {
             
             for user in self.allUsers {
-                if !contains(self.peopleOnChore, user) {
-                    if contains(user.objectForKey("currentChores") as! [Int], self.choreID) {
-                        var objectIDOfUser: String? = user.objectForKey("_objectId") as? String
-                        var userChores : [Int] = user.objectForKey("currentChores") as! [Int]
-                        var indexOfChore : Int = find(user.objectForKey("currentChores") as! [Int], self.choreID)!
-                        var newArray : [Int] = (user.objectForKey("currentChores") as! [Int])
-                        newArray.removeAtIndex(indexOfChore)
-                        PFCloud.callFunctionInBackground("removeUserFromChore", withParameters: ["objectID": objectIDOfUser, "newUserChoresList": newUserChoresList])
-                        user.saveEventually()
-                    }
+                if contains(user.objectForKey("currentChores") as! [Int], self.choreID) {
+                    var objectIDOfUser: String? = user.objectId
+                    var userChores : [Int] = user.objectForKey("currentChores") as! [Int]
+                    var indexOfChore : Int = find(user.objectForKey("currentChores") as! [Int], self.choreID)!
+                    var newUserChoresList : [Int] = (user.objectForKey("currentChores") as! [Int])
+                    newUserChoresList.removeAtIndex(indexOfChore)
+                    let params: [NSObject: AnyObject] = ["newUserChoresList": newUserChoresList,"objectIDOfUser": objectIDOfUser!]
+                    PFCloud.callFunctionInBackground("changeChore", withParameters: params)
+                    user.saveEventually()
                 }
+            }
+            
+            for user in self.peopleOnChore {
+                var objectIDOfUser: String? = user.objectId
+                var userChores : [Int] = user.objectForKey("currentChores") as! [Int]
+                var newUserChoresList : [Int] = userChores
+                newUserChoresList.append(self.choreID)
+                //call cloud code function - parameters are objectID of user, list of chores for user
+                let params: [NSObject: AnyObject] = ["newUserChoresList": newUserChoresList,"objectIDOfUser": objectIDOfUser!]
+                PFCloud.callFunctionInBackground("changeChore", withParameters: params)
+                user.saveEventually()
             }
             
             //query using choreid to get object
@@ -208,26 +210,6 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
             //adding a new chore
         } else {
             println("You're trying to add a new chore ")
-<<<<<<< HEAD
-            var newChore : PFObject = PFObject(className: "ToDo")
-            newChore["ID"] = self.choreID as Int
-            newChore["points"] = self.selectedPoints as Int
-            newChore["description"] = self.titleTextField.text as String
-            newChore["doneOrNot"] = false as Bool
-            newChore["houseID"] = PFUser.currentUser()!.objectForKey("houseID") as! Int
-            newChore.saveEventually()
-            //because chore is new, we know no one is assigned to it yet
-
-            for user in self.peopleOnChore {
-                var userChores : [Int] = user.objectForKey("currentChores") as! [Int]
-                var newArray : [Int] = userChores
-                //call cloud code function - parameters are objectID of user, list of chores for user
-                PFCloud.callFunctionInBackground("changeChore", withParameters: ["objectID": objectID, "choreID": self.choreID])
-            }
-            
-            self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
-            self.peopleTable.reloadData()
-=======
             
             if (self.titleTextField.text.isEmpty) {
                 // Set up alert to display
@@ -245,21 +227,20 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
                 newChore.saveEventually()
                 //because chore is new, we know no one is assigned to it yet
                 for user in self.peopleOnChore {
-                    var newArray : [Int] = (user.objectForKey("currentChores") as! [Int])
-                    //println(newArray)
-                    newArray.append(choreID)
-                    //println("New chores for person are ")
-                    //println(newArray)
-                    user["currentChores"] = newArray
-                    //println("Actually assigned in parse are ")
-                    //println((userPF.objectForKey("currentChores") as [Int]))
+                    println(user.objectForKey("username")!)
+                    var objectIDOfUser: String? = user.objectId
+                    var userChores : [Int] = user.objectForKey("currentChores") as! [Int]
+                    var newUserChoresList : [Int] = userChores
+                    newUserChoresList.append(self.choreID)
+                    //call cloud code function - parameters are objectID of user, list of chores for user
+                    let params: [NSObject: AnyObject] = ["newUserChoresList": newUserChoresList,"objectIDOfUser": objectIDOfUser!]
+                    PFCloud.callFunctionInBackground("changeChore", withParameters: params)
                     user.saveEventually()
-                    self.peopleTable.reloadData()
                 }
+                println("done iterating")
                 self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
                 self.peopleTable.reloadData()
             }
->>>>>>> c557b2afd1be48a833bfe6d236b5075cd6e7a08c
         }
     }
     

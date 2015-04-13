@@ -7,25 +7,25 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>3B2F1AA3-5291-40C5-8D6E-987D5E1AA5F3</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Test App</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>01529694042D8C98B30DC19F4D4370A306884FE4</key>
 		<string>https://github.com/John-Lluch/SWRevealViewController.git</string>
 		<key>56E6D2B7F37F2626E33BF34DE8399A21777F672E</key>
-		<string>https://bitbucket.org/atitus/21w789.git</string>
+		<string>https://bitbucket.org/atitus/21W789.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Test App/Test App.xcodeproj/project.xcworkspace</string>
+	<string>Test App/Test App.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>01529694042D8C98B30DC19F4D4370A306884FE4</key>
-		<string>../../..SWRevealViewController/</string>
+		<string>../../..SWRevealViewController</string>
 		<key>56E6D2B7F37F2626E33BF34DE8399A21777F672E</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://bitbucket.org/atitus/21w789.git</string>
+	<string>https://bitbucket.org/atitus/21W789.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -38,7 +38,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>56E6D2B7F37F2626E33BF34DE8399A21777F672E</string>
 			<key>IDESourceControlWCCName</key>
-			<string>21w789</string>
+			<string>GreekEasy</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
@@ -46,7 +46,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>01529694042D8C98B30DC19F4D4370A306884FE4</string>
 			<key>IDESourceControlWCCName</key>
-			<string>SWRevealViewController</string>
+			<string>GreekEasySWRevealViewController</string>
 		</dict>
 	</array>
 </dict>
