@@ -249,11 +249,13 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         var userFullName : String = sectionTitles[indexPath.section]
         userForSection = findUserByFullName(userFullName)
         
-//        //users can only change status of their own chores
-//        if userForSection != currentUser {
-//            (sender as UIButton).enabled = false
-//            return
-//        }
+        println(userForSection)
+        println(currentUser)
+        
+        //users can only change status of their own chores
+        if (userForSection.objectForKey("username") as! String) != (currentUser.objectForKey("username") as! String) {
+            return
+        }
         
         var userChores : [Int] = []
         userChores = userForSection.objectForKey("currentChores") as! [Int]
@@ -271,26 +273,24 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //TODO not working for all chores
         //change chorestatus - need to make sure this saves on parse
-        if userForSection == currentUser {
-            if choreStatus == false {
-                //choreStatus = true
-                specificChore!["doneOrNot"] = true
-                tableView.reloadData()
-                //TODO update user points - add here
-            } else if choreStatus == true {
-                //choreStatus = false
-                specificChore!["doneOrNot"] = false
-                tableView.reloadData()
-                //TODO update user points - subtract here
-            } else {
-                println("shouldn't get here")
-            }
-            println(specificChore)
-            specificChore!.saveEventually()
+        if choreStatus == false {
+            //choreStatus = true
+            specificChore!["doneOrNot"] = true
+            tableView.reloadData()
+            //TODO update user points - add here
+        } else if choreStatus == true {
+            //choreStatus = false
+            specificChore!["doneOrNot"] = false
+            tableView.reloadData()
+            //TODO update user points - subtract here
+        } else {
+            println("shouldn't get here")
         }
+        println(specificChore)
+        specificChore!.saveEventually()
     }
-    
-    
+
+
     //gives table sections titles = person's name and points
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.sectionTitles[section]

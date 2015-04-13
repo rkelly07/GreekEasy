@@ -26,6 +26,8 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     var editingNotAdding : Bool = true //true if editing, false if adding
     
+    let maxTitleLength: Int = 32
+    
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var pointsPickerView: UIPickerView!
     @IBOutlet var peopleTable: UITableView!
@@ -64,6 +66,10 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         // Allows text field to be exited after entering text
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        return (count(textField.text) <= maxTitleLength)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -260,28 +266,37 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         //adding a new chore
         } else {
             println("You're trying to add a new chore ")
-            var newChore : PFObject = PFObject(className: "ToDo")
-            newChore["ID"] = self.choreID as Int
-            newChore["points"] = self.selectedPoints as Int
-            newChore["description"] = self.titleTextField.text as String
-            newChore["doneOrNot"] = false as Bool
-            newChore["houseID"] = PFUser.currentUser()!.objectForKey("houseID") as! Int
-            newChore.saveEventually()
-            //because chore is new, we know no one is assigned to it yet
-            for user in self.peopleOnChore {
-                var newArray : [Int] = (user.objectForKey("currentChores") as! [Int])
-                //println(newArray)
-                newArray.append(choreID)
-                //println("New chores for person are ")
-                //println(newArray)
-                user["currentChores"] = newArray
-                //println("Actually assigned in parse are ")
-                //println((userPF.objectForKey("currentChores") as [Int]))
-                user.saveEventually()
+            
+            if (self.titleTextField.text.isEmpty) {
+                // Set up alert to display
+                let alertController = UIAlertController(title: "GreekEasy", message:
+                    "Please enter a title.", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else {
+                var newChore : PFObject = PFObject(className: "ToDo")
+                newChore["ID"] = self.choreID as Int
+                newChore["points"] = self.selectedPoints as Int
+                newChore["description"] = self.titleTextField.text as String
+                newChore["doneOrNot"] = false as Bool
+                newChore["houseID"] = PFUser.currentUser()!.objectForKey("houseID") as! Int
+                newChore.saveEventually()
+                //because chore is new, we know no one is assigned to it yet
+                for user in self.peopleOnChore {
+                    var newArray : [Int] = (user.objectForKey("currentChores") as! [Int])
+                    //println(newArray)
+                    newArray.append(choreID)
+                    //println("New chores for person are ")
+                    //println(newArray)
+                    user["currentChores"] = newArray
+                    //println("Actually assigned in parse are ")
+                    //println((userPF.objectForKey("currentChores") as [Int]))
+                    user.saveEventually()
+                    self.peopleTable.reloadData()
+                }
+                self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
                 self.peopleTable.reloadData()
             }
-            self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
-            self.peopleTable.reloadData()
         }
     }
     
@@ -393,4 +408,5 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         self.selectedPoints = row
         println("Chore is worth " + String(selectedPoints) + " points")
     }
+
 }
