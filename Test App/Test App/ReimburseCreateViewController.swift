@@ -45,6 +45,11 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
         self.imageSet = false
     }
     
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        super.touchesBegan(touches, withEvent: event)
+        self.amountField.resignFirstResponder()
+    }
+    
     @IBAction func takePhotoButton(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
             let imagePicker = UIImagePickerController()
