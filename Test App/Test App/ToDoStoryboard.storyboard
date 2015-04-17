@@ -1073,11 +1073,6 @@
                                 <exclude reference="mpC-9o-OMz"/>
                                 <exclude reference="p67-WD-BbB"/>
                                 <exclude reference="zbR-ZP-qix"/>
-                                <exclude reference="YuJ-M6-FcT"/>
-                                <exclude reference="eFG-GM-da8"/>
-                                <exclude reference="kz1-F9-UjG"/>
-                                <exclude reference="up5-zh-ipc"/>
-                                <exclude reference="zrx-4R-8a7"/>
                                 <exclude reference="L9f-Qz-b2G"/>
                                 <exclude reference="QLL-gA-3Cq"/>
                                 <exclude reference="e9E-X2-ag0"/>
@@ -1088,6 +1083,11 @@
                                 <exclude reference="xtW-Mc-b5l"/>
                                 <exclude reference="y0Q-Kj-9Jb"/>
                                 <exclude reference="z8e-Qg-i02"/>
+                                <exclude reference="YuJ-M6-FcT"/>
+                                <exclude reference="eFG-GM-da8"/>
+                                <exclude reference="kz1-F9-UjG"/>
+                                <exclude reference="up5-zh-ipc"/>
+                                <exclude reference="zrx-4R-8a7"/>
                                 <exclude reference="3Gc-P5-9Dq"/>
                                 <exclude reference="PGI-Ug-644"/>
                                 <exclude reference="e5y-Q8-VN8"/>
@@ -1095,13 +1095,13 @@
                                 <exclude reference="iz8-fX-Z2E"/>
                                 <exclude reference="mQr-ia-UCA"/>
                                 <exclude reference="wbg-JZ-Wh6"/>
-                                <exclude reference="omH-bT-HQE"/>
-                                <exclude reference="rBK-Ay-rFT"/>
                                 <exclude reference="9gb-5K-h64"/>
                                 <exclude reference="cKT-Yc-nzn"/>
                                 <exclude reference="gOg-mJ-Qu7"/>
                                 <exclude reference="mpm-OQ-PTW"/>
                                 <exclude reference="rOP-JZ-eMw"/>
+                                <exclude reference="omH-bT-HQE"/>
+                                <exclude reference="rBK-Ay-rFT"/>
                             </mask>
                         </variation>
                     </view>
@@ -1241,8 +1241,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Fxq-Kc-ek6"/>
+        <segue reference="qMr-z6-JCG"/>
         <segue reference="FD7-y7-Cf0"/>
         <segue reference="kwR-TF-71C"/>
-        <segue reference="jj2-db-E0U"/>
     </inferredMetricsTieBreakers>
 </document>

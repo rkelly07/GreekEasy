@@ -350,14 +350,19 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
         //iterate through chores to actually assign them
         for chore in choresSortedHighToLow {
             var numberOfPeopleToAssign : Int = choresToNumberOfPeople[chore] as Int!
+            let choreID: Int = chore.objectForKey("ID") as! Int
+            
             //need to remove chore being assigned from all currently assigned users
-            for person in self.allUsers {
-                if (person.objectForKey("currentChores") as! NSArray).containsObject(chore.objectForKey("ID")!) {
-                    var indexOfPerson : Int = find(person.objectForKey("currentChores") as! [Int], chore.objectForKey("ID") as! Int)!
-                    var newArray : [Int] = person.objectForKey("currentChores") as! [Int]
-                    newArray.removeAtIndex(indexOfPerson)
-                    person["currentChores"] = newArray
-                    person.saveEventually()
+            for user in self.allUsers {
+                if (user.objectForKey("currentChores") as! NSArray).containsObject(choreID) {
+                    var objectIDOfUser: String? = user.objectId
+                    var userChores : [Int] = user.objectForKey("currentChores") as! [Int]
+                    var indexOfChore : Int = find(user.objectForKey("currentChores") as! [Int], choreID)!
+                    var newUserChoresList : [Int] = (user.objectForKey("currentChores") as! [Int])
+                    newUserChoresList.removeAtIndex(indexOfChore)
+                    let params: [NSObject: AnyObject] = ["newUserChoresList": newUserChoresList,"objectIDOfUser": objectIDOfUser!]
+                    PFCloud.callFunctionInBackground("changeChore", withParameters: params)
+                    user.saveEventually()
                 }
             }
             //in case you run out of people, cycle back around to make sure you have enough
@@ -365,11 +370,13 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
                 peopleSortedLowToHigh += originalPeopleSorted
             }
             //add chore to person's currentChores
-            for person in peopleSortedLowToHigh[0..<numberOfPeopleToAssign] {
-                var newArray : [Int] = person.objectForKey("currentChores") as! [Int]
-                newArray.append(chore.objectForKey("ID") as! Int)
-                person["currentChores"] = newArray
-                person.saveEventually()
+            for user in peopleSortedLowToHigh[0..<numberOfPeopleToAssign] {
+                var objectIDOfUser: String? = user.objectId
+                var newUserChoresList : [Int] = user.objectForKey("currentChores") as! [Int]
+                newUserChoresList.append(chore.objectForKey("ID") as! Int)
+                let params: [NSObject: AnyObject] = ["newUserChoresList": newUserChoresList,"objectIDOfUser": objectIDOfUser!]
+                PFCloud.callFunctionInBackground("changeChore", withParameters: params)
+                user.saveEventually()
             }
             //pop off that chore to move on to next one
             choresSortedHighToLow.removeAtIndex(0)

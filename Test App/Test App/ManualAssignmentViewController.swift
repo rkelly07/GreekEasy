@@ -262,13 +262,16 @@ class ManualAssignmentViewController: UIViewController {
             let itemToDeleteID : Int = itemToDelete.objectForKey("ID") as! Int
             itemToDelete.deleteEventually()
             
-            for person in self.allUsers {
-                if (person.objectForKey("currentChores") as! NSArray).containsObject(itemToDeleteID) {
-                    var indexOfChore : Int = find(person.objectForKey("currentChores") as! [Int], itemToDeleteID)!
-                    var newArray : [Int] = person.objectForKey("currentChores") as! [Int]
-                    newArray.removeAtIndex(indexOfChore)
-                    person["currentChores"] = newArray
-                    person.saveEventually()
+            for user in self.allUsers {
+                if contains(user.objectForKey("currentChores") as! [Int], itemToDeleteID) {
+                    var objectIDOfUser: String? = user.objectId
+                    var userChores : [Int] = user.objectForKey("currentChores") as! [Int]
+                    var indexOfChore : Int = find(user.objectForKey("currentChores") as! [Int], itemToDeleteID)!
+                    var newUserChoresList : [Int] = (user.objectForKey("currentChores") as! [Int])
+                    newUserChoresList.removeAtIndex(indexOfChore)
+                    let params: [NSObject: AnyObject] = ["newUserChoresList": newUserChoresList,"objectIDOfUser": objectIDOfUser!]
+                    PFCloud.callFunctionInBackground("changeChore", withParameters: params)
+                    user.saveEventually()
                 }
             }
             
