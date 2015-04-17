@@ -18,6 +18,8 @@ class EventAddController: UIViewController, UITextFieldDelegate {
     let maxNameLength: Int = 32
     let maxLocationLength: Int = 32
     let maxDescriptionLength: Int = 128
+    let userFullName = (PFUser.currentUser()?.objectForKey("firstName") as! String) + " " + (PFUser.currentUser()?.objectForKey("lastName") as! String)
+    let houseID = PFUser.currentUser()?.objectForKey("houseID") as! Int
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +63,14 @@ class EventAddController: UIViewController, UITextFieldDelegate {
                     self.descriptionField.text = ""
                     self.datePicker.date = NSDate(timeIntervalSinceNow: 0)
                     
+                    // Send push notification
+                    println("here")
+                    let message: String = "\(self.userFullName) created an event named \(self.nameField.text)"
+                    let params: [NSObject: AnyObject] = ["houseID": "house\(self.houseID)", "message": message]
+                    PFCloud.callFunctionInBackground("eventsPush", withParameters: params)
+                    println("sent notification")
+                    
+                    // Notify creator of success
                     self.presentViewController(alertController, animated: true, completion: nil)
                 } else {
                     // Problem; check error.description

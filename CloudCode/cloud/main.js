@@ -22,3 +22,19 @@ Parse.Cloud.define("changeChore", function(request, response) {
      }
   });
 });
+
+Parse.Cloud.define("eventsPush", function(request, response) {
+  var message = request.params.message;
+  
+  Parse.Push.send({
+    channels: [ request.params.houseID ],
+    data: {
+      alert: message,
+      badge: "Increment"
+    }
+  }).then(function() {
+    response.success("Event push sent successfully.")
+  }, function(error) {
+    response.error("Event push failed to send with error: " + error.message);
+  });
+});

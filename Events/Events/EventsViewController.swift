@@ -57,6 +57,15 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             var logInVC = loginStoryboard.instantiateViewControllerWithIdentifier("logIn") as! UIViewController
             presentViewController(logInVC, animated: true, completion: nil)
         } else {
+            // Subscribe user to channel if not already subscribed
+            let currentInstallation = PFInstallation.currentInstallation()
+            let houseID = user!.objectForKey("houseID") as! Int
+            if currentInstallation.objectForKey("channels") == nil {
+                currentInstallation.addUniqueObject("house\(houseID)", forKey: "channels")
+                currentInstallation.saveInBackground()
+            }
+            
+            // Load table data
             query.whereKey("houseID", equalTo: self.user!["houseID"]!)
             query.findObjectsInBackgroundWithBlock {
                 (objects: [AnyObject]?, error: NSError?) -> Void in
