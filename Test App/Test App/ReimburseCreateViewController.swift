@@ -33,6 +33,10 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
     let maxAmountLength: Int = 10
     let maxDescriptionLength: Int = 128
     
+    let createdBy = PFUser.currentUser()!.objectForKey("username") as! String
+    let houseID = PFUser.currentUser()!.objectForKey("houseID") as! Int
+    let fullName = (PFUser.currentUser()!.objectForKey("firstName") as! String) + " " + (PFUser.currentUser()!.objectForKey("lastName") as! String)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -118,7 +122,7 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
         self.activityIndicator.hidden = false
         
         let alertController = UIAlertController(title: "GreekEasy", message:
-            "Reimbursement saved!", preferredStyle: UIAlertControllerStyle.Alert)
+            "", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
         
         // Check if text fields are nonempty or image is empty
@@ -141,8 +145,8 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
             newReimbursement["name"] = self.nameField.text
             newReimbursement["description"] = self.descriptionField.text
             newReimbursement["amount"] = (self.amountField.text! as NSString).doubleValue
-            newReimbursement["createdBy"] = PFUser.currentUser()!.objectForKey("username")
-            newReimbursement["houseID"] = PFUser.currentUser()!.objectForKey("houseID")
+            newReimbursement["createdBy"] = self.createdBy
+            newReimbursement["houseID"] = self.houseID
             newReimbursement["photo"] = self.imageFile
             
             newReimbursement.saveEventually {
@@ -151,11 +155,21 @@ class ReimburseCreateViewController: UIViewController, UITextFieldDelegate, UIIm
                 self.activityIndicator.hidden = true
                 
                 if (success){
+                    // Set push notification message before clearing
+                    let message: String = "\(self.fullName) created a reimbursement named \(self.nameField.text)"
+                    
                     // Reimbursement Saved, clear fields
                     self.nameField.text = ""
                     self.descriptionField.text = ""
                     self.amountField.text = ""
                     self.photoView.image = nil
+                    
+                    // Send push notification
+                    let params: [NSObject: AnyObject] = ["houseID": "house\(self.houseID)", "message": message]
+                    PFCloud.callFunctionInBackground("housePush", withParameters: params)
+                    
+                    // Success notify
+                    alertController.message = "Reimbursement created successfully!"
                     self.presentViewController(alertController, animated: true, completion: nil)
                 } else {
                     // Problem; check error.description

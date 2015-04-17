@@ -23,7 +23,7 @@ Parse.Cloud.define("changeChore", function(request, response) {
   });
 });
 
-Parse.Cloud.define("eventsPush", function(request, response) {
+Parse.Cloud.define("housePush", function(request, response) {
   var message = request.params.message;
   
   Parse.Push.send({

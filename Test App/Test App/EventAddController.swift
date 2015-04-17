@@ -36,7 +36,7 @@ class EventAddController: UIViewController, UITextFieldDelegate {
     @IBAction func saveEvent() {
         // Set up alert to display
         let alertController = UIAlertController(title: "GreekEasy", message:
-            "Event saved!", preferredStyle: UIAlertControllerStyle.Alert)
+            "", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
         
         // Check if input is valid or not
@@ -57,6 +57,9 @@ class EventAddController: UIViewController, UITextFieldDelegate {
             newEvent.saveEventually() {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
+                    // Set push notification message before clearing
+                    let message: String = "\(self.userFullName) created an event named \(self.nameField.text)"
+                    
                     // Event has been saved; clear fields and present message
                     self.nameField.text = ""
                     self.locationField.text = ""
@@ -64,13 +67,11 @@ class EventAddController: UIViewController, UITextFieldDelegate {
                     self.datePicker.date = NSDate(timeIntervalSinceNow: 0)
                     
                     // Send push notification
-                    println("here")
-                    let message: String = "\(self.userFullName) created an event named \(self.nameField.text)"
                     let params: [NSObject: AnyObject] = ["houseID": "house\(self.houseID)", "message": message]
-                    PFCloud.callFunctionInBackground("eventsPush", withParameters: params)
-                    println("sent notification")
+                    PFCloud.callFunctionInBackground("housePush", withParameters: params)
                     
-                    // Notify creator of success
+                    // Success notify
+                    alertController.message = "Event created successfully!"
                     self.presentViewController(alertController, animated: true, completion: nil)
                 } else {
                     // Problem; check error.description

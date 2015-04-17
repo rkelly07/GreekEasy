@@ -35,7 +35,12 @@ class ReimburseSingleViewController: UIViewController{
             }
         }
         
-        currentUser.text = self.incoming!["createdBy"] as? String
+        var userQuery = PFUser.query()
+        userQuery!.whereKey("username", equalTo: (self.incoming!["createdBy"] as? String)!)
+        let user = userQuery!.findObjects()![0] as! PFUser
+        let fullName = (user.objectForKey("firstName") as! String) + " " + (user.objectForKey("lastName") as! String)
+        
+        currentUser.text = fullName
         currentName.text = self.incoming!["name"] as? String
         currentDescription.text = self.incoming!["description"] as? String
         currentAmount.text = String(format:"$%.2f", self.incoming!["amount"] as! Double)
