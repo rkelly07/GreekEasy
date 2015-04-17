@@ -194,9 +194,14 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
                 var newUserChoresList : [Int] = userChores
                 newUserChoresList.append(self.choreID)
                 //call cloud code function - parameters are objectID of user, list of chores for user
-                let params: [NSObject: AnyObject] = ["newUserChoresList": newUserChoresList,"objectIDOfUser": objectIDOfUser!]
-                PFCloud.callFunctionInBackground("changeChore", withParameters: params)
+                let changeParams: [NSObject: AnyObject] = ["newUserChoresList": newUserChoresList,"objectIDOfUser": objectIDOfUser!]
+                PFCloud.callFunctionInBackground("changeChore", withParameters: changeParams)
                 user.saveEventually()
+                
+                // Send push notification
+                let message = "Your To-Dos have been updated"
+                let pushParams: [NSObject: AnyObject] = ["objectIDOfUser": "user_\(objectIDOfUser!)", "message": message]
+                PFCloud.callFunctionInBackground("todoPush", withParameters: pushParams)
             }
             
             //query using choreid to get object
@@ -236,6 +241,11 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
                     let params: [NSObject: AnyObject] = ["newUserChoresList": newUserChoresList,"objectIDOfUser": objectIDOfUser!]
                     PFCloud.callFunctionInBackground("changeChore", withParameters: params)
                     user.saveEventually()
+                    
+                    // Send push notification
+                    let message = "You have new To-Dos"
+                    let pushParams: [NSObject: AnyObject] = ["objectIDOfUser": "user_\(objectIDOfUser!)", "message": message]
+                    PFCloud.callFunctionInBackground("todoPush", withParameters: pushParams)
                 }
                 //println("done iterating")
                 self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)

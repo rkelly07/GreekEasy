@@ -38,7 +38,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                     "Invalid login credentials", preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alertController, animated: true, completion: nil)
-            } else {
+            } else {                
+                // Display events
                 var eventsStoryboard = UIStoryboard(name: "Events", bundle: nil)
                 var eventsVC = eventsStoryboard.instantiateViewControllerWithIdentifier("events") as! UIViewController
                 presentViewController(eventsVC, animated: false, completion: nil)

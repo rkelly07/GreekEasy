@@ -38,3 +38,19 @@ Parse.Cloud.define("housePush", function(request, response) {
     response.error("Event push failed to send with error: " + error.message);
   });
 });
+
+Parse.Cloud.define("todoPush", function(request, response) {
+  var message = request.params.message;
+
+  Parse.Push.send({
+    channels: [ request.params.objectIDOfUser ],
+    data: {
+      alert: message,
+      badge: "Increment"
+    }
+  }).then(function() {
+    response.success("Event push sent successfully.")
+  }, function(error) {
+    response.error("Event push failed to send with error: " + error.message);
+  });
+});

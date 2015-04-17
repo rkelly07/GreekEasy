@@ -128,6 +128,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                                 activityIndicator.startAnimating()
                                 activityIndicator.hidden = false
                                 let logInSuccess = PFUser.logInWithUsername(usernameField.text, password: passwordField.text)
+                                
                                 activityIndicator.stopAnimating()
                                 activityIndicator.hidden = true
                                 

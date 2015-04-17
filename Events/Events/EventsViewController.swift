@@ -57,11 +57,13 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             var logInVC = loginStoryboard.instantiateViewControllerWithIdentifier("logIn") as! UIViewController
             presentViewController(logInVC, animated: true, completion: nil)
         } else {
-            // Subscribe user to channel if not already subscribed
+            // Subscribe user to house and personal channel if not already subscribed
             let currentInstallation = PFInstallation.currentInstallation()
             let houseID = user!.objectForKey("houseID") as! Int
+            let userObjectID = PFUser.currentUser()?.objectId
             if currentInstallation.objectForKey("channels") == nil {
                 currentInstallation.addUniqueObject("house\(houseID)", forKey: "channels")
+                currentInstallation.addUniqueObject("user_\(userObjectID!)", forKey: "channels")
                 currentInstallation.saveInBackground()
             }
             
