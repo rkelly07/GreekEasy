@@ -22,7 +22,7 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println(currentUser.objectForKey("houseID"))
+        //println(currentUser.objectForKey("houseID"))
         
         //get all users and add to allUsers array
         var usersQuery = PFQuery(className: "_User")
@@ -30,10 +30,10 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
         usersQuery.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
-                println("Inside find objects block")
+                //println("Inside find objects block")
                 self.allUsers = objects as! [PFUser]!
-                println("going to print user array")
-                println(self.allUsers)
+                //println("going to print user array")
+                //println(self.allUsers)
                 var choresQuery = PFQuery(className: "ToDo")
                 choresQuery.whereKey("houseID", equalTo:PFUser.currentUser()!.objectForKey("houseID")!)
                 choresQuery.orderByAscending("description")
@@ -50,11 +50,11 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
                     }
                 }
             } else {
-                println("In userquery error")
+                //println("In userquery error")
                 NSLog(error!.description)
             }
         }
-        println("before reload data after usersquery")
+        //println("before reload data after usersquery")
         
     }
 
@@ -84,7 +84,7 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
         } else if (tableView.tag == 22) {
             return self.allUsers.count
         } else {
-            println("tags not recognzied")
+            //println("tags not recognzied")
             return 1
         }
     }
@@ -109,7 +109,7 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as! UITableViewCell
         if (tableView.tag == 21) {
-            println("this is not exactly the same as in the view to view all")
+            //println("this is not exactly the same as in the view to view all")
             
             
             //TODO I don't know if this userForSection declaration is okay
@@ -119,8 +119,8 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
             var specificChoreID : Int = specificChore.objectForKey("ID") as! Int
         
             //TODO fix finding specificChore
-            println("specific chore is ")
-            println(specificChore)
+            //println("specific chore is ")
+            //println(specificChore)
             var chorePoints : Int = specificChore.objectForKey("points") as! Int
             var choreStatus : Bool = specificChore.objectForKey("doneOrNot") as! Bool
             var peopleOnChore : [PFUser] = []
@@ -165,14 +165,14 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
             var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
             var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
             if contains(self.selectedChores, specificChore) {
-                println("chore is selected")
+                //println("chore is selected")
                 buttonInCell.setImage(checked_checkbox_image, forState: .Normal)
             } else {
-                println("chore is not selected")
+                //println("chore is not selected")
                 buttonInCell.setImage(unchecked_checkbox_image, forState: .Normal)
             }
         } else if (tableView.tag == 22) {
-            println("this should be exactly the same as in manual once it works, minus clickable checkboxes")
+            //println("this should be exactly the same as in manual once it works, minus clickable checkboxes")
             var peopleFullNames : [String] = []
             for person in self.allUsers {
                 var personFirstName : String = person.objectForKey("firstName") as! String
@@ -180,12 +180,12 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
                 peopleFullNames.append(personFirstName + " " + personLastName)
             }
             var userFullName : String = peopleFullNames[indexPath.row]
-            println("Looking at row for " + userFullName)
+            //println("Looking at row for " + userFullName)
             var userPF : PFUser = findUserByFullName(userFullName)
             var userPoints : Int = userPF.objectForKey("totalPoints") as! Int
             var userChores : [Int] = []
             var userChoresAsString = getUserChoresString(userPF)
-            //println("String of chores for user is " + String(userChoresAsString))
+            ////println("String of chores for user is " + String(userChoresAsString))
             
             //TODO if otherPeopleFullNames is empty that label shouldn't be displayed and cell resized
             //temporary solution for too long titles
@@ -206,10 +206,10 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
             var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
             var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
             if contains(self.selectedUsers, userPF) {
-                println("user is selected")
+                //println("user is selected")
                 buttonInCell.setImage(checked_checkbox_image, forState: .Normal)
             } else {
-                println("chore is not selected")
+                //println("chore is not selected")
                 buttonInCell.setImage(unchecked_checkbox_image, forState: .Normal)
             }
         }
@@ -245,7 +245,7 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func addOrRemovePerson(sender: AnyObject) {
-        println("Button press works")
+        //println("Button press works")
         var position: CGPoint = sender.convertPoint(CGPointZero, toView: self.peopleTable)
         var indexPath: NSIndexPath = self.peopleTable.indexPathForRowAtPoint(position)!
         var personNumberInTable : Int! = indexPath.row
@@ -254,18 +254,18 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
         if contains(self.selectedUsers, user) {
             var indexOfPerson : Int = find(self.selectedUsers, user)!
             self.selectedUsers.removeAtIndex(indexOfPerson)
-            println("user removed")
-            println(self.selectedUsers)
+            //println("user removed")
+            //println(self.selectedUsers)
             self.peopleTable.reloadData()
         } else {
             self.selectedUsers.append(user)
-            println("user added")
-            println(self.selectedUsers)
+            //println("user added")
+            //println(self.selectedUsers)
             self.peopleTable.reloadData()
         }
     }
     @IBAction func addOrRemoveChore(sender: AnyObject) {
-        println("Button press works")
+        //println("Button press works")
         var position: CGPoint = sender.convertPoint(CGPointZero, toView: self.peopleTable)
         var indexPath: NSIndexPath = self.choresTable.indexPathForRowAtPoint(position)!
         var personNumberInTable : Int! = indexPath.row
@@ -274,13 +274,13 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
         if contains(self.selectedChores, chore) {
             var indexOfPerson : Int = find(self.selectedChores, chore)!
             self.selectedChores.removeAtIndex(indexOfPerson)
-            println("user removed")
-            println(self.selectedChores)
+            //println("user removed")
+            //println(self.selectedChores)
             self.choresTable.reloadData()
         } else {
             self.selectedChores.append(chore)
-            println("user added")
-            println(self.selectedChores)
+            //println("user added")
+            //println(self.selectedChores)
             self.choresTable.reloadData()
         }
     }
@@ -391,7 +391,7 @@ class AutoAssignViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView : UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("Row " + String(indexPath.row) + " selected")
+        //println("Row " + String(indexPath.row) + " selected")
     }
     
     //need to have checkboxes be editable

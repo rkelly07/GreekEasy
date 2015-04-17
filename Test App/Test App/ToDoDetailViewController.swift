@@ -48,12 +48,12 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     func populateUserFullNamesArray() {
         for person in self.allUsers {
-            //println("self.allUsers is not empty")
+            ////println("self.allUsers is not empty")
             var firstName : String = person.objectForKey("firstName") as! String
             var lastName : String = person.objectForKey("lastName") as! String
             var fullName : String = firstName + " " + lastName
             self.allUsersFullNames.append(fullName)
-            //println(fullName)
+            ////println(fullName)
         }
         self.allUsersFullNames = sorted(self.allUsersFullNames, {$0 < $1})
     }
@@ -109,12 +109,12 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as! UITableViewCell
         
         var userFullName : String = self.allUsersFullNames[indexPath.row]
-        println("Looking at row for " + userFullName)
+        //println("Looking at row for " + userFullName)
         var userPF : PFUser = findUserByFullName(userFullName)
         var userPoints : Int = userPF.objectForKey("totalPoints") as! Int
         var userChores : [Int] = []
         var userChoresAsString = getUserChoresString(userPF)
-        //println("String of chores for user is " + String(userChoresAsString))
+        ////println("String of chores for user is " + String(userChoresAsString))
         
         //TODO if otherPeopleFullNames is empty that label shouldn't be displayed and cell resized
         //temporary solution for too long titles
@@ -135,10 +135,10 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
         var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
         var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
         if contains(self.peopleOnChore, userPF) {
-            println("Chore is currently assigned to " + userFullName)
+            //println("Chore is currently assigned to " + userFullName)
             buttonInCell.setImage(checked_checkbox_image, forState: .Normal)
         } else {
-            println("Chore is not currently assigned to " + userFullName)
+            //println("Chore is not currently assigned to " + userFullName)
             buttonInCell.setImage(unchecked_checkbox_image, forState: .Normal)
         }
         return cell
@@ -149,24 +149,24 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     @IBAction func addOrRemovePersonFromChore(sender: AnyObject) {
-        println("Button press works")
+        //println("Button press works")
         var position: CGPoint = sender.convertPoint(CGPointZero, toView: self.peopleTable)
         var indexPath: NSIndexPath = self.peopleTable.indexPathForRowAtPoint(position)!
         var personNumberInTable : Int! = indexPath.row
         var userFullName : String = self.allUsersFullNames[indexPath.row]
-        println("Trying to select/deselect " + userFullName)
+        //println("Trying to select/deselect " + userFullName)
         var userPF : PFUser = findUserByFullName(userFullName)
         
         if contains(self.peopleOnChore, userPF) {
             var indexOfPerson : Int = find(self.peopleOnChore, userPF)!
             self.peopleOnChore.removeAtIndex(indexOfPerson)
-            println("user removed")
-            println(self.peopleOnChore)
+            //println("user removed")
+            //println(self.peopleOnChore)
             self.peopleTable.reloadData()
         } else {
             self.peopleOnChore.append(userPF)
-            println("user added")
-            println(self.peopleOnChore)
+            //println("user added")
+            //println(self.peopleOnChore)
             self.peopleTable.reloadData()
         }
     }
@@ -200,7 +200,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
             }
             
             //query using choreid to get object
-            println("trying to save chore")
+            //println("trying to save chore")
             self.choreObject["description"] = self.titleTextField.text as String //don't know if this works
             self.choreObject["points"] = self.selectedPoints as Int
             self.choreObject["doneOrNot"] = false as Bool
@@ -209,7 +209,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
             self.peopleTable.reloadData()
             //adding a new chore
         } else {
-            println("You're trying to add a new chore ")
+            //println("You're trying to add a new chore ")
             
             if (self.titleTextField.text.isEmpty) {
                 // Set up alert to display
@@ -227,7 +227,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
                 newChore.saveEventually()
                 //because chore is new, we know no one is assigned to it yet
                 for user in self.peopleOnChore {
-                    println(user.objectForKey("username")!)
+                    //println(user.objectForKey("username")!)
                     var objectIDOfUser: String? = user.objectId
                     var userChores : [Int] = user.objectForKey("currentChores") as! [Int]
                     var newUserChoresList : [Int] = userChores
@@ -237,7 +237,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
                     PFCloud.callFunctionInBackground("changeChore", withParameters: params)
                     user.saveEventually()
                 }
-                println("done iterating")
+                //println("done iterating")
                 self.performSegueWithIdentifier("goBackAfterSavingOrEditing", sender: nil)
                 self.peopleTable.reloadData()
             }
@@ -263,7 +263,7 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedPoints = row
-        println("Chore is worth " + String(selectedPoints) + " points")
+        //println("Chore is worth " + String(selectedPoints) + " points")
     }
 
 }

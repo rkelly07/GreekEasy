@@ -63,6 +63,9 @@
                                     <segue destination="o03-K3-lUw" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="lbc-F0-QMl"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tal-y6-AbD">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9Vr-JW-PP5">
                                 <rect key="frame" x="0.0" y="104" width="600" height="496"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -160,9 +163,6 @@
                                     <outlet property="delegate" destination="dxX-5H-pgT" id="ZLP-HC-YHW"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tal-y6-AbD">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -188,9 +188,13 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="rXK-M0-4l6"/>
+                                <exclude reference="yFf-BR-SpY"/>
                                 <exclude reference="58z-f0-2xf"/>
+                                <exclude reference="8M2-Cs-zaT"/>
                                 <exclude reference="gs3-2v-fEH"/>
                                 <exclude reference="yOV-7M-b2d"/>
+                                <exclude reference="3eX-7P-Jcb"/>
                             </mask>
                         </variation>
                     </view>
@@ -205,10 +209,10 @@
             </objects>
             <point key="canvasLocation" x="-1113" y="-1004"/>
         </scene>
-        <!--View Controller-->
+        <!--Assignment Select View Controller-->
         <scene sceneID="j06-3o-S2k">
             <objects>
-                <viewController id="o03-K3-lUw" sceneMemberID="viewController">
+                <viewController id="o03-K3-lUw" customClass="AssignmentSelectViewController" customModule="Test_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S0S-jH-qLB"/>
                         <viewControllerLayoutGuide type="bottom" id="p9v-4G-M12"/>
@@ -244,15 +248,15 @@
                                     <segue destination="LW9-MT-f3O" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="MBy-zg-yfK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMd-hi-Msg">
-                                <rect key="frame" x="201" y="218" width="199" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="JMd-hi-Msg">
+                                <rect key="frame" x="32" y="218" width="536" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Automatic Assignment">
+                                <state key="normal" title="Automatic Assignment - Coming Soon!">
                                     <color key="titleColor" red="0.85558712120000002" green="0.42805547620000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4Eh-a1-Pl3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="ley-CJ-kfP"/>
+                                    <action selector="displayNotImplementedMessage" destination="o03-K3-lUw" eventType="touchUpInside" id="XcY-Q6-hfb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -260,6 +264,7 @@
                         <constraints>
                             <constraint firstItem="QS3-AU-kHR" firstAttribute="leading" secondItem="bIx-bw-DVq" secondAttribute="leadingMargin" constant="-16" id="3dT-2d-QrP"/>
                             <constraint firstAttribute="centerX" secondItem="JMd-hi-Msg" secondAttribute="centerX" id="6cf-j6-x4F"/>
+                            <constraint firstItem="JMd-hi-Msg" firstAttribute="leading" secondItem="bIx-bw-DVq" secondAttribute="leadingMargin" constant="16" id="7hR-mY-Ypn"/>
                             <constraint firstAttribute="centerX" secondItem="Mfr-2l-lIr" secondAttribute="centerX" id="8BW-F6-dgB"/>
                             <constraint firstItem="QS3-AU-kHR" firstAttribute="top" secondItem="Mfr-2l-lIr" secondAttribute="bottom" constant="56" id="8Wt-wq-Y7D"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QS3-AU-kHR" secondAttribute="trailing" constant="-16" id="ApD-Jr-Cx3"/>
@@ -271,6 +276,7 @@
                             <constraint firstAttribute="centerX" secondItem="QS3-AU-kHR" secondAttribute="centerX" id="MEg-fW-F9x"/>
                             <constraint firstItem="Mfr-2l-lIr" firstAttribute="leading" secondItem="bIx-bw-DVq" secondAttribute="leadingMargin" constant="-16" id="OcT-i5-cyw"/>
                             <constraint firstItem="JMd-hi-Msg" firstAttribute="top" secondItem="QS3-AU-kHR" secondAttribute="bottom" id="PZw-JZ-UZ9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JMd-hi-Msg" secondAttribute="trailing" constant="16" id="Xic-1x-Uou"/>
                             <constraint firstItem="JMd-hi-Msg" firstAttribute="top" secondItem="QS3-AU-kHR" secondAttribute="bottom" constant="43" id="Xkq-cu-Pil"/>
                             <constraint firstItem="QS3-AU-kHR" firstAttribute="leading" secondItem="bIx-bw-DVq" secondAttribute="leadingMargin" constant="-16" id="cyv-dp-jv8"/>
                             <constraint firstAttribute="centerY" secondItem="JMd-hi-Msg" secondAttribute="centerY" constant="64" id="fNQ-vd-CYy"/>
@@ -307,6 +313,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="autoAssignButton" destination="JMd-hi-Msg" id="yut-n1-XCp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDW-al-u9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -634,6 +643,11 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="VKq-6G-kuC"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="4Eh-a1-Pl3" id="nEk-7M-P0W"/>
                                     <outlet property="delegate" destination="4Eh-a1-Pl3" id="j1z-Jb-Cq4"/>
@@ -641,6 +655,9 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select People to Assign Chore To" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P94-0q-z85">
                                 <rect key="frame" x="172" y="341" width="256" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="SY0-AC-3dS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.066666666669999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -653,6 +670,9 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cle-Gd-xIG">
                                 <rect key="frame" x="243" y="366" width="115" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="zyU-RT-0As"/>
+                                </constraints>
                                 <state key="normal" title="Select all People">
                                     <color key="titleColor" red="0.85558712120000002" green="0.42805547620000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -728,6 +748,11 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="eDC-Gt-rjv"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="4Eh-a1-Pl3" id="gO0-ni-AzY"/>
                                     <outlet property="delegate" destination="4Eh-a1-Pl3" id="86a-1q-xar"/>
@@ -739,6 +764,7 @@
                             <constraint firstItem="HEK-MX-0ey" firstAttribute="leading" secondItem="QUY-cg-x7p" secondAttribute="leadingMargin" constant="16" id="1of-va-3pB"/>
                             <constraint firstItem="yOJ-B9-1AQ" firstAttribute="leading" secondItem="QUY-cg-x7p" secondAttribute="leadingMargin" constant="16" id="3C5-J0-Sfk"/>
                             <constraint firstItem="a2h-yA-saW" firstAttribute="top" secondItem="Cle-Gd-xIG" secondAttribute="bottom" constant="4" id="3d0-gY-Xeu"/>
+                            <constraint firstItem="yOJ-B9-1AQ" firstAttribute="height" secondItem="a2h-yA-saW" secondAttribute="height" id="6Bz-CT-iIY"/>
                             <constraint firstAttribute="centerX" secondItem="tzl-wi-iua" secondAttribute="centerX" id="86c-BG-49E"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jO4-zN-2mr" secondAttribute="trailing" constant="-16" id="9lI-nl-SL4"/>
                             <constraint firstItem="tzl-wi-iua" firstAttribute="top" secondItem="HEK-MX-0ey" secondAttribute="bottom" constant="4" id="D3H-Do-H10"/>
@@ -756,6 +782,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="yOJ-B9-1AQ" secondAttribute="trailing" constant="16" id="bwa-ry-Mwx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="a2h-yA-saW" secondAttribute="trailing" constant="16" id="edV-fk-6hZ"/>
                             <constraint firstItem="Lvk-EQ-A6v" firstAttribute="top" secondItem="a2h-yA-saW" secondAttribute="bottom" id="fBN-7K-158"/>
+                            <constraint firstItem="Lvk-EQ-A6v" firstAttribute="top" secondItem="a2h-yA-saW" secondAttribute="bottom" id="hl5-5m-lN8"/>
                             <constraint firstItem="jO4-zN-2mr" firstAttribute="top" secondItem="UUG-Oh-ZXy" secondAttribute="bottom" id="k9H-fx-HE9"/>
                             <constraint firstItem="tzl-wi-iua" firstAttribute="leading" secondItem="QUY-cg-x7p" secondAttribute="leadingMargin" constant="16" id="lpS-rJ-Ggn"/>
                             <constraint firstItem="HEK-MX-0ey" firstAttribute="top" secondItem="jO4-zN-2mr" secondAttribute="bottom" constant="8" id="mQG-zw-YlX"/>
@@ -775,6 +802,7 @@
                                 <exclude reference="bIG-yJ-uRv"/>
                                 <exclude reference="NT1-yJ-jGK"/>
                                 <exclude reference="ad6-pz-dSN"/>
+                                <exclude reference="fBN-7K-158"/>
                             </mask>
                         </variation>
                     </view>
@@ -1240,9 +1268,9 @@
         <image name="full_logo" width="424" height="98"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fxq-Kc-ek6"/>
-        <segue reference="qMr-z6-JCG"/>
-        <segue reference="FD7-y7-Cf0"/>
+        <segue reference="jj2-db-E0U"/>
+        <segue reference="b8m-j1-rWU"/>
+        <segue reference="MBy-zg-yfK"/>
         <segue reference="kwR-TF-71C"/>
     </inferredMetricsTieBreakers>
 </document>

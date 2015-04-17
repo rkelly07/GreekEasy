@@ -22,7 +22,7 @@ class ManualAssignmentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println(currentUser.objectForKey("houseID"))
+        //println(currentUser.objectForKey("houseID"))
         
         // Start activity indicator
         self.activityIndicator.startAnimating()
@@ -34,10 +34,10 @@ class ManualAssignmentViewController: UIViewController {
         usersQuery.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
-                println("Inside find objects block")
+                //println("Inside find objects block")
                 self.allUsers = objects as! [PFUser]!
-                println("going to print user array")
-                println(self.allUsers)
+                //println("going to print user array")
+                //println(self.allUsers)
                 var choresQuery = PFQuery(className: "ToDo")
                 choresQuery.whereKey("houseID", equalTo:PFUser.currentUser()!.objectForKey("houseID")!)
                 choresQuery.orderByAscending("description")
@@ -65,11 +65,11 @@ class ManualAssignmentViewController: UIViewController {
                     self.activityIndicator.hidden = true
                 }
             } else {
-                println("In userquery error")
+                //println("In userquery error")
                 NSLog(error!.description)
             }
         }
-        println("before reload data after usersquery")
+        //println("before reload data after usersquery")
         
     }
     
@@ -156,10 +156,10 @@ class ManualAssignmentViewController: UIViewController {
         var unchecked_checkbox_image : UIImage! = UIImage(named: "unchecked_checkbox")
         var checked_checkbox_image : UIImage! = UIImage(named: "checked_checkbox")
         if choreStatus == true {
-            println("chore is done")
+            //println("chore is done")
             buttonInCell.setImage(checked_checkbox_image, forState: .Normal)
         } else {
-            println("chore is not done")
+            //println("chore is not done")
             buttonInCell.setImage(unchecked_checkbox_image, forState: .Normal)
         }
         
@@ -168,15 +168,15 @@ class ManualAssignmentViewController: UIViewController {
     
 
     @IBAction func changeChoreStatus(sender: AnyObject) {
-        println("Button press works")
+        //println("Button press works")
         var position: CGPoint = sender.convertPoint(CGPointZero, toView: self.tableView)
         var indexPath: NSIndexPath = self.tableView.indexPathForRowAtPoint(position)!
         var specificChore : PFObject = self.allChores[indexPath.row]
         var specificChoreID : Int = specificChore.objectForKey("ID") as! Int
         var choreStatus : Bool = specificChore.objectForKey("doneOrNot") as! Bool
         
-        println(indexPath.section)
-        println(indexPath.row)
+        //println(indexPath.section)
+        //println(indexPath.row)
         
         //change chorestatus - need to make sure this saves on parse
         if choreStatus == false {
@@ -190,7 +190,7 @@ class ManualAssignmentViewController: UIViewController {
             tableView.reloadData()
             //TODO update user points - subtract here
         }
-        println(specificChore)
+        //println(specificChore)
         specificChore.saveEventually()
     }
     
@@ -213,7 +213,7 @@ class ManualAssignmentViewController: UIViewController {
             var specificChoreID : Int = specificChore.objectForKey("ID") as! Int
             var choreTitle : String = specificChore.objectForKey("description") as! String
             var chorePoints : Int = specificChore.objectForKey("points") as! Int
-            println(detailVC.titleTextField)
+            //println(detailVC.titleTextField)
             //passes choreID to the detailVC
             detailVC.choreObject = specificChore
             detailVC.chorePoints = chorePoints
@@ -237,7 +237,7 @@ class ManualAssignmentViewController: UIViewController {
         } else if (segue.identifier) == "addNew" {
             var detailVC = segue.destinationViewController as! ToDoDetailViewController
             detailVC.allUsers = self.allUsers
-            println("adding new chore")
+            //println("adding new chore")
             detailVC.editingNotAdding = false
             detailVC.choreID = getMaxChoreIDForHouse(self.allChores) + 1
             detailVC.allChores = self.allChores
@@ -245,7 +245,7 @@ class ManualAssignmentViewController: UIViewController {
     }
     
     func tableView(tableView : UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        println("Row " + String(indexPath.row) + " selected")
+        //println("Row " + String(indexPath.row) + " selected")
         self.performSegueWithIdentifier("showDetail", sender: self.tableView)
     }
     

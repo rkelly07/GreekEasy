@@ -12,6 +12,7 @@
 		7B9F41F51AD2700000050158 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED289271AB0DE8300F429F1 /* SWRevealViewController.m */; };
 		7B9F41F61AD27EDD00050158 /* ReimbursementsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B9F41F81AD27EDD00050158 /* ReimbursementsStoryboard.storyboard */; };
 		7B9F41FA1AD31D0300050158 /* ReimbursementsMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9F41F91AD31D0300050158 /* ReimbursementsMenuController.swift */; };
+		AE194BFF1AE09FCA00180DAA /* AssignmentSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE194BFE1AE09FCA00180DAA /* AssignmentSelectViewController.swift */; };
 		AE1CEA0D1AD42C2A00B56BF9 /* ManualAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1CEA0C1AD42C2A00B56BF9 /* ManualAssignmentViewController.swift */; };
 		AE1CEA0F1AD4570A00B56BF9 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE1CEA0E1AD4570A00B56BF9 /* LogIn.storyboard */; };
 		AE1CEA111AD4572000B56BF9 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1CEA101AD4572000B56BF9 /* LogInViewController.swift */; };
@@ -66,6 +67,7 @@
 		7B01D6311AD0EA4600A1534A /* ReimburseSingleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimburseSingleViewController.swift; sourceTree = "<group>"; };
 		7B9F41F71AD27EDD00050158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ReimbursementsStoryboard.storyboard; sourceTree = "<group>"; };
 		7B9F41F91AD31D0300050158 /* ReimbursementsMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReimbursementsMenuController.swift; sourceTree = "<group>"; };
+		AE194BFE1AE09FCA00180DAA /* AssignmentSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentSelectViewController.swift; sourceTree = "<group>"; };
 		AE1CEA0C1AD42C2A00B56BF9 /* ManualAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualAssignmentViewController.swift; sourceTree = "<group>"; };
 		AE1CEA0E1AD4570A00B56BF9 /* LogIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		AE1CEA101AD4572000B56BF9 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		B3813C3F1ABCCF2200DBAF63 /* To Do */ = {
 			isa = PBXGroup;
 			children = (
+				AE194BFE1AE09FCA00180DAA /* AssignmentSelectViewController.swift */,
 				AE6AAE8B1ADB8972006ECEC4 /* ToDoDetailViewController.swift */,
 				AE1CEA0C1AD42C2A00B56BF9 /* ManualAssignmentViewController.swift */,
 				B354682F1AD392EC00AFBE92 /* AutoAssignViewController.swift */,
@@ -422,6 +425,7 @@
 				7B9F41F51AD2700000050158 /* SWRevealViewController.m in Sources */,
 				AED2892E1AB0E7CA00F429F1 /* MenuViewController.swift in Sources */,
 				AED289051AB0DE3400F429F1 /* AppDelegate.swift in Sources */,
+				AE194BFF1AE09FCA00180DAA /* AssignmentSelectViewController.swift in Sources */,
 				7B9F41FA1AD31D0300050158 /* ReimbursementsMenuController.swift in Sources */,
 				7B01D6321AD0EA4600A1534A /* ReimburseSingleViewController.swift in Sources */,
 				7B01D62E1AD0EA0500A1534A /* ReimburseViewController.swift in Sources */,
