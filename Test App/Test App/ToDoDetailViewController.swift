@@ -174,34 +174,42 @@ class ToDoDetailViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBAction func saveEditedChore(sender: AnyObject) {
         //editing a chore
         if (self.editingNotAdding) {
-            
             for user in self.allUsers {
                 if contains(user.objectForKey("currentChores") as! [Int], self.choreID) {
                     var objectIDOfUser: String? = user.objectId
                     var userChores : [Int] = user.objectForKey("currentChores") as! [Int]
                     var indexOfChore : Int = find(user.objectForKey("currentChores") as! [Int], self.choreID)!
                     var newUserChoresList : [Int] = (user.objectForKey("currentChores") as! [Int])
-                    newUserChoresList.removeAtIndex(indexOfChore)
-                    let params: [NSObject: AnyObject] = ["newUserChoresList": newUserChoresList,"objectIDOfUser": objectIDOfUser!]
-                    PFCloud.callFunctionInBackground("changeChore", withParameters: params)
+                    
+                    // Check is user doesn't have chore anymore
+                    if !(contains(self.peopleOnChore, user)) {
+                        newUserChoresList.removeAtIndex(indexOfChore)
+                        let params: [NSObject: AnyObject] = ["newUserChoresList": newUserChoresList,"objectIDOfUser": objectIDOfUser!]
+                        PFCloud.callFunctionInBackground("changeChore", withParameters: params)
+                        user.save()
+                    }
+                    
+                    // Send push notification
+                    let message = "Your To-Dos have been updated"
+                    let pushParams: [NSObject: AnyObject] = ["objectIDOfUser": "user_\(objectIDOfUser!)", "message": message]
+                    PFCloud.callFunctionInBackground("todoPush", withParameters: pushParams)
+                    
+                } else if contains(self.peopleOnChore, user) {
+                    var objectIDOfUser: String? = user.objectId
+                    var userChores : [Int] = user.objectForKey("currentChores") as! [Int]
+                    var newUserChoresList : [Int] = userChores
+                    newUserChoresList.append(self.choreID)
+                    
+                    //call cloud code function - parameters are objectID of user, list of chores for user
+                    let changeParams: [NSObject: AnyObject] = ["newUserChoresList": newUserChoresList,"objectIDOfUser": objectIDOfUser!]
+                    PFCloud.callFunctionInBackground("changeChore", withParameters: changeParams)
                     user.saveEventually()
+                    
+                    // Send push notification
+                    let message = "Your To-Dos have been updated"
+                    let pushParams: [NSObject: AnyObject] = ["objectIDOfUser": "user_\(objectIDOfUser!)", "message": message]
+                    PFCloud.callFunctionInBackground("todoPush", withParameters: pushParams)
                 }
-            }
-            
-            for user in self.peopleOnChore {
-                var objectIDOfUser: String? = user.objectId
-                var userChores : [Int] = user.objectForKey("currentChores") as! [Int]
-                var newUserChoresList : [Int] = userChores
-                newUserChoresList.append(self.choreID)
-                //call cloud code function - parameters are objectID of user, list of chores for user
-                let changeParams: [NSObject: AnyObject] = ["newUserChoresList": newUserChoresList,"objectIDOfUser": objectIDOfUser!]
-                PFCloud.callFunctionInBackground("changeChore", withParameters: changeParams)
-                user.saveEventually()
-                
-                // Send push notification
-                let message = "Your To-Dos have been updated"
-                let pushParams: [NSObject: AnyObject] = ["objectIDOfUser": "user_\(objectIDOfUser!)", "message": message]
-                PFCloud.callFunctionInBackground("todoPush", withParameters: pushParams)
             }
             
             //query using choreid to get object

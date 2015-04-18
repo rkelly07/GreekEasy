@@ -867,6 +867,45 @@
                                 <color key="textColor" red="0.066666666669999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cd-sF-ooC">
+                                <rect key="frame" x="32" y="135" width="536" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="172" id="1CD-1u-YDB"/>
+                                    <constraint firstAttribute="height" constant="25" id="Qu3-pH-zhJ"/>
+                                    <constraint firstAttribute="width" constant="150" id="lE8-Hy-Gio"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1CD-1u-YDB"/>
+                                        <exclude reference="Qu3-pH-zhJ"/>
+                                        <exclude reference="lE8-Hy-Gio"/>
+                                    </mask>
+                                </variation>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="m4o-Zd-AJk">
+                                <rect key="frame" x="132" y="76" width="444" height="30"/>
+                                <color key="textColor" red="0.85558712120000002" green="0.42805547620000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="CYS-sd-hpi" id="522-uo-0ND"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highlight the person or people you'd like to assign to this ToDo." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJa-cI-cdp">
+                                <rect key="frame" x="32" y="297" width="536" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="II7-Jx-ASX"/>
+                                    <constraint firstAttribute="width" constant="250" id="cAB-Sb-Sfh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.066666666669999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="cAB-Sb-Sfh"/>
+                                    </mask>
+                                </variation>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qg9-ED-EIT">
                                 <rect key="frame" x="16" y="326" width="568" height="274"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -995,44 +1034,6 @@
                                     <outlet property="delegate" destination="CYS-sd-hpi" id="l0N-XK-p2I"/>
                                 </connections>
                             </tableView>
-                            <pickerView tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cd-sF-ooC">
-                                <rect key="frame" x="32" y="135" width="536" height="162"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="172" id="1CD-1u-YDB"/>
-                                    <constraint firstAttribute="height" constant="25" id="Qu3-pH-zhJ"/>
-                                    <constraint firstAttribute="width" constant="150" id="lE8-Hy-Gio"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="1CD-1u-YDB"/>
-                                        <exclude reference="Qu3-pH-zhJ"/>
-                                        <exclude reference="lE8-Hy-Gio"/>
-                                    </mask>
-                                </variation>
-                            </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="m4o-Zd-AJk">
-                                <rect key="frame" x="132" y="76" width="444" height="30"/>
-                                <color key="textColor" red="0.85558712120000002" green="0.42805547620000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="CYS-sd-hpi" id="522-uo-0ND"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highlight the person or people you'd like to assign to this ToDo." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJa-cI-cdp">
-                                <rect key="frame" x="32" y="297" width="536" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="cAB-Sb-Sfh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.066666666669999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="cAB-Sb-Sfh"/>
-                                    </mask>
-                                </variation>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1043,6 +1044,7 @@
                             <constraint firstItem="BbO-vL-fup" firstAttribute="top" secondItem="m4o-Zd-AJk" secondAttribute="bottom" constant="8" id="56x-zx-COQ"/>
                             <constraint firstItem="vJa-cI-cdp" firstAttribute="top" secondItem="2cd-sF-ooC" secondAttribute="bottom" constant="8" id="9gb-5K-h64"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qg9-ED-EIT" secondAttribute="trailing" id="Dxo-qS-NKP"/>
+                            <constraint firstItem="UYR-mn-SPh" firstAttribute="top" secondItem="qg9-ED-EIT" secondAttribute="bottom" id="ETH-HF-diF"/>
                             <constraint firstItem="ZJY-TW-IgU" firstAttribute="top" secondItem="a3m-7T-KEr" secondAttribute="bottom" id="Gsx-Ha-mGK"/>
                             <constraint firstAttribute="trailing" secondItem="ZJY-TW-IgU" secondAttribute="trailing" id="Hli-yD-tTF"/>
                             <constraint firstItem="ZJY-TW-IgU" firstAttribute="top" secondItem="a3m-7T-KEr" secondAttribute="bottom" id="KJR-Z6-Qtu"/>
@@ -1116,6 +1118,9 @@
                                 <exclude reference="kz1-F9-UjG"/>
                                 <exclude reference="up5-zh-ipc"/>
                                 <exclude reference="zrx-4R-8a7"/>
+                                <exclude reference="SeW-XP-SAN"/>
+                                <exclude reference="omH-bT-HQE"/>
+                                <exclude reference="rBK-Ay-rFT"/>
                                 <exclude reference="3Gc-P5-9Dq"/>
                                 <exclude reference="PGI-Ug-644"/>
                                 <exclude reference="e5y-Q8-VN8"/>
@@ -1128,8 +1133,7 @@
                                 <exclude reference="gOg-mJ-Qu7"/>
                                 <exclude reference="mpm-OQ-PTW"/>
                                 <exclude reference="rOP-JZ-eMw"/>
-                                <exclude reference="omH-bT-HQE"/>
-                                <exclude reference="rBK-Ay-rFT"/>
+                                <exclude reference="iv1-0h-EVy"/>
                             </mask>
                         </variation>
                     </view>

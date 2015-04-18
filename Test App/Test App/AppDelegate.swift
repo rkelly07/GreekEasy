@@ -20,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         
         // Register for Push Notitications
-
-        
         if application.applicationState != UIApplicationState.Background {
             // Track an app open here if we launch with a push, unless
             // "content_available" was used to trigger a background push (introduced in iOS 7).
@@ -50,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set up installation object with channel for their house
         let installation = PFInstallation.currentInstallation()
         installation.setDeviceTokenFromData(deviceToken)
-        installation.badge = 0
         installation.saveInBackground()
     }
     
@@ -74,6 +71,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+
+        // Reset notification badge
+        let currentInstallation = PFInstallation.currentInstallation()
+        currentInstallation.badge = 0
+        currentInstallation.saveInBackground()
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
@@ -91,7 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Reset notification badge
         let currentInstallation = PFInstallation.currentInstallation()
         currentInstallation.badge = 0
-        currentInstallation.saveEventually()
+        currentInstallation.saveInBackground()
     }
 
     func applicationWillTerminate(application: UIApplication) {
